@@ -738,6 +738,8 @@ ___
 
     - To centre elements in Navs and Navbar: justify-content-center class. Copied on July 8th, 2021, 03:43 from https://getbootstrap.com/docs/4.0/components/navs/ .
 
+    - Button trigger modal: code copied on December 7th, 2021, 08:34 from https://getbootstrap.com/docs/4.0/components/modal/; content modified.
+
 
 - Font Awesome:
 
@@ -752,9 +754,9 @@ ___
 
 - Google:
 
-    - Google Fonts: Nunito (Regular 400) and Montserrat (Regular 400), first imported on July 19th, 2021, 23:05, from: https://fonts.google.com/; https://fonts.google.com/specimen/Nunito#license .
+    - Google Fonts: Heebo (Medium 500) and Oxygen (Regular 400), first imported on December 7th, 2021, 08:01, from: https://fonts.google.com/; (<style>
+    @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@500&family=Oxygen&display=swap');</style>).
 
-    - Google Charts: https://developers.google.com/chart . Accessed first time on July 24th, 2021, at 23:00. Getting started with https://developers.google.com/chart/interactive/docs/quick_start; at 23:04. Line charts with https://developers.google.com/chart/interactive/docs/gallery/linechart at 23:06.
 
 
 - MDN Web Docs Moz://a;

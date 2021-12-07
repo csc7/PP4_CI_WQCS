@@ -6,6 +6,8 @@ Seismic Data Acquisition Website */
 /* Specific element styles are commented on top of the element, without break line */
 
 /* FONTS */
+/* Heebo (Medium 500) and Oxygen (Regular 400) */
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@500&family=Oxygen&display=swap');
 
 
 /* GENERAL STYLES */
@@ -29,6 +31,10 @@ Seismic Data Acquisition Website */
 #header-menu {
     background-color: rgb(0, 255, 55);
     margin: 0;
+    font-family: 'Heebo', sans-serif;
+    font-weight: bold;
+    font-size: 100%;
+    z-index: 10;
 }
 
 #log-in-button {
@@ -43,15 +49,35 @@ Seismic Data Acquisition Website */
     margin: auto;
 }
 
-#header-menu {
+/*#header-menu {
     padding: 0;
     margin: auto;
+}*/
+
+#log-in-button > button {
+    margin-top: 10px;
+    float: right;
+}
+
+
+
+/* Solution for modal windown appearing below elements, in the background:
+Copied on June 19th, 2021, at 3:17, from Stack Overflow:
+https://stackoverflow.com/questions/10636667/bootstrap-modal-appearing-under-background
+*/
+.modal-backdrop {
+    z-index: -1;
 }
 
 /* FOOTER */
 
+#footer {
+    background-color: aqua;
+}
+
 #company-data {
     background-color: rgb(55, 0, 255);
+    font-family: 'Heebo', sans-serif;
 }
 
 #company-links {
@@ -70,6 +96,7 @@ a.nav-link {
     height: 50%;
     margin: auto;
     text-align: center;
+    font-family: 'Heebo', sans-serif;
 }
 
 #company-links > nav {
@@ -77,11 +104,10 @@ a.nav-link {
     font-size: 250%;
 }
 
-#footer {
-    background-color: aqua;
+#company-data > p {
+    margin: 0;
 }
-
 
 .navbar-toggler.toggler-example {
     cursor: pointer;
-    }
+}
