@@ -1,0 +1,40 @@
+/* CSS File for the Weather and Quality Control for
+Seismic Data Acquisition Website */
+
+/* SECTION/GROUP OF PRINCIPAL CSS STYLES ARE COMMENTED WITH CAPITAL LETTERS plus 1 break line */
+/* Subsections/Subgroups of CSS styles are commented in lower-case plus 1 break line */
+/* Specific element styles are commented on top of the element, without break line */
+
+/* FONTS */
+
+
+/* GENERAL STYLES */
+
+
+/* HEADER */
+
+#company-logo {
+    background-color: aqua;
+}
+
+#header-menu {
+    background-color: rgb(0, 255, 55);
+    margin: 0;
+}
+
+#log-in-button {
+    background-color: rgb(55, 0, 255);
+}
+
+#header-mdenu > nav {
+    margin:auto;
+}
+
+#header-menu > nav > button {
+    margin: auto;
+}
+
+#header-menu {
+    padding: 0;
+    margin: auto;
+}
