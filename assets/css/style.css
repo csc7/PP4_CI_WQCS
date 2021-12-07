@@ -38,3 +38,53 @@ Seismic Data Acquisition Website */
     padding: 0;
     margin: auto;
 }
+
+/* FOOTER */
+
+#company-data {
+    background-color: rgb(55, 0, 255);
+}
+
+#company-links {
+    background-color: rgb(0, 255, 55);
+    height: 50%;
+    margin: 0;
+
+}
+
+#footer-contact-link {
+    background-color: rgb(255, 0, 212);
+    height: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+#company-links > nav {
+
+    margin: auto;
+}
+
+#footer {
+    background-color: aqua;
+}
+
+
+
+
+/*
+body > footer > nav {
+    padding-top: 5px;
+    font-size: 200%;
+}
+
+body > footer > nav > a > i {
+    color: white;
+}
+*/
+
+
+
+a.nav-link {
+    padding: auto;
+    margin: auto;
+}
