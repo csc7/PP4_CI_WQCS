@@ -51,18 +51,27 @@ Seismic Data Acquisition Website */
 
 }
 
+
+
 .navbar-toggler {
     background-color: white;
+
 }
 
 #log-in-button > button {
     background-color: white;
     border-color: white;
-    color:rgb(49, 49, 48)
+    color:rgb(49, 49, 48);
+    
 }
+
 
 #header-mdenu > nav {
     margin:auto;
+}
+
+#header-menu > nav {
+    margin: auto;
 }
 
 #navbarNav > ul > li > a {
@@ -80,6 +89,7 @@ Seismic Data Acquisition Website */
 
 #log-in-button > button {
     margin-top: 10px;
+    /*margin-left: 30px;*/
     float: right;
     font-family: 'Heebo', sans-serif;
 }
@@ -135,4 +145,45 @@ a.nav-link {
 
 .navbar-toggler.toggler-example {
     cursor: pointer;
+}
+
+
+
+
+/* ************* */
+/* MEDIA QUERIES */
+/* ************* */
+
+/* SCREEN SIZE BETWEEN 800px AND 1250px */
+
+@media screen and (max-width: 575px) {
+
+    #log-in-button > button {
+        margin-right: 0px;
+        margin-top: 8px;
+        /* To align vertically "Log In" inside the button*/
+        padding-top: 6px;
+        padding-bottom: 8px;
+    }
+
+    #header-menu > nav {
+        margin: auto;
+        float: right;
+    }
+
+    #log-in-button > button {
+
+        /* 110% to keep text in button centered down to 280px width*/
+        width: 100%;
+    }
+
+    #header-menu > nav {
+        
+        padding-right: 0;
+    }
+
+    #log-in-button > button {
+        padding:7px 4px 7px;
+    }
+
 }
