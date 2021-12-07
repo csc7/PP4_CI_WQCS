@@ -5,6 +5,7 @@ Seismic Data Acquisition Website */
 /* Subsections/Subgroups of CSS styles are commented in lower-case plus 1 break line */
 /* Specific element styles are commented on top of the element, without break line */
 
+
 /* FONTS */
 /* Heebo (Medium 500) and Oxygen (Regular 400) */
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@500&family=Oxygen&display=swap');
@@ -36,7 +37,6 @@ Seismic Data Acquisition Website */
     font-family: 'Heebo', sans-serif;
     font-weight: bold;
     color: white;
-
 }
 
 #header-menu {
@@ -51,18 +51,14 @@ Seismic Data Acquisition Website */
 
 }
 
-
-
 .navbar-toggler {
     background-color: white;
-
 }
 
 #log-in-button > button {
     background-color: white;
     border-color: white;
-    color:rgb(49, 49, 48);
-    
+    color:rgb(49, 49, 48);    
 }
 
 
@@ -76,6 +72,7 @@ Seismic Data Acquisition Website */
 
 #navbarNav > ul > li > a {
     color: white;
+    text-align: right;
 }
 
 #header-menu > nav > button {
@@ -94,14 +91,23 @@ Seismic Data Acquisition Website */
     font-family: 'Heebo', sans-serif;
 }
 
-
-
 /* Solution for modal windown appearing below elements, in the background:
 Copied on June 19th, 2021, at 3:17, from Stack Overflow:
 https://stackoverflow.com/questions/10636667/bootstrap-modal-appearing-under-background
 */
 .modal-backdrop {
     z-index: -1;
+}
+
+#exampleModalCenter > div > div > div.modal-body > form > div > label,
+#exampleModalLongTitle {
+    font-family: 'Heebo', sans-serif;    
+}
+
+#recipient-name-submit {
+    background-color: rgb(49, 49, 48);
+    font-family: 'Heebo', sans-serif;
+    color: white;
 }
 
 /* FOOTER */
@@ -120,8 +126,7 @@ https://stackoverflow.com/questions/10636667/bootstrap-modal-appearing-under-bac
 #company-links {
     /*background-color: rgb(0, 255, 55);*/
     height: 50%;
-    margin: 0;
-    
+    margin: 0;    
 }
 
 a.nav-link {
@@ -179,19 +184,21 @@ a.nav-link {
         padding-bottom: 8px;
     }
 
-    #header-menu > nav {
-        margin: auto;
-        float: right;
+    #header-menu > nav {        
+        float: right;        
+    }
+
+    #header-menu > nav > button.navbar-toggler {        
+        margin-right: 0;
+        float: right;        
     }
 
     #log-in-button > button {
-
         /* 110% to keep text in button centered down to 280px width*/
         width: 100%;
     }
 
-    #header-menu > nav {
-        
+    #header-menu > nav {        
         padding-right: 0;
     }
 
