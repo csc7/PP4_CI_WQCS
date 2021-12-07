@@ -751,6 +751,8 @@ ___
 
     - Icon for E-mail/Envelope: link copied on December 7th, 2021, 05:53 from https://fontawesome.com/v5.15/icons/envelope-square?style=solid (<i class="fas fa-envelope-square"></i>).
 
+    - Icon for website logo (wind), downloaded on December 7th, 2021, 09:15, from https://fontawesome.com/v5.15/icons/wind?style=solid .
+
 
 - Google:
 

@@ -21,28 +21,52 @@ Seismic Data Acquisition Website */
 /* HEADER */
 
 #header {
-    
+    background-color: rgb(49, 49, 48);
 }
 
 #company-logo {
-    background-color: aqua;
+    padding-top: 10px;
+    padding-left: 10px;
+    float: left;
+    z-index: 20;
+    /*background-color: aqua;*/
+}
+
+#company-logo > a {
+    font-family: 'Heebo', sans-serif;
+    font-weight: bold;
+    color: white;
+
 }
 
 #header-menu {
-    background-color: rgb(0, 255, 55);
+    /*background-color: rgb(0, 255, 55);*/
     margin: 0;
     font-family: 'Heebo', sans-serif;
-    font-weight: bold;
     font-size: 100%;
     z-index: 10;
 }
 
-#log-in-button {
-    background-color: rgb(55, 0, 255);
+#header-menu > nav > button > span {
+
+}
+
+.navbar-toggler {
+    background-color: white;
+}
+
+#log-in-button > button {
+    background-color: white;
+    border-color: white;
+    color:rgb(49, 49, 48)
 }
 
 #header-mdenu > nav {
     margin:auto;
+}
+
+#navbarNav > ul > li > a {
+    color: white;
 }
 
 #header-menu > nav > button {
@@ -57,6 +81,7 @@ Seismic Data Acquisition Website */
 #log-in-button > button {
     margin-top: 10px;
     float: right;
+    font-family: 'Heebo', sans-serif;
 }
 
 
