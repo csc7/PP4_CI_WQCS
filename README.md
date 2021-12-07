@@ -177,13 +177,12 @@ The header contains the navigation bar with the four links to the body pages (pl
 - ### **Body**
 
 The body of the pages are structured as follows for each of the pages:
-- #### *Functions:*
-    It contains a summary of wavelets (four type at the moment of deploying this website) and their mathematical functions. The idea is to add more with time, the page is designed to allow for an easy inclusion of the in the future, since it only involves paragraphs and headings whose width is 100% (with respect to their containers), so no more than adding the relevant tags is needed to add more types of wavelets and their functions.
-- #### *Generator:*
-    It has a section on the right (or top in tablet and cell phone screen sizes) with fields where the user can select the type of wavelet from a dropdown list and enter the sampling rate, length of wavelet and frequency of the desired wavelet to plot.
-    The graph is generated with Google Charts (please see credit below) and is located on the left (of bottom in tablet and cell phone screen sizes).
-- #### *Quiz:*
-    It contains a start button on top, a progress bar below (which progress one step per question), a score and time panel below, and the quiz itself under these sections, which indeed contains a field where the user writes the answer and a button to send it.
+- #### *Instructions:*
+    It contains a ...
+- #### *Weather:*
+    It has ...
+- #### *Incidence Blog:*
+    It contains ...
 - #### *Contact:*
     It has a simple contact form, centre-aligned, with name, surname, e-mail and description fields, before it finds the send button.
 <br>
