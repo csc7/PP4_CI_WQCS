@@ -13,6 +13,10 @@ Seismic Data Acquisition Website */
 
 /* GENERAL STYLES */
 
+.active {
+    text-decoration: underline;
+}
+
 /* BODY */
 #body-content {
     margin-top: 75px;
@@ -163,6 +167,23 @@ a.nav-link {
 
 .navbar-toggler.toggler-example {
     cursor: pointer;
+}
+
+
+/* ************ */
+/* WEATHER PAGE */
+/* ************ */
+
+#OpenWeather-map {
+    background-color: blueviolet;
+    height: 716px;
+    
+}
+
+#weather-data {
+    background-color: blue;
+    height: 716px;
+    
 }
 
 
