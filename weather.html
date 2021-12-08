@@ -10,76 +10,24 @@
     Code copied on December 7th, 2021, 01:50 from Code Institute lessons
     Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">  
+
+    
     
     <!--ArcGIS-->
     <!--link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css">-->
-    <link rel="stylesheet" href="https://js.arcgis.com/3.18/dijit/themes/tundra/tundra.css">
-    <link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/css/esri.css">
     <!--<script src="https://js.arcgis.com/4.21/"></script>-->
-    <script src="https://js.arcgis.com/3.18/"></script>
+    
+    <!-- Script/Code for maps and picking of latitude and longitude:
+    https://community.esri.com/t5/arcgis-api-for-javascript-questions/mouse-click-to-get-map-point-or-x-y/m-p/516073#M48139;
+    copied and modified on December 8th, 2021, 04:00.-->
+    <link rel="stylesheet" href="https://js.arcgis.com/3.18/dijit/themes/tundra/tundra.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/css/esri.css">   
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+
     
 
-    <script>
-        var map;
-        require([        "esri/map", "esri/geometry/webMercatorUtils",        "esri/graphic", "esri/InfoTemplate", "esri/symbols/SimpleMarkerSymbol",        "esri/symbols/SimpleLineSymbol", "esri/Color", "dojo/dom", "dojo/domReady!"      ], function (       Map, webMercatorUtils,        Graphic, InfoTemplate, SimpleMarkerSymbol,        SimpleLineSymbol, Color, dom      ) {
-
-            esriConfig.apiKey = "AAPKcb5628ff50b04f38bfb15788ab6d79afBV-DZA2SyobB3bFx8LlFMQR0LAkOly9XoAJSPmAMmbNTnWzCqixPSdFYZV_DpGC6";
-
-            map = new Map("viewDiv", {
-                basemap: "streets"
-                 // Basemap layer service
-            });
-
-            var symbol = new SimpleMarkerSymbol(
-                SimpleMarkerSymbol.STYLE_CIRCLE,
-                12,
-                new SimpleLineSymbol(
-                    SimpleLineSymbol.STYLE_NULL,
-                    new Color([247, 34, 101, 0.9]),
-                    1
-                ),
-                new Color([207, 34, 171, 0.5])
-            );
-            map.on("click", function(evt){
-                var mp = webMercatorUtils.webMercatorToGeographic(evt.mapPoint);
-                map.graphics.clear();
-                map.graphics.add(new Graphic(evt.mapPoint, symbol));
-                map.infoWindow.setContent("Longitude: " + mp.x.toString() + ", <br>Latitude: " + mp.y.toString());
-                map.infoWindow.show(evt.mapPoint)
-            });
-
-
-            //const view = new MapView({
-            //    map: map,
-            //    center: [-118.805, 34.027], // Longitude, latitude
-            //    zoom: 13, // Zoom level
-            //    container: "viewDiv" // Div element
-            //});
-            //const graphicsLayer = new GraphicsLayer();
-            //map.add(graphicsLayer);
-//
-            //const point = { //Create a point
-            //    type: "point",
-            //    longitude: -118.80657463861,
-            //    latitude: 34.0005930608889
-            //};
-            //const simpleMarkerSymbol = {
-            //    type: "simple-marker",
-            //    color: [226, 119, 40],  // Orange
-            //    outline: {
-            //        color: [255, 255, 255], // White
-            //        width: 1
-            //    }
-            //};
-            //const pointGraphic = new Graphic({
-            //    geometry: point,
-            //    symbol: simpleMarkerSymbol
-            //});
-            //graphicsLayer.add(pointGraphic);
-        });
-    </script>
-
-    <link rel="stylesheet" href="assets/css/style.css">
+    
 </head>
 <body>
     <!-- Header -->
@@ -225,6 +173,71 @@
     <script src="assets/js/weather.js"></script>
     
     <!--ArgGIS-->
+
+    <script src="https://js.arcgis.com/3.18/"></script>
+    <script>
+        var map;
+        require([        "esri/map", "esri/geometry/webMercatorUtils",        "esri/graphic", "esri/InfoTemplate", "esri/symbols/SimpleMarkerSymbol",        "esri/symbols/SimpleLineSymbol", "esri/Color", "dojo/dom", "dojo/domReady!"      ], function (       Map, webMercatorUtils,        Graphic, InfoTemplate, SimpleMarkerSymbol,        SimpleLineSymbol, Color, dom      ) {
+
+            //esriConfig.apiKey = "AAPKcb5628ff50b04f38bfb15788ab6d79afBV-DZA2SyobB3bFx8LlFMQR0LAkOly9XoAJSPmAMmbNTnWzCqixPSdFYZV_DpGC6";
+
+            map = new Map("viewDiv", {
+                basemap: "streets",
+                center: [-95.249, 38.954],
+                zoom: 14,
+                slider: false
+            });
+
+            var symbol = new SimpleMarkerSymbol(
+                SimpleMarkerSymbol.STYLE_CIRCLE,
+                6,
+                new SimpleLineSymbol(
+                    SimpleLineSymbol.STYLE_NULL,
+                    new Color([247, 34, 101, 0.9]),
+                    1
+                ),
+                new Color([207, 34, 171, 0.5])
+            );
+            map.on("click", function(evt){
+                var mp = webMercatorUtils.webMercatorToGeographic(evt.mapPoint);
+                map.graphics.clear();
+                map.graphics.add(new Graphic(evt.mapPoint, symbol));
+                map.infoWindow.setContent("Longitude: " + mp.x.toString() + ", <br>Latitude: " + mp.y.toString());
+                map.infoWindow.show(evt.mapPoint)
+            });
+
+
+            //const view = new MapView({
+            //    map: map,
+            //    center: [-118.805, 34.027], // Longitude, latitude
+            //    zoom: 13, // Zoom level
+            //    container: "viewDiv" // Div element
+            //});
+            //const graphicsLayer = new GraphicsLayer();
+            //map.add(graphicsLayer);
+//
+            //const point = { //Create a point
+            //    type: "point",
+            //    longitude: -118.80657463861,
+            //    latitude: 34.0005930608889
+            //};
+            //const simpleMarkerSymbol = {
+            //    type: "simple-marker",
+            //    color: [226, 119, 40],  // Orange
+            //    outline: {
+            //        color: [255, 255, 255], // White
+            //        width: 1
+            //    }
+            //};
+            //const pointGraphic = new Graphic({
+            //    geometry: point,
+            //    symbol: simpleMarkerSymbol
+            //});
+            //graphicsLayer.add(pointGraphic);
+        });
+    </script>
+
+
 
 
 </body>

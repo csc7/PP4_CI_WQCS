@@ -740,6 +740,14 @@ ___
 
     - Button trigger modal: code copied on December 7th, 2021, 08:34 from https://getbootstrap.com/docs/4.0/components/modal/; content modified.
 
+- ESRI:
+    - Code for maps and picking of latitude and longitude: https://community.esri.com/t5/arcgis-api-for-javascript-questions/mouse-click-to-get-map-point-or-x-y/m-p/516073#M48139; copied and modified on December 8th, 2021, 04:00.
+
+    - Produce a map with ESRI: https://developers.arcgis.com/javascript/latest/display-a-map/; accessed on December 8th, 2021, 2:30.
+
+    - https://developers.arcgis.com/javascript/latest/query-a-feature-layer-sql/; accessed on December 8th, 2021, 2:35.
+
+
 
 - Font Awesome:
 
@@ -764,10 +772,15 @@ ___
 - MDN Web Docs Moz://a;
     - ...
 
+- OpenWeatherMap:
+
+    - ADFSD
 
 - Stack Overflow:
 
     - To reverse the order of columns after a specific Bootstrap breakpoint: https://stackoverflow.com/questions/50768176/order-div-breakpoint-mobile-bootstrap-4?noredirect=1&lq=1; accessed on December 7th, 2021, at 08:30.
+
+    - To solve "Define" errors by loading ArcGIS and Dojo JS at the end: https://stackoverflow.com/questions/16600063/dojo-1-9-build-multipledefine-error-while-loading-locale; accessed on December 7th, 2021, at 05:50.
 
 - W3C®. Copyright © 2021 W3C ® (MIT, ERCIM, Keio, Beihang):
     - How to introduce author in anchor element: https://www.w3.org/TR/2011/WD-html5-author-20110809/the-link-element.html, accessed on August 4th, 2021, at 00:06.
