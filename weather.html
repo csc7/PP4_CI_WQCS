@@ -107,7 +107,7 @@
     </header>
     <!-- /.Header -->
     <!-- Instructions -->
-    <div id="body-content-weather" class="container-fluid">
+    <div id="top-container" class="container">
         <section id="weather-map-and-data" class="row">
 
             <div id="viewDiv" class="col-12 col-sm-12 col-md-12 col-lg-6">   
@@ -126,6 +126,13 @@
                 </div>
             </div>       
         </section>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div id="weather-extra-info" class="col-12">
+                <p>sdfasdfsdaf</p>
+            </div>
+        </div>
     </div>
     <!-- /.Instructions -->    
     <!-- Footer -->
@@ -167,7 +174,7 @@
             </div>    
         </div>
     </footer>
-    <!-- /.Footer -->    
+    <!-- /.Footer --> 
 
     <!-- Font Awesome Script / Kit
     Link copied on December 7th, 2021, 05:07 from Font Awesome personal account -->
@@ -181,6 +188,7 @@
     
     <!--ArgGIS-->
 
+    <!--OK-->
     <script src="https://js.arcgis.com/3.18/"></script>
     <script>
         var map;
@@ -212,7 +220,8 @@
                 map.infoWindow.setContent("Longitude: " + mp.x.toString() + ", <br>Latitude: " + mp.y.toString());
                 map.infoWindow.show(evt.mapPoint)
             });
-
+    });
+    //FIN OK
 
             //const view = new MapView({
             //    map: map,
@@ -241,7 +250,7 @@
             //    symbol: simpleMarkerSymbol
             //});
             //graphicsLayer.add(pointGraphic);
-        });
+        //});
     </script>
 
 
