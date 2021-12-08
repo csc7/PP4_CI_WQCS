@@ -19,7 +19,8 @@ Seismic Data Acquisition Website */
 
 /* BODY */
 #body-content {
-    margin-top: 75px;
+    /*margin-top: 75px;*/
+    padding-top: 0px;
 }
 
 
@@ -170,12 +171,27 @@ a.nav-link {
 }
 
 
+
+/* ***************** */
+/* INSTRUCTIONS PAGE */
+/* ***************** */
+
+
+#instructions-title {
+    margin-top: 75px;
+}
+
+
 /* ************ */
 /* WEATHER PAGE */
 /* ************ */
 
+#body-content-weather {
+
+}
+
 #weather-map-and-data {
-    height: 716px;
+    height: 500px;
 }
 
 #viewDiv {
@@ -190,8 +206,11 @@ a.nav-link {
 }
 
 #weather-data {
+    padding: 0;
+    margin: 0;
     background-color: blue;
-    height: 716px;
+    height: 100%;
+    
     
 }
 
@@ -202,7 +221,17 @@ a.nav-link {
 /* MEDIA QUERIES */
 /* ************* */
 
-/* SCREEN SIZE BETWEEN 800px AND 1250px */
+
+/* SCREEN SIZE BELOW 992px */
+
+@media screen and (max-width: 992px) {
+
+
+
+}
+
+
+/* SCREEN SIZE BELOW 575px */
 
 @media screen and (max-width: 575px) {
 
