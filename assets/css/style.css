@@ -174,9 +174,18 @@ a.nav-link {
 /* WEATHER PAGE */
 /* ************ */
 
-#OpenWeather-map {
-    background-color: blueviolet;
+#weather-map-and-data {
     height: 716px;
+}
+
+#viewDiv {
+    /*background-color: blueviolet;   */
+
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+      
     
 }
 

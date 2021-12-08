@@ -9,7 +9,75 @@
     Credit: Bootstrap
     Code copied on December 7th, 2021, 01:50 from Code Institute lessons
     Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">  
+    
+    <!--ArcGIS-->
+    <!--link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css">-->
+    <link rel="stylesheet" href="https://js.arcgis.com/3.18/dijit/themes/tundra/tundra.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/css/esri.css">
+    <!--<script src="https://js.arcgis.com/4.21/"></script>-->
+    <script src="https://js.arcgis.com/3.18/"></script>
+    
+
+    <script>
+        var map;
+        require([        "esri/map", "esri/geometry/webMercatorUtils",        "esri/graphic", "esri/InfoTemplate", "esri/symbols/SimpleMarkerSymbol",        "esri/symbols/SimpleLineSymbol", "esri/Color", "dojo/dom", "dojo/domReady!"      ], function (       Map, webMercatorUtils,        Graphic, InfoTemplate, SimpleMarkerSymbol,        SimpleLineSymbol, Color, dom      ) {
+
+            esriConfig.apiKey = "AAPKcb5628ff50b04f38bfb15788ab6d79afBV-DZA2SyobB3bFx8LlFMQR0LAkOly9XoAJSPmAMmbNTnWzCqixPSdFYZV_DpGC6";
+
+            map = new Map("viewDiv", {
+                basemap: "streets"
+                 // Basemap layer service
+            });
+
+            var symbol = new SimpleMarkerSymbol(
+                SimpleMarkerSymbol.STYLE_CIRCLE,
+                12,
+                new SimpleLineSymbol(
+                    SimpleLineSymbol.STYLE_NULL,
+                    new Color([247, 34, 101, 0.9]),
+                    1
+                ),
+                new Color([207, 34, 171, 0.5])
+            );
+            map.on("click", function(evt){
+                var mp = webMercatorUtils.webMercatorToGeographic(evt.mapPoint);
+                map.graphics.clear();
+                map.graphics.add(new Graphic(evt.mapPoint, symbol));
+                map.infoWindow.setContent("Longitude: " + mp.x.toString() + ", <br>Latitude: " + mp.y.toString());
+                map.infoWindow.show(evt.mapPoint)
+            });
+
+
+            //const view = new MapView({
+            //    map: map,
+            //    center: [-118.805, 34.027], // Longitude, latitude
+            //    zoom: 13, // Zoom level
+            //    container: "viewDiv" // Div element
+            //});
+            //const graphicsLayer = new GraphicsLayer();
+            //map.add(graphicsLayer);
+//
+            //const point = { //Create a point
+            //    type: "point",
+            //    longitude: -118.80657463861,
+            //    latitude: 34.0005930608889
+            //};
+            //const simpleMarkerSymbol = {
+            //    type: "simple-marker",
+            //    color: [226, 119, 40],  // Orange
+            //    outline: {
+            //        color: [255, 255, 255], // White
+            //        width: 1
+            //    }
+            //};
+            //const pointGraphic = new Graphic({
+            //    geometry: point,
+            //    symbol: simpleMarkerSymbol
+            //});
+            //graphicsLayer.add(pointGraphic);
+        });
+    </script>
 
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -54,7 +122,7 @@
                     Code copied on December 7th, 2021, 08:34 from https://getbootstrap.com/docs/4.0/components/modal/
                     and from my own previous project PP1_CI_TGC; content modified -->
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    <button id="log-in-button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
                         Log In
                     </button>
                     <!-- Modal -->
@@ -92,9 +160,14 @@
     <!-- /.Header -->
     <!-- Instructions -->
     <div id="body-content" class="container">
-        <section class="row">
-            <div id="OpenWeather-map" class="col-12 col-sm-12 col-md-12 col-lg-6">             
-            </div>            
+        <section id="weather-map-and-data" class="row">
+
+            <div id="viewDiv" class="col-12 col-sm-12 col-md-12 col-lg-6">   
+
+            </div>       
+            
+            
+
             <div id="weather-data" class="col-12 col-sm-12 col-md-12 col-lg-6">
             </div>       
         </section>
@@ -149,6 +222,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- This website scripts -->
-    <script src="assets/js/index.js"></script>
+    <script src="assets/js/weather.js"></script>
+    
+    <!--ArgGIS-->
+
+
 </body>
 </html>
