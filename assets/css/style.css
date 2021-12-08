@@ -164,6 +164,7 @@ a.nav-link {
 
 #company-data > p {
     margin: 0;
+    inline-size: 1;
 }
 
 .navbar-toggler.toggler-example {
@@ -210,9 +211,32 @@ a.nav-link {
     margin-top: 58px;
     background-color: blue;
     height: 100%;
-    width: 100%;
-    
-    
+    width: 100%;    
+}
+
+#weather-data-title {
+    background-color: aqua;
+}
+#latitute {
+    background-color: rgb(44, 107, 107);
+}
+#longitude {
+    background-color: rgb(175, 98, 34);
+}
+#enter-manually-title {
+    background-color: rgb(72, 32, 124);
+}
+#manual-latitute {
+    background-color: rgb(50, 95, 95);
+}
+#manual-longitude {
+    background-color: rgb(131, 151, 57);
+}
+#results-title {
+    background-color: aqua;
+}
+#results {
+    background-color: rgb(141, 161, 26);
 }
 
 
