@@ -20,6 +20,10 @@ function moveContent () {
     }
 }
 
+// Initial coordinate values
+var latitude = 50;
+var longitude = 70;
+
 // ------------------------------------------------------------------
 // Code for maps and picking of latitude and longitude, by LloydBronn, (01-05-2017 10:00 AM):
 // https://community.esri.com/t5/arcgis-api-for-javascript-questions/mouse-click-to-get-map-point-or-x-y/m-p/516073#M48139;
@@ -53,10 +57,13 @@ require(["esri/map", "esri/geometry/webMercatorUtils",
                         var mp = webMercatorUtils.webMercatorToGeographic(evt.mapPoint);
                         map.graphics.clear();
                         map.graphics.add(new Graphic(evt.mapPoint, symbol));
-                        map.infoWindow.setContent("Longitude: " + mp.x.toString() + ", <br>Latitude: " + mp.y.toString());
-                        map.infoWindow.show(evt.mapPoint)  
+                        // To show coordinates on map, commented from original source code
+                        //map.infoWindow.setContent("Longitude: " + mp.x.toString() + ", <br>Latitude: " + mp.y.toString());
+                        //map.infoWindow.show(evt.mapPoint)  
                         
                         // Added to original source code
+                        latitude = mp.y;
+                        longitude = mp.x;
                         $("#latitude").text(mp.y.toString());
                         $("#longitude").text(mp.x.toString());
                         });
@@ -71,42 +78,31 @@ function pressEnter (event) {
     }    
 };
 
-$("#get-weather-data-button").click (function(){
-    var latitude = $("#latitude").text();
-    var longitude = $("#longitude").text();
-    console.log(parseFloat(latitude), longitude);
-
-});  
-
-var latitude = parseFloat($("#latitude").text());
-var longitude = parseFloat($("#longitude").text());
-console.log(typeof latitude);
-console.log(typeof longitude);
-
-
 // ------------------------------------------------------------------
-// OpenWeather
+
+// Check status of OpenWeather API
+// Credit for code: Code Institute
+// Credit for API: OpenWeather
 const API_KEY = "a4e017407a1ea716fa42316b9fe012b5";
 const API_URL = "api.openweathermap.org";
+$("#get-weather-data-button").click (e => getStatus(e));
 
 //const resultsModal = new bootstrap.Modal(document.getElementById("resultsModal"));
-
-document.getElementById("log-in-button").addEventListener("click", e => getStatus(e));
+//document.getElementById("log-in-button").addEventListener("click", e => getStatus(e));
 
 async function getStatus(e) {
-
     //const queryString = `https://${API_URL}/data/2.5/weather?q=London&appid=${API_KEY}`;
     const queryString = `https://${API_URL}/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`;
-
     const response = await fetch(queryString);
-
     const data = await response.json();
-
     if (response.ok) {
-        console.log(data.main.temp);
+        console.log(data);
     }
-
 }
+
+
+
+
 // ------------------------------------------------------------------
 
 
