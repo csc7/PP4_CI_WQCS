@@ -227,30 +227,65 @@ a.nav-link {
 }
 
 #weather-data-title {
-    background-color: rgb(179, 241, 241);
+    background-color: rgb(72, 226, 226);
 }
-
-#latitute {
+#latitute-title {
     background-color: rgb(159, 238, 238);
 }
-#longitude {
+#latitute {
+    background-color: rgb(56, 151, 53);
+}
+#longitude-title {
     background-color: rgb(236, 199, 168);
+}
+#longitude {
+    background-color: rgb(122, 63, 15);
 }
 #enter-manually-title {
     background-color: rgb(194, 161, 238);
 }
-#manual-latitute {
+
+
+#manual-latitute-label {
     background-color: rgb(177, 238, 238);
 }
+
+#label-for-latitude {
+    font-family: 'Oxygen', sans-serif;
+}
+
+#manual-latitute {
+    background-color: rgb(27, 182, 53);
+}
+
+#manual-longitude-label {
+    background-color: rgb(165, 175, 127);
+}
+
+#label-for-longitude {
+    font-family: 'Oxygen', sans-serif;
+}
+
 #manual-longitude {
     background-color: rgb(231, 243, 188);
 }
+
+get-weather-data {
+    background-color: rgb(188, 219, 219);
+}
+
+#get-weather-data-button {
+    font-family: 'Oxygen', sans-serif;
+}
+
 #results-title {
     background-color: rgb(182, 229, 229);
 }
 #results {
     background-color: rgb(223, 231, 175);
 }
+
+
 
 #weather-extra-info {
     background-color: rgb(158, 173, 216);
