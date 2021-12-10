@@ -1,4 +1,8 @@
-//
+// Wait for the page to be loaded
+// Credit: Code Institute
+$(document).ready(function() {
+    $("#instructions-title > div > div > p").append(" - PAGE LOADED");
+});
 
 // Move content down when clicking the Bootstrap hamburguer
 // button in a fixed navigation menu

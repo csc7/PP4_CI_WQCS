@@ -741,7 +741,7 @@ ___
     - Button trigger modal: code copied on December 7th, 2021, 08:34 from https://getbootstrap.com/docs/4.0/components/modal/; content modified.
 
 - ESRI:
-    - Code for maps and picking of latitude and longitude: https://community.esri.com/t5/arcgis-api-for-javascript-questions/mouse-click-to-get-map-point-or-x-y/m-p/516073#M48139; copied and modified on December 8th, 2021, 04:00.
+    - Code for maps and picking of latitude and longitude, by LloydBronn, (01-05-2017 10:00 AM): https://community.esri.com/t5/arcgis-api-for-javascript-questions/mouse-click-to-get-map-point-or-x-y/m-p/516073#M48139; copied and modified on December 8th, 2021, 04:00.
 
     - Produce a map with ESRI: https://developers.arcgis.com/javascript/latest/display-a-map/; accessed on December 8th, 2021, 2:30.
 
@@ -767,7 +767,9 @@ ___
     - Google Fonts: Heebo (Medium 500) and Oxygen (Regular 400), first imported on December 7th, 2021, 08:01, from: https://fonts.google.com/; (<style>
     @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@500&family=Oxygen&display=swap');</style>).
 
+- jQuery:
 
+    - Checked several methods at https://api.jquery.com/ .
 
 - MDN Web Docs Moz://a;
     - ...

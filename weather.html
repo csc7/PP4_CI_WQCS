@@ -115,12 +115,27 @@
             
             <div id="weather-data" class="col-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="row">
-                    <div id="weather-data-title" class="col-12"><p>asdfsd</p></div>
-                    <div id="latitute" class="col-12 col-sm-6"><p>asdfsd</p></div>
-                    <div id="longitude" class="col-12 col-sm-6"><p>asdfsd</p></div>
-                    <div id="enter-manually-title" class="col-12"><p>asdfsd</p></div>
-                    <div id="manual-latitute" class="col-12 col-sm-6"><p>asdfsd</p></div>
-                    <div id="manual-longitude" class="col-12 col-sm-6"><p>asdfsd</p></div>
+                    <div id="weather-data-title" class="col-12"><p>Coordinates for Weather Data</p></div>
+                    <div id="latitute-title" class="col-12 col-sm-6 col-md-3"><p>lat YY TITLE</p></div>
+                    <div id="latitude" class="col-12 col-sm-6 col-md-3"><p>Lat XX</div>
+                    <div id="longitude-title" class="col-12 col-sm-6 col-md-3"><p>long XX TITLE</p></div>
+                    <div id="longitude" class="col-12 col-sm-6 col-md-3"><p>Long XX</p></div>
+                    <div id="enter-manually-title" class="col-12"><p>Manual Input of Coordinates</p></div>
+                    <div id="manual-latitute-label" class="col-12 col-sm-6 col-md-3">
+                        <label for="latitude-input" id="label-for-latitude">Latitude</label>
+                    </div>
+                    <div id="manual-latitute" class="col-12 col-sm-6 col-md-3">
+                        <input id="latitude-input" type="number">
+                    </div>
+                    <div id="manual-longitude-label" class="col-12 col-sm-6 col-md-3">
+                        <label for="longitude-input" id="label-for-longitude">Longitude</label>
+                    </div>                    
+                    <div id="manual-longitude" class="col-12 col-sm-6 col-md-3">
+                        <input id="longitude-input" type="number">
+                    </div>
+                    <div id="get-weather-data" class="col-12">
+                        <button id="get-weather-data-button" type="submit">Get Data</button>
+                    </div>
                     <div id="results-title" class="col-12"><p>asdfsd</p></div>
                     <div id="results" class="col-12"><p>asdfsd</p></div>
                 </div>
@@ -183,8 +198,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <!-- This website scripts -->
-    <script src="assets/js/weather.js"></script>
+
 
     <!-- Credit: jQuery
     Code copied on December 9th, 2021, at 20:37 -->
@@ -195,36 +209,7 @@
     <!--OK-->
     <script src="https://js.arcgis.com/3.18/"></script>
     <script>
-        var map;
-        require([        "esri/map", "esri/geometry/webMercatorUtils",        "esri/graphic", "esri/InfoTemplate", "esri/symbols/SimpleMarkerSymbol",        "esri/symbols/SimpleLineSymbol", "esri/Color", "dojo/dom", "dojo/domReady!"      ], function (       Map, webMercatorUtils,        Graphic, InfoTemplate, SimpleMarkerSymbol,        SimpleLineSymbol, Color, dom      ) {
-
-            //esriConfig.apiKey = "AAPKcb5628ff50b04f38bfb15788ab6d79afBV-DZA2SyobB3bFx8LlFMQR0LAkOly9XoAJSPmAMmbNTnWzCqixPSdFYZV_DpGC6";
-
-            map = new Map("viewDiv", {
-                basemap: "streets",
-                center: [-95.249, 38.954],
-                zoom: 14,
-                slider: false
-            });
-
-            var symbol = new SimpleMarkerSymbol(
-                SimpleMarkerSymbol.STYLE_CIRCLE,
-                6,
-                new SimpleLineSymbol(
-                    SimpleLineSymbol.STYLE_NULL,
-                    new Color([247, 34, 101, 0.9]),
-                    1
-                ),
-                new Color([207, 34, 171, 0.5])
-            );
-            map.on("click", function(evt){
-                var mp = webMercatorUtils.webMercatorToGeographic(evt.mapPoint);
-                map.graphics.clear();
-                map.graphics.add(new Graphic(evt.mapPoint, symbol));
-                map.infoWindow.setContent("Longitude: " + mp.x.toString() + ", <br>Latitude: " + mp.y.toString());
-                map.infoWindow.show(evt.mapPoint)
-            });
-    });
+        
     //FIN OK
 
             //const view = new MapView({
@@ -257,7 +242,8 @@
         //});
     </script>
 
-
+    <!-- This website scripts -->
+    <script src="assets/js/weather.js"></script>
 
 
 </body>
