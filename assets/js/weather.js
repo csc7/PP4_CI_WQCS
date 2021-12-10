@@ -74,16 +74,20 @@ function pressEnter (event) {
 $("#get-weather-data-button").click (function(){
     var latitude = $("#latitude").text();
     var longitude = $("#longitude").text();
-    console.log(latitude, longitude);
+    console.log(parseFloat(latitude), longitude);
+
 });  
 
-
+var latitude = parseFloat($("#latitude").text());
+var longitude = parseFloat($("#longitude").text());
+console.log(typeof latitude);
+console.log(typeof longitude);
 
 
 // ------------------------------------------------------------------
 // OpenWeather
-const API_KEY = "a4e017407a1ea716fa42316b9fe012b5"
-const API_URL = "api.openweathermap.org"
+const API_KEY = "a4e017407a1ea716fa42316b9fe012b5";
+const API_URL = "api.openweathermap.org";
 
 //const resultsModal = new bootstrap.Modal(document.getElementById("resultsModal"));
 
@@ -91,7 +95,8 @@ document.getElementById("log-in-button").addEventListener("click", e => getStatu
 
 async function getStatus(e) {
 
-    const queryString = `https://${API_URL}/data/2.5/weather?q=London&appid=${API_KEY}`;
+    //const queryString = `https://${API_URL}/data/2.5/weather?q=London&appid=${API_KEY}`;
+    const queryString = `https://${API_URL}/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`;
 
     const response = await fetch(queryString);
 
