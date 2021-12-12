@@ -2,6 +2,7 @@
 {% block content %}
     <!-- Weather Data -->
     <div id="top-container" class="container">
+        
         <section id="weather-map-and-data" class="row">
 
             <div id="viewDiv" class="col-12 col-sm-12 col-md-12 col-lg-6">   
@@ -65,4 +66,9 @@
         </div>
     </div>
     <!-- /.Weather Data -->    
+    
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/weather.js') }}"></script>
 {% endblock %}
