@@ -5,6 +5,10 @@ $(document).ready(function() {
 });
 
 
+// Underline when selected in header navigation menu
+console.log("Hello");
+
+
 // Move content down when clicking the Bootstrap hamburguer
 // button in a fixed navigation menu
 // Copied from my own previous PP2_CI_WW Project

@@ -8,9 +8,7 @@
     <!-- Credit: Bootstrap
     Code copied on December 7th, 2021, 01:50 from Code Institute lessons
     Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">  
-
-    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">      
     
     <!--ArcGIS-->
     <!--link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css">-->
@@ -23,9 +21,7 @@
     <link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/css/esri.css">   
 
     <!-- This project's CSS file -->
-    <link rel="stylesheet" href="assets/css/style.css">
-
-    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">   
 
     
 </head>
@@ -49,16 +45,16 @@
                         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="index.html">Instructions</a>
-                                </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="weather.html">Weather<span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="{{ url_for('index') }}">Instructions</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="blog.html">Blog</a>
+                                    <a class="nav-link" href="{{ url_for('weather') }}">Weather</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contact</a>
+                                    <a class="nav-link" href="{{ url_for('blog') }}">Blog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
                                 </li>
                             </ul>
                         </div>
@@ -106,71 +102,12 @@
         </div>
     </header>
     <!-- /.Header -->
-    <!-- Instructions -->
-    <div id="top-container" class="container">
-        <section id="weather-map-and-data" class="row">
 
-            <div id="viewDiv" class="col-12 col-sm-12 col-md-12 col-lg-6">   
-            </div>       
-            
-            <div id="weather-data" class="col-12 col-sm-12 col-md-12 col-lg-6">
-                <div class="row">
-                    <div id="weather-data-title" class="col-12"><p>Coordinates for Weather Data</p></div>
-                    <div id="latitute-title" class="col-12 col-sm-6 col-md-3"><p>Latitude</p></div>
-                    <div id="latitude" class="col-12 col-sm-6 col-md-3"><p>90</div>
-                    <div id="longitude-title" class="col-12 col-sm-6 col-md-3"><p>Longitude</p></div>
-                    <div id="longitude" class="col-12 col-sm-6 col-md-3"><p>110</p></div>
-                    <div id="enter-manually-title" class="col-12"><p>Manual Input of Coordinates</p></div>
-                    <div id="manual-latitute-label" class="col-12 col-sm-6 col-md-3">
-                        <label for="latitude-input" id="label-for-latitude">Latitude</label>
-                    </div>
-                    <div id="manual-latitute" class="col-12 col-sm-6 col-md-3">
-                        <input id="latitude-input" type="number">
-                    </div>
-                    <div id="manual-longitude-label" class="col-12 col-sm-6 col-md-3">
-                        <label for="longitude-input" id="label-for-longitude">Longitude</label>
-                    </div>                    
-                    <div id="manual-longitude" class="col-12 col-sm-6 col-md-3">
-                        <input id="longitude-input" type="number">
-                    </div>
-                    <div id="get-weather-data" class="col-12">
-                        <button id="get-weather-data-button" type="submit">Get Data</button>
-                    </div>
-                    <div id="results-title" class="col-12"><p>Weather Data</p></div>
-                    <!-- Weather Data -->
-                    <div id="wind" class="col-12 col-sm-6 col-md-3"><p>data</p></div>                                       
-                    <div id="wind-label" class="col-12 col-sm-6 col-md-3"><p>data a</p></div>
-                    <div id="b" class="col-12 col-sm-6 col-md-3"><p>data b</p></div>
-                    <div id="c" class="col-12 col-sm-6 col-md-3"><p>data c</div>
-                    <div id="d" class="col-12 col-sm-6 col-md-3"><p>data d</p></div>
-                    <div id="e" class="col-12 col-sm-6 col-md-3"><p>data e</p></div>
-                    <div id="f" class="col-12 col-sm-6 col-md-3"><p>data f</p></div>
-                    <div id="g" class="col-12 col-sm-6 col-md-3"><p>data g</p></div>
-                    <div id="h" class="col-12 col-sm-6 col-md-3"><p>data h</p></div>
-                    <div id="i" class="col-12 col-sm-6 col-md-3"><p>data i</p></div>
-                    <div id="j" class="col-12 col-sm-6 col-md-3"><p>data j</p></div>
-                    <div id="k" class="col-12 col-sm-6 col-md-3"><p>data k</p></div>
-                    <div id="l" class="col-12 col-sm-6 col-md-3"><p>data l</p></div>
-                    <div id="ll" class="col-12 col-sm-6 col-md-3"><p>data ll</p></div>
-                    <div id="m" class="col-12 col-sm-6 col-md-3"><p>data m</p></div>
-                    <div id="n" class="col-12 col-sm-6 col-md-3"><p>data n</p></div>
-                    <div id="ñh" class="col-12 col-sm-6 col-md-3"><p>data ñ</p></div>
-                    <div id="o" class="col-12 col-sm-6 col-md-3"><p>data o</p></div>
-                    <div id="p" class="col-12 col-sm-6 col-md-3"><p>data p</p></div>
-                    <div id="q" class="col-12 col-sm-6 col-md-3"><p>data q</p></div>
-                    <!-- /.Weather Data -->
-                </div>
-            </div>       
-        </section>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div id="weather-extra-info" class="col-12">
-                <p>sdfasdfsdaf</p>
-            </div>
-        </div>
-    </div>
-    <!-- /.Instructions -->    
+    <!-- Main Content -->
+    {% block content %}
+    {% endblock %}
+    <!-- /.Main Content -->
+
     <!-- Footer -->
     <footer>
         <div id="footer" class="container-fluid">
@@ -220,7 +157,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-
     <!-- Credit: jQuery
     Code copied on December 9th, 2021, at 20:37 -->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
@@ -230,42 +166,43 @@
     <!--OK-->
     <script src="https://js.arcgis.com/3.18/"></script>
     <script>
-        
-    //FIN OK
-
-            //const view = new MapView({
-            //    map: map,
-            //    center: [-118.805, 34.027], // Longitude, latitude
-            //    zoom: 13, // Zoom level
-            //    container: "viewDiv" // Div element
+            
+        //FIN OK
+    
+                //const view = new MapView({
+                //    map: map,
+                //    center: [-118.805, 34.027], // Longitude, latitude
+                //    zoom: 13, // Zoom level
+                //    container: "viewDiv" // Div element
+                //});
+                //const graphicsLayer = new GraphicsLayer();
+                //map.add(graphicsLayer);
+    //
+                //const point = { //Create a point
+                //    type: "point",
+                //    longitude: -118.80657463861,
+                //    latitude: 34.0005930608889
+                //};
+                //const simpleMarkerSymbol = {
+                //    type: "simple-marker",
+                //    color: [226, 119, 40],  // Orange
+                //    outline: {
+                //        color: [255, 255, 255], // White
+                //        width: 1
+                //    }
+                //};
+                //const pointGraphic = new Graphic({
+                //    geometry: point,
+                //    symbol: simpleMarkerSymbol
+                //});
+                //graphicsLayer.add(pointGraphic);
             //});
-            //const graphicsLayer = new GraphicsLayer();
-            //map.add(graphicsLayer);
-//
-            //const point = { //Create a point
-            //    type: "point",
-            //    longitude: -118.80657463861,
-            //    latitude: 34.0005930608889
-            //};
-            //const simpleMarkerSymbol = {
-            //    type: "simple-marker",
-            //    color: [226, 119, 40],  // Orange
-            //    outline: {
-            //        color: [255, 255, 255], // White
-            //        width: 1
-            //    }
-            //};
-            //const pointGraphic = new Graphic({
-            //    geometry: point,
-            //    symbol: simpleMarkerSymbol
-            //});
-            //graphicsLayer.add(pointGraphic);
-        //});
     </script>
 
-    <!-- This website scripts -->
-    <script src="assets/js/weather.js"></script>
-
-
+     <!-- This website scripts -->
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/weather.js') }}"></script>
+    
+    
 </body>
 </html>
