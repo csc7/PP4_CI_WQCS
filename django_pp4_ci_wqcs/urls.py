@@ -15,9 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from pp4_ci_wqcs.views import get_base
 from pp4_ci_wqcs.views import get_index
+from pp4_ci_wqcs.views import get_weather
+from pp4_ci_wqcs.views import get_blog
+from pp4_ci_wqcs.views import get_contact
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', get_index, name ='get_index')
+    path('', get_base, name ='get_base'),
+    path('', get_index, name ='get_index'),
+    path('', get_weather, name ='get_weather'),
+    path('', get_blog, name ='get_blog')
 ]
