@@ -75,7 +75,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'django_pp4_ci_wqcs.wsgi.application'
+WSGI_APPLICATION = 'pp4_ci_wqcs.wsgi.application'
 
 
 # Database
