@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage'
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
     'pp4_ci_wqcs',
@@ -75,7 +75,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'pp4_ci_wqcs.wsgi.application'
+WSGI_APPLICATION = 'django_pp4_ci_wqcs.wsgi.application'
 
 
 # Database
