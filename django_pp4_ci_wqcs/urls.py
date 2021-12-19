@@ -23,8 +23,9 @@ from pp4_ci_wqcs.views import get_contact
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', get_base, name ='get_base'),
-    path('', get_index, name ='get_index'),
-    path('', get_weather, name ='get_weather'),
-    path('', get_blog, name ='get_blog')
+    path('base/', get_base, name='get_base'),
+    path('', get_index, name='get_index'),
+    path('weather/', get_weather, name='get_weather'),
+    path('blog/', get_blog, name='get_blog'),
+    
 ]

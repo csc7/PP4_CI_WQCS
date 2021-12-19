@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
+from django.views import generic, View
+
 
 # Create your views here.
 def get_base(request):

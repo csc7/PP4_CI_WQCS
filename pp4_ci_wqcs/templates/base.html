@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/css/esri.css">   
 
     <!-- This project's CSS file -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">   
+    <link rel="stylesheet" href="____static/css/style.css">   
 
     
 </head>
@@ -45,16 +45,16 @@
                         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ url_for('index') }}">Instructions</a>
+                                    <a class="nav-link" href="/">Instructions</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ url_for('weather') }}">Weather</a>
+                                    <a class="nav-link" href="/weather">Weather</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ url_for('blog') }}">Blog</a>
+                                    <a class="nav-link" href="pp4_ci_wqcs/templates/pp4_ci_wqcs/blog.html">Blog</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+                                    <a class="nav-link" href="pp4_ci_wqcs/templates/pp4_ci_wqcs/contact.html">Contact</a>
                                 </li>
                             </ul>
                         </div>
@@ -200,7 +200,7 @@
     </script>
 
     <!-- This website scripts -->    
-    <script src="{{ url_for('static', filename='js/move-content-hamburger.js') }}"></script>      
+    <script src="____static/js/move-content-hamburger.js"></script>      
 
 
     {% block scripts %}
