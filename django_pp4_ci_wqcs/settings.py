@@ -32,6 +32,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['django_pp4_ci_wqcs.herokuapp.com', 'localhost']
 
+# Just for Django version 4; solved with the help of
+# Code Institute Tutor Assistance (Alan) on December 20th, 2021
+# at 15:55
+CSRF_TRUSTED_ORIGINS = ['https://8000-aqua-jay-tl4cc8xk.ws-eu23.gitpod.io']
 
 # Application definition
 
@@ -44,6 +48,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+    'django_summernote',
     'pp4_ci_wqcs',
 ]
 

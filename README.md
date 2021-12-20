@@ -674,7 +674,8 @@ Bugs that required more time and specific solutions were the following ones:
 
 | Bug | Solution |
 | ---- | ---- |
-| The ... | The issue was caused ... Solved with **Therefore**... | 
+| It was not possible to log into an administration account in Django. | The issue arises for Django version 4; solved with the help of Code Institute Tutor Assistance (Alan) on December 20th, 2021, at 15:55, by assigning the workspace URL to the variable CSRF_TRUSTED_ORIGINS in the settings.py file.
+CSRF_TRUSTED_ORIGINS = ['https://8000-aqua-jay-tl4cc8xk.ws-eu23.gitpod.io'] | 
 | The ... | The issue could be solved by ...|
 
 
@@ -714,7 +715,17 @@ The project can also be forked from the repository (https://github.com/csc7/PP2_
 ___
 # 11 . Credits
 
-- Code Institute: I have used the learning material in the course as a guide and reference.
+- Code Institute:
+
+    - I have used the learning material in the course as a guide and reference.
+
+    - "I Think Therefore I Blog" project:
+        - models.py file copied from this project on December 20th, 2022 at 13:34.
+        - admin.py file copied from this project on December 20th, 2022 at 17:31.
+        - views.py file copied from this project on December 20th, 2022 at 17:50.
+        - blog.html file copied from Code Institute "I Think Therefore I Blog" project, index.html file, on December 20th, 2022 at 18:01.
+        - urls.py in app folder (/pp4_ci_wqcs), file copied from this project on December 20th, 2022 at 18:09.
+        - post_detail.htm file, copied from this project on December 20th, 2022 at 18:58.
 
 - Love Maths - Essentials Project, from Code Institute, as a guide, source of design, concepts and code for this project, especially for the Quiz page.
 
