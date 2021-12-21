@@ -1,12 +1,12 @@
 # Code copied from Code Institute "I Think Therefore I Blog" project
-# on December 20th, 2022 at 18:09
+# on December 20th, 2022 at 18:09, later modified.
 
 from . import views
 from django.urls import path
 #from .views import WeatherPageView
 
 urlpatterns = [
-    path('', views.PostList.as_view(), name="home"),
+    path('blog/', views.PostList.as_view(), name="blog"),
     path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
 
     #path('/weather/', WeatherPageView.as_view(), name='weather'),
