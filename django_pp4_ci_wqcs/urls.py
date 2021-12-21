@@ -24,7 +24,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),    
     path('summernote/', include('django_summernote.urls')),
-    path('', include('pp4_ci_wqcs.urls'), name='pp4_ci_wqcs-urls'),
+    path('', include('pp4_ci_wqcs.urls'), name='pp4_ci_wqcs_urls'),
     #path('base/', get_base, name='get_base'),
     #path('', get_index, name='get_index'),
     #path('weather/', get_weather, name='get_weather'),

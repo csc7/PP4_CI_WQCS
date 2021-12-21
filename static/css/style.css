@@ -289,6 +289,12 @@ get-weather-data {
     height: 250px;
 }
 
+/* ********* */
+/* BLOG PAGE */
+/* ********* */
+#post-box {
+    margin-top: 75px;
+}
 
 
 /* ************* */
