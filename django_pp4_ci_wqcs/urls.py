@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 #from pp4_ci_wqcs.views import get_base
 #from pp4_ci_wqcs.views import get_index
-#from pp4_ci_wqcs.views import get_weather
+from pp4_ci_wqcs.views import get_weather_page
 #from pp4_ci_wqcs.views import get_blog
 #from pp4_ci_wqcs.views import get_contact
 
@@ -27,6 +27,6 @@ urlpatterns = [
     path('', include('pp4_ci_wqcs.urls'), name='pp4_ci_wqcs_urls'),
     #path('base/', get_base, name='get_base'),
     #path('', get_index, name='get_index'),
-    #path('weather/', get_weather, name='get_weather'),
+    #path('weather/', get_weather_page, name='get_weather_page'),
     #path('blog/', get_blog, name='get_blog'),    
 ]

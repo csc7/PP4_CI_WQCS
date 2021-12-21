@@ -5,6 +5,8 @@ from django.shortcuts import render, HttpResponse, get_object_or_404
 from django.views import generic, View
 from .models import Post
 
+
+
 # Create your views here.
 class PostList(generic.ListView):
     model = Post
@@ -34,9 +36,21 @@ class PostDetail(View):
         )
 
 
-#class WeatherPageView(generic.TemplateView):
-#    template_name = 'weather.html'
+#class WeatherPage(View):
+#    #template_name = 'weather.html'
+#    def get(self, request):
+#        return render(request, "weather.html")
 
+def get_instructions_page(request):
+    return render(request, "index.html")
+
+    
+def get_weather_page(request):
+    return render(request, "templates/weather.html")
+
+
+def get_contact_page(request):
+    return render(request, "contact.html")
 
 
 
@@ -49,8 +63,7 @@ class PostDetail(View):
 #def get_contact(request):
 #    return render(request, "pp4_ci_wqcs/contact.html")
 #
-#def get_weather(request):
-#    return render(request, "pp4_ci_wqcs/weather.html")
-#
+
+
 #def get_blog(request):
 #    return render(request, "pp4_ci_wqcs/blog.html")
