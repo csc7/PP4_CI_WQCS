@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-
-<form id="contact-form" onsubmit="return sendMail(this);>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<form id="contact-form" onsubmit="return sendMail(this);">
     <div id="contact-form-container">
         <div class="row">
             <div id="contact-form-details" class="col-12 col-sm-6">
@@ -31,6 +31,7 @@
                 <div id="text-area">
                     <textarea id="form-description" class="input-field" rows="6" cols="20"  name="description" placeholder="Describe your consultation" required></textarea>
                 </div>
+                <div></div>
                 <input id="form-send-button" type="submit" value="Send">
                 <!-- E-mail sent status message (empty, modified by JavaScript) -->
                 <div id="email-status">
@@ -48,7 +49,7 @@
     <!-- Credit: EmailJS
     Code copied and modified on July 31st, 2021, at 6:37, from EmailJS personal account. 
     Second line in contact.js file, sendMail() function -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    
 
     <script src="/static/js/contact.js"></script>
     
