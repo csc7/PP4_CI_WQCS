@@ -34,7 +34,7 @@
                     <!-- Icon for website logo (wind):
                     Credit: Font Awesome
                     Downloaded on December 7th, 2021, 09:15, from https://fontawesome.com/v5.15/icons/wind?style=solid -->
-                    <a class="navbar-brand" href="index.html"><i class="fas fa-wind"></i> WQCS</a>
+                    <a class="navbar-brand" href="/"><i class="fas fa-wind"></i> WQCS</a>
                 </div>
                 <div id="header-menu" class="col-4 order-last order-sm-0 col-sm-6 col-md-8 col-lg-8">
                     <!-- Bootstrap Navbar
@@ -48,13 +48,13 @@
                                     <a class="nav-link" href="/">Instructions</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="weather/">Weather</a>
+                                    <a class="nav-link" href="{% url 'weather' %}">Weather</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="blog/">Blog</a>
+                                    <a class="nav-link" href="{% url 'blog' %}">Blog</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact/">Contact</a>
+                                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                                 </li>
                             </ul>
                         </div>

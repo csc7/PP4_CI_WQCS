@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 #from pp4_ci_wqcs.views import get_base
 #from pp4_ci_wqcs.views import get_index
-from pp4_ci_wqcs.views import get_weather_page
+#from pp4_ci_wqcs.views import get_weather_page
 #from pp4_ci_wqcs.views import get_blog
 #from pp4_ci_wqcs.views import get_contact
 

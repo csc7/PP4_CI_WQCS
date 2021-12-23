@@ -676,8 +676,7 @@ Bugs that required more time and specific solutions were the following ones:
 | ---- | ---- |
 | It was not possible to log into an administration account in Django. | The issue arises for Django version 4; solved with the help of Code Institute Tutor Assistance (Alan) on December 20th, 2021, at 15:55, by assigning the workspace URL to the variable CSRF_TRUSTED_ORIGINS in the settings.py file.
 CSRF_TRUSTED_ORIGINS = ['https://8000-aqua-jay-tl4cc8xk.ws-eu23.gitpod.io'] | 
-| The ... | The issue could be solved by ...|
-
+| The pages of the website could not be loaded all together, only either instructions and blog pages together, or weather and contact pages together, never the four pages together  | The issue was solved by changing the order of elements in the urlpatterns variable in the app (pp4_ci_wqcs) urls.py file from Blog/(Post Detail)/Instructions/Weather/Contact to Instructions/Weather/Contact/Blog/(Post Detail); solution found on https://stackoverflow.com/questions/36429144/page-not-found-404-no-post-matches-the-given-query, on December 23rd, 2021, at 03:20.
 
 <br><br>
 ## [Back to Index](#index)
@@ -796,6 +795,8 @@ ___
     - To solve "multipleDefine" errors by loading ArcGIS and Dojo JS at the end: https://stackoverflow.com/questions/16600063/dojo-1-9-build-multipledefine-error-while-loading-locale; accessed on December 7th, 2021, at 05:50.
 
     - Investigating two blocks in template HTML file for Flask: https://stackoverflow.com/questions/1242239/multiple-blocks-of-same-name-in-jinja2; accessed on December 12th, 2021, at 07:20.
+
+    - To fix the template views: https://stackoverflow.com/questions/36429144/page-not-found-404-no-post-matches-the-given-query, accessed on December 23rd, 2021, at 03:20.
 
 - W3C®. Copyright © 2021 W3C ® (MIT, ERCIM, Keio, Beihang):
     - How to introduce author in anchor element: https://www.w3.org/TR/2011/WD-html5-author-20110809/the-link-element.html, accessed on August 4th, 2021, at 00:06.
