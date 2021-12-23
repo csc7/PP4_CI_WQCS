@@ -4,7 +4,6 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404
 from django.views import generic, View
 from .models import Post
-from django.views.generic import TemplateView
 
 
 # Create your views here.
@@ -41,6 +40,7 @@ class PostDetail(View):
 #    def get(self, request):
 #        return render(request, "weather.html")
 
+
 def get_instructions_page(request):
     return render(request, "index.html")
 
@@ -53,17 +53,5 @@ def get_contact_page(request):
     return render(request, "contact.html")
 
 
-
 #def get_base(request):
 #    return render(request, "pp4_ci_wqcs/base.html")
-#
-#def get_index(request):
-#    return render(request, "pp4_ci_wqcs/index.html")
-#
-#def get_contact(request):
-#    return render(request, "pp4_ci_wqcs/contact.html")
-#
-
-
-#def get_blog(request):
-#    return render(request, "pp4_ci_wqcs/blog.html")

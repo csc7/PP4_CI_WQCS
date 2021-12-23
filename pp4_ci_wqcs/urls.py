@@ -11,12 +11,4 @@ urlpatterns = [
     path("contact/", views.get_contact_page, name="contact"),
     path('blog/', views.PostList.as_view(), name='blog'),
     path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
-
-    #path('blog/', BlogPageView.as_view(), name='blog'),
-    #path('contact/', ContactPageView.as_view(), name='contact'),
-    
-    #path('like/<slug:slug>', views.PostLike.as_view(), name='post_like'),
-    
-    #path("weather/", WeatherPageView.as_view(), name="weather"),
-    
 ]
