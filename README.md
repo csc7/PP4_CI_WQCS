@@ -275,7 +275,7 @@ The following languages, software and tools were implemented using Windows 10 Pr
 
 #### [Back to Index](#index)
 
-## **Software and Other Tools**
+## **Software, applications and Other Tools**
 - #### **GitHub**
 - #### **Gitpod**
 - #### **Font Awesome (v5.15)**
@@ -283,6 +283,7 @@ The following languages, software and tools were implemented using Windows 10 Pr
 - #### **EmailJS**
 - #### **Balsamiq Wireframes (v4.2.4, Editor Version 2.6.0)**
 - #### **Google Fonts**
+- #### **django-allauth**
 - #### **MATLAB, The MathWorks, Inc. (to generate function plots in Functions page and obtain Morlet function)**
 - #### **W3C Markup Validation Service**
 - #### **W3C CSS Validation Service**
@@ -749,6 +750,8 @@ ___
     - To centre elements in Navs and Navbar: justify-content-center class. Copied on July 8th, 2021, 03:43 from https://getbootstrap.com/docs/4.0/components/navs/ .
 
     - Button trigger modal: code copied on December 7th, 2021, 08:34 from https://getbootstrap.com/docs/4.0/components/modal/; content modified.
+
+- Django-allauth: https://django-allauth.readthedocs.io/en/latest/, installed on December 23rd, 2021, at 11:32.
 
 - ESRI:
     - Code for maps and picking of latitude and longitude, by LloydBronn, (01-05-2017 10:00 AM): https://community.esri.com/t5/arcgis-api-for-javascript-questions/mouse-click-to-get-map-point-or-x-y/m-p/516073#M48139; copied and modified on December 8th, 2021, 04:00.

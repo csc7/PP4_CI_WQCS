@@ -64,12 +64,26 @@
                     <!-- Button trigger modal:
                     Credit: Bootstrap
                     Code copied on December 7th, 2021, 08:34 from https://getbootstrap.com/docs/4.0/components/modal/
-                    and from my own previous project PP1_CI_TGC; content modified -->
+                    and from my own previous project PP1_CI_TGC; modified taking content from the 
+                    Code Institute "I Think Therefore I Blog" project, "account" templates (login.html, logout.html
+                    and signup.html)-->
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                        Log In
+
+
+                    {% if user.is_authenticated %}                    
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='{% url 'account_logout' %}';">
+                        Log Out
                     </button>
-                    <!-- Modal -->
+                    {% else %}
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='{% url 'account_login' %}';">
+                        Log In
+                    </button>              
+                    <button type="submit" class="btn btn-primary" onclick="window.location.href='{% url 'account_signup' %}';">
+                        Sign Up
+                    </button>
+                    {% endif %}
+
+                    <!-- 
                     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
@@ -95,8 +109,9 @@
                                     </form>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
                     </div>
+                    Modal -->
                 </div>              
             </div>
         </div>

@@ -28,6 +28,7 @@ urlpatterns = [
     path('', include('app_weather.urls'), name='app_weather_urls'),
     path('', include('app_contact.urls'), name='app_weather_urls'),
     path('', include('app_blog.urls'), name='app_blog_urls'),
+    path('accounts/', include('allauth.urls')),
     #path('base/', get_base, name='get_base'),
     #path('', get_index, name='get_index'),
     #path('weather/', get_weather_page, name='get_weather_page'),
