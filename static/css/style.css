@@ -302,14 +302,45 @@ get-weather-data {
 /* ************ */
 /* CONTACT PAGE */
 /* ************ */
+
+#contact-form {
+    margin-top: 75px;
+}
+
 #contact-form-details {
     background-color: aquamarine;
-    height: 150px; /* DELETE IF NECESSARY */
+    height: 350px;  /* DELETE IF NECESSARY */
 }
 
 #contact-form-text {
     background-color: aqua;
-    height: 150px; /* DELETE IF NECESSARY */
+    height: 350px;  /* DELETE IF NECESSARY */
+}
+
+.form-row-label {
+    margin: 0;
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 96%;
+}
+
+.form-row-input {
+    margin: 0;
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 96%;
+}
+
+.input-field {
+    width: 100%;
+}
+
+
+#form-description {
+    margin: 0;
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 96%;
 }
 
 
