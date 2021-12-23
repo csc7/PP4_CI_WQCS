@@ -35,7 +35,7 @@ ALLOWED_HOSTS = ['django_pp4_ci_wqcs.herokuapp.com', 'localhost']
 # Just for Django version 4; solved with the help of
 # Code Institute Tutor Assistance (Alan) on December 20th, 2021
 # at 15:55
-CSRF_TRUSTED_ORIGINS = ['https://8000-moccasin-canidae-gedulbh4.ws-eu23.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-moccasin-canidae-gedulbh4.ws-eu25.gitpod.io']
 
 # Application definition
 
@@ -49,7 +49,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'django_summernote',
-    'pp4_ci_wqcs',
+    'app_instructions',
+    'app_weather',
+    'app_contact',
+    'app_blog',
 ]
 
 MIDDLEWARE = [

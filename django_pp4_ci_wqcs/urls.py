@@ -23,8 +23,11 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),    
-    path('summernote/', include('django_summernote.urls')),
-    path('', include('pp4_ci_wqcs.urls'), name='pp4_ci_wqcs_urls'),
+    path('summernote/', include('django_summernote.urls')),   
+    path('', include('app_instructions.urls'), name='app_weather_urls'), 
+    path('', include('app_weather.urls'), name='app_weather_urls'),
+    path('', include('app_contact.urls'), name='app_weather_urls'),
+    path('', include('app_blog.urls'), name='app_blog_urls'),
     #path('base/', get_base, name='get_base'),
     #path('', get_index, name='get_index'),
     #path('weather/', get_weather_page, name='get_weather_page'),

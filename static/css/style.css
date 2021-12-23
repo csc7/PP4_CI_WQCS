@@ -297,6 +297,24 @@ get-weather-data {
 }
 
 
+
+
+/* ************ */
+/* CONTACT PAGE */
+/* ************ */
+#contact-form-details {
+    background-color: aquamarine;
+    height: 150px; /* DELETE IF NECESSARY */
+}
+
+#contact-form-text {
+    background-color: aqua;
+    height: 150px; /* DELETE IF NECESSARY */
+}
+
+
+
+
 /* ************* */
 /* MEDIA QUERIES */
 /* ************* */

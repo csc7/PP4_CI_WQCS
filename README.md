@@ -676,7 +676,7 @@ Bugs that required more time and specific solutions were the following ones:
 | ---- | ---- |
 | It was not possible to log into an administration account in Django. | The issue arises for Django version 4; solved with the help of Code Institute Tutor Assistance (Alan) on December 20th, 2021, at 15:55, by assigning the workspace URL to the variable CSRF_TRUSTED_ORIGINS in the settings.py file.
 CSRF_TRUSTED_ORIGINS = ['https://8000-aqua-jay-tl4cc8xk.ws-eu23.gitpod.io'] | 
-| The pages of the website could not be loaded all together, only either instructions and blog pages together, or weather and contact pages together, never the four pages together  | The issue was solved by changing the order of elements in the urlpatterns variable in the app (pp4_ci_wqcs) urls.py file from Blog/(Post Detail)/Instructions/Weather/Contact to Instructions/Weather/Contact/Blog/(Post Detail); solution found on https://stackoverflow.com/questions/36429144/page-not-found-404-no-post-matches-the-given-query, on December 23rd, 2021, at 03:20.
+| The pages of the website could not be loaded all together, only either instructions and blog pages together, or weather and contact pages together, never the four pages together  | The issue was solved by changing the order of elements in the urlpatterns variable in the app (app_blog) urls.py file from Blog/(Post Detail)/Instructions/Weather/Contact to Instructions/Weather/Contact/Blog/(Post Detail); solution found on https://stackoverflow.com/questions/36429144/page-not-found-404-no-post-matches-the-given-query, on December 23rd, 2021, at 03:20.
 
 <br><br>
 ## [Back to Index](#index)
@@ -723,7 +723,7 @@ ___
         - admin.py file copied from this project on December 20th, 2022 at 17:31.
         - views.py file copied from this project on December 20th, 2022 at 17:50.
         - blog.html file copied from Code Institute "I Think Therefore I Blog" project, index.html file, on December 20th, 2022 at 18:01.
-        - urls.py in app folder (/pp4_ci_wqcs), file copied from this project on December 20th, 2022 at 18:09.
+        - urls.py in app folder (/app_blog), file copied from this project on December 20th, 2022 at 18:09.
         - post_detail.htm file, copied from this project on December 20th, 2022 at 18:58.
 
 - Love Maths - Essentials Project, from Code Institute, as a guide, source of design, concepts and code for this project, especially for the Quiz page.
