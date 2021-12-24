@@ -2,6 +2,7 @@
 var latitude = 50;
 var longitude = 70;
 
+
 // ------------------------------------------------------------------
 // Code for maps and picking of latitude and longitude, by LloydBronn, (01-05-2017 10:00 AM):
 // https://community.esri.com/t5/arcgis-api-for-javascript-questions/mouse-click-to-get-map-point-or-x-y/m-p/516073#M48139;
@@ -61,7 +62,8 @@ function pressEnter (event) {
 // Check status of OpenWeather API
 // Credit for code: Code Institute
 // Credit for API: OpenWeather
-const API_KEY = "a4e017407a1ea716fa42316b9fe012b5";
+
+//const API_KEY = "";
 const API_URL = "api.openweathermap.org";
 $("#get-weather-data-button").click (e => getStatus(e));
 
@@ -70,12 +72,17 @@ $("#get-weather-data-button").click (e => getStatus(e));
 
 async function getStatus(e) {
     //const queryString = `https://${API_URL}/data/2.5/weather?q=London&appid=${API_KEY}`;
-    const queryString = `https://${API_URL}/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`;
+
+    const queryString = `https://${API_URL}/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=a4e017407a1ea716fa42316b9fe012b5`;
     const response = await fetch(queryString);
     const data = await response.json();
     if (response.ok) {
         console.log(data);
+        console.log(data.weather[0].main);
+        console.log(data.weather[0].description);
+        console.log(data.sys.sunrise);
     }
+    
 }
 
 
