@@ -753,6 +753,11 @@ ___
 
 - Django-allauth: https://django-allauth.readthedocs.io/en/latest/, installed on December 23rd, 2021, at 11:32.
 
+- Django Documentation:
+
+    - To define a second database: https://docs.djangoproject.com/en/4.0/topics/db/multi-db/; accessed on December 28th, 2021, 20:10.
+
+
 - ESRI:
     - Code for maps and picking of latitude and longitude, by LloydBronn, (01-05-2017 10:00 AM): https://community.esri.com/t5/arcgis-api-for-javascript-questions/mouse-click-to-get-map-point-or-x-y/m-p/516073#M48139; copied and modified on December 8th, 2021, 04:00.
 

@@ -109,7 +109,8 @@ WSGI_APPLICATION = 'django_pp4_ci_wqcs.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL')),
+    'weather': dj_database_url.parse(os.environ.get('DATABASE_URL_WEATHER'))
 }
 
 # Password validation
