@@ -755,6 +755,8 @@ ___
 
 - Django Documentation:
 
+    - To add a second database: https://docs.djangoproject.com/en/4.0/intro/tutorial02/; accessed on December 28th, 2021, 19:30.
+
     - To define a second database: https://docs.djangoproject.com/en/4.0/topics/db/multi-db/; accessed on December 28th, 2021, 20:10.
 
 
