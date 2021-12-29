@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import WindData
 
 # Create your views here.
 
@@ -7,7 +8,11 @@ from django.shortcuts import render
 
     
 def get_weather_page(request):
-    return render(request, "weather.html")
+    wind_speed_data = WindData.objects.all()
+    context = {
+        'wind_speed': wind_speed_data
+    }
+    return render(request, "weather.html", context)
 
 
 #def get_contact_page(request):

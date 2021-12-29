@@ -65,7 +65,14 @@
     <div class="container">
         <div class="row">
             <div id="weather-extra-info" class="col-12">
-                <p>sdfasdfsdaf</p>
+                <table>
+                    {% for speed in wind_speed %}
+                        <tr>
+                            <td>{{ speed.wind_speed }}</td>
+                            <td>{{ speed.wind_direction }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
             </div>
         </div>
     </div>
