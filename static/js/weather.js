@@ -3,6 +3,13 @@ var latitude = 50;
 var longitude = 70;
 
 
+//var pg = require(["pg"]);
+//var connectionString = "postgres://userName:password@serverName/ip:5432/d4i9o0uj43bnqveeeee";
+//var pgClient = require(["pg"]).Client;
+//const db = pg(connectionString);
+
+
+
 // ------------------------------------------------------------------
 // Code for maps and picking of latitude and longitude, by LloydBronn, (01-05-2017 10:00 AM):
 // https://community.esri.com/t5/arcgis-api-for-javascript-questions/mouse-click-to-get-map-point-or-x-y/m-p/516073#M48139;
