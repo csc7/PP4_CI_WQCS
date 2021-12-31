@@ -108,3 +108,22 @@ async function getStatus(e) {
 //function displayData(data) {
 //document.getElementById("content").innerText = data;
 //}
+
+
+//$(document).ready(function () {
+//    $(document).on("click",'.car_add', function() {
+//        $car_id = $(this).attr('id')
+//        $.ajax({
+//            type: "POST",
+//            // This is the dictionary you are SENDING to your Django code. 
+//            // We are sending the 'action':add_car and the 'id: $car_id  
+//            // which is a variable that contains what car the user selected
+//            data: { action: "add_car", id: $car_id },
+//            success: function(data){
+//                // This will execute when where Django code returns a dictionary 
+//                // called 'data' back to us.
+//                $("#car").html("<strong>"+data.car+"</strong>");                
+//            }
+//        });
+//    });
+//});

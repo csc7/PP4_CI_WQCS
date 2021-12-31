@@ -9,12 +9,14 @@
             </div>       
             
             <div id="weather-data" class="col-12 col-sm-12 col-md-12 col-lg-6">
+
+                
                 <div class="row">
                     <div id="weather-data-title" class="col-12"><p>Coordinates for Weather Data</p></div>
                     <div id="latitute-title" class="col-12 col-sm-6 col-md-3"><p>Latitude</p></div>
-                    <div id="latitude" class="col-12 col-sm-6 col-md-3"><p>90</div>
+                    <div id="latitude" class="col-12 col-sm-6 col-md-3">90</div>
                     <div id="longitude-title" class="col-12 col-sm-6 col-md-3"><p>Longitude</p></div>
-                    <div id="longitude" class="col-12 col-sm-6 col-md-3"><p>110</p></div>
+                    <div id="longitude" class="col-12 col-sm-6 col-md-3">110</div>
                     <div id="enter-manually-title" class="col-12"><p>Manual Input of Coordinates</p></div>
                     <div id="manual-latitute-label" class="col-12 col-sm-6 col-md-3">
                         <label for="latitude-input" id="label-for-latitude">Latitude</label>
@@ -33,8 +35,9 @@
                     </div>
                     <div id="results-title" class="col-12"><p>Weather Data</p></div>
                     <!-- Weather Data -->
+                    
                     <div id="wind" class="col-12 col-sm-6 col-md-3"><p>Wind Speed</p></div>                                       
-                    <div id="wind-label" class="col-12 col-sm-6 col-md-3"><p>(wind speed)</p></div>
+                    <div id="car" class="col-12 col-sm-6 col-md-3"><p>(wind speed)</p></div>
                     <div id="b" class="col-12 col-sm-6 col-md-3"><p>Direction</p></div>
                     <div id="c" class="col-12 col-sm-6 col-md-3"><p>(direction)</div>
                     <div id="d" class="col-12 col-sm-6 col-md-3"><p>Temperature</p></div>
@@ -57,16 +60,21 @@
                     <div id="o" class="col-12 col-sm-6 col-md-3"><p>data.sys.sunrise</p></div>
                     <div id="p" class="col-12 col-sm-6 col-md-3"><p>Sunset</p></div>
                     <div id="q" class="col-12 col-sm-6 col-md-3"><p>data.sys.sunset</p></div>
-                    <div id="send-weather-data" class="col-12">
-                        <button id="send-weather-data-button" type="submit">Send Data</button>
+                    <div id="send-weather-data" class="col-12">   
+                    {% if user.is_authenticated %}   
+                    <button id="send-weather-data-button" type="submit">Send Data</button>
+                    {% else %}
+                    <p>(Log in to send data to database)</p>
+                    {% endif %}
                     </div>
+                    
                     <!-- /.Weather Data -->
                 </div>
             </div>       
         </section>
     </div>
     <div class="container">
-        <div class="row">
+        <div id="example_example" class="row"><p>{{ wind_data_example }}</p>
             <div id="weather-extra-info" class="col-12">
                 <table>
                     {% for speed in wind_speed %}
