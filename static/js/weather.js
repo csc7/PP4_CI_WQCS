@@ -127,3 +127,29 @@ async function getStatus(e) {
 //        });
 //    });
 //});
+
+
+$("#send-weather-data-button").click (e => sendWeatherData(e));
+
+async function sendWeatherData(e) {
+    wind_value = $('#latitude').text();
+    console.log(wind_value);
+
+    $.ajax({
+        type: 'POST',
+        
+        url: '/weather/',
+        dataType: 'json',
+        data: {'wind_speed_data': wind_value},
+
+        success: function (context) {
+            console.log(data);
+            alert(context);
+        }
+    });
+    
+}
+
+
+
+

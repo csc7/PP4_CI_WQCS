@@ -37,7 +37,7 @@
                     <!-- Weather Data -->
                     
                     <div id="wind" class="col-12 col-sm-6 col-md-3"><p>Wind Speed</p></div>                                       
-                    <div id="car" class="col-12 col-sm-6 col-md-3"><p>(wind speed)</p></div>
+                    <div id="wind-value" class="col-12 col-sm-6 col-md-3"><p>(wind speed)</p></div>
                     <div id="b" class="col-12 col-sm-6 col-md-3"><p>Direction</p></div>
                     <div id="c" class="col-12 col-sm-6 col-md-3"><p>(direction)</div>
                     <div id="d" class="col-12 col-sm-6 col-md-3"><p>Temperature</p></div>
@@ -74,7 +74,7 @@
         </section>
     </div>
     <div class="container">
-        <div id="example_example" class="row"><p>{{ wind_data_example }}</p>
+        <div id="example_example" class="row"><p>{{ wind_speed_data }}</p>
             <div id="weather-extra-info" class="col-12">
                 <table>
                     {% for speed in wind_speed %}
