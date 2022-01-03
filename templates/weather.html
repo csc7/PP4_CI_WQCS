@@ -36,30 +36,38 @@
                     <div id="results-title" class="col-12"><p>Weather Data</p></div>
                     <!-- Weather Data -->
                     
-                    <div id="wind" class="col-12 col-sm-6 col-md-3"><p>Wind Speed</p></div>                                       
-                    <div id="wind-value" class="col-12 col-sm-6 col-md-3"><p>(wind speed)</p></div>
-                    <div id="b" class="col-12 col-sm-6 col-md-3"><p>Direction</p></div>
-                    <div id="c" class="col-12 col-sm-6 col-md-3"><p>(direction)</div>
-                    <div id="d" class="col-12 col-sm-6 col-md-3"><p>Temperature</p></div>
-                    <div id="e" class="col-12 col-sm-6 col-md-3"><p>(temperature)</p></div>
-                    <div id="f" class="col-12 col-sm-6 col-md-3"><p>Feels Like</p></div>
-                    <div id="g" class="col-12 col-sm-6 col-md-3"><p>(feels like)</p></div>
-                    <div id="h" class="col-12 col-sm-6 col-md-3"><p>Pressure</p></div>
-                    <div id="i" class="col-12 col-sm-6 col-md-3"><p>(pressure)</p></div>
-                    <div id="j" class="col-12 col-sm-6 col-md-3"><p>Humidity</p></div>
-                    <div id="k" class="col-12 col-sm-6 col-md-3"><p>(humidity)</p></div>
-                    <div id="l" class="col-12 col-sm-6 col-md-3"><p>Visibitily</p></div>
-                    <div id="ll" class="col-12 col-sm-6 col-md-3"><p>(visibility)</p></div>
-                    <div id="m" class="col-12 col-sm-6 col-md-3"><p>Sky</p></div>
-                    <div id="n" class="col-12 col-sm-6 col-md-3"><p>(clouds)</p></div>
-                    <div id="ñh" class="col-12 col-sm-6 col-md-3"><p>Main</p></div>
-                    <div id="o" class="col-12 col-sm-6 col-md-3"><p>(data.weather[0].main)</p></div>
-                    <div id="p" class="col-12 col-sm-6 col-md-3"><p>data p</p></div>
-                    <div id="q" class="col-12 col-sm-6 col-md-3"><p>(data.weather[0].description)</p></div>
-                    <div id="ñh" class="col-12 col-sm-6 col-md-3"><p>Sunrise</p></div>
-                    <div id="o" class="col-12 col-sm-6 col-md-3"><p>data.sys.sunrise</p></div>
-                    <div id="p" class="col-12 col-sm-6 col-md-3"><p>Sunset</p></div>
-                    <div id="q" class="col-12 col-sm-6 col-md-3"><p>data.sys.sunset</p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Wind Speed</p></div>                                       
+                    <div id="value-wind" class="col-12 col-sm-6 col-md-3"><p>(wind speed)</p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Direction</p></div>
+                    <div id="value-wind-direction" class="col-12 col-sm-6 col-md-3"><p>(direction)</div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Temperature</p></div>
+                    <div id="value-temperature" class="col-12 col-sm-6 col-md-3"><p>(temperature)</p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Feels Like</p></div>
+                    <div id="value-feels-like" class="col-12 col-sm-6 col-md-3"><p>(feels like)</p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Temperature Max</p></div>
+                    <div id="value-temperature-max" class="col-12 col-sm-6 col-md-3"><p>(temperature max)</p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Temperature Min</p></div>
+                    <div id="value-temperature-min" class="col-12 col-sm-6 col-md-3"><p>(temperature min)</p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Pressure</p></div>
+                    <div id="value-pressure" class="col-12 col-sm-6 col-md-3"><p>(pressure)</p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Humidity</p></div>
+                    <div id="value-humidity" class="col-12 col-sm-6 col-md-3"><p>(humidity)</p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Visibitily</p></div>
+                    <div id="value-visibility" class="col-12 col-sm-6 col-md-3"><p>(visibility)</p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Sky</p></div>
+                    <div id="value-clouds" class="col-12 col-sm-6 col-md-3"><p>(clouds)</p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Main</p></div>
+                    <div id="value-main" class="col-12 col-sm-6 col-md-3"><p>(Main)</p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Description</p></div>
+                    <div id="value-description" class="col-12 col-sm-6 col-md-3"><p>(Description)</p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Country</p></div>
+                    <div id="value-country" class="col-12 col-sm-6 col-md-3"><p>(country)</p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>date</p></div>
+                    <div id="value-date" class="col-12 col-sm-6 col-md-3"><p>(date)</p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Sunrise</p></div>
+                    <div id="value-sunrise" class="col-12 col-sm-6 col-md-3"><p>(sunrise)</p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Sunset</p></div>
+                    <div id="value-sunset" class="col-12 col-sm-6 col-md-3"><p>(Sunset)</p></div>
                     <div id="send-weather-data" class="col-12">   
                     {% if user.is_authenticated %}   
                     <button id="send-weather-data-button" type="submit">Send Data</button>

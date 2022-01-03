@@ -1,3 +1,7 @@
+//const { getDefaultSettings } = require("http2");
+
+//const { getDefaultSettings } = require("http2");
+
 // Initial coordinate values
 var latitude = 50;
 var longitude = 70;
@@ -83,11 +87,29 @@ async function getStatus(e) {
     const queryString = `https://${API_URL}/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=a4e017407a1ea716fa42316b9fe012b5`;
     const response = await fetch(queryString);
     const data = await response.json();
+    
     if (response.ok) {
+        $("#value-wind").text(data.wind.speed);
+        $("#value-wind-direction").text(data.wind.deg);
+        $("#value-temperature").text(data.main.temp);
+        $("#value-feels-like").text(data.main.feels_like);
+        $("#value-temperature-max").text(data.main.temp_max);
+        $("#value-temperature-min").text(data.main.temp_min);
+        $("#value-pressure").text(data.main.pressure);
+        $("#value-humidity").text(data.main.humidity);
+        $("#value-visibility").text(data.sys.visibility);
+        $("#value-clouds").text(data.clouds.all);
+        $("#value-main").text(data.weather[0].main);
+        $("#value-description").text(data.weather[0].description);
+        $("#value-country").text(data.sys.country);
+        const date_now = new Date();
+        $("#value-date").text(date_now.getFullYear() + "-" + date_now.getMonth()+1 + "-" + 0+date_now.getDate());
+        let sunrise = getUnixUTCTime(data.sys.sunrise);
+        $("#value-sunrise").text(sunrise);
+        let sunset = getUnixUTCTime(data.sys.sunset);
+        $("#value-sunset").text(sunset);
         console.log(data);
-        console.log(data.weather[0].main);
-        console.log(data.weather[0].description);
-        console.log(data.sys.sunrise);
+
     }
     
 }
@@ -148,6 +170,23 @@ async function sendWeatherData(e) {
         }
     });
     
+}
+
+//Credit for getUnixUTCTime(): https://stackoverflow.com/questions/847185/convert-a-unix-timestamp-to-time-in-javascript,
+//copied and modified on January 3rd, 2022, at 13;00
+function getUnixUTCTime(unix_timestamp) {
+    // Create a new JavaScript Date object based on the timestamp
+    // multiplied by 1000 so that the argument is in milliseconds, not seconds.
+    var date = new Date(unix_timestamp * 1000);
+    // Hours part from the timestamp
+    var hours = date.getHours();
+    // Minutes part from the timestamp
+    var minutes = "0" + date.getMinutes();
+    // Seconds part from the timestamp
+    var seconds = "0" + date.getSeconds();
+    // Will display time in 10:30:23 format
+    var formattedTime = hours + ':' + minutes.slice(1, 3)+ ':' + seconds.slice(1, 3);
+    return(formattedTime);
 }
 
 

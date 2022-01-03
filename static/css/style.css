@@ -205,7 +205,7 @@ a.nav-link {
 }
 
 #viewDiv {
-    height: 350px;
+    /* height: 350px; */
     background-color: aqua;
     /*background-color: blueviolet;   */
     /*position: relative;*/
@@ -267,7 +267,7 @@ a.nav-link {
     background-color: rgb(231, 243, 188);
 }
 
-get-weather-data {
+#get-weather-data {
     background-color: rgb(188, 219, 219);
 }
 
@@ -282,11 +282,13 @@ get-weather-data {
     background-color: rgb(223, 231, 175);
 }
 
-
+.weather-data-label {
+    color: aliceblue;
+}
 
 #weather-extra-info {
     background-color: rgb(158, 173, 216);
-    height: 250px;
+    /*height: 250px;*/
 }
 
 /* ********* */
