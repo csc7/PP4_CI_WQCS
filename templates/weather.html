@@ -87,6 +87,7 @@
                 <table>
                     {% for speed in wind_speed %}
                         <tr>
+                            <td>{{ speed.date }}</td>
                             <td>{{ speed.wind_speed }}</td>
                             <td>{{ speed.wind_direction }}</td>
                         </tr>

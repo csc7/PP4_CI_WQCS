@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import WindData
 
 import json
+import re
 #from django.contrib.staticfiles.storage import staticfiles_storage
 #file_handle = staticfiles_storage.open('js/weather.js')
 # contents = file_handle.read()
@@ -19,25 +20,44 @@ from django.views.decorators.csrf import csrf_exempt
 @csrf_exempt
 def get_weather_page(request):
     
+    #requested_html = re.search(r'^text/html', request.META.get('HTTP_ACCEPT'))
+    #if not requested_html:
+        # ajax request it is
+
     #wind_speed_data = WindData.objects.all()
     #a = request.GET.get('data')
     #a = json.loads(request.POST.get('wd', ''))
-    wind_speed_data = json.dumps(request.POST.get('wind_speed_data'))
-    print(wind_speed_data)
-    wind_speed_data = "2.2" # at the begining wind_speed_data is null!
-    a=float(wind_speed_data)    
-
-
-    record = WindData(date='2000-01-01 12:00', wind_speed=a, wind_direction=a)
-    record.save()
+    #wind_speed_data = "0" # at the begining wind_speed_data is null!   
     
     
-    context = {
-        
-        'wind_speed_data': wind_speed_data,
+    wind_speed_data = json.dumps(request.POST.get('value_wind'))[1:-1]
+
+    #wind_speed_data = "0" # at the begining wind_speed_data is null!
+    a=str(wind_speed_data)
+    print((a))
+
+    record = WindData(date="2022-01-01 12:00", wind_speed=a, wind_direction=a)
+    record.save()    
+    
+    context = {        
+        ####'wind_speed_data': wind_speed_data,
         'wind_speed': WindData.objects.all()
     }
     return render(request, "weather.html", context)
+
+#@csrf_exempt
+#def send_weather_data(request):
+#    if request.is_ajax():
+#        wind_speed_data = (request.POST.get('value_wind'))
+#        a=float(wind_speed_data)    
+#        print(wind_speed_data)
+#        record = WindData(date='2000-01-01 12:00', wind_speed=a, wind_direction=a)
+#        record.save()
+#        context = {
+#            'wind_speed': WindData.objects.all()
+#        }
+#        #return render(request, "weather.html", context)
+
 
 
 

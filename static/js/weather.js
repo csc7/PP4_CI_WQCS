@@ -154,7 +154,7 @@ async function getStatus(e) {
 $("#send-weather-data-button").click (e => sendWeatherData(e));
 
 async function sendWeatherData(e) {
-    wind_value = $('#latitude').text();
+    wind_value = $('#value-wind').text();
     console.log(wind_value);
 
     $.ajax({
@@ -162,9 +162,9 @@ async function sendWeatherData(e) {
         
         url: '/weather/',
         dataType: 'json',
-        data: {'wind_speed_data': wind_value},
-
-        success: function (context) {
+        data: {'value_wind': wind_value},
+        
+        success: function (data) {
             console.log(data);
             alert(context);
         }
