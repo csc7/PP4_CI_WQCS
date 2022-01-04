@@ -97,18 +97,22 @@ async function getStatus(e) {
         $("#value-temperature-min").text(data.main.temp_min);
         $("#value-pressure").text(data.main.pressure);
         $("#value-humidity").text(data.main.humidity);
-        $("#value-visibility").text(data.sys.visibility);
+        $("#value-visibility").text(data.visibility);
         $("#value-clouds").text(data.clouds.all);
         $("#value-main").text(data.weather[0].main);
         $("#value-description").text(data.weather[0].description);
         $("#value-country").text(data.sys.country);
         const date_now = new Date();
-        $("#value-date").text(date_now.getFullYear() + "-" + date_now.getMonth()+1 + "-" + 0+date_now.getDate());
-        let sunrise = getUnixUTCTime(data.sys.sunrise);
+        let current_date = date_now.getFullYear() + "-" + date_now.getMonth()+1 + "-" + 0+date_now.getDate();
+        let current_time = date_now.getHours() + ":" + date_now.getMinutes() + ":" + date_now.getSeconds();
+        $("#value-date").text(current_date);
+        let sunrise = getUnixUTCTime(data.sys.sunrise + data.timezone);
         $("#value-sunrise").text(sunrise);
-        let sunset = getUnixUTCTime(data.sys.sunset);
+        let sunset = getUnixUTCTime(data.sys.sunset + data.timezone);
         $("#value-sunset").text(sunset);
         console.log(data);
+        console.log(data.timezone);
+        console.log(current_time);
 
     }
     
@@ -154,19 +158,23 @@ async function getStatus(e) {
 $("#send-weather-data-button").click (e => sendWeatherData(e));
 
 async function sendWeatherData(e) {
+    current_date = $('#value-date').text();
     wind_value = $('#value-wind').text();
+    value_wind_dir = $('#value-wind-direction').text();
     console.log(wind_value);
 
     $.ajax({
-        type: 'POST',
-        
+        type: 'POST',        
         url: '/weather/',
         //dataType: 'json',
-        data: {'value_wind': wind_value},
-        
+        data: {
+            'value_date': current_date,
+            'value_wind': wind_value, 
+            'value_wind_dir': value_wind_dir},
         success: function (data) {
-            console.log(data);
-            alert(data);
+            alert("Database updated");
+            // https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
+            $("#weather-extra-info").load(location.href+" #weather-extra-info>*","");
         }
     });
     
@@ -181,11 +189,11 @@ function getUnixUTCTime(unix_timestamp) {
     // Hours part from the timestamp
     var hours = date.getHours();
     // Minutes part from the timestamp
-    var minutes = "0" + date.getMinutes();
+    var minutes = date.getMinutes();
     // Seconds part from the timestamp
-    var seconds = "0" + date.getSeconds();
+    var seconds = date.getSeconds();
     // Will display time in 10:30:23 format
-    var formattedTime = hours + ':' + minutes.slice(1, 3)+ ':' + seconds.slice(1, 3);
+    var formattedTime = hours + ':' + minutes + ':' + seconds;
     return(formattedTime);
 }
 

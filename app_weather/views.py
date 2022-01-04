@@ -28,14 +28,16 @@ def get_weather_page(request):
         #a = json.loads(request.POST.get('wd', ''))
         #wind_speed_data = "0" # at the begining wind_speed_data is null!   
         
-        wind_speed_data = json.dumps(request.POST.get('value_wind'))[1:-1]
+        value_date = json.dumps(request.POST.get('value_date'))[1:-1]
+        wind_speed_data = float(json.dumps(request.POST.get('value_wind'))[1:-1])
+        wind_direction_data = float(json.dumps(request.POST.get('value_wind_dir'))[1:-1])
 
         #wind_speed_data = "0" # at the begining wind_speed_data is null!
-        a=str(wind_speed_data)
+        a=float(wind_speed_data)
         print(float(a)+10)
         print("It's AJAX")
 
-        record = WindData(date="2022-01-01 12:00", wind_speed=a, wind_direction=a)
+        record = WindData(date=value_date, wind_speed = wind_speed_data, wind_direction=wind_direction_data)
         record.save()    
     
         #context = {        

@@ -4,9 +4,9 @@ from django.db import models
 
 
 class WindData(models.Model):
-    date = models.CharField(max_length=200)
-    wind_speed = models.CharField(max_length=200)
-    wind_direction = models.CharField(max_length=200)
+    date = models.DateField(max_length=200)
+    wind_speed = models.FloatField(max_length=200)
+    wind_direction = models.FloatField(max_length=200)
 
 
 class TemperatureData(models.Model):
