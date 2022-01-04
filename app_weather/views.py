@@ -32,17 +32,17 @@ def get_weather_page(request):
 
         #wind_speed_data = "0" # at the begining wind_speed_data is null!
         a=str(wind_speed_data)
-        print((a))
+        print(float(a)+10)
         print("It's AJAX")
 
         record = WindData(date="2022-01-01 12:00", wind_speed=a, wind_direction=a)
         record.save()    
     
-        context = {        
-            ####'wind_speed_data': wind_speed_data,
-            'wind_speed': WindData.objects.all()
-            }
-        return render(request, "weather.html", context)
+        #context = {        
+        #    ####'wind_speed_data': wind_speed_data,
+        #    'wind_speed': WindData.objects.all()
+        #    }
+        #return render(request, "weather.html", context)
     
     context = {        
             ####'wind_speed_data': wind_speed_data,

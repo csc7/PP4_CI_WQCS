@@ -161,12 +161,12 @@ async function sendWeatherData(e) {
         type: 'POST',
         
         url: '/weather/',
-        dataType: 'json',
+        //dataType: 'json',
         data: {'value_wind': wind_value},
         
         success: function (data) {
             console.log(data);
-            alert(context);
+            alert(data);
         }
     });
     
