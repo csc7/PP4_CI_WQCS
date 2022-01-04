@@ -19,30 +19,35 @@ from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt
 def get_weather_page(request):
-    
-    #requested_html = re.search(r'^text/html', request.META.get('HTTP_ACCEPT'))
-    #if not requested_html:
-        # ajax request it is
+    # Check if request is AJAX, accessed on January 4th, 2022, at 2058, in
+    # https://stackoverflow.com/questions/8508602/check-if-request-is-ajax-in-python
+    requested_html = re.search(r'^text/html', request.META.get('HTTP_ACCEPT'))
+    if not requested_html:
+        #wind_speed_data = WindData.objects.all()
+        #a = request.GET.get('data')
+        #a = json.loads(request.POST.get('wd', ''))
+        #wind_speed_data = "0" # at the begining wind_speed_data is null!   
+        
+        wind_speed_data = json.dumps(request.POST.get('value_wind'))[1:-1]
 
-    #wind_speed_data = WindData.objects.all()
-    #a = request.GET.get('data')
-    #a = json.loads(request.POST.get('wd', ''))
-    #wind_speed_data = "0" # at the begining wind_speed_data is null!   
-    
-    
-    wind_speed_data = json.dumps(request.POST.get('value_wind'))[1:-1]
+        #wind_speed_data = "0" # at the begining wind_speed_data is null!
+        a=str(wind_speed_data)
+        print((a))
+        print("It's AJAX")
 
-    #wind_speed_data = "0" # at the begining wind_speed_data is null!
-    a=str(wind_speed_data)
-    print((a))
-
-    record = WindData(date="2022-01-01 12:00", wind_speed=a, wind_direction=a)
-    record.save()    
+        record = WindData(date="2022-01-01 12:00", wind_speed=a, wind_direction=a)
+        record.save()    
+    
+        context = {        
+            ####'wind_speed_data': wind_speed_data,
+            'wind_speed': WindData.objects.all()
+            }
+        return render(request, "weather.html", context)
     
     context = {        
-        ####'wind_speed_data': wind_speed_data,
-        'wind_speed': WindData.objects.all()
-    }
+            ####'wind_speed_data': wind_speed_data,
+            'wind_speed': WindData.objects.all()
+        }
     return render(request, "weather.html", context)
 
 #@csrf_exempt

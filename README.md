@@ -821,6 +821,9 @@ ___
     - To read date in Unix UTC format:
     https://stackoverflow.com/questions/847185/convert-a-unix-timestamp-to-time-in-javascript, accessed on January 3rd, 2022, at 13;00.
 
+    - To check if request is AJAX:
+    Check if request is AJAX, accessed on January 4th, 2022, at 2058, in https://stackoverflow.com/questions/8508602/check-if-request-is-ajax-in-python .
+
 - W3C®. Copyright © 2021 W3C ® (MIT, ERCIM, Keio, Beihang):
     - How to introduce author in anchor element: https://www.w3.org/TR/2011/WD-html5-author-20110809/the-link-element.html, accessed on August 4th, 2021, at 00:06.
 
