@@ -286,10 +286,22 @@ a.nav-link {
     color: aliceblue;
 }
 
-#weather-extra-info {
+#wind-extra-info {
     background-color: rgb(158, 173, 216);
     /*height: 250px;*/
 }
+
+#temperature-extra-info {
+    background-color: rgb(64, 95, 180);
+    /*height: 250px;*/
+}
+
+#other-weather-extra-info {
+    background-color: rgb(7, 40, 129);
+    /*height: 250px;*/
+}
+
+
 
 /* ********* */
 /* BLOG PAGE */

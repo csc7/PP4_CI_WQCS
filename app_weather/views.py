@@ -1,18 +1,14 @@
 from django.shortcuts import render
 from .models import WindData
-
 import json
 import re
+
 #from django.contrib.staticfiles.storage import staticfiles_storage
 #file_handle = staticfiles_storage.open('js/weather.js')
 # contents = file_handle.read()
 
 
 # Create your views here.
-
-#def get_instructions_page(request):
-#    return render(request, "index.html")
-
 
 
 from django.views.decorators.csrf import csrf_exempt
@@ -23,12 +19,10 @@ def get_weather_page(request):
     # https://stackoverflow.com/questions/8508602/check-if-request-is-ajax-in-python
     requested_html = re.search(r'^text/html', request.META.get('HTTP_ACCEPT'))
     if not requested_html:
-        #wind_speed_data = WindData.objects.all()
-        #a = request.GET.get('data')
-        #a = json.loads(request.POST.get('wd', ''))
-        #wind_speed_data = "0" # at the begining wind_speed_data is null!   
         
+        # Indexes from 1 to -1 to delete quotation marks
         value_date = json.dumps(request.POST.get('value_date'))[1:-1]
+        value_time = json.dumps(request.POST.get('value_time'))[1:-1]
         wind_speed_data = float(json.dumps(request.POST.get('value_wind'))[1:-1])
         wind_direction_data = float(json.dumps(request.POST.get('value_wind_dir'))[1:-1])
 
@@ -37,14 +31,8 @@ def get_weather_page(request):
         print(float(a)+10)
         print("It's AJAX")
 
-        record = WindData(date=value_date, wind_speed = wind_speed_data, wind_direction=wind_direction_data)
+        record = WindData(date=value_date, time=value_time, wind_speed = wind_speed_data, wind_direction=wind_direction_data)
         record.save()    
-    
-        #context = {        
-        #    ####'wind_speed_data': wind_speed_data,
-        #    'wind_speed': WindData.objects.all()
-        #    }
-        #return render(request, "weather.html", context)
     
     context = {        
             ####'wind_speed_data': wind_speed_data,

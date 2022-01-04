@@ -82,12 +82,37 @@
         </section>
     </div>
     <div class="container">
-        <div id="weather_extra_div" class="row"><p>{{ wind_speed_data }}</p>
-            <div id="weather-extra-info" class="col-12">
+        <div id="weather_extra_info" class="row"><p>{{ wind_speed_data }}</p>
+            <div id="wind-extra-info" class="col-12 col-lg-4">
                 <table>
                     {% for speed in wind_speed %}
                         <tr>
                             <td>{{ speed.date }}</td>
+                            <td>{{ speed.time }}</td>
+                            <td>{{ speed.wind_speed }}</td>
+                            <td>{{ speed.wind_direction }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div id="temperature-extra-info" class="col-12 col-lg-4">
+                <table>
+                    {% for speed in wind_speed %}
+                        <tr>
+                            <td>{{ speed.date }}</td>
+                            <td>{{ speed.time }}</td>
+                            <td>{{ speed.wind_speed }}</td>
+                            <td>{{ speed.wind_direction }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div id="other-weather-extra-info" class="col-12 col-lg-4">
+                <table>
+                    {% for speed in wind_speed %}
+                        <tr>
+                            <td>{{ speed.date }}</td>
+                            <td>{{ speed.time }}</td>
                             <td>{{ speed.wind_speed }}</td>
                             <td>{{ speed.wind_direction }}</td>
                         </tr>
