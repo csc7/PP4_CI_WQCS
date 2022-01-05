@@ -241,12 +241,27 @@ function getUnixUTCTime(unix_timestamp) {
 // Line Charts
 // Copied and modified from https://developers.google.com/chart/interactive/docs/gallery/linechart on January 5th, 2022, at 20:40. 
 
-
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
   var data = google.visualization.arrayToDataTable([
+    ['Year', 'Sales', 'Expenses'],
+    ['2004',  1000,      400],
+    ['2005',  1170,      460],
+    ['2006',  660,       1120],
+    ['2007',  1030,      540]
+  ]);
+
+  var data2 = google.visualization.arrayToDataTable([
+    ['Year', 'Sales', 'Expenses'],
+    ['2004',  1000,      400],
+    ['2005',  1170,      460],
+    ['2006',  660,       1120],
+    ['2007',  1030,      540]
+  ]);
+
+  var data3 = google.visualization.arrayToDataTable([
     ['Year', 'Sales', 'Expenses'],
     ['2004',  1000,      400],
     ['2005',  1170,      460],
@@ -275,8 +290,8 @@ function drawChart() {
   var chart3 = new google.visualization.LineChart(document.getElementById('curve_chart_right'));
 
   chart.draw(data, options);
-  chart2.draw(data, options2);
-  chart3.draw(data, options3);
+  chart2.draw(data2, options2);
+  chart3.draw(data3, options3);
 }
 
 
