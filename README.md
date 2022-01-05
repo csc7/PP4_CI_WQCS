@@ -679,6 +679,7 @@ Bugs that required more time and specific solutions were the following ones:
 CSRF_TRUSTED_ORIGINS = ['https://8000-aqua-jay-tl4cc8xk.ws-eu23.gitpod.io'] | 
 | The pages of the website could not be loaded all together, only either instructions and blog pages together, or weather and contact pages together, never the four pages together  | The issue was solved by changing the order of elements in the urlpatterns variable in the app (app_blog) urls.py file from Blog/(Post Detail)/Instructions/Weather/Contact to Instructions/Weather/Contact/Blog/(Post Detail); solution found on https://stackoverflow.com/questions/36429144/page-not-found-404-no-post-matches-the-given-query, on December 23rd, 2021, at 03:20. |
 | It was not possible to convert data (sent to views.py with AJAX, with POST) to float, even after trying with JSON.stringify() | Solved by deleting "dataType: 'json'," line, as the method seems to pass strings, which can be easily converted to float (before, a "ul" element was being received). Reference: https://stackoverflow.com/questions/1969476/ajax-success-event-not-working; accessed on January 4th, 2022, at 21:10. |
+| Django models in app_weather could not be migrated as a result of wrongly deleting migrations file, causing a deleted column not registered/available in the files when reversing the migrations. | Issue solved with the help of Code Institute Tutor Assistance (Igor) by deleting the Postgres database, creating a new one, deleting all migrations files in all applications (except each __init__.py), making migrations, migrating and creating superuser again. |
 
 <br><br>
 ## [Back to Index](#index)
@@ -727,6 +728,8 @@ ___
         - blog.html file copied from Code Institute "I Think Therefore I Blog" project, index.html file, on December 20th, 2022 at 18:01.
         - urls.py in app folder (/app_blog), file copied from this project on December 20th, 2022 at 18:09.
         - post_detail.htm file, copied from this project on December 20th, 2022 at 18:58.
+
+    - Tutor Assistance: Django models in app_weather could not be migrated as a result of wrongly deleting migrations file; issue solved with the help of Code Institute Tutor Assistance (Igor) by deleting the Postgres database, creating a new one, deleting all migrations files in all applications (except each __init__.py), making migrations, migrating and creating superuser again.
 
 - Love Maths - Essentials Project, from Code Institute, as a guide, source of design, concepts and code for this project, especially for the Quiz page.
 

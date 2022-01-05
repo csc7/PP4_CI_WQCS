@@ -82,8 +82,9 @@ def get_weather_page(request):
     context = {        
             ####'wind_speed_data': wind_speed_data,
             'wind_data': WindData.objects.all(),
-            'temperature_data' : TemperatureData.objects.all(),
-            'other_weather_data' : OtherWeatherData.objects.all()
+            'temperature_data': TemperatureData.objects.all(),
+            #'other_weather_data': OtherWeatherData.objects.order_by('-id')[:2] #last two
+            'other_weather_data': OtherWeatherData.objects.values('pressure', 'sunrise', 'sunset')
         }
     return render(request, "weather.html", context)
 
