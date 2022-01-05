@@ -4,23 +4,33 @@ from django.db import models
 # Create your models here.
 
 
-class WindData(models.Model):
+class DataAndTimeForData(models.Model):
+    # Primary key (id field) automatically added my Django
     date = models.DateField(max_length=200)
     time = models.TimeField(default="00:00:00", max_length=200)
+
+
+class WindData(models.Model):
+    # Primary key (id field) automatically added my Django
+    wind_rec_id = models.ForeignKey(DataAndTimeForData, on_delete=models.CASCADE)
     wind_speed = models.FloatField(max_length=200)
     wind_direction = models.FloatField(max_length=200)
 
 
+
 class TemperatureData(models.Model):
-    date = models.ForeignKey(WindData, on_delete=models.CASCADE)
-    time = models.TimeField(default="00:00:00", max_length=200)
+    # Primary key (id field) automatically added my Django
+    temp_rec_id = models.ForeignKey(DataAndTimeForData, on_delete=models.CASCADE)
     temperature = models.FloatField(max_length=200)
     feels_like = models.FloatField(max_length=200)
+    temperature_max = models.FloatField(max_length=200)
+    temperature_min = models.FloatField(max_length=200)
+
 
 
 class OtherWeatherData(models.Model):
-    date = models.ForeignKey(WindData, on_delete=models.CASCADE)
-    time = models.TimeField(default="00:00:00", max_length=200)
+    # Primary key (id field) automatically added my Django
+    other_rec = models.ForeignKey(DataAndTimeForData, on_delete=models.CASCADE, default=352)
     pressure = models.FloatField(max_length=200)
     humidity = models.FloatField(max_length=200)
     visibility = models.FloatField(max_length=200)
@@ -29,4 +39,3 @@ class OtherWeatherData(models.Model):
     description = models.CharField(max_length=200)
     sunrise = models.CharField(max_length=200)
     sunset = models.CharField(max_length=200)
-

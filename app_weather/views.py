@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import WindData
+from .models import WindData, TemperatureData
 import json
 import re
 
@@ -21,22 +21,46 @@ def get_weather_page(request):
     if not requested_html:
         
         # Indexes from 1 to -1 to delete quotation marks
+        # Date and time
         value_date = json.dumps(request.POST.get('value_date'))[1:-1]
         value_time = json.dumps(request.POST.get('value_time'))[1:-1]
+        # Wind data
         wind_speed_data = float(json.dumps(request.POST.get('value_wind'))[1:-1])
         wind_direction_data = float(json.dumps(request.POST.get('value_wind_dir'))[1:-1])
+        # Temperature data
+        value_temperature = float(json.dumps(request.POST.get('value_temperature'))[1:-1])
+        value_feels_like = float(json.dumps(request.POST.get('value_feels_like'))[1:-1])
+        value_temperature_max = float(json.dumps(request.POST.get('value_temperature_max'))[1:-1])
+        value_temperature_min = float(json.dumps(request.POST.get('value_temperature_min'))[1:-1])
+
 
         #wind_speed_data = "0" # at the begining wind_speed_data is null!
         a=float(wind_speed_data)
         print(float(a)+10)
         print("It's AJAX")
+        
+        record = DataAndTimeForData(date = value_date, time=value_time)
+        record.save()
 
-        record = WindData(date=value_date, time=value_time, wind_speed = wind_speed_data, wind_direction=wind_direction_data)
-        record.save()    
+        record = WindData(wind_speed = wind_speed_data, wind_direction=wind_direction_data)
+        record.save()
+
+        
+        #wind_record_id = record.id
+        #print(wind_record_id)
+        #d = WindData.objects.get()
+        #print(d)
+        record2 = TemperatureData(record_id=wind_record_id,
+                                 temperature = value_temperature,
+                                 feels_like = value_feels_like,
+                                 temperature_max = value_temperature_max,
+                                 temperature_min = value_temperature_min)
+        record2.save()    
     
     context = {        
             ####'wind_speed_data': wind_speed_data,
-            'wind_speed': WindData.objects.all()
+            'wind_speed': WindData.objects.all(),
+            'temperature_data' : TemperatureData.objects.all()
         }
     return render(request, "weather.html", context)
 

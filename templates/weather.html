@@ -97,12 +97,11 @@
             </div>
             <div id="temperature-extra-info" class="col-12 col-lg-4">
                 <table>
-                    {% for speed in wind_speed %}
+                    {% for temp in temperature_data %}
                         <tr>
-                            <td>{{ speed.date }}</td>
-                            <td>{{ speed.time }}</td>
-                            <td>{{ speed.wind_speed }}</td>
-                            <td>{{ speed.wind_direction }}</td>
+                            <td>{{ temp.date }}</td>
+                            <td>{{ temp.temperature }}</td>
+                            <td>{{ temp.feels_like }}</td>
                         </tr>
                     {% endfor %}
                 </table>

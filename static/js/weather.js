@@ -161,6 +161,10 @@ async function sendWeatherData(e) {
     let current_time = date_now.getHours() + ":" + date_now.getMinutes() + ":" + date_now.getSeconds();
     wind_value = $('#value-wind').text();
     value_wind_dir = $('#value-wind-direction').text();
+    value_temperature = $('#value-temperature').text();
+    value_feels_like = $('#value-feels-like').text();
+    value_temperature_max = $('#value-temperature-max').text();
+    value_temperature_min = $('#value-temperature-min').text();
     console.log(wind_value);
 
     $.ajax({
@@ -168,14 +172,21 @@ async function sendWeatherData(e) {
         url: '/weather/',
         //dataType: 'json',
         data: {
+            // Date and time
             'value_date': current_date,
             'value_time': current_time,
+            // Wind data
             'value_wind': wind_value, 
-            'value_wind_dir': value_wind_dir},
+            'value_wind_dir': value_wind_dir,
+            // Temperature data
+            'value_temperature': value_temperature,
+            'value_feels_like': value_feels_like,
+            'value_temperature_max': value_temperature_max,
+            'value_temperature_min': value_temperature_min},
         success: function (data) {
-            alert("Database updated");
+            alert("Database updated, new data will appear below.");
             // https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
-            $("#weather-extra-info").load(location.href+" #weather-extra-info>*","");
+            $("#wind-extra-info").load(location.href+" #wind-extra-info>*","");
         }
     });
     
