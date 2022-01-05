@@ -212,7 +212,6 @@ async function sendWeatherData(e) {
             $("#wind-extra-info").load(location.href+" #wind-extra-info>*","");
             $("#temperature-extra-info").load(location.href+" #temperature-extra-info>*","");
             $("#other-weather-extra-info").load(location.href+" #other-weather-extra-info>*","");
-            
         }
     });
     
@@ -237,4 +236,74 @@ function getUnixUTCTime(unix_timestamp) {
 
 
 
+// GRAPH
+// Google Charts
+// Line Charts
+// Copied and modified from https://developers.google.com/chart/interactive/docs/gallery/linechart on January 5th, 2022, at 20:40. 
 
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+    ['Year', 'Sales', 'Expenses'],
+    ['2004',  1000,      400],
+    ['2005',  1170,      460],
+    ['2006',  660,       1120],
+    ['2007',  1030,      540]
+  ]);
+
+  var options = {
+    title: 'FIRST Performance',
+    curveType: 'function',
+    legend: { position: 'bottom' }
+  };
+  var options2 = {
+    title: 'SECOND Performance',
+    curveType: 'function',
+    legend: { position: 'bottom' }
+  };
+  var options3 = {
+    title: 'THIRD Performance',
+    curveType: 'function',
+    legend: { position: 'bottom' }
+  };
+
+  var chart = new google.visualization.LineChart(document.getElementById('curve_chart_left'));
+  var chart2 = new google.visualization.LineChart(document.getElementById('curve_chart_middle'));
+  var chart3 = new google.visualization.LineChart(document.getElementById('curve_chart_right'));
+
+  chart.draw(data, options);
+  chart2.draw(data, options2);
+  chart3.draw(data, options3);
+}
+
+
+//function generateGraph() {
+//    dataForGoogleChartFunction = computeGraphData();
+//    google.charts.load('current', {'packages':['corechart']});
+//    google.charts.setOnLoadCallback(drawChart);
+//    function drawChart() {
+//        var data = google.visualization.arrayToDataTable(dataForGoogleChartFunction);
+//        var options = {
+//          curveType: 'none',
+//          legend: { position: 'bottom' }
+//        };
+//        var chart = new google.visualization.LineChart(document.getElementById('chart-left'));
+//        chart.draw(data, options);
+//    }
+//}
+//
+//// Compute the data, for each wavelet type, that will be used to make the Google graph
+//function computeGraphData() {
+//    let xVector = []; 
+//    let yVector = [];
+//    let dataForGraph = [];
+//    dataForGraph.push(["Time", "Amplitude"]);
+//    xVector.push([1, 2, 3, 4]);
+//    yVector.push([10, 12, 10, 15]);
+//    console.log(xVector);
+//    return dataForGraph;
+//
+//}
