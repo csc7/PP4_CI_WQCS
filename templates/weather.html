@@ -85,12 +85,10 @@
         <div id="weather_extra_info" class="row"><p>{{ wind_speed_data }}</p>
             <div id="wind-extra-info" class="col-12 col-lg-4">
                 <table>
-                    {% for speed in wind_speed %}
+                    {% for item in wind_data %}
                         <tr>
-                            <td>{{ speed.date }}</td>
-                            <td>{{ speed.time }}</td>
-                            <td>{{ speed.wind_speed }}</td>
-                            <td>{{ speed.wind_direction }}</td>
+                            <td>{{ item.wind_speed }}</td>
+                            <td>{{ item.wind_direction }}</td>
                         </tr>
                     {% endfor %}
                 </table>
@@ -99,7 +97,6 @@
                 <table>
                     {% for temp in temperature_data %}
                         <tr>
-                            <td>{{ temp.date }}</td>
                             <td>{{ temp.temperature }}</td>
                             <td>{{ temp.feels_like }}</td>
                         </tr>
@@ -108,12 +105,10 @@
             </div>
             <div id="other-weather-extra-info" class="col-12 col-lg-4">
                 <table>
-                    {% for speed in wind_speed %}
+                    {% for other in other_weather_data %}
                         <tr>
-                            <td>{{ speed.date }}</td>
-                            <td>{{ speed.time }}</td>
-                            <td>{{ speed.wind_speed }}</td>
-                            <td>{{ speed.wind_direction }}</td>
+                            <td>{{ other.pressure }}</td>
+                            <td>{{ other.humidity }}</td>
                         </tr>
                     {% endfor %}
                 </table>

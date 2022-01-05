@@ -155,16 +155,29 @@ async function getStatus(e) {
 $("#send-weather-data-button").click (e => sendWeatherData(e));
 
 async function sendWeatherData(e) {
-    
+    // Date and time
     current_date = $('#value-date').text();
     const date_now = new Date();
     let current_time = date_now.getHours() + ":" + date_now.getMinutes() + ":" + date_now.getSeconds();
+    // Wind data
     wind_value = $('#value-wind').text();
     value_wind_dir = $('#value-wind-direction').text();
+    // Temperature data
     value_temperature = $('#value-temperature').text();
     value_feels_like = $('#value-feels-like').text();
     value_temperature_max = $('#value-temperature-max').text();
     value_temperature_min = $('#value-temperature-min').text();
+    // Other weather data
+    value_pressure = $("#value-pressure").text();
+    value_humidity = $("#value-humidity").text();
+    value_visibility = $("#value-visibility").text();
+    value_clouds = $("#value-clouds").text();
+    value_main = $("#value-main").text();
+    value_description = $("#value-description").text();
+    value_country = $("#value-country").text();
+    value_sunrise = $("#value-sunrise").text();
+    value_sunset = $("#value-sunset").text();
+
     console.log(wind_value);
 
     $.ajax({
@@ -182,11 +195,24 @@ async function sendWeatherData(e) {
             'value_temperature': value_temperature,
             'value_feels_like': value_feels_like,
             'value_temperature_max': value_temperature_max,
-            'value_temperature_min': value_temperature_min},
+            'value_temperature_min': value_temperature_min,
+            // Other weather data
+            'value_pressure' : value_pressure,
+            'value_humidity' : value_humidity,
+            'value_visibility' : value_visibility,
+            'value_clouds' : value_clouds,
+            'value_main' : value_main,
+            'value_description' : value_description,
+            'value_country' : value_country,
+            'value_sunrise' : value_sunrise,
+            'value_sunset' : value_sunset },
         success: function (data) {
             alert("Database updated, new data will appear below.");
             // https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
             $("#wind-extra-info").load(location.href+" #wind-extra-info>*","");
+            $("#temperature-extra-info").load(location.href+" #temperature-extra-info>*","");
+            $("#other-weather-extra-info").load(location.href+" #other-weather-extra-info>*","");
+            
         }
     });
     

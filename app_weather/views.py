@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import WindData, TemperatureData
+from .models import DataAndTimeForData, WindData, TemperatureData, OtherWeatherData
 import json
 import re
 
@@ -32,6 +32,17 @@ def get_weather_page(request):
         value_feels_like = float(json.dumps(request.POST.get('value_feels_like'))[1:-1])
         value_temperature_max = float(json.dumps(request.POST.get('value_temperature_max'))[1:-1])
         value_temperature_min = float(json.dumps(request.POST.get('value_temperature_min'))[1:-1])
+        # Other weather data
+
+        value_pressure = float(json.dumps(request.POST.get('value_pressure'))[1:-1])
+        value_humidity = float(json.dumps(request.POST.get('value_humidity'))[1:-1])
+        value_visibility = json.dumps(request.POST.get('value_visibility'))[1:-1]
+        value_clouds = float(json.dumps(request.POST.get('value_clouds'))[1:-1])
+        value_main = json.dumps(request.POST.get('value_main'))[1:-1]
+        value_description = json.dumps(request.POST.get('value_description'))[1:-1]
+        value_country = json.dumps(request.POST.get('value_country'))[1:-1]
+        value_sunrise = json.dumps(request.POST.get('value_sunrise'))[1:-1]
+        value_sunset = json.dumps(request.POST.get('value_sunset'))[1:-1]
 
 
         #wind_speed_data = "0" # at the begining wind_speed_data is null!
@@ -41,26 +52,38 @@ def get_weather_page(request):
         
         record = DataAndTimeForData(date = value_date, time=value_time)
         record.save()
-
-        record = WindData(wind_speed = wind_speed_data, wind_direction=wind_direction_data)
-        record.save()
-
+        pk = record.id
         
-        #wind_record_id = record.id
-        #print(wind_record_id)
+        record = WindData(wind_rec_id_id = pk,
+                          wind_speed = wind_speed_data,
+                          wind_direction=wind_direction_data)
+        record.save()
+        
         #d = WindData.objects.get()
         #print(d)
-        record2 = TemperatureData(record_id=wind_record_id,
+        record = TemperatureData(temp_rec_id_id = pk,
                                  temperature = value_temperature,
                                  feels_like = value_feels_like,
                                  temperature_max = value_temperature_max,
                                  temperature_min = value_temperature_min)
-        record2.save()    
+        record.save()
+
+        record = OtherWeatherData(other_rec_id = pk,
+                                  pressure = value_pressure,
+                                  humidity = value_humidity,
+                                  visibility = value_visibility,
+                                  sky = value_clouds,
+                                  main = value_main,
+                                  description = value_description,
+                                  sunrise = value_sunrise,
+                                  sunset = value_sunset)
+        record.save()    
     
     context = {        
             ####'wind_speed_data': wind_speed_data,
-            'wind_speed': WindData.objects.all(),
-            'temperature_data' : TemperatureData.objects.all()
+            'wind_data': WindData.objects.all(),
+            'temperature_data' : TemperatureData.objects.all(),
+            'other_weather_data' : OtherWeatherData.objects.all()
         }
     return render(request, "weather.html", context)
 
