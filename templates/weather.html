@@ -87,24 +87,29 @@
                 <!-- Google Charts
                 Line Charts
                 Copied and modified from https://developers.google.com/chart/interactive/docs/gallery/linechart on January 5th, 2022, at 20:40. -->                
-                <div id="curve_chart_left" style="width: 100%; height: 100px"></div>
+                <div id="curve_chart_left"></div>
             </div>
             <div id="chart-middle" class="col-12 order-3 col-lg-4 order-lg-2">
                 <!-- Google Charts
                 Line Charts
                 Copied and modified from https://developers.google.com/chart/interactive/docs/gallery/linechart on January 5th, 2022, at 20:40. -->                
-                <div id="curve_chart_middle" style="width: 100%; height: 100px"></div>
+                <div id="curve_chart_middle"></div>
             </div>
             <div id="chart-right" class="col-12 order-5 col-lg-4 order-lg-3">
                 <!-- Google Charts
                 Line Charts
                 Copied and modified from https://developers.google.com/chart/interactive/docs/gallery/linechart on January 5th, 2022, at 20:40. -->                
-                <div id="curve_chart_right" style="width: 100%; height: 100px"></div>
+                <div id="curve_chart_right"></div>
             </div>
             <div id="wind-extra-info" class="col-12 order-2 col-lg-4 order-lg-4">                
                 <table>
+                    
+                    {{ data_and_time.DataAndTimeForData.wind_data }}
+                    
                     {% for item in wind_data %}
                         <tr>
+                            <td>{{ item.wind_rec_id.date }}</td>
+                            <td style="display:none;">{{ item.wind_rec_id.time }}</td>
                             <td>{{ item.wind_speed }}</td>
                             <td>{{ item.wind_direction }}</td>
                         </tr>
@@ -116,8 +121,10 @@
                 <table>
                     {% for temp in temperature_data %}
                         <tr>
+                            <td>{{ temp.temp_rec_id.date }}</td>
+                            <td style="display:none;">{{ temp.temp_rec_id.time }}</td>
                             <td>{{ temp.temperature }}</td>
-                            <td>{{ temp.feels_like }}</td>
+                            <td>{{ temp.feels_like }}</td>                            
                         </tr>
                     {% endfor %}
                 </table>
@@ -127,10 +134,10 @@
                 <table>
                     {% for other in other_weather_data %}
                         <tr>
+                            <td>{{ other.other_rec.date }}</td>
+                            <td style="display:none;">{{ other.other_rec.time }}</td>
                             <td>{{ other.pressure }}</td>
-                            <td>{{ other.humidity }}</td>
-                            <td>{{ other.sunrise }}</td>
-                            <td>{{ other.sunset }}</td>
+                            <td>{{ other.main }}</td>
                         </tr>
                     {% endfor %}
                 </table>

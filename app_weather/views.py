@@ -33,7 +33,6 @@ def get_weather_page(request):
         value_temperature_max = float(json.dumps(request.POST.get('value_temperature_max'))[1:-1])
         value_temperature_min = float(json.dumps(request.POST.get('value_temperature_min'))[1:-1])
         # Other weather data
-
         value_pressure = float(json.dumps(request.POST.get('value_pressure'))[1:-1])
         value_humidity = float(json.dumps(request.POST.get('value_humidity'))[1:-1])
         value_visibility = json.dumps(request.POST.get('value_visibility'))[1:-1]
@@ -79,13 +78,14 @@ def get_weather_page(request):
                                   sunset = value_sunset)
         record.save()    
     
-    context = {        
-            ####'wind_speed_data': wind_speed_data,
+    context = {
+            'date_and_time': DataAndTimeForData.objects.all(),
             'wind_data': WindData.objects.all(),
             'temperature_data': TemperatureData.objects.all(),
             #'other_weather_data': OtherWeatherData.objects.order_by('-id')[:2] #last two
-            'other_weather_data': OtherWeatherData.objects.values('pressure', 'sunrise', 'sunset')
-        }
+            'other_weather_data': OtherWeatherData.objects.all()
+        }    
+    #print(context['date_and_time'])
     return render(request, "weather.html", context)
 
 #@csrf_exempt

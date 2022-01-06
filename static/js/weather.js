@@ -83,21 +83,6 @@ $("#get-weather-data-button").click (e => getStatus(e));
 
 async function getStatus(e) {
 
-    // DELETE
-    //for (item in $("#wind-extra-info > table > tbody").text()) {
-    //    console.log(parseInt(item));
-//
-    //}
-    var items=[], options=[];
-    //Iterate all td's in second column
-    $('#wind-extra-info > table > tbody tr td:nth-child(2)').each( function(){
-    //add item to array
-    items.push( parseInt($(this).text() ));       
-    });
-    console.log(items);
-
-
-    // END DELETE
 
     //const queryString = `https://${API_URL}/data/2.5/weather?q=London&appid=${API_KEY}`;
 
@@ -250,6 +235,97 @@ function getUnixUTCTime(unix_timestamp) {
     var formattedTime = hours + ':' + minutes + ':' + seconds;
     return(formattedTime);
 }
+
+////////////////////////
+// DATA FOR GOOGLE CHART
+
+var col1=[], col2=[], col3=[], col4=[];
+var table1=[], table2=[], table3=[];
+var options1=[], options2=[], options3=[];
+
+// CHART 1 - Read date
+$('#wind-extra-info > table > tbody tr td:nth-child(1)').each(function(){
+    col1.push( ($(this).text() ));    
+});
+// CHART 1 - Read time
+$('#wind-extra-info > table > tbody tr td:nth-child(2)').each(function(){
+    col2.push( ($(this).text() ));
+});
+// CHART 1 - Read 1st Column Value
+$('#wind-extra-info > table > tbody tr td:nth-child(3)').each(function(){
+    col3.push(parseFloat(($(this).text())));    
+});
+// CHART 1 - Read 2nd Column Value
+$('#wind-extra-info > table > tbody tr td:nth-child(4)').each(function(){
+    col4.push(parseFloat(($(this).text())));
+});
+
+for (let i = 0; i < col1.length; i++) {
+    let r = [col1[i], col2[i], col3[i], col4[i]];
+    table1.push(r);
+}
+
+col1=[];
+col2=[];
+col3=[];
+col4=[];
+
+// CHART 2 - Read date
+$('#temperature-extra-info > table > tbody tr td:nth-child(1)').each(function(){
+  col1.push( ($(this).text() ));    
+});
+// CHART 2 - Read time
+$('#temperature-extra-info > table > tbody tr td:nth-child(2)').each(function(){
+  col2.push( ($(this).text() ));
+});
+// CHART 2 - Read 1st Column Value
+$('#temperature-extra-info > table > tbody tr td:nth-child(3)').each(function(){
+  col3.push(parseFloat(($(this).text())));    
+});
+// CHART 2 - Read 2nd Column Value
+$('#temperature-extra-info > table > tbody tr td:nth-child(4)').each(function(){
+  col4.push(parseFloat(($(this).text())));
+});
+
+for (let i = 0; i < col1.length; i++) {
+  let r = [col1[i], col2[i], col3[i], col4[i]];
+  table2.push(r);
+}
+
+col1=[];
+col2=[];
+col3=[];
+col4=[];
+
+// CHART 3 - Read date
+$('#other-weather-extra-info > table > tbody tr td:nth-child(1)').each(function(){
+  col1.push( ($(this).text() ));    
+});
+// CHART 3 - Read time
+$('#other-weather-extra-info > table > tbody tr td:nth-child(2)').each(function(){
+  col2.push( ($(this).text() ));
+});
+// CHART 3 - Read 1st Column Value
+$('#other-weather-extra-info > table > tbody tr td:nth-child(3)').each(function(){
+  col3.push(parseFloat(($(this).text())));    
+});
+// CHART 3 - Read 2nd Column Value
+$('#other-weather-extra-info > table > tbody tr td:nth-child(4)').each(function(){
+  col4.push(parseFloat(($(this).text())));
+});
+
+for (let i = 0; i < col1.length; i++) {
+  let r = [col1[i], col2[i], col3[i], col4[i]];
+  table3.push(r);
+}
+
+console.log(table1);
+console.log(table2);
+console.log(table3);
+
+// DATA FOR GOOGLE CHART
+////////////////////////
+
 
 
 
