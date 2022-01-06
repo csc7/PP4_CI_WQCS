@@ -1,59 +1,50 @@
 {% extends "base.html" %}
 {% block content %}
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<form id="contact-form" onsubmit="return sendMail(this);">
-    <div id="contact-form-container">
+
+
+<!-- https://docs.djangoproject.com/en/4.0/topics/forms/ -->
+<div id="contact-form" class="container">
+    <form action="/thanks/" method="post">
+        {% csrf_token %}
+        
         <div class="row">
-            <div id="contact-form-details" class="col-12 col-sm-6">
-                <div class="form-row-label">
-                    <label for="name-field">Name</label>
+            <div class="col-12 col-lg-6">
+                <div id="form-left-1" class="col-12">
+                    {{ form.name.errors }}
+                    <label for="{{ form.name.id_for_label }}">Name</label>
+                    {{ form.name }}
                 </div>
-                <div class="form-row-input">
-                    <input id="name-field" class="input-field" type="text" name="name" placeholder="Your name" required>
+                <div id="form-left-2" class="col-12">
+                    {{ form.surname.errors }}
+                    <label for="{{ form.surname.id_for_label }}">Surname</label>
+                    {{ form.surname }}
                 </div>
-                <div class="form-row-label">
-                    <label for="surname-field">Surname</label>
-                </div>
-                <div class="form-row-input">
-                    <input id="surname-field" class="input-field" type="text" name="surname" placeholder="Your surname" required>
-                </div>
-                <div class="form-row-label">
-                    <label for="email-field">E-mail</label>
-                </div>
-                <div class="form-row-input">
-                    <input id="email-field" class="input-field" type="email" name="email" placeholder="Your e-mail" required>
+                <div id="form-left-3" class="col-12">
+                    {{ form.email.errors }}
+                    <label for="{{ form.email.id_for_label }}">Email</label>
+                    {{ form.email }}
                 </div>
             </div>
-            <div id="contact-form-text" class="col-12 col-sm-6">
-                <div class="form-row-label">
-                    <label for="form-description">Description</label>
+            <div class="col-12 col-lg-6">
+                <div id="form-right-1" class="col-12">
+                    {{ form.text_content.errors }}
+                    <label for="{{ form.text_content.id_for_label }}">Description</label>
+                    {{ form.text_content }}
                 </div>
-                <div id="text-area">
-                    <textarea id="form-description" class="input-field" rows="6" cols="20"  name="description" placeholder="Describe your consultation" required></textarea>
-                </div>
-                <div></div>
-                <input id="form-send-button" type="submit" value="Send">
-                <!-- E-mail sent status message (empty, modified by JavaScript) -->
-                <div id="email-status">
+                <div id="form-right-2" class="col-12">
+                    <input type="submit" value="Submit">
                 </div>
             </div>
         </div>
-    </div>
-</form>
-
-{% endblock %}
+    </form>
+</div>
 
 
-{% block scripts %}
 
-    <!-- Credit: EmailJS
-    Code copied and modified on July 31st, 2021, at 6:37, from EmailJS personal account. 
-    Second line in contact.js file, sendMail() function -->
+
+
+    
     
 
-    <script src="/static/js/contact.js"></script>
-    
+
 {% endblock %}
-
-
-

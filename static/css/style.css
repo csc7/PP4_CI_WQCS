@@ -318,17 +318,35 @@ a.nav-link {
 /* ************ */
 
 #contact-form {
-    margin-top: 75px;
+    margin-top: 175px;
 }
 
+#form-left-1 {
+    background-color: aquamarine;
+}
+#form-left-2 {
+    background-color: rgb(128, 142, 204);
+}
+#form-left-3 {
+    background-color: rgb(179, 199, 88);
+}
+
+#form-right-1 {
+    background-color: rgb(70, 224, 173);
+}
+#form-right-2 {
+    background-color: rgb(231, 238, 142);
+}
+
+/*
 #contact-form-details {
     background-color: aquamarine;
-    height: 350px;  /* DELETE IF NECESSARY */
+    height: 350px;
 }
 
 #contact-form-text {
     background-color: aqua;
-    height: 350px;  /* DELETE IF NECESSARY */
+    height: 350px;
 }
 
 .form-row-label {
@@ -349,14 +367,13 @@ a.nav-link {
     width: 100%;
 }
 
-
 #form-description {
     margin: 0;
     padding-left: 2%;
     padding-right: 2%;
     width: 96%;
 }
-
+*/
 
 
 

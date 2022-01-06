@@ -10,6 +10,7 @@ urlpatterns = [
     #path('', views.get_instructions_page, name='instructions'),
     #path('weather/', views.get_weather_page, name='weather'),
     path("contact/", views.get_contact_page, name="contact"),
+    path("thanks/", views.get_thanks_page, name="thanks"),
     #path('blog/', views.PostList.as_view(), name='blog'),
     #path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
 ]
