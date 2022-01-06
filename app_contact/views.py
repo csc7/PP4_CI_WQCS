@@ -21,8 +21,7 @@ def get_contact_page(request):
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
-            a=form.data
-            print(a)
+            print(form.cleaned_data)
             # ...
             # redirect to a new URL:
 
@@ -36,6 +35,7 @@ def get_contact_page(request):
     
 
     return render(request, 'contact.html', {'form': form})
+
 
 def get_thanks_page(request):
     return render(request, "thanks.html")

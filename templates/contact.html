@@ -4,7 +4,7 @@
 
 <!-- https://docs.djangoproject.com/en/4.0/topics/forms/ -->
 <div id="contact-form" class="container">
-    <form action="/thanks/" method="post">
+    <form action="/contact/" method="post">
         {% csrf_token %}
         
         <div class="row">
@@ -32,7 +32,11 @@
                     {{ form.text_content }}
                 </div>
                 <div id="form-right-2" class="col-12">
+                    {% if user.is_authenticated %} 
                     <input type="submit" value="Submit">
+                    {% else %}
+                    <p>(Log in to send data to database)</p>
+                    {% endif %}
                 </div>
             </div>
         </div>
