@@ -240,8 +240,10 @@ function getUnixUTCTime(unix_timestamp) {
 // DATA FOR GOOGLE CHART
 
 var col1=[], col2=[], col3=[], col4=[];
-var table1=[], table2=[], table3=[];
-var options1=[], options2=[], options3=[];
+var table1=[['Date', 'Wind Speed', 'Wind Direction']];
+var table2=[['Date', 'Temperature', 'Feels Like']];
+var table3=[['Date', 'Value 1', 'Value 2']];
+//var options1=[], options2=[], options3=[];
 
 // CHART 1 - Read date
 $('#wind-extra-info > table > tbody tr td:nth-child(1)').each(function(){
@@ -261,7 +263,8 @@ $('#wind-extra-info > table > tbody tr td:nth-child(4)').each(function(){
 });
 
 for (let i = 0; i < col1.length; i++) {
-    let r = [col1[i], col2[i], col3[i], col4[i]];
+    // Include second column (col2[i]) if time is accounted for x axis
+    let r = [col1[i], col3[i], col4[i]];
     table1.push(r);
 }
 
@@ -288,7 +291,8 @@ $('#temperature-extra-info > table > tbody tr td:nth-child(4)').each(function(){
 });
 
 for (let i = 0; i < col1.length; i++) {
-  let r = [col1[i], col2[i], col3[i], col4[i]];
+  // Include second column (col2[i]) if time is accounted for x axis
+  let r = [col1[i], col3[i], col4[i]];
   table2.push(r);
 }
 
@@ -315,7 +319,8 @@ $('#other-weather-extra-info > table > tbody tr td:nth-child(4)').each(function(
 });
 
 for (let i = 0; i < col1.length; i++) {
-  let r = [col1[i], col2[i], col3[i], col4[i]];
+  // Include second column (col2[i]) if time is accounted for x axis
+  let r = [col1[i], col3[i], col4[i]];
   table3.push(r);
 }
 
@@ -338,42 +343,21 @@ google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
-  var data = google.visualization.arrayToDataTable([
-    ['Year', 'Sales', 'Expenses'],
-    ['2004',  1000,      400],
-    ['2005',  1170,      460],
-    ['2006',  660,       1120],
-    ['2007',  1030,      540]
-  ]);
-
-  var data2 = google.visualization.arrayToDataTable([
-    ['Year', 'Sales', 'Expenses'],
-    ['2004',  1000,      400],
-    ['2005',  1170,      460],
-    ['2006',  660,       1120],
-    ['2007',  1030,      540]
-  ]);
-
-  var data3 = google.visualization.arrayToDataTable([
-    ['Year', 'Sales', 'Expenses'],
-    ['2004',  1000,      400],
-    ['2005',  1170,      460],
-    ['2006',  660,       1120],
-    ['2007',  1030,      540]
-  ]);
-
+  var data = google.visualization.arrayToDataTable(table1);
+  var data2 = google.visualization.arrayToDataTable(table2);
+  var data3 = google.visualization.arrayToDataTable(table3);
   var options = {
-    title: 'FIRST Performance',
+    title: 'Wind Data',
     curveType: 'function',
     legend: { position: 'bottom' }
   };
   var options2 = {
-    title: 'SECOND Performance',
+    title: 'Termperature Data',
     curveType: 'function',
     legend: { position: 'bottom' }
   };
   var options3 = {
-    title: 'THIRD Performance',
+    title: 'Other Data',
     curveType: 'function',
     legend: { position: 'bottom' }
   };

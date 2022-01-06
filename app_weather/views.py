@@ -80,7 +80,7 @@ def get_weather_page(request):
     
     context = {
             'date_and_time': DataAndTimeForData.objects.all(),
-            'wind_data': WindData.objects.all(),
+            'wind_data': WindData.objects.all()[:5],
             'temperature_data': TemperatureData.objects.all(),
             #'other_weather_data': OtherWeatherData.objects.order_by('-id')[:2] #last two
             'other_weather_data': OtherWeatherData.objects.all()
