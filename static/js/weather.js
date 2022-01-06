@@ -82,6 +82,23 @@ $("#get-weather-data-button").click (e => getStatus(e));
 //document.getElementById("log-in-button").addEventListener("click", e => getStatus(e));
 
 async function getStatus(e) {
+
+    // DELETE
+    //for (item in $("#wind-extra-info > table > tbody").text()) {
+    //    console.log(parseInt(item));
+//
+    //}
+    var items=[], options=[];
+    //Iterate all td's in second column
+    $('#wind-extra-info > table > tbody tr td:nth-child(2)').each( function(){
+    //add item to array
+    items.push( parseInt($(this).text() ));       
+    });
+    console.log(items);
+
+
+    // END DELETE
+
     //const queryString = `https://${API_URL}/data/2.5/weather?q=London&appid=${API_KEY}`;
 
     const queryString = `https://${API_URL}/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=a4e017407a1ea716fa42316b9fe012b5`;
