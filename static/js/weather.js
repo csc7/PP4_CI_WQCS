@@ -153,71 +153,87 @@ async function getStatus(e) {
 //    });
 //});
 
+generateGoogleChartGraphs ();
 
-$("#send-weather-data-button").click (e => sendWeatherData(e));
+$("#send-weather-data-button").click (e => sendWeatherData(e, true));
 
-async function sendWeatherData(e) {
+async function sendWeatherData(e, write) {
+  
+    // Selected data
+    writeData = write;
+    recordsToDisplay = $('input[name="records-to-display"]:checked').val();
+    otherValueToDisplay = $('#s-d-o-list').val();
+
     // Date and time
-    current_date = $('#value-date').text();
-    const date_now = new Date();
-    let current_time = date_now.getHours() + ":" + date_now.getMinutes() + ":" + date_now.getSeconds();
+    currentDate = $('#value-date').text();
+    const dateNow = new Date();
+    let currentTime = dateNow.getHours() + ":" + dateNow.getMinutes() + ":" + dateNow.getSeconds();
     // Wind data
-    wind_value = $('#value-wind').text();
-    value_wind_dir = $('#value-wind-direction').text();
+    valueWind = $('#value-wind').text();
+    valueWindDir = $('#value-wind-direction').text();
     // Temperature data
-    value_temperature = $('#value-temperature').text();
-    value_feels_like = $('#value-feels-like').text();
-    value_temperature_max = $('#value-temperature-max').text();
-    value_temperature_min = $('#value-temperature-min').text();
+    valueTemperature = $('#value-temperature').text();
+    valueFeelsLike = $('#value-feels-like').text();
+    valueTemperatureMax = $('#value-temperature-max').text();
+    valueTemperatureMin = $('#value-temperature-min').text();
     // Other weather data
-    value_pressure = $("#value-pressure").text();
-    value_humidity = $("#value-humidity").text();
-    value_visibility = $("#value-visibility").text();
-    value_clouds = $("#value-clouds").text();
-    value_main = $("#value-main").text();
-    value_description = $("#value-description").text();
-    value_country = $("#value-country").text();
-    value_sunrise = $("#value-sunrise").text();
-    value_sunset = $("#value-sunset").text();
+    valuePressure = $("#value-pressure").text();
+    valueHumidity = $("#value-humidity").text();
+    valueVisibility = $("#value-visibility").text();
+    valueClouds = $("#value-clouds").text();
+    valueMain = $("#value-main").text();
+    valueDescription = $("#value-description").text();
+    valueCountry = $("#value-country").text();
+    valueSunrise = $("#value-sunrise").text();
+    valueSunset = $("#value-sunset").text();
 
-    console.log(wind_value);
-
+    console.log(valueWind);
+    
     $.ajax({
         type: 'POST',        
         url: '/weather/',
         //dataType: 'json',
         data: {
+            // Selected Data
+            'writeData' : writeData,
+            'recordsToDisplay': recordsToDisplay,
+            'otherValueToDisplay': otherValueToDisplay,
             // Date and time
-            'value_date': current_date,
-            'value_time': current_time,
+            'valueDate': currentDate,
+            'valueTime': currentTime,
             // Wind data
-            'value_wind': wind_value, 
-            'value_wind_dir': value_wind_dir,
+            'valueWind': valueWind, 
+            'valueWindDir': valueWindDir,
             // Temperature data
-            'value_temperature': value_temperature,
-            'value_feels_like': value_feels_like,
-            'value_temperature_max': value_temperature_max,
-            'value_temperature_min': value_temperature_min,
+            'valueTemperature': valueTemperature,
+            'valueFeelsLike': valueFeelsLike,
+            'valueTemperatureMax': valueTemperatureMax,
+            'valueTemperatureMin': valueTemperatureMin,
             // Other weather data
-            'value_pressure' : value_pressure,
-            'value_humidity' : value_humidity,
-            'value_visibility' : value_visibility,
-            'value_clouds' : value_clouds,
-            'value_main' : value_main,
-            'value_description' : value_description,
-            'value_country' : value_country,
-            'value_sunrise' : value_sunrise,
-            'value_sunset' : value_sunset },
+            'valuePressure' : valuePressure,
+            'valueHumidity' : valueHumidity,
+            'valueVisibility' : valueVisibility,
+            'valueClouds' : valueClouds,
+            'valueMain' : valueMain,
+            'valueDescription' : valueDescription,
+            'valueCountry' : valueCountry,
+            'valueSunrise' : valueSunrise,
+            'valueSunset' : valueSunset },
         success: function (data) {
-            alert("Database updated, new data will appear below.");
+            //alert("Database updated, new data will appear below.");
+            
             // https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
             $("#wind-extra-info").load(location.href+" #wind-extra-info>*","");
             $("#temperature-extra-info").load(location.href+" #temperature-extra-info>*","");
             $("#other-weather-extra-info").load(location.href+" #other-weather-extra-info>*","");
-        }
+            setTimeout(generateGoogleChartGraphs, 3000);
+        }    
     });
     
 }
+
+
+
 
 //Credit for getUnixUTCTime(): https://stackoverflow.com/questions/847185/convert-a-unix-timestamp-to-time-in-javascript,
 //copied and modified on January 3rd, 2022, at 13;00
@@ -236,141 +252,152 @@ function getUnixUTCTime(unix_timestamp) {
     return(formattedTime);
 }
 
-////////////////////////
-// DATA FOR GOOGLE CHART
 
-var col1=[], col2=[], col3=[], col4=[];
-var table1=[['Date', 'Wind Speed', 'Wind Direction']];
-var table2=[['Date', 'Temperature', 'Feels Like']];
-var table3=[['Date', 'Value 1', 'Value 2']];
-//var options1=[], options2=[], options3=[];
 
-// CHART 1 - Read date
-$('#wind-extra-info > table > tbody tr td:nth-child(1)').each(function(){
+
+  ////////////////////////
+  // DATA FOR GOOGLE CHART
+function generateGoogleChartGraphs() {
+  var col1=[], col2=[], col3=[], col4=[];
+  var table1=[['Date', 'Wind Speed', 'Wind Direction']];
+  var table2=[['Date', 'Temperature', 'Feels Like']];
+  var table3=[['Date', 'Value 1', 'Value 2']];
+  //var options1=[], options2=[], options3=[];
+
+  // CHART 1 - Read date
+  $('#wind-extra-info > table > tbody tr td:nth-child(1)').each(function(){
+      col1.push( ($(this).text() ));    
+  });
+  // CHART 1 - Read time
+  $('#wind-extra-info > table > tbody tr td:nth-child(2)').each(function(){
+      col2.push( ($(this).text() ));
+  });
+  // CHART 1 - Read 1st Column Value
+  $('#wind-extra-info > table > tbody tr td:nth-child(3)').each(function(){
+      col3.push(parseFloat(($(this).text())));    
+  });
+  // CHART 1 - Read 2nd Column Value
+  $('#wind-extra-info > table > tbody tr td:nth-child(4)').each(function(){
+      col4.push(parseFloat(($(this).text())));
+  });
+
+  for (let i = 0; i < col1.length; i++) {
+      // Include second column (col2[i]) if time is accounted for x axis
+      let r = [col1[i], col3[i], col4[i]];
+      table1.push(r);
+  }
+
+  col1=[];
+  col2=[];
+  col3=[];
+  col4=[];
+
+  // CHART 2 - Read date
+  $('#temperature-extra-info > table > tbody tr td:nth-child(1)').each(function(){
     col1.push( ($(this).text() ));    
-});
-// CHART 1 - Read time
-$('#wind-extra-info > table > tbody tr td:nth-child(2)').each(function(){
+  });
+  // CHART 2 - Read time
+  $('#temperature-extra-info > table > tbody tr td:nth-child(2)').each(function(){
     col2.push( ($(this).text() ));
-});
-// CHART 1 - Read 1st Column Value
-$('#wind-extra-info > table > tbody tr td:nth-child(3)').each(function(){
+  });
+  // CHART 2 - Read 1st Column Value
+  $('#temperature-extra-info > table > tbody tr td:nth-child(3)').each(function(){
     col3.push(parseFloat(($(this).text())));    
-});
-// CHART 1 - Read 2nd Column Value
-$('#wind-extra-info > table > tbody tr td:nth-child(4)').each(function(){
+  });
+  // CHART 2 - Read 2nd Column Value
+  $('#temperature-extra-info > table > tbody tr td:nth-child(4)').each(function(){
     col4.push(parseFloat(($(this).text())));
-});
+  });
 
-for (let i = 0; i < col1.length; i++) {
+  for (let i = 0; i < col1.length; i++) {
     // Include second column (col2[i]) if time is accounted for x axis
     let r = [col1[i], col3[i], col4[i]];
-    table1.push(r);
+    table2.push(r);
+  }
+
+  col1=[];
+  col2=[];
+  col3=[];
+  col4=[];
+
+  // CHART 3 - Read date
+  $('#other-weather-extra-info > table > tbody tr td:nth-child(1)').each(function(){
+    col1.push( ($(this).text() ));    
+  });
+  // CHART 3 - Read time
+  $('#other-weather-extra-info > table > tbody tr td:nth-child(2)').each(function(){
+    col2.push( ($(this).text() ));
+  });
+  // CHART 3 - Read 1st Column Value
+  $('#other-weather-extra-info > table > tbody tr td:nth-child(3)').each(function(){
+    col3.push(parseFloat(($(this).text())));    
+  });
+  // CHART 3 - Read 2nd Column Value
+  $('#other-weather-extra-info > table > tbody tr td:nth-child(4)').each(function(){
+    col4.push(parseFloat(($(this).text())));
+  });
+
+  for (let i = 0; i < col1.length; i++) {
+    // Include second column (col2[i]) if time is accounted for x axis
+    let r = [col1[i], col3[i], col4[i]];
+    table3.push(r);
+  }
+
+  console.log(table1);
+  console.log(table2);
+  console.log(table3);
+
+  // DATA FOR GOOGLE CHART
+  ////////////////////////
+
+  
+  // GRAPH
+  // Google Charts
+  // Line Charts
+  // Copied and modified from https://developers.google.com/chart/interactive/docs/gallery/linechart on January 5th, 2022, at 20:40. 
+
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable(table1);
+    var data2 = google.visualization.arrayToDataTable(table2);
+    var data3 = google.visualization.arrayToDataTable(table3);
+    var options = {
+      title: 'Wind Data',
+      curveType: 'function',
+      legend: { position: 'bottom' }
+    };
+    var options2 = {
+      title: 'Termperature Data',
+      curveType: 'function',
+      legend: { position: 'bottom' }
+    };
+    var options3 = {
+      title: 'Other Data',
+      curveType: 'function',
+      legend: { position: 'bottom' }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('curve_chart_left'));
+    var chart2 = new google.visualization.LineChart(document.getElementById('curve_chart_middle'));
+    var chart3 = new google.visualization.LineChart(document.getElementById('curve_chart_right'));
+
+    chart.draw(data, options);
+    chart2.draw(data2, options2);
+    chart3.draw(data3, options3);
+  }
 }
 
-col1=[];
-col2=[];
-col3=[];
-col4=[];
-
-// CHART 2 - Read date
-$('#temperature-extra-info > table > tbody tr td:nth-child(1)').each(function(){
-  col1.push( ($(this).text() ));    
-});
-// CHART 2 - Read time
-$('#temperature-extra-info > table > tbody tr td:nth-child(2)').each(function(){
-  col2.push( ($(this).text() ));
-});
-// CHART 2 - Read 1st Column Value
-$('#temperature-extra-info > table > tbody tr td:nth-child(3)').each(function(){
-  col3.push(parseFloat(($(this).text())));    
-});
-// CHART 2 - Read 2nd Column Value
-$('#temperature-extra-info > table > tbody tr td:nth-child(4)').each(function(){
-  col4.push(parseFloat(($(this).text())));
-});
-
-for (let i = 0; i < col1.length; i++) {
-  // Include second column (col2[i]) if time is accounted for x axis
-  let r = [col1[i], col3[i], col4[i]];
-  table2.push(r);
-}
-
-col1=[];
-col2=[];
-col3=[];
-col4=[];
-
-// CHART 3 - Read date
-$('#other-weather-extra-info > table > tbody tr td:nth-child(1)').each(function(){
-  col1.push( ($(this).text() ));    
-});
-// CHART 3 - Read time
-$('#other-weather-extra-info > table > tbody tr td:nth-child(2)').each(function(){
-  col2.push( ($(this).text() ));
-});
-// CHART 3 - Read 1st Column Value
-$('#other-weather-extra-info > table > tbody tr td:nth-child(3)').each(function(){
-  col3.push(parseFloat(($(this).text())));    
-});
-// CHART 3 - Read 2nd Column Value
-$('#other-weather-extra-info > table > tbody tr td:nth-child(4)').each(function(){
-  col4.push(parseFloat(($(this).text())));
-});
-
-for (let i = 0; i < col1.length; i++) {
-  // Include second column (col2[i]) if time is accounted for x axis
-  let r = [col1[i], col3[i], col4[i]];
-  table3.push(r);
-}
-
-console.log(table1);
-console.log(table2);
-console.log(table3);
-
-// DATA FOR GOOGLE CHART
-////////////////////////
+// VISUALIZATION
+$('input:radio[name="records-to-display"]').change(e => sendWeatherData(e, false));
 
 
 
 
-// GRAPH
-// Google Charts
-// Line Charts
-// Copied and modified from https://developers.google.com/chart/interactive/docs/gallery/linechart on January 5th, 2022, at 20:40. 
-
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
-
-function drawChart() {
-  var data = google.visualization.arrayToDataTable(table1);
-  var data2 = google.visualization.arrayToDataTable(table2);
-  var data3 = google.visualization.arrayToDataTable(table3);
-  var options = {
-    title: 'Wind Data',
-    curveType: 'function',
-    legend: { position: 'bottom' }
-  };
-  var options2 = {
-    title: 'Termperature Data',
-    curveType: 'function',
-    legend: { position: 'bottom' }
-  };
-  var options3 = {
-    title: 'Other Data',
-    curveType: 'function',
-    legend: { position: 'bottom' }
-  };
-
-  var chart = new google.visualization.LineChart(document.getElementById('curve_chart_left'));
-  var chart2 = new google.visualization.LineChart(document.getElementById('curve_chart_middle'));
-  var chart3 = new google.visualization.LineChart(document.getElementById('curve_chart_right'));
-
-  chart.draw(data, options);
-  chart2.draw(data2, options2);
-  chart3.draw(data3, options3);
-}
-
+//$('input:radio[name="records-to-display"]').change(generateGoogleChartGraphs());
+  
+  // END VISUALIZATION
 
 //function generateGraph() {
 //    dataForGoogleChartFunction = computeGraphData();

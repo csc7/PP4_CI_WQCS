@@ -13,79 +13,125 @@ import re
 
 from django.views.decorators.csrf import csrf_exempt
 
+recs = 100
+
 @csrf_exempt
 def get_weather_page(request):
+
+       
+    global recs
+    
+
     # Check if request is AJAX, accessed on January 4th, 2022, at 2058, in
     # https://stackoverflow.com/questions/8508602/check-if-request-is-ajax-in-python
     requested_html = re.search(r'^text/html', request.META.get('HTTP_ACCEPT'))
-    if not requested_html:
-        
-        # Indexes from 1 to -1 to delete quotation marks
-        # Date and time
-        value_date = json.dumps(request.POST.get('value_date'))[1:-1]
-        value_time = json.dumps(request.POST.get('value_time'))[1:-1]
-        # Wind data
-        wind_speed_data = float(json.dumps(request.POST.get('value_wind'))[1:-1])
-        wind_direction_data = float(json.dumps(request.POST.get('value_wind_dir'))[1:-1])
-        # Temperature data
-        value_temperature = float(json.dumps(request.POST.get('value_temperature'))[1:-1])
-        value_feels_like = float(json.dumps(request.POST.get('value_feels_like'))[1:-1])
-        value_temperature_max = float(json.dumps(request.POST.get('value_temperature_max'))[1:-1])
-        value_temperature_min = float(json.dumps(request.POST.get('value_temperature_min'))[1:-1])
-        # Other weather data
-        value_pressure = float(json.dumps(request.POST.get('value_pressure'))[1:-1])
-        value_humidity = float(json.dumps(request.POST.get('value_humidity'))[1:-1])
-        value_visibility = json.dumps(request.POST.get('value_visibility'))[1:-1]
-        value_clouds = float(json.dumps(request.POST.get('value_clouds'))[1:-1])
-        value_main = json.dumps(request.POST.get('value_main'))[1:-1]
-        value_description = json.dumps(request.POST.get('value_description'))[1:-1]
-        value_country = json.dumps(request.POST.get('value_country'))[1:-1]
-        value_sunrise = json.dumps(request.POST.get('value_sunrise'))[1:-1]
-        value_sunset = json.dumps(request.POST.get('value_sunset'))[1:-1]
-
-
-        #wind_speed_data = "0" # at the begining wind_speed_data is null!
-        a=float(wind_speed_data)
-        print(float(a)+10)
-        print("It's AJAX")
-        
-        record = DataAndTimeForData(date = value_date, time=value_time)
-        record.save()
-        pk = record.id
-        
-        record = WindData(wind_rec_id_id = pk,
-                          wind_speed = wind_speed_data,
-                          wind_direction=wind_direction_data)
-        record.save()
-        
-        #d = WindData.objects.get()
-        #print(d)
-        record = TemperatureData(temp_rec_id_id = pk,
-                                 temperature = value_temperature,
-                                 feels_like = value_feels_like,
-                                 temperature_max = value_temperature_max,
-                                 temperature_min = value_temperature_min)
-        record.save()
-
-        record = OtherWeatherData(other_rec_id = pk,
-                                  pressure = value_pressure,
-                                  humidity = value_humidity,
-                                  visibility = value_visibility,
-                                  sky = value_clouds,
-                                  main = value_main,
-                                  description = value_description,
-                                  sunrise = value_sunrise,
-                                  sunset = value_sunset)
-        record.save()    
     
+    if not requested_html:
+
+        # Selected Data, identify if new record needs to be written
+        # and if 5 or 15 of them will be shown
+        write_data = json.dumps(request.POST.get('writeData'))[1:-1]
+        records_to_display = (json.dumps(request.POST.get('recordsToDisplay'))[1:-1])
+        if records_to_display == "5-last":
+            recs = 5
+        elif records_to_display == "15-last":
+            recs = 15
+        else:
+            recs = 100
+        print(recs)
+        other_value_to_display = json.dumps(request.POST.get('otherValueToDisplay'))[1:-1]
+        
+        # Write new record
+        if write_data == "true":
+            print("Writing = " + write_data)
+        
+            # Indexes from 1 to -1 to delete quotation marks  
+
+            # Date and time
+            value_date = json.dumps(request.POST.get('valueDate'))[1:-1]
+            value_time = json.dumps(request.POST.get('valueTime'))[1:-1]
+            # Wind data
+            wind_speed_data = float(json.dumps(request.POST.get('valueWind'))[1:-1])
+            wind_direction_data = float(json.dumps(request.POST.get('valueWindDir'))[1:-1])
+            # Temperature data
+            value_temperature = float(json.dumps(request.POST.get('valueTemperature'))[1:-1])
+            value_feels_like = float(json.dumps(request.POST.get('valueFeelsLike'))[1:-1])
+            value_temperature_max = float(json.dumps(request.POST.get('valueTemperatureMax'))[1:-1])
+            value_temperature_min = float(json.dumps(request.POST.get('valueTemperatureMin'))[1:-1])
+            # Other weather data
+            value_pressure = float(json.dumps(request.POST.get('valuePressure'))[1:-1])
+            value_humidity = float(json.dumps(request.POST.get('valueHumidity'))[1:-1])
+            value_visibility = json.dumps(request.POST.get('valueVisibility'))[1:-1]
+            value_clouds = float(json.dumps(request.POST.get('valueClouds'))[1:-1])
+            value_main = json.dumps(request.POST.get('valueMain'))[1:-1]
+            value_description = json.dumps(request.POST.get('valueDescription'))[1:-1]
+            value_country = json.dumps(request.POST.get('valueCountry'))[1:-1]
+            value_sunrise = json.dumps(request.POST.get('valueSunrise'))[1:-1]
+            value_sunset = json.dumps(request.POST.get('valueSunset'))[1:-1]
+
+
+            #wind_speed_data = "0" # at the begining wind_speed_data is null!
+            #a=float(wind_speed_data)
+            #print(float(a)+10)
+            #print("It's AJAX")
+            #print(records_to_display)
+            
+            recs = 7
+            print(recs)
+            if records_to_display == "5-last":
+                recs = 5
+            elif records_to_display == "15-last":
+                recs = 15
+            print(other_value_to_display)
+            
+
+            record = DataAndTimeForData(date = value_date, time=value_time)
+            record.save()
+            pk = record.id
+
+            record = WindData(wind_rec_id_id = pk,
+                              wind_speed = wind_speed_data,
+                              wind_direction = wind_direction_data)
+            record.save()
+        
+            #d = WindData.objects.get()
+            #print(d)
+            record = TemperatureData(temp_rec_id_id = pk,
+                                     temperature = value_temperature,
+                                     feels_like = value_feels_like,
+                                     temperature_max = value_temperature_max,
+                                     temperature_min = value_temperature_min)
+            record.save()
+
+            record = OtherWeatherData(other_rec_id = pk,
+                                      pressure = value_pressure,
+                                      humidity = value_humidity,
+                                      visibility = value_visibility,
+                                      sky = value_clouds,
+                                      main = value_main,
+                                      description = value_description,
+                                      sunrise = value_sunrise,
+                                      sunset = value_sunset)
+            record.save()    
+    
+    # Identify amount of data (last records) to display
+    
+#    if last_records == 5 or last_records == 15:
+#        context = {
+#                'date_and_time': DataAndTimeForData.objects.order_by('-id')[:last_records],
+#                'wind_data': WindData.objects.order_by('-id')[:last_records],
+#                'temperature_data': TemperatureData.objects.order_by('-id')[:last_records],          
+#                'other_weather_data': OtherWeatherData.objects.order_by('-id')[:last_records]
+#            } 
+#    else:
+    print(recs)
     context = {
             'date_and_time': DataAndTimeForData.objects.all(),
-            'wind_data': WindData.objects.all()[:5],
-            'temperature_data': TemperatureData.objects.all(),
-            #'other_weather_data': OtherWeatherData.objects.order_by('-id')[:2] #last two
+            'wind_data': WindData.objects.all()[0:recs],
+            'temperature_data': TemperatureData.objects.all(),          
             'other_weather_data': OtherWeatherData.objects.all()
         }    
-    #print(context['date_and_time'])
+    
     return render(request, "weather.html", context)
 
 #@csrf_exempt
