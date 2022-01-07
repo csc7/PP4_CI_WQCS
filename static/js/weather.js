@@ -12,19 +12,26 @@ var longitude = 53.345278;
 // Moz://a
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event
 // copied and modified on January 7th, 2022, at 18:17.
-const latituteInput = document.querySelector('#latitude-input');
-latituteInput.addEventListener('focus', (event) => {
+const latitudeInput = document.querySelector('#latitude-input');
+latitudeInput.addEventListener('focus', (event) => {
   event.target.style.background = 'cyan';
 });
 
-latituteInput.addEventListener('blur', (event) => {
-  // If there is a longitude number, read it
+latitudeInput.addEventListener('blur', (event) => {
+  console.log(latitude);
+  console.log(longitude);
   event.target.style.background = '';
   if (parseFloat($("#longitude-input").val())){
     longitude = parseFloat($("#longitude-input").val());
   }
-  if (parseFloat($("#latitude-input").val())){    
-    latitude = parseFloat($("#latitude-input").val());
+  if (parseFloat($("#latitude-input").val()) > 90 ||
+      parseFloat($("#latitude-input").val()) < -90
+     ){
+    alert("Please enter a number betwee -180° and 180°");
+  } else {    
+    if (!(isNaN(parseFloat($("#latitude-input").val())))) {
+      latitude = parseFloat($("#latitude-input").val());
+    }
     alert(latitude);
     map.centerAt([latitude, longitude]);
     console.log(latitude);
@@ -38,22 +45,26 @@ longitudeInput.addEventListener('focus', (event) => {
 });
 
 longitudeInput.addEventListener('blur', (event) => {
+  console.log(latitude);
+  console.log(longitude);
   event.target.style.background = '';
   if (parseFloat($("#latitude-input").val())){
-    latitude = parseFloat($("#latitude-input").val());
+     latitude = parseFloat($("#latitude-input").val());
   }
-  if (parseFloat($("#longitude-input").val())){    
-    longitude = parseFloat($("#longitude-input").val());
+  if (parseFloat($("#longitude-input").val()) > 180 ||
+      parseFloat($("#longitude-input").val()) < -180
+     ){
+    alert("Please enter a number betwee -180° and 180°");
+  } else {
+    if (!(isNaN(parseFloat($("#longitude-input").val())))) {
+      longitude = parseFloat($("#longitude-input").val());
+    }
     alert(longitude);
     map.centerAt([latitude, longitude]);
     console.log(latitude);
     console.log(longitude);
   }
-  
-
 });
-
-
 
 
 //var pg = require(["pg"]);
