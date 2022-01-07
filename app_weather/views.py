@@ -14,13 +14,16 @@ import re
 from django.views.decorators.csrf import csrf_exempt
 
 recs = 100
+other_value_to_display_1 = 'pressure'
+other_value_to_display_2 = 'humidity'
 
 @csrf_exempt
 def get_weather_page(request):
 
        
     global recs
-    
+    global other_value_to_display_1
+    global other_value_to_display_2
 
     # Check if request is AJAX, accessed on January 4th, 2022, at 2058, in
     # https://stackoverflow.com/questions/8508602/check-if-request-is-ajax-in-python
@@ -38,8 +41,11 @@ def get_weather_page(request):
             recs = 15
         else:
             recs = 100
-        print(recs)
-        other_value_to_display = json.dumps(request.POST.get('otherValueToDisplay'))[1:-1]
+        
+        other_value_to_display_1 = str(json.dumps(request.POST.get('otherValueToDisplay1'))[1:-1])
+        other_value_to_display_2 = str(json.dumps(request.POST.get('otherValueToDisplay2'))[1:-1])
+        print(other_value_to_display_1)
+        print(other_value_to_display_2)
         
         # Write new record
         if write_data == "true":
@@ -82,7 +88,7 @@ def get_weather_page(request):
                 recs = 5
             elif records_to_display == "15-last":
                 recs = 15
-            print(other_value_to_display)
+            #print(other_value_to_display)
             
 
             record = DataAndTimeForData(date = value_date, time=value_time)
@@ -124,12 +130,15 @@ def get_weather_page(request):
 #                'other_weather_data': OtherWeatherData.objects.order_by('-id')[:last_records]
 #            } 
 #    else:
-    print(recs)
+    print(other_value_to_display_1)
+    print(other_value_to_display_2)
     context = {
-            'date_and_time': DataAndTimeForData.objects.all(),
+            'date_and_time': DataAndTimeForData.objects.all()[0:recs],
             'wind_data': WindData.objects.all()[0:recs],
-            'temperature_data': TemperatureData.objects.all(),          
-            'other_weather_data': OtherWeatherData.objects.all()
+            'temperature_data': TemperatureData.objects.all()[0:recs],          
+            'other_weather_data': OtherWeatherData.objects.values_list('other_rec', other_value_to_display_1, other_value_to_display_2)[0:recs]
+            #'other_weather_data': OtherWeatherData.objects.all()[0:recs]
+            #'other_weather_data_2': OtherWeatherData.objects.values(other_value_to_display_2)[0:recs]
         }    
     
     return render(request, "weather.html", context)

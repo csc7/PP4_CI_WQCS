@@ -162,7 +162,8 @@ async function sendWeatherData(e, write) {
     // Selected data
     writeData = write;
     recordsToDisplay = $('input[name="records-to-display"]:checked').val();
-    otherValueToDisplay = $('#s-d-o-list').val();
+    otherValueToDisplay1 = $('#s-d-o-list-1').val();
+    otherValueToDisplay2 = $('#s-d-o-list-2').val();
 
     // Date and time
     currentDate = $('#value-date').text();
@@ -197,7 +198,8 @@ async function sendWeatherData(e, write) {
             // Selected Data
             'writeData' : writeData,
             'recordsToDisplay': recordsToDisplay,
-            'otherValueToDisplay': otherValueToDisplay,
+            'otherValueToDisplay1': otherValueToDisplay1,
+            'otherValueToDisplay2': otherValueToDisplay2,
             // Date and time
             'valueDate': currentDate,
             'valueTime': currentTime,
@@ -226,7 +228,7 @@ async function sendWeatherData(e, write) {
             $("#wind-extra-info").load(location.href+" #wind-extra-info>*","");
             $("#temperature-extra-info").load(location.href+" #temperature-extra-info>*","");
             $("#other-weather-extra-info").load(location.href+" #other-weather-extra-info>*","");
-            setTimeout(generateGoogleChartGraphs, 3000);
+            setTimeout(generateGoogleChartGraphs, 10000);
         }    
     });
     

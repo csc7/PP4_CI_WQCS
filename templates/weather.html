@@ -91,15 +91,13 @@
                 <input type="radio" id="15-days" name="records-to-display" value="15-last">
                 <label for="15-days">Last 15 days</label>
             </div>
-            <div id="s-d-o-3" class="col-12 col-lg-5">
+            <div id="s-d-o-3" class="col-12 col-lg-4">
                 <input type="radio" id="all-data" name="records-to-display" value="all-data">
                 <label for="5-days">All data in table, last 30 days in chart</label>
             </div>
-            <div id="s-d-o-4" class="col-12 col-lg-3">                    
-                <label for="s-d-o-list">Value</label>                  
-                <select id="s-d-o-list" name="other-value-list" class="input-field">
-                    <option value="temperature-max">Max Temperature</option>
-                    <option value="temperature-max">Min Temperature</option>
+            <div id="s-d-o-4" class="col-12 col-lg-2">                    
+                <label for="s-d-o-list-1">Value 1</label>                  
+                <select id="s-d-o-list-1" name="other-value-list-1" class="input-field">
                     <option value="pressure">Pressure</option>
                     <option value="humidity">Humidity</option>
                     <option value="visibility">Visibility</option>
@@ -108,7 +106,19 @@
                     <option value="sunrise">Sunrise</option>
                     <option value="sunset">Sunset</option>
                 </select>                                        
-            </div>            
+            </div>  
+            <div id="s-d-o-4" class="col-12 col-lg-2">                    
+                <label for="s-d-o-list-2">Value 2</label>                  
+                <select id="s-d-o-list-2" name="other-value-list-2" class="input-field">
+                    <option value="pressure">Pressure</option>
+                    <option value="humidity">Humidity</option>
+                    <option value="visibility">Visibility</option>
+                    <option value="sky">Sky</option>
+                    <option value="description">Main</option>
+                    <option value="sunrise">Sunrise</option>
+                    <option value="sunset">Sunset</option>
+                </select>                                        
+            </div>           
         </div>
         <div id="weather_extra_info" class="row">
             <div id="chart-left" class="col-12 order-1 col-lg-4 order-lg-1">
@@ -162,8 +172,8 @@
                         <tr>
                             <td>{{ other.other_rec.date }}</td>
                             <td style="display:none;">{{ other.other_rec.time }}</td>
-                            <td>{{ other.pressure }}</td>
-                            <td>{{ other.humidity }}</td>
+                            <td>{{ other.1 }}</td>
+                            <td>{{ other.2 }}</td>
                         </tr>
                     {% endfor %}
                 </table>
