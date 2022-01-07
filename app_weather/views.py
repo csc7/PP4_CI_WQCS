@@ -136,7 +136,7 @@ def get_weather_page(request):
             'date_and_time': DataAndTimeForData.objects.all()[0:recs],
             'wind_data': WindData.objects.all()[0:recs],
             'temperature_data': TemperatureData.objects.all()[0:recs],          
-            'other_weather_data': OtherWeatherData.objects.values_list('other_rec', other_value_to_display_1, other_value_to_display_2)[0:recs]
+            'other_weather_data': OtherWeatherData.objects.values_list(other_value_to_display_1, other_value_to_display_2)[0:recs]
             #'other_weather_data': OtherWeatherData.objects.all()[0:recs]
             #'other_weather_data_2': OtherWeatherData.objects.values(other_value_to_display_2)[0:recs]
         }    
