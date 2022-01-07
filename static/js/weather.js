@@ -28,11 +28,11 @@ latitudeInput.addEventListener('blur', (event) => {
       parseFloat($("#latitude-input").val()) < -90
      ){
     alert("Please enter a number betwee -180° and 180°");
+    $("#latitude-input").val('');
   } else {    
     if (!(isNaN(parseFloat($("#latitude-input").val())))) {
       latitude = parseFloat($("#latitude-input").val());
     }
-    alert(latitude);
     map.centerAt([latitude, longitude]);
     console.log(latitude);
     console.log(longitude);
@@ -55,11 +55,11 @@ longitudeInput.addEventListener('blur', (event) => {
       parseFloat($("#longitude-input").val()) < -180
      ){
     alert("Please enter a number betwee -180° and 180°");
+    $("#longitude-input").val('');
   } else {
     if (!(isNaN(parseFloat($("#longitude-input").val())))) {
       longitude = parseFloat($("#longitude-input").val());
     }
-    alert(longitude);
     map.centerAt([latitude, longitude]);
     console.log(latitude);
     console.log(longitude);
