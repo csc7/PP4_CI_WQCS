@@ -4,6 +4,7 @@
 #####
 #####def get_contact_page(request):
 #####    return render(request, "contact.html")
+import datetime
 
 
 #https://docs.djangoproject.com/en/4.0/topics/forms/
@@ -14,6 +15,9 @@ from django.shortcuts import render
 from .forms import ContactForm
 
 def get_contact_page(request):
+
+    print(datetime.datetime.now())
+
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
