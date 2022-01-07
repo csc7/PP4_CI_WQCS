@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import DataAndTimeForData, WindData, TemperatureData, OtherWeatherData
 import json
 import re
+from itertools import chain
 
 #from django.contrib.staticfiles.storage import staticfiles_storage
 #file_handle = staticfiles_storage.open('js/weather.js')
@@ -132,16 +133,29 @@ def get_weather_page(request):
 #    else:
     print(other_value_to_display_1)
     print(other_value_to_display_2)
+
+
+    #merged_list = list(chain(DataAndTimeForData.objects.all()[0:recs], OtherWeatherData.objects.values_list(other_value_to_display_1, other_value_to_display_2)[0:recs]))
+    
+
     context = {
             'date_and_time': DataAndTimeForData.objects.all()[0:recs],
             'wind_data': WindData.objects.all()[0:recs],
             'temperature_data': TemperatureData.objects.all()[0:recs],          
-            'other_weather_data': OtherWeatherData.objects.values_list(other_value_to_display_1, other_value_to_display_2)[0:recs]
-            #'other_weather_data': OtherWeatherData.objects.all()[0:recs]
+            #'other_weather_data': OtherWeatherData.objects.values_list(other_value_to_display_1, other_value_to_display_2)[0:recs],
+            # Merge two query sets to be able to iterate in template
+            'other_weather_data': zip(DataAndTimeForData.objects.all()[0:recs],
+                                      OtherWeatherData.objects.values_list(
+                                          other_value_to_display_1,
+                                          other_value_to_display_2)[0:recs]
+                                    )
             #'other_weather_data_2': OtherWeatherData.objects.values(other_value_to_display_2)[0:recs]
         }    
     
     return render(request, "weather.html", context)
+
+
+
 
 #@csrf_exempt
 #def send_weather_data(request):
