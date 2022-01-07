@@ -460,7 +460,11 @@ function generateGoogleChartGraphs() {
 }
 
 // VISUALIZATION
+// Update tables and charts without writing new records (then 
+// second parameters is "false")
 $('input:radio[name="records-to-display"]').change(e => sendWeatherData(e, false));
+$('#s-d-o-list-1').change(e => sendWeatherData(e, false));
+$('#s-d-o-list-2').change(e => sendWeatherData(e, false));
 
 
 
