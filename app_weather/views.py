@@ -139,15 +139,15 @@ def get_weather_page(request):
     
 
     context = {
-            'date_and_time': DataAndTimeForData.objects.all()[0:recs],
-            'wind_data': WindData.objects.all()[0:recs],
-            'temperature_data': TemperatureData.objects.all()[0:recs],          
+            'date_and_time': DataAndTimeForData.objects.all().order_by('-id')[0:recs],
+            'wind_data': WindData.objects.all().order_by('-id')[0:recs],
+            'temperature_data': TemperatureData.objects.all().order_by('-id')[0:recs],          
             #'other_weather_data': OtherWeatherData.objects.values_list(other_value_to_display_1, other_value_to_display_2)[0:recs],
             # Merge two query sets to be able to iterate in template
-            'other_weather_data': zip(DataAndTimeForData.objects.all()[0:recs],
+            'other_weather_data': zip(DataAndTimeForData.objects.all().order_by('-id')[0:recs],
                                       OtherWeatherData.objects.values_list(
                                           other_value_to_display_1,
-                                          other_value_to_display_2)[0:recs]
+                                          other_value_to_display_2).order_by('-id')[0:recs]
                                     )
             #'other_weather_data_2': OtherWeatherData.objects.values(other_value_to_display_2)[0:recs]
         }    

@@ -159,6 +159,12 @@ $("#send-weather-data-button").click (e => sendWeatherData(e, true));
 
 async function sendWeatherData(e, write) {
   
+    // Check that data was got at least once     
+    if ($('#value-wind').text() == 'wind'){
+      alert("Please load data first");
+      return;
+    }
+
     // Selected data
     writeData = write;
     recordsToDisplay = $('input[name="records-to-display"]:checked').val();
@@ -187,9 +193,7 @@ async function sendWeatherData(e, write) {
     valueCountry = $("#value-country").text();
     valueSunrise = $("#value-sunrise").text();
     valueSunset = $("#value-sunset").text();
-
-    console.log(valueWind);
-    
+   
     $.ajax({
         type: 'POST',        
         url: '/weather/',
@@ -222,7 +226,7 @@ async function sendWeatherData(e, write) {
             'valueSunrise' : valueSunrise,
             'valueSunset' : valueSunset },
         success: function (data) {
-            //alert("Database updated, new data will appear below.");
+            alert("Database updated, new data will appear below.");
             
             // https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
             $("#wind-extra-info").load(location.href+" #wind-extra-info>*","");
