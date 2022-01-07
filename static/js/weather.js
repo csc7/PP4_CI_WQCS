@@ -3,8 +3,57 @@
 //const { getDefaultSettings } = require("http2");
 
 // Initial coordinate values
-var latitude = 50;
-var longitude = 70;
+var latitude = -6.263104;
+var longitude = 53.345278;
+
+
+// Detect in latitude and longitude are being entered manually
+// Credit: MDN Web Docs
+// Moz://a
+// https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event
+// copied and modified on January 7th, 2022, at 18:17.
+const latituteInput = document.querySelector('#latitude-input');
+latituteInput.addEventListener('focus', (event) => {
+  event.target.style.background = 'cyan';
+});
+
+latituteInput.addEventListener('blur', (event) => {
+  // If there is a longitude number, read it
+  event.target.style.background = '';
+  if (parseFloat($("#longitude-input").val())){
+    longitude = parseFloat($("#longitude-input").val());
+  }
+  if (parseFloat($("#latitude-input").val())){    
+    latitude = parseFloat($("#latitude-input").val());
+    alert(latitude);
+    map.centerAt([latitude, longitude]);
+    console.log(latitude);
+    console.log(longitude);
+  }
+});
+
+const longitudeInput = document.querySelector('#longitude-input');
+longitudeInput.addEventListener('focus', (event) => {
+  event.target.style.background = 'cyan';
+});
+
+longitudeInput.addEventListener('blur', (event) => {
+  event.target.style.background = '';
+  if (parseFloat($("#latitude-input").val())){
+    latitude = parseFloat($("#latitude-input").val());
+  }
+  if (parseFloat($("#longitude-input").val())){    
+    longitude = parseFloat($("#longitude-input").val());
+    alert(longitude);
+    map.centerAt([latitude, longitude]);
+    console.log(latitude);
+    console.log(longitude);
+  }
+  
+
+});
+
+
 
 
 //var pg = require(["pg"]);
@@ -13,13 +62,12 @@ var longitude = 70;
 //const db = pg(connectionString);
 
 
-
 // ------------------------------------------------------------------
 // Code for maps and picking of latitude and longitude, by LloydBronn, (01-05-2017 10:00 AM):
 // https://community.esri.com/t5/arcgis-api-for-javascript-questions/mouse-click-to-get-map-point-or-x-y/m-p/516073#M48139;
 // copied and modified on December 8th, 2021, 04:00.
 
-//var map;
+var map;
 require(["esri/map", "esri/geometry/webMercatorUtils",
         "esri/graphic", "esri/InfoTemplate", "esri/symbols/SimpleMarkerSymbol",
         "esri/symbols/SimpleLineSymbol", "esri/Color", "dojo/dom", "dojo/domReady!"
@@ -29,7 +77,8 @@ require(["esri/map", "esri/geometry/webMercatorUtils",
                     //esriConfig.apiKey = "AAPKcb5628ff50b04f38bfb15788ab6d79afBV-DZA2SyobB3bFx8LlFMQR0LAkOly9XoAJSPmAMmbNTnWzCqixPSdFYZV_DpGC6";
                     map = new Map("viewDiv", {
                         basemap: "streets",
-                        center: [-95.249, 38.954],
+                        //center: [-6.263104, 53.345278],   
+                        center: [latitude, longitude],                     
                         zoom: 14,
                         slider: false
                     });
@@ -51,7 +100,7 @@ require(["esri/map", "esri/geometry/webMercatorUtils",
                         //map.infoWindow.setContent("Longitude: " + mp.x.toString() + ", <br>Latitude: " + mp.y.toString());
                         //map.infoWindow.show(evt.mapPoint)  
                         
-                        // Added to original source code
+                        // Added to original source code                        
                         latitude = mp.y;
                         longitude = mp.x;
                         $("#latitude").text(mp.y.toString());
@@ -60,6 +109,9 @@ require(["esri/map", "esri/geometry/webMercatorUtils",
                     });
 
 // ------------------------------------------------------------------
+
+
+
 
 // Alternative to send answers with the Enter key
 function pressEnter (event) { 
@@ -159,11 +211,14 @@ $("#send-weather-data-button").click (e => sendWeatherData(e, true));
 
 async function sendWeatherData(e, write) {
   
-    // Check that data was got at least once     
-    if ($('#value-wind').text() == 'wind'){
-      alert("Please load data first");
-      return;
-    }
+    // Check that data was got at least once
+    if (write){
+      if ($('#value-wind').text() == ''){
+        alert("Please load data first");
+        return;
+      }
+    }    
+    
 
     // Selected data
     writeData = write;
@@ -226,8 +281,9 @@ async function sendWeatherData(e, write) {
             'valueSunrise' : valueSunrise,
             'valueSunset' : valueSunset },
         success: function (data) {
-            alert("Database updated, new data will appear below.");
-            
+          if (write){
+              alert("Database updated, new data will appear below.");
+            }
             // https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
             $("#wind-extra-info").load(location.href+" #wind-extra-info>*","");
             $("#temperature-extra-info").load(location.href+" #temperature-extra-info>*","");
@@ -349,9 +405,6 @@ function generateGoogleChartGraphs() {
     table3.push(r);
   }
 
-  console.log(table1);
-  console.log(table2);
-  console.log(table3);
 
   // DATA FOR GOOGLE CHART
   ////////////////////////

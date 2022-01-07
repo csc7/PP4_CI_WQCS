@@ -796,7 +796,7 @@ ___
     - Checked several methods at https://api.jquery.com/ .
 
 - MDN Web Docs Moz://a;
-    - ...
+    - To perform an action when an input field changes: https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event; accessed on January 7th, 2022, at 18:17.
 
 - OpenWeatherMap:
 
