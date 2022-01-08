@@ -1,5 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
+    <div class="container">
+        <div class="row">
+            <div id="source-Esri" class="col-12 col-sm-6 external-references">
+                <p>Maps by Esri</p>
+            </div>
+            <div id="source-Google" class="col12 col-sm-6 external-references">
+                <p>Charts by Google</p>
+            </div>
+        </div>
+        <hr>
+    </div>
+    
     <!-- Weather Data -->
     <div id="top-container" class="container">
         
@@ -14,9 +26,9 @@
                 <div class="row">
                     <div id="weather-data-title" class="col-12 weather-data-label"><p>Coordinates for Weather Data</p></div>
                     <div id="latitute-title" class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Latitude</p></div>
-                    <div id="latitude" class="col-12 col-sm-6 col-md-3 weather-data-value"></div>
+                    <div id="latitude" class="col-12 col-sm-6 col-md-3 weather-data-value"><p>(Click on map)</p></div>
                     <div id="longitude-title" class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Longitude</p></div>
-                    <div id="longitude" class="col-12 col-sm-6 col-md-3 weather-data-value"></div>
+                    <div id="longitude" class="col-12 col-sm-6 col-md-3 weather-data-value"><p>(Click on map)</p></div>
                     <div id="enter-manually-title" class="col-12 weather-data-label"><p>Manual Input of Coordinates</p></div>
                     <div id="manual-latitude-label" class="col-12 col-sm-6 col-md-3 weather-data-label">
                         <label for="latitude-input" id="label-for-latitude">Latitude</label>
@@ -33,6 +45,7 @@
                     <div id="get-weather-data" class="col-12">
                         <button id="get-weather-data-button" type="submit">Get Data</button>
                     </div>
+                    
                     <div id="results-title" class="col-12 weather-data-label"><p>Weather Data</p></div>
                     <!-- Weather Data -->
                     
@@ -82,22 +95,23 @@
         </section>
         <hr>
     </div>
+    
     <div class="container">
-        <div id="select_data_options" class="row">            
+        <div id="select-data-options" class="row">            
             <div id="s-d-o-1" class="col-12 col-lg-2">
                 <input type="radio" id="5-days" name="records-to-display" value="5-last">
-                <label for="5-days" class="radio-label">Last 5 days</label>
+                <label for="5-days" class="radio-select-label">Last 5 days</label>
             </div>
             <div id="s-d-o-2" class="col-12 col-lg-2">
                 <input type="radio" id="15-days" name="records-to-display" value="15-last">
-                <label for="15-days" class="radio-label">Last 15 days</label>
+                <label for="15-days" class="radio-select-label">Last 15 days</label>
             </div>
-            <div id="s-d-o-3" class="col-12 col-lg-4">
+            <div id="s-d-o-3" class="col-12 col-lg-2">
                 <input type="radio" id="all-data" name="records-to-display" value="all-data">
-                <label for="5-days" class="radio-label">All data in table, last 30 days in chart</label>
+                <label for="5-days" class="radio-select-label">All Data</label>
             </div>
-            <div id="s-d-o-4" class="col-12 col-lg-2">                    
-                <label for="s-d-o-list-1" class="radio-label">Value 1</label>                  
+            <div id="s-d-o-4" class="col-12 col-lg-3">                    
+                <label for="s-d-o-list-1" class="radio-select-label">Value 1</label>                  
                 <select id="s-d-o-list-1" name="other-value-list-1" class="input-field">
                     <option value="pressure">Pressure</option>
                     <option value="humidity">Humidity</option>
@@ -108,8 +122,8 @@
                     <option value="sunset">Sunset</option>
                 </select>                                        
             </div>  
-            <div id="s-d-o-4" class="col-12 col-lg-2">                    
-                <label for="s-d-o-list-2">Value 2</label>                  
+            <div id="s-d-o-4" class="col-12 col-lg-3">                    
+                <label for="s-d-o-list-2" class="radio-select-label">Value 2</label>                  
                 <select id="s-d-o-list-2" name="other-value-list-2" class="input-field">
                     <option value="pressure">Pressure</option>
                     <option value="humidity">Humidity</option>

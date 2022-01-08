@@ -216,11 +216,22 @@ a.nav-link {
 /* WEATHER PAGE */
 /* ************ */
 
-#top-container {
-    margin-top: 100px;
-    margin-bottom: 12px;
+#source-Esri, #source-Google {
+    margin-top: 75px;
+    font-family: 'Heebo', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    color: blue;
     
-    
+}
+
+#source-Esri > p, #source-Google > p {
+    padding-top: 10px;
+    margin-bottom: 0px;
+}
+
+#top-container {    
+    margin-bottom: 12px;   
 }
 
 #weather-map-and-data {
@@ -229,57 +240,64 @@ a.nav-link {
 
 #viewDiv {
     /* height: 350px; */
-    background-color: aqua;
     /*background-color: blueviolet;   */
     /*position: relative;*/
     /*height: 100%;
     width: 100%;*/
     padding: 0 20px;
-      
-    
+}
+
+#viewDiv_gc {
+    border-color: rgb(49, 49, 48);
+    border-style: solid;
 }
 
 #weather-data {
-    
-    background-color: rgb(160, 160, 240);
-    /*height: 100%;
-    width: 100%; */   
+
 }
 
 #weather-data-title {
-    background-color: rgb(72, 226, 226);
-}
-#latitute-title {
-    background-color: rgb(159, 238, 238);
-}
-#latitute {
-    background-color: rgb(56, 151, 53);
-}
-#longitude-title {
-    background-color: rgb(236, 199, 168);
-}
-#longitude {
-    background-color: rgb(122, 63, 15);
-}
-#enter-manually-title {
-    background-color: rgb(194, 161, 238);
+
 }
 
+#latitute-title {
+
+}
+
+#latitute {
+
+}
+
+#longitude-title {
+
+}
+
+#longitude {
+
+}
+
+#enter-manually-title {
+
+}
 
 #manual-latitute-label {
-    background-color: rgb(177, 238, 238);
+
 }
 
 #label-for-latitude {
     
 }
 
+#manual-latitude, #label-for-latitude, #manual-longitude, #label-for-longitude {
+    margin-top: 5px;
+}
+
 #manual-latitute {
-    background-color: rgb(27, 182, 53);
+
 }
 
 #manual-longitude-label {
-    background-color: rgb(165, 175, 127);
+
 }
 
 #label-for-longitude {
@@ -287,11 +305,10 @@ a.nav-link {
 }
 
 #manual-longitude {
-    background-color: rgb(231, 243, 188);
+
 }
 
 #get-weather-data {
-    background-color: rgb(188, 219, 219);
     height: 40px;
 }
 
@@ -311,18 +328,21 @@ a.nav-link {
 }
 
 #results-title {
-    background-color: rgb(182, 229, 229);
+
 }
+
 #results {
-    background-color: rgb(223, 231, 175);
+
 }
 
 #chart-left {
     
 }
+
 #chart-middle {
     
 }
+
 #chart-right {
     
 }
@@ -336,10 +356,24 @@ a.nav-link {
     font-size: 110%;
 }
 
-#latitude-input, #longitude-input {
-    width: 100%;
+#latitude > p, #longitude > p {
+    font-family: 'Heebo', sans-serif;
+    color: rgb(49, 49, 48);
+    text-align: center;
+    font-size: 90%;
+    font-style: italic;
+    font-weight: normal;
+    margin-top: 2px;
 }
 
+#latitude-input, #longitude-input {
+    width: 100%;
+    color: blue;
+}
+
+#get-weather-data {
+    margin-top: 10px;
+}
 
 .weather-data-value {
     color: rgb(49, 49, 48);
@@ -363,30 +397,24 @@ a.nav-link {
     font-size: 140%;
 }
 
-.radio-label {
+.radio-select-label {
     font-family: 'Heebo', sans-serif;
 }
 
-
-
 #wind-extra-info {
-    
     margin-bottom: 225px;
     /*height: 200px;*/
 }
 
 #temperature-extra-info {
-    background-color: rgb(156, 224, 241);
     margin-bottom: 225px;
     /*height: 250px;*/
 }
 
 #other-weather-extra-info {
-    background-color: rgb(209, 236, 193);
     margin-bottom: 225px;
     /*height: 250px;*/
 }
-
 
 #curve_chart_left, #curve_chart_middle, #curve_chart_right {
     width: 100%;
@@ -397,9 +425,7 @@ a.nav-link {
     width: 90%;
     margin-top: 25px;
     text-align: center;
-    
 }
-
 
 #temperature-table {
     width: 90%;
@@ -427,6 +453,7 @@ td {
 /* ********* */
 /* BLOG PAGE */
 /* ********* */
+
 #post-box {
     margin-top: 100px;
 }
@@ -543,9 +570,9 @@ td {
 /* SCREEN SIZE BELOW 992px */
 
 @media screen and (max-width: 992px) {
-
-    
-
+    #select-data-options {
+        text-align: center;
+    }
 }
 
 /* SCREEN SIZE BELOW 992px */
@@ -610,6 +637,28 @@ td {
     }
 
     #company-data > p {
+        text-align: center;
+    }
+
+    /* WEATHER */
+
+    .external-references {
+        
+    }
+
+    #sorce-Esri {
+        
+    }
+
+    #source-Google {
+        margin-top: 0;
+    }
+
+    .weather-data-label > p, #manual-latitude-label, #manual-longitude-label {
+        text-align: center;
+    }
+
+    .weather-data-value {
         text-align: center;
     }
 
