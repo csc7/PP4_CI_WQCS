@@ -221,7 +221,7 @@ a.nav-link {
     font-family: 'Heebo', sans-serif;
     font-weight: bold;
     text-align: center;
-    color: blue;
+    color: rgb(76, 76, 211);;
     
 }
 
@@ -368,7 +368,7 @@ a.nav-link {
 
 #latitude-input, #longitude-input {
     width: 100%;
-    color: blue;
+    color: rgb(76, 76, 211);;
 }
 
 #get-weather-data {
@@ -376,9 +376,8 @@ a.nav-link {
 }
 
 .weather-data-value {
-    color: rgb(49, 49, 48);
     font-family: 'Heebo', sans-serif;
-    color: blue;
+    color: rgb(76, 76, 211);
     text-align: left;
     margin-top: 2px;
     margin-bottom: 2px;
@@ -388,6 +387,7 @@ a.nav-link {
 #results-title, #enter-manually-title, #weather-data-title {
     margin-top: 20px;
     height: 40px;
+    
 }
 
 #results-title > p, #enter-manually-title > p, #weather-data-title > p{
@@ -395,10 +395,12 @@ a.nav-link {
     font-weight: 150%;
     text-align: center;
     font-size: 140%;
+    color: rgb(98, 88, 184);
 }
 
 .radio-select-label {
     font-family: 'Heebo', sans-serif;
+    color: rgb(98, 88, 184);
 }
 
 #wind-extra-info {
@@ -441,11 +443,12 @@ a.nav-link {
 
 #wind-table > tbody > tr > th, #temperature-table > tbody > tr > th, #other-weather-table > tbody > tr > th{
     font-family: 'Heebo', sans-serif;
+    color: rgb(98, 88, 184);
 }
 
 td {
     font-family: 'Oxygen', sans-serif;
-    color: blue;
+    color: rgb(76, 76, 211);;
 }
 
 
