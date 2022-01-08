@@ -11,7 +11,15 @@ Seismic Data Acquisition Website */
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@500&family=Oxygen&display=swap');
 
 
+
 /* GENERAL STYLES */
+
+/*
+body {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+}*/
 
 p {
     font-family: 'Oxygen', sans-serif;
@@ -118,9 +126,13 @@ https://stackoverflow.com/questions/10636667/bootstrap-modal-appearing-under-bac
 
 /* FOOTER */
 
-#footer {
 
+
+#footer {
+    position: relative;
+    top: 100px;
     background-color: rgb(49, 49, 48);
+    
 }
 
 #company-data {
@@ -185,7 +197,11 @@ a.nav-link {
 
 
 #instructions-title {
-    margin-top: 75px;
+    margin-top: 100px;
+}
+
+#body-content {
+    height: 710px;
 }
 
 
@@ -194,7 +210,7 @@ a.nav-link {
 /* ************ */
 
 #top-container {
-    margin-top: 70px;
+    margin-top: 100px;
     margin-bottom: 12px;
     
     
@@ -288,16 +304,19 @@ a.nav-link {
 
 #wind-extra-info {
     background-color: rgb(158, 173, 216);
-    /*height: 250px;*/
+    margin-bottom: 225px;
+    /*height: 200px;*/
 }
 
 #temperature-extra-info {
     background-color: rgb(156, 224, 241);
+    margin-bottom: 225px;
     /*height: 250px;*/
 }
 
 #other-weather-extra-info {
     background-color: rgb(209, 236, 193);
+    margin-bottom: 225px;
     /*height: 250px;*/
 }
 
@@ -314,7 +333,7 @@ a.nav-link {
 /* BLOG PAGE */
 /* ********* */
 #post-box {
-    margin-top: 75px;
+    margin-top: 100px;
 }
 
 
@@ -325,7 +344,8 @@ a.nav-link {
 /* ************ */
 
 #contact-form {
-    margin-top: 175px;
+    margin-top: 100px;
+    height: 710px;
 }
 
 #form-left-1 {
@@ -387,6 +407,23 @@ a.nav-link {
 /* ************* */
 /* MEDIA QUERIES */
 /* ************* */
+
+/* FOOTHER ON BIG SCREEN SIZE, HEIGHT ABOVE 1080px */
+
+@media screen and (min-height: 1081px) {
+    footer {
+        position: fixed;
+        bottom: 70px;
+        height: 200px;
+        width: 100%;
+       
+        
+
+        
+    }
+
+
+}
 
 
 /* SCREEN SIZE BELOW 1200px */
