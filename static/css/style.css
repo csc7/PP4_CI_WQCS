@@ -552,6 +552,11 @@ a.nav-link {
         height: 250px;
     }
 
+    /* POST DETAILS */
+
+    #post-detail-body {
+        padding-top: 75px;    
+    }
 
 
 }
