@@ -349,58 +349,43 @@ a.nav-link {
 }
 
 #form-left-1 {
-    background-color: aquamarine;
+    height: 75px;
 }
-#form-left-2 {
-    background-color: rgb(128, 142, 204);
-}
-#form-left-3 {
-    background-color: rgb(179, 199, 88);
+#form-left-2, #form-left-3, #form-right-2 {
+    height: 75px;
 }
 
 #form-right-1 {
-    background-color: rgb(70, 224, 173);
-}
-#form-right-2 {
-    background-color: rgb(231, 238, 142);
+    height: 300px;
 }
 
-/*
-#contact-form-details {
-    background-color: aquamarine;
-    height: 350px;
+.form-labels {
+    font-family: 'Heebo', sans-serif;
 }
 
-#contact-form-text {
-    background-color: aqua;
-    height: 350px;
+#id_name, #id_surname, #id_email {
+    width: 70%;
+    float: right;
 }
 
-.form-row-label {
+#id_text_content {
+    width: 70%;
+    float: right;
+    height: 250px;
+}
+
+#contact-form-button {
+    width: 200px;
+    height: 40px;
     margin: 0;
-    padding-left: 2%;
-    padding-right: 2%;
-    width: 96%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-family: 'Heebo', sans-serif;
 }
 
-.form-row-input {
-    margin: 0;
-    padding-left: 2%;
-    padding-right: 2%;
-    width: 96%;
-}
-
-.input-field {
-    width: 100%;
-}
-
-#form-description {
-    margin: 0;
-    padding-left: 2%;
-    padding-right: 2%;
-    width: 96%;
-}
-*/
 
 
 
@@ -415,11 +400,7 @@ a.nav-link {
         position: fixed;
         bottom: 70px;
         height: 200px;
-        width: 100%;
-       
-        
-
-        
+        width: 100%;        
     }
 
 
@@ -436,19 +417,17 @@ a.nav-link {
 
 
 
-
 /* SCREEN SIZE BELOW 992px */
 
 @media screen and (max-width: 992px) {
 
-
+    
 
 }
 
 /* SCREEN SIZE BELOW 992px */
 
 @media screen and (max-width: 768px) {
-
 
 
 }
@@ -510,5 +489,38 @@ a.nav-link {
     #company-data > p {
         text-align: center;
     }
+
+    /* FORMS */
+
+    #form-left-1 {
+        margin-top: 50px;
+        height: 75px;
+    }
+
+    #form-left-2, #form-left-3, #form-right-2 {
+        height: 75px;
+    }
+
+    #form-right-1 {
+        height: 300px;
+    }
+
+
+    .form-labels {
+        width: 100%;
+        text-align: center;
+    }
+    
+    #id_name, #id_surname, #id_email {
+        height: 30px;
+        width: 100%;
+    }
+    
+    #id_text_content {
+        width: 100%;
+        height: 250px;
+    }
+
+
 
 }

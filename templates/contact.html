@@ -11,33 +11,34 @@
             <div class="col-12 col-lg-6">
                 <div id="form-left-1" class="col-12">
                     {{ form.name.errors }}
-                    <label for="{{ form.name.id_for_label }}">Name</label>
+                    <label class="form-labels" for="{{ form.name.id_for_label }}">Name</label>
                     {{ form.name }}
                 </div>
                 <div id="form-left-2" class="col-12">
                     {{ form.surname.errors }}
-                    <label for="{{ form.surname.id_for_label }}">Surname</label>
+                    <label class="form-labels" for="{{ form.surname.id_for_label }}">Surname</label>
                     {{ form.surname }}
                 </div>
                 <div id="form-left-3" class="col-12">
                     {{ form.email.errors }}
-                    <label for="{{ form.email.id_for_label }}">Email</label>
+                    <label class="form-labels" for="{{ form.email.id_for_label }}">Email</label>
                     {{ form.email }}
                 </div>
             </div>
             <div class="col-12 col-lg-6">
                 <div id="form-right-1" class="col-12">
                     {{ form.text_content.errors }}
-                    <label for="{{ form.text_content.id_for_label }}">Description</label>
+                    <label class="form-labels" for="{{ form.text_content.id_for_label }}">Description</label>
                     {{ form.text_content }}
                 </div>
-                <div id="form-right-2" class="col-12">
-                    {% if user.is_authenticated %} 
-                    <input type="submit" value="Submit">
-                    {% else %}
-                    <p>(Log in to send data to database)</p>
-                    {% endif %}
-                </div>
+            </div>
+            <div id="form-right-2" class="col-12">
+                {% if user.is_authenticated %} 
+                <input id="contact-form-button" type="submit" value="Submit">
+                {% else %}
+                <p>(Log in to send data to database)</p>
+                {% endif %}
+            
             </div>
         </div>
     </form>
