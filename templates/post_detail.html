@@ -1,5 +1,5 @@
 <!--
-Code copied from Code Institute "I Think Therefore I Blog" project
+Code copied and modified from Code Institute "I Think Therefore I Blog" project
 on December 20th, 2021; later modified on December23rd, 2021 at 15:20.
 -->
 
@@ -9,23 +9,16 @@ on December 20th, 2021; later modified on December23rd, 2021 at 15:20.
 
 {% block content %}
 
-<div class="masthead">
+<div id="post-detail-body" class="masthead">
     <div class="container">
         <div class="row g-0">
-            <div class="col-md-6 masthead-text">
+            <div class="col-12 masthead-text">
                 <!-- Post title goes in these h1 tags -->
                 <h1 class="post-title">{{ post.title }}</h1>
                 <!-- Post author goes before the | the post's created date goes after -->
                 <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
             </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
-                <!-- The featured image URL goes in the src attribute -->
-                {% if "placeholder" in post.featured_image.url %}
-                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
-                {% else %}
-                <img src=" {{ post.featured_image.url }}" width="100%">
-                {% endif %}
-            </div>
+            
         </div>
     </div>
 </div>
@@ -33,19 +26,21 @@ on December 20th, 2021; later modified on December23rd, 2021 at 15:20.
 <div class="container">
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
-            <div class="card-body">
+            <div id="post-details-summary" class="card-body">
                 <!-- The post content goes inside the card-text. -->
                 <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text ">
                     {{ post.content | safe }}
                 </p>
                 <div class="row">
-
-                    <div class="col-1">
+                    <div  class="col-6">
                         <!-- The number of likes goes before the closing strong tag -->
-                        <strong class="text-secondary"><i class="far fa-heart"></i> {{ post.number_of_likes }} </strong>
+                        <!-- Icon for "likes":
+                        Credit: Font Awesome
+                        Downloaded on January 7th, 2022, 04:14, from https://fontawesome.com/v5.15/icons/thumbs-up?style=regular -->                   
+                        <strong class="text-secondary"><i class="far fa-thumbs-up"></i> {{ post.number_of_likes }} </strong>
                     </div>
-                    <div class="col-1">
+                    <div class="col-6">
                         {% with comments.count as total_comments %}
                         <strong class="text-secondary"><i class="far fa-comments"></i>
                             <!-- Our total_comments variable goes before the closing strong tag -->
@@ -71,7 +66,7 @@ on December 20th, 2021; later modified on December23rd, 2021 at 15:20.
                     <p class="font-weight-bold">
                         <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
                         {{ comment.name }}
-                        <span class=" text-muted font-weight-normal">
+                        <span class="text-muted font-weight-normal">
                             <!-- The comment's created date goes here -->
                             {{ comment.created_on }}
                         </span> wrote:

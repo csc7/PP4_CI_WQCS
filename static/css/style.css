@@ -25,6 +25,9 @@ p {
     font-family: 'Oxygen', sans-serif;
 }
 
+h3 {
+    font-family: 'Heebo', sans-serif;
+}
 
 /* BODY */
 #body-content {
@@ -337,6 +340,31 @@ a.nav-link {
 }
 
 
+/* **************** */
+/* POST DETAIL PAGE */
+/* **************** */
+
+#post-detail-body {
+    margin-top: 100px;    
+}
+
+.masthead {
+    font-weight: bold;
+    text-align: center;
+}
+
+.masthead-text {
+    font-family: 'Heebo', sans-serif;
+}
+
+.text-secondary {
+    font-family: 'Oxygen', sans-serif;
+}
+
+#post-details-summary {
+    text-align: center;
+}
+
 
 
 /* ************ */
@@ -385,6 +413,9 @@ a.nav-link {
     transform: translate(-50%, -50%);
     font-family: 'Heebo', sans-serif;
 }
+
+
+
 
 
 
