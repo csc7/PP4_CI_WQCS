@@ -108,14 +108,14 @@ require(["esri/map", "esri/geometry/webMercatorUtils",
                         map.graphics.clear();
                         map.graphics.add(new Graphic(evt.mapPoint, symbol));
                         // To show coordinates on map, commented from original source code
-                        //map.infoWindow.setContent("Longitude: " + mp.x.toString() + ", <br>Latitude: " + mp.y.toString());
-                        //map.infoWindow.show(evt.mapPoint)  
+                        // map.infoWindow.setContent("Longitude: " + mp.x.toString() + ", <br>Latitude: " + mp.y.toString());
+                        // map.infoWindow.show(evt.mapPoint)  
                         
                         // Added to original source code                        
                         latitude = mp.y;
                         longitude = mp.x;
-                        $("#latitude").text(mp.y.toString());
-                        $("#longitude").text(mp.x.toString());
+                        $("#latitude").text(mp.y.toFixed(4).toString());
+                        $("#longitude").text(mp.x.toFixed(4).toString());
                         });
                     });
 

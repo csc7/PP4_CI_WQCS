@@ -29,6 +29,10 @@ h2, h3 {
     font-family: 'Heebo', sans-serif;
 }
 
+hr {
+    margin: 25px 25px;
+}
+
 /* BODY */
 #body-content {
     /*margin-top: 75px;*/
@@ -267,7 +271,7 @@ a.nav-link {
 }
 
 #label-for-latitude {
-    font-family: 'Oxygen', sans-serif;
+    
 }
 
 #manual-latitute {
@@ -279,7 +283,7 @@ a.nav-link {
 }
 
 #label-for-longitude {
-    font-family: 'Oxygen', sans-serif;
+    
 }
 
 #manual-longitude {
@@ -288,10 +292,22 @@ a.nav-link {
 
 #get-weather-data {
     background-color: rgb(188, 219, 219);
+    height: 40px;
 }
 
-#get-weather-data-button {
-    font-family: 'Oxygen', sans-serif;
+#get-weather-data, #send-weather-data {
+    height: 50px;
+}
+
+#get-weather-data-button, #send-weather-data-button {
+    width: 200px;
+    height: 40px;    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-family: 'Heebo', sans-serif;
 }
 
 #results-title {
@@ -301,12 +317,60 @@ a.nav-link {
     background-color: rgb(223, 231, 175);
 }
 
-.weather-data-label {
-    color: aliceblue;
+#chart-left {
+    
+}
+#chart-middle {
+    
+}
+#chart-right {
+    
 }
 
+.weather-data-label > p, #manual-latitude-label, #manual-longitude-label {
+    color: rgb(49, 49, 48);
+    font-family: 'Heebo', sans-serif;
+    text-align: right;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 110%;
+}
+
+#latitude-input, #longitude-input {
+    width: 100%;
+}
+
+
+.weather-data-value {
+    color: rgb(49, 49, 48);
+    font-family: 'Heebo', sans-serif;
+    color: blue;
+    text-align: left;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 110%;
+}
+
+#results-title, #enter-manually-title, #weather-data-title {
+    margin-top: 20px;
+    height: 40px;
+}
+
+#results-title > p, #enter-manually-title > p, #weather-data-title > p{
+    margin: auto;
+    font-weight: 150%;
+    text-align: center;
+    font-size: 140%;
+}
+
+.radio-label {
+    font-family: 'Heebo', sans-serif;
+}
+
+
+
 #wind-extra-info {
-    background-color: rgb(158, 173, 216);
+    
     margin-bottom: 225px;
     /*height: 200px;*/
 }
@@ -329,6 +393,34 @@ a.nav-link {
     height: 250px;
 }
 
+#wind-table {
+    width: 90%;
+    margin-top: 25px;
+    text-align: center;
+    
+}
+
+
+#temperature-table {
+    width: 90%;
+    margin-top: 25px;
+    text-align: center;
+}
+
+#other-weather-table {
+    width: 90%;
+    margin-top: 25px;
+    text-align: center;
+}
+
+#wind-table > tbody > tr > th, #temperature-table > tbody > tr > th, #other-weather-table > tbody > tr > th{
+    font-family: 'Heebo', sans-serif;
+}
+
+td {
+    font-family: 'Oxygen', sans-serif;
+    color: blue;
+}
 
 
 
