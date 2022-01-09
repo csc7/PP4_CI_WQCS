@@ -76,10 +76,24 @@ hr {
     background-color: white;
 }
 
-#log-in-button > button {
+
+#log-in-button-1 > div, #log-in-button-2 > div, #log-in-button-3 > div{
+    background-color: rgb(49, 49, 48);
+}
+
+#log-in-button-1, #log-in-button-2, #log-in-button-3, #header > div {
+    background-color: rgb(49, 49, 48);
+}
+
+#log-in-button-1 > button, #log-in-button-2 > button, #log-in-button-3 > button {
     background-color: white;
     border-color: white;
     color:rgb(49, 49, 48);    
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /*margin-left: 30px;*/
+    float: right;
+    font-family: 'Heebo', sans-serif;
 }
 
 
@@ -105,12 +119,6 @@ hr {
     margin: auto;
 }*/
 
-#log-in-button > button {
-    margin-top: 10px;
-    /*margin-left: 30px;*/
-    float: right;
-    font-family: 'Heebo', sans-serif;
-}
 
 /* Solution for modal windown appearing below elements, in the background:
 Copied on June 19th, 2021, at 3:17, from Stack Overflow:
@@ -130,6 +138,8 @@ https://stackoverflow.com/questions/10636667/bootstrap-modal-appearing-under-bac
     font-family: 'Heebo', sans-serif;
     color: white;
 }
+
+
 
 /* FOOTER */
 
@@ -356,7 +366,7 @@ a.nav-link {
     font-size: 110%;
 }
 
-#latitude > p, #longitude > p {
+#latitude > p, #longitude > p, #form-right-2 > p {
     font-family: 'Heebo', sans-serif;
     color: rgb(49, 49, 48);
     text-align: center;
@@ -500,13 +510,16 @@ td {
 
 #form-left-1 {
     height: 75px;
+    margin: 5px;
 }
 #form-left-2, #form-left-3, #form-right-2 {
     height: 75px;
+    margin: 5px;
 }
 
 #form-right-1 {
     height: 300px;
+    margin: 5px;
 }
 
 .form-labels {
@@ -582,6 +595,14 @@ td {
 
 @media screen and (max-width: 768px) {
 
+    #log-in-button-1 > button, #log-in-button-2 > button, #log-in-button-3 > button {
+        position: relative;
+        left: 5px;
+        padding-right: 2px;
+        padding-left:  2px;;
+  
+    }
+
 
 }
 
@@ -599,12 +620,20 @@ td {
     }
     
 
-    #log-in-button > button {
-        margin-right: 0px;
-        margin-top: 8px;
+    #log-in-button-1 > button, #log-in-button-2 > button, #log-in-button-3 > button {
+        margin-bottom: 5px;
+        margin-top: 0px;
         /* To align vertically "Log In" inside the button*/
         padding-top: 6px;
-        padding-bottom: 8px;
+        padding-bottom: 10px;
+        
+    }
+
+    #log-in-button-1, #log-in-button-2, #log-in-button-3 {
+        padding-left: 10px;
+        padding-right: 15px;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     #header-menu > nav {        
@@ -616,7 +645,7 @@ td {
         float: right;        
     }
 
-    #log-in-button > button {
+    #log-in-button-1 > button, #log-in-button-2 > button, #log-in-button-3 > button {
         /* 110% to keep text in button centered down to 280px width*/
         width: 100%;
     }
@@ -625,7 +654,7 @@ td {
         padding-right: 0;
     }
 
-    #log-in-button > button {
+    #log-in-button-1 > button, #log-in-button-2 > button, #log-in-button-3 > button {
         padding:7px 4px 7px;
     }
 
@@ -641,6 +670,14 @@ td {
 
     #company-data > p {
         text-align: center;
+    }
+
+    #instructions-title > div {
+        margin-top: 50px;
+    }
+
+    #source-Esri {
+        margin-top: 125px;
     }
 
     /* WEATHER */

@@ -10,7 +10,7 @@ function moveContent () {
         firstElementToMove.style.marginTop = "250px";        
     } else {
         let firstElementToMove = document.getElementById('body');
-        firstElementToMove.style.marginTop = "75px";
+        firstElementToMove.style.marginTop = "0px";
     }
 }
 
