@@ -140,6 +140,22 @@ https://stackoverflow.com/questions/10636667/bootstrap-modal-appearing-under-bac
 }
 
 
+/* LOG-IN, SIGN-UP and LOG-OUT*/
+
+#body > div > div:nth-child(1) > div > p {
+    margin-top: 50px;
+    font-family: 'Oxygen', sans-serif;
+    margin-bottom: 50px;
+}
+
+#signup_form, #body > div > div:nth-child(2) > div > form {
+    margin-bottom: 410px;
+}
+
+#body > div > div:nth-child(2) > div {
+    margin-bottom: 175px;
+}
+
 
 /* FOOTER */
 
