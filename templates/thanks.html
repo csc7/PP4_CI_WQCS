@@ -1,24 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div>Thanks!</div>
-<div>Thanks!</div>
-<div>Thanks!</div>
-<div>Thanks!</div>
-<div>Thanks!</div>
-<div>Thanks!</div>
-<div>Thanks!</div>
-<div>Thanks 
-    
-    {{ form_data.name }} {{ form_data.surname }} ({{ form_data.email }}) for contacting us.</div>
-    
-<div>This is the text you have just sent (on {{ form_data.date }}, at{{ form_data.time }}):</div>
-<div>{{ form_data.description }}</div>
-<div>Thanks!</div>
-<div>Thanks!</div>
-<div>Thanks!</div>
-<div>Thanks!</div>
-<div>Thanks!</div>
-<div>Thanks!</div>
+
+<div class="container" id="thanks-div-1">
+    <div class="row">
+        <div class="col-12">
+            <p>
+                Thanks {{ form_data.name }} {{ form_data.surname }} ({{ form_data.email }}) for contacting us.
+            </p>
+        </div>
+    </div>
+</div>
+<div class="container" id="thanks-div-2">
+    <div class="row">
+        <div class="col-12">
+            <p>
+                This is the text you have just sent (on {{ form_data.date }}, at{{ form_data.time }}):
+            </p>
+        </div>
+    </div>
+</div>
+<div class="container" id="thanks-div-3">
+    <div class="row">
+        <div class="col-12">
+            <p>
+                {{ form_data.description }}.
+            </p>
+        </div>
+    </div>
+</div>
+
+
 
 {% endblock %}
