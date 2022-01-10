@@ -238,7 +238,7 @@ a.nav-link {
 }
 
 #body-content {
-    height: 1460px;
+    height: 1860px;
 }
 
 .instructions-image {
@@ -250,9 +250,7 @@ a.nav-link {
     
 }
 
-#body-content > section:nth-child(7) {
-    padding-bottom: 300px;
-}
+
 
 
 
@@ -505,6 +503,9 @@ td {
     margin-top: 100px;
 }
 
+#blog-content {
+    margin-bottom: 80px;
+}
 
 /* **************** */
 /* POST DETAIL PAGE */
@@ -611,6 +612,10 @@ td {
 
 @media screen and (max-width: 1200px) {
 
+    #blog-content {
+        margin-bottom: 240px;
+    }
+
 
 
 }
@@ -622,6 +627,12 @@ td {
 @media screen and (max-width: 992px) {
     #select-data-options {
         text-align: center;
+    }
+
+
+    /* Instructions Page */
+    #body-content {
+        height: 2200px;
     }
 }
 
@@ -636,6 +647,11 @@ td {
         padding-left:  2px;;
   
     }
+
+    /* Instructions Page */
+    #body-content {
+    height: 2600px;
+}
 
 
 }
@@ -702,6 +718,14 @@ td {
         padding-bottom: 20px;
     }
 
+    #footer {        
+        top: 0px;        
+    }
+
+    #footer-contact-link > a {
+        padding-bottom: 0px;
+    }
+
     #company-data > p {
         text-align: center;
     }
@@ -713,6 +737,15 @@ td {
     #source-Esri {
         margin-top: 125px;
     }
+
+    #body-content {
+        height: 4700px;
+    }
+
+    #other-weather-extra-info {
+        margin-bottom: 400px;
+    }
+
 
     /* WEATHER */
 
