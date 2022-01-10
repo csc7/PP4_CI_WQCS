@@ -25,8 +25,9 @@ p {
     font-family: 'Oxygen', sans-serif;
 }
 
-h2, h3 {
+h1, h2, h3 {
     font-family: 'Heebo', sans-serif;
+    color: rgb(76, 76, 211);
 }
 
 hr {
@@ -228,14 +229,31 @@ a.nav-link {
 /* INSTRUCTIONS PAGE */
 /* ***************** */
 
+#instructions-title > div > div > h3, #body-content > section > div > h3 {
+    color: rgb(49, 49, 48);
+}
 
 #instructions-title {
     margin-top: 100px;
 }
 
 #body-content {
-    height: 710px;
+    height: 1460px;
 }
+
+.instructions-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+    width: 75%;
+    
+}
+
+#body-content > section:nth-child(7) {
+    padding-bottom: 300px;
+}
+
 
 
 /* ************ */
@@ -247,7 +265,7 @@ a.nav-link {
     font-family: 'Heebo', sans-serif;
     font-weight: bold;
     text-align: center;
-    color: rgb(76, 76, 211);;
+    color: rgb(76, 76, 211);
     
 }
 
