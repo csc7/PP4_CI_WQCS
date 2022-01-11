@@ -8,3 +8,5 @@ class ContactForm(forms.Form):
     email = forms.EmailField(label='E-Mail', max_length=100, required=False)
     text_content = forms.CharField(label='Description', max_length=2000)
 
+    #def __str__(self):
+    #    return self.name
