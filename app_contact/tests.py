@@ -6,7 +6,7 @@ import unittest
 
 
 from .forms import ContactForm
-from .models import DataFromContactForm
+#from .models import DataFromContactForm
 
 # Create your tests here.
 
@@ -15,34 +15,18 @@ class TestContactForm(unittest.TestCase):
     Class for testing the contact form
     """
     
-    def setUp(self):
+    def test_contact_form(self):
         """
-        This function creates a record for testing
+        This function creates a record for testing the form
         """
-        test_form = DataFromContactForm(
-            date = '2000-01-01',
-            time = '00:00:00',
-            name = 'Abc',
-            surname = 'Def',
-            email = 'Ghi@ghi.com',
-            description = 'Test description'
-        )
-        test_form.save()
-
-    def tearDown(self):
-        """
-        This functions deletes the record after testing
-        """
-        DataFromContactForm.objects.all().delete()
-        
-
-    def test_name_in_form(self):
-        """
-        This functions tests the contact form
-        """
-        test_form = DataFromContactForm.objects.get(name='Abc')
-        model_form = DataFromContactForm.objects.get(name=test_form)
-        self.assertEqual(str(model_form), model_form.name)
+        test_form_data = {       
+            'name' : 'Abc',
+            'surname' : 'Def',
+            'email' : 'Ghi@ghi.com',
+            'text_content' : 'Test description'
+        }
+        test_form = ContactForm(test_form_data)
+        self.assertTrue(test_form.is_valid())
 
 
 if __name__ == '__main__':
