@@ -4,6 +4,8 @@ from django.db import models
 
 import unittest
 
+from datetime import datetime
+
 
 from .forms import ContactForm
 from .models import DataFromContactForm
@@ -29,16 +31,13 @@ class TestContactForm(unittest.TestCase):
         self.assertTrue(test_form.is_valid())
 
 
-
-
-
-class TestForm (models.Model):
-    date = models.DateField(max_length=200)
-    time = models.TimeField(default="00:00:00", max_length=200)
-    name = models.CharField(max_length=50)
-    surname = models.CharField(max_length=50)
-    email = models.EmailField(max_length=100)
-    description = models.CharField(max_length=2000)
+    def test_name_in_contact_form(self):
+        # Get date in Python, copied on January 12th, 2022, at 18:40, from
+        # https://stackoverflow.com/questions/32490629/getting-todays-date-in-yyyy-mm-dd-in-python
+        test_form_data_to_test = DataFromContactForm(datetime.today().strftime('%d-%m-%Y'), '00:00:00', 'Abc', 'Def', 'Ghi@ghi.com', 'Text in description')
+        print("asdfasdf")
+        print(test_form_data_to_test)
+        self.assertEqual(test_form_data_to_test.name, 'Def')
 
 
 if __name__ == '__main__':
