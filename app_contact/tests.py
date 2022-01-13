@@ -39,6 +39,24 @@ class TestContactForm(unittest.TestCase):
         print(test_form_data_to_test)
         self.assertEqual(test_form_data_to_test.name, 'Def')
 
+    def test_surname_in_contact_form(self):
+        # Get date in Python, copied on January 12th, 2022, at 18:40, from
+        # https://stackoverflow.com/questions/32490629/getting-todays-date-in-yyyy-mm-dd-in-python
+        test_form_data_to_test = DataFromContactForm(datetime.today().strftime('%d-%m-%Y'), '00:00:00', 'Abc', 'Def', 'Ghi@ghi.com', 'Text in description')
+        self.assertEqual(test_form_data_to_test.time, 'Abc')
+
+
+    def test_email_in_contact_form(self):
+        # Get date in Python, copied on January 12th, 2022, at 18:40, from
+        # https://stackoverflow.com/questions/32490629/getting-todays-date-in-yyyy-mm-dd-in-python
+        test_form_data_to_test = DataFromContactForm(datetime.today().strftime('%d-%m-%Y'), '00:00:00', 'Abc', 'Def', 'Ghi@ghi.com', 'Text in description')
+        self.assertEqual(test_form_data_to_test.surname, 'Ghi@ghi.com')
+
+    def test_description_in_contact_form(self):
+        # Get date in Python, copied on January 12th, 2022, at 18:40, from
+        # https://stackoverflow.com/questions/32490629/getting-todays-date-in-yyyy-mm-dd-in-python
+        test_form_data_to_test = DataFromContactForm(datetime.today().strftime('%d-%m-%Y'), '00:00:00', 'Abc', 'Def', 'Ghi@ghi.com', 'Text in description')
+        self.assertEqual(test_form_data_to_test.email, 'Text in description')
 
 if __name__ == '__main__':
     unittest.main()
