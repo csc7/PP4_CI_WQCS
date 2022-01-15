@@ -5,7 +5,7 @@ from django.db import models
 import unittest
 
 from datetime import datetime
-
+#import time
 
 from .forms import ContactForm
 from .models import DataFromContactForm
@@ -22,8 +22,8 @@ class TestContactForm(unittest.TestCase):
         This function creates a record for testing the form
         """
         test_form_data = {       
-            'name' : 'Abc',
-            'surname' : 'Def',
+            'name' : 'Jkl',
+            'surname' : 'Mno',
             'email' : 'Ghi@ghi.com',
             'text_content' : 'Test description'
         }
@@ -34,15 +34,17 @@ class TestContactForm(unittest.TestCase):
     def test_name_in_contact_form(self):
         # Get date in Python, copied on January 12th, 2022, at 18:40, from
         # https://stackoverflow.com/questions/32490629/getting-todays-date-in-yyyy-mm-dd-in-python
-        test_form_data_to_test = DataFromContactForm(datetime.today().strftime('%d-%m-%Y'), '00:00:00', 'Abc', 'Def', 'Ghi@ghi.com', 'Text in description')
-        print("asdfasdf")
+        test_form_data_to_test = DataFromContactForm(datetime(2022, 1, 14), "22:22:22", 'Abc', 'Def', 'Ghi@ghi.com', 'Text in description')
+        print(test_form_data_to_test.date)
+        print(datetime.today().strftime('%b-%m-%y'))
         print(test_form_data_to_test)
         self.assertEqual(test_form_data_to_test.name, 'Def')
+
 
     def test_surname_in_contact_form(self):
         # Get date in Python, copied on January 12th, 2022, at 18:40, from
         # https://stackoverflow.com/questions/32490629/getting-todays-date-in-yyyy-mm-dd-in-python
-        test_form_data_to_test = DataFromContactForm(datetime.today().strftime('%d-%m-%Y'), '00:00:00', 'Abc', 'Def', 'Ghi@ghi.com', 'Text in description')
+        test_form_data_to_test = DataFromContactForm(datetime.today().strftime('%b-%d-%y'), '00:00:00', 'Abc', 'Def', 'Ghi@ghi.com', 'Text in description')
         self.assertEqual(test_form_data_to_test.time, 'Abc')
 
 
@@ -51,6 +53,7 @@ class TestContactForm(unittest.TestCase):
         # https://stackoverflow.com/questions/32490629/getting-todays-date-in-yyyy-mm-dd-in-python
         test_form_data_to_test = DataFromContactForm(datetime.today().strftime('%d-%m-%Y'), '00:00:00', 'Abc', 'Def', 'Ghi@ghi.com', 'Text in description')
         self.assertEqual(test_form_data_to_test.surname, 'Ghi@ghi.com')
+
 
     def test_description_in_contact_form(self):
         # Get date in Python, copied on January 12th, 2022, at 18:40, from
