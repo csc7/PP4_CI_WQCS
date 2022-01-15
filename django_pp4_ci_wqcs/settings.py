@@ -37,6 +37,8 @@ ALLOWED_HOSTS = ['django_pp4_ci_wqcs.herokuapp.com', 'localhost']
 # at 15:55
 CSRF_TRUSTED_ORIGINS = ['https://8000-moccasin-canidae-gedulbh4.ws-us27.gitpod.io']
 
+#CSRF_TRUSTED_ORIGINS = ['https://8000-moccasin-canidae-gedulbh4.ws-us25.gitpod.io']
+
 # Application definition
 
 INSTALLED_APPS = [
