@@ -5,7 +5,10 @@ from django.db import models
 
 
 class DataFromContactForm(models.Model):
-    # Primary key (id field) automatically added my Django
+    """
+    A contact form class for the data of the contact form
+    Primary key (id field) automatically added my Django
+    """
     date = models.DateField(max_length=200)
     time = models.TimeField(default="00:00:00", max_length=200)
     name = models.CharField(max_length=50)
