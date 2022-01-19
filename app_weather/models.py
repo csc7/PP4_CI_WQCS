@@ -8,6 +8,9 @@ class DataAndTimeForData(models.Model):
     # Primary key (id field) automatically added my Django
     date = models.DateField(max_length=200)
     time = models.TimeField(default="00:00:00", max_length=200)
+    
+    def __str__(self):
+        return f"Date: {self.date}; time: {self.time}"
 
 
 class WindData(models.Model):

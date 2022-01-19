@@ -18,7 +18,7 @@ from .models import Post, Comment
 # Create your tests here.
 
 
-class TestCommentForm(unittest.TestCase):
+class TestCommentAndPostForm(unittest.TestCase):
     """
     Class for testing the contact form
     """
