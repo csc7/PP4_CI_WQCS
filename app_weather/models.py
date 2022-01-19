@@ -19,6 +19,9 @@ class WindData(models.Model):
     wind_speed = models.FloatField(max_length=200)
     wind_direction = models.FloatField(max_length=200)
 
+    def __str__(self):
+        return f"Wind speed: {self.wind_speed}; wind direction: {self.wind_direction}"
+
 
 
 class TemperatureData(models.Model):
@@ -29,7 +32,8 @@ class TemperatureData(models.Model):
     temperature_max = models.FloatField(max_length=200)
     temperature_min = models.FloatField(max_length=200)
 
-
+    def __str__(self):
+        return f"Temperature: {self.temperature}"
 
 class OtherWeatherData(models.Model):
     # Primary key (id field) automatically added my Django
@@ -42,3 +46,6 @@ class OtherWeatherData(models.Model):
     description = models.CharField(max_length=200)
     sunrise = models.CharField(max_length=200)
     sunset = models.CharField(max_length=200)
+
+    def __str__(self):
+        return f"Other weather data"
