@@ -46,7 +46,7 @@ class TestContactForm(unittest.TestCase):
             'Text in description'
         )
 
-    def tearDown(sefl):
+    def tearDown(self):
         print("tearDown")
 
     def test_name_in_contact_form(self):
