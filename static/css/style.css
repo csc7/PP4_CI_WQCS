@@ -255,6 +255,11 @@ a.nav-link {
     
 }
 
+.instruction-box {
+    border-style: groove;
+    border-radius: 10px;
+    padding: 5px
+}
 
 
 
