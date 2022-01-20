@@ -94,44 +94,45 @@ User stories are divided into the following three groups:
 
 - ### **First time users**
 1. As a user, I want to have a description of the site with instructions, so I know how to use it and refer to them if needed.
-2. As a user, I want to have a blog so I can discuss HSE matters (including incidents) during data acquisition.
-3. As a user, I want to have a blog so I can discuss issues related to the facilities of the base camp with the Camp Boss.
-4. As a user, I want to have a blog so I can get help on IT related issues on crew.
-5. As a user, I want to have a blog so I can discuss general technical issues during data acquisition.
-6. As a user, I want to have a blog so I can discuss survey matters.
-7. As a user, I want to have a blog so I can discuss management matters of the crew.
-8. As a user, I want to have a blog so I can discuss the ongoing tasks related to the QA/QC of the data being acquired.
-9 As a user, I want to have a blog so I can discuss the ongoing tasks related to the processing of the data being acquired.
-10. As a user, I want to have a blog so I can discuss the status of the vehicles on crew and its mechanical issues (if any).
-11. As a user, I want to have a blog so I can check the personnel available on crew.
-12. As a user, I want to have a weather application so I can find a place on the world and get its current weather information.
-13. As a user, I want to be able to select the location for the weather information on a map, so I can find the location visually.
-14. As a user, I want to be able to select the location for the weather information on the same map manually, so I can go directly to the place if I have the coordinates.
-15. As a user, I want to be able to analyse the weather information in three groups (wind, temperature and "other"), so I immediately get the most relevant data (wind and temperature) for the planning of the work.
-16. As a user, I want to be able to display the weather information for the last 5, 15 or 30 days, so I can focus on the segment I consider most important.
-17. As a user, I want to be able to display the weather information on charts, so it is more convenient for interpretation and a visualization.
-18. As a user, I want to be able to contact the site administrator and/or owner and/or developer, so I can send feedback to them. 
+2. As a user, I want to have a weather application so I can find a place on the world and get its current weather information.
+3. As a user, I want to be able to select the location for the weather information on a map, so I can find the location visually.
+4. As a user, I want to be able to select the location for the weather information on the same map manually, so I can go directly to the place if I have the coordinates.
+5. As a user, I want to be able to analyse the weather information in three groups (wind, temperature and "other"), so I immediately get the most relevant data (wind and temperature) for the planning of the work.
+6. As a user, I want to be able to display the weather information for the last 5, 15 or 30 days, so I can focus on the segment I consider most important.
+7. As a user, I want to be able to display the weather information on charts, so it is more convenient for interpretation and a visualization.
+8. As a user, I want to have a blog so I can discuss HSE matters (including incidents) during data acquisition.
+9. As a user, I want to have a blog so I can discuss issues related to the facilities of the base camp with the Camp Boss.
+10. As a user, I want to have a blog so I can get help on IT related issues on crew.
+11. As a user, I want to have a blog so I can discuss general technical issues during data acquisition.
+12. As a user, I want to have a blog so I can discuss survey matters.
+13. As a user, I want to have a blog so I can discuss management matters of the crew.
+14. As a user, I want to have a blog so I can discuss the ongoing tasks related to the QA/QC of the data being acquired.
+15. As a user, I want to have a blog so I can discuss the ongoing tasks related to the processing of the data being acquired.
+16. As a user, I want to have a blog so I can discuss the status of the vehicles on crew and its mechanical issues (if any).
+17. As a user, I want to have a blog so I can check the personnel available on crew.
+18. As a user, I want to be able to contact the site administrator and/or owner and/or developer, so I can send feedback to them.
+19. As a user, I want to be able to find the sign-up button easily, so I can quickly access the site.
 
 - ### **Returning users**
-19. As a returning user, I want a navigation menu on top and always visible, so I can access any content on the website from there and do not need to use the back button of the browser.
-20. As a user, I want to be able to contact the site administrator and/or owner and/or developer, so I can send feedback to them. 
+20. As a returning user, I want to be able to contact the site administrator and/or owner and/or developer, so I can send feedback to them.
+21. As a returning user, I want a navigation menu on top and always visible, so I can access any content on the website from there and do not need to use the back button of the browser.
+22. As a returning user, I want to be able to find the sign-in and sign-out buttons easily, so I can quickly access the site.
+23. As a returning user, I want to have a way to contact the developer so I can contribute and/or indicate errors or bugs.
+24. As a returning user, I want to be informed if the contact form goes through, so I know if my message is sent or it is not.
 
 - ### **Site Owner**
-15. As owner, I want to create a website that provides a basic ... so users can use it to ...
-16. As owner, I want to create a website that is the base for further development, so I can keep showing my work and offer more solutions in the future.
-17. As owner, along with other points of this section, I want to show my work and give the option to users to contact me if they wish.
-18. As owner, I want to provide a website that can be browsed fully without using the back button, so users have a "map" of the website at all times and do not get issues while navigating (like sending data to a server interrupted or resent).
-19. As owner, I want to provide a responsive website, so user can access it from any device without any constraint to navigate, find and/or use the website.
-20. As owner, I want to give an interactive website that update colours, graphs and information, so users enjoy the navigation on the website and instantly know if the website works properly or it does not.
-21. As owner, I want to put a brand in the top left, so users not only associate the brand with the website but also they can click it for the "home" (Functions) page.
-22. As owner, I want to provide a website that ... so users can ...
-23. As owner, I want to give an interactive website, so users ...
-24. As owner, I want to provide a ... so users can ...
-25. As owner, I want to give as many options to be contacted as possible, so users can choose forms or links in the footer to send their consultations and/or feedback in a very fast way without having to navigate through the website.
-26. As owner, I want to inform users if they consultation/message was successfully sent, so they know if they need to resend it or they do not.
-27. As owner, I want to inform the user, through an error page, if there is any error when loading the website.
-28. As owner, I want to validate the contact form and e-mail field ..., so users cannot send empty forms or data, simultaneously letting them know if the form or data is successfully sent.
-
+25. As owner, I want to provide a description of the site, with instructions, so users know how to use it.
+26. As owner, I want to create a tool that provides weather information around the world, so users can use it to plan seismic/geophysical data acquisition activities, or any other work that depends on weather conditions.
+27. As owner, I want to create a blog, in the same tool, so users can present, discuss, solve issues and find solutions about their daily activities on crew.
+28. As owner, I want to receive feedback from users, so I can take actions in response to them if needed.
+29. As owner, I want to provide a navigation menu on top and always visible, so users can access any content at any time without needing the back button.
+30. As owner, I want to give as many options to be contacted as possible, so users can choose forms or links in the footer to send their consultations and/or feedback in a very fast way.
+31. As owner, I want to have users registered and ask them to sign-in to access all site capabilities, so the site is accessible to members of the crew and an administrator (e.g., a member of the management team like the Party Manager or Admin) can act as moderator.
+32. As owner, I want to set the basis of a product, so I can improve it in the future and adapt it to specific crews or projects.
+33. As owner, along with other points of this section, I want to show my work and give the option to users to contact me if they wish.
+34. As owner, I want to provide a responsive website, so user can access it from any device without any constraint to navigate, find and/or use the website.
+35. As owner, I want to inform users if they consultation/message was successfully sent, so they know if they need to resend it or they do not.
+36. As owner, I want to inform the user, through an error page, if there is any error when loading the website.
 
 
 #### [Back to Index](#index)
