@@ -203,21 +203,21 @@ The footer contains links for social media (LinkedIn and GitHub) and e-mail. It 
 ___
 # **4 . Wireframes**
 
-Wireframes were developed in order to gather all goals, user stories, requirements and expectations, and have the design references for desktop, tablet and mobile devices.
+Wireframes were developed in order to gather goals, user stories, requirements and expectations, and have the design references for desktop, tablet and mobile devices.
 Please check the PDFs files for each case in the following links:
 
 <details>
-    <summary>Desktop Wireframe Image for Functions Page</summary>
+    <summary>Desktop Wireframe Image for Instructions Page</summary>
 
 ![Desktop Wireframe Image for Functions Page](docs/wireframes/wireframe-desktop-functions.PNG)
 </details>
 <details>
-    <summary>Desktop Wireframe Image for Generator Page</summary>
+    <summary>Desktop Wireframe Image for Weather Page</summary>
 
 ![Desktop Wireframe Image for Generator Page](docs/wireframes/wireframe-desktop-generator.PNG)
 </details>
 <details>
-    <summary>Desktop Wireframe Image for Quiz Page</summary>
+    <summary>Desktop Wireframe Image for Blog Page</summary>
 
 ![Desktop Wireframe Image for Quiz Page](docs/wireframes/wireframe-desktop-quiz.PNG)
 </details>
@@ -228,17 +228,17 @@ Please check the PDFs files for each case in the following links:
 </details>
 
 <details>
-    <summary>Tablet Wireframe Image for Functions Page</summary>
+    <summary>Tablet Wireframe Image for Instructions Page</summary>
 
 ![Tablet Wireframe Image for Functions Page](docs/wireframes/wireframe-tablet-functions.PNG)
 </details>
 <details>
-    <summary>Tablet Wireframe Image for Generator Page</summary>
+    <summary>Tablet Wireframe Image for Weather Page</summary>
 
 ![Tablet Wireframe Image for Generator Page](docs/wireframes/wireframe-tablet-generator.PNG)
 </details>
 <details>
-    <summary>Tablet Wireframe Image for Quiz Page</summary>
+    <summary>Tablet Wireframe Image for Blog Page</summary>
 
 ![Tablet Wireframe Image for Quiz Page](docs/wireframes/wireframe-tablet-quiz.PNG)
 </details>
@@ -248,12 +248,12 @@ Please check the PDFs files for each case in the following links:
 ![Tablet Wireframe Image for Contact Page](docs/wireframes/wireframe-tablet-contact.PNG)
 </details>
 <details>
-    <summary>Cell Wireframe Image for Functions and Generator Pages</summary>
+    <summary>Cell Wireframe Image for Instructions and Weather Pages</summary>
 
 ![Tablet Wireframe Image for Quiz Page](docs/wireframes/wireframe-cell-functions-generator-pages.PNG)
 </details>
 <details>
-    <summary>Cell Wireframe Image for Quiz and Contact Pages</summary>
+    <summary>Cell Wireframe Image for Blog and Contact Pages</summary>
 
 ![Tablet Wireframe Image for Contact Page](docs/wireframes/wireframe-cell-quiz-contact-pages.PNG)
 </details>
@@ -278,22 +278,24 @@ The following languages, software and tools were implemented using Windows 10 Pr
 - #### **HTML**
 - #### **CSS**
 - #### **JavaScript**
+- #### **Python**
 
 #### [Back to Index](#index)
 
-## **Software, applications and Other Tools**
+## **Software, Frameworks, Applications and Other Tools**
 - #### **GitHub**
 - #### **Gitpod**
+- #### **Django**
+- #### **django-allauth**
 - #### **Font Awesome (v5.15)**
 - #### **Bootstrap (v4.0)**
 - #### **EmailJS**
 - #### **Balsamiq Wireframes (v4.2.4, Editor Version 2.6.0)**
 - #### **Google Fonts**
-- #### **django-allauth**
-- #### **MATLAB, The MathWorks, Inc. (to generate function plots in Functions page and obtain Morlet function)**
 - #### **W3C Markup Validation Service**
 - #### **W3C CSS Validation Service**
 - #### **JSHint (version 2.13.0)**
+- #### **JavaScript AJAX**
 - #### **WAVE Web Accessibility Evaluation Tool**
 - #### **Google Lighthouse (used in Google, Microsoft Edge and Firefox)**
 - #### **Google Chrome, version 91.0.4472.114, Official Build, 64-bit (and its development tool)**
@@ -417,9 +419,9 @@ ___
 
 The introductory image on top of this README file was generated using the [Am I Responsive site](http://ami.responsivedesign.is/?url=https%3A%2F%2Fcsc7.github.io%2FPP1_CI_TGC) to test how the website displays in different screen sizes.
 
-**Development tools** of **Google Chrome** (Version 92.0.4515.131, Official Build, 64-bit), **Microsoft Edge** (Version 92.0.902.67, Official build, 64-bit) and **Firefox** (Version 90.0.2, 64-bit) have been used to test the behaviour of the website for screen sizes between 320x568px to 1920x1370px.
+**Development tools** of **Google Chrome** (Version 97.0.4692.71, Official Build, 64-bit), **Microsoft Edge** (Version 97.0.1072.62, Official build, 64-bit) and **Firefox** (Version 97.0.1072.62, Official build, 64-bit) have been used to test the behaviour of the website for screen sizes between 320x568px to 1920x1370px.
 
-The website was tested using these **browsers** and also **Microsoft Internet Explorer** (Version 2004, OS Build 19041.1165). **Samsung Internet** (version 14.0.1.62) was also used to test the website. In addition, some users have collaborated checking the website in the cell phones, mostly with **Android-based operating systems**.
+The website was tested using these **browsers** and also **Microsoft Internet Explorer** (Version 2004, OS Build 19041.1415, Microsoft Corporation). **Samsung Internet** (version 15.0.2.47) was also used to test the website. In addition, some users have collaborated checking the website in the cell phones, mostly with **Android-based operating systems**.
 
 **Devices** used for testing and validation include Dell and Toshiba laptops, Samsung cell phones. **Operative systems** include Windows 10 Enterprise (remote desktop), Windows 10 Pro, Windows 10 Home and Android. **Processors** for desktop and laptops were Intel.
 
@@ -531,6 +533,10 @@ Please check the parameters used for validation and evidence below:
 #### [Back to Index](#index)
 
 <br>
+
+
+## **Python Files**
+
 
 
 
