@@ -72,21 +72,19 @@ UX has been addressed around Jesse James Garrett's process, whose five planes in
 ## **User Goals**
 - To find an interactive website.
 - To navigate through a responsive website.
-- To have ...
-- To select ...
-- To export ...
-- To check ...
-- To be able to contact the developer if desired.
+- To have a page where it is possible to get and analise weather data for planning the work.
+- To have a blog where issues can be consulted, posted, commented and solved.
+- To be able to contact the site administrator, owner and/or developer if desired.
 
 #### [Back to Index](#index)
 
 ## **Site Owner Goals**
 - To provide an interactive website.
 - To provide a responsive website.
-- To provide ...
-- To show his work.
-- To give users the chance to contact the developer.
-- To provide a basic and scalable website and framework for a planning and management system in seismic crews.
+- To provide a tool to plan the data acquisition activities.
+- To provide a tool to solve issues found during data acquisition works.
+- To give users the chance to contact the site administrator, owner and/or developer.
+- To provide a basic and scalable tool and framework for planning seismic/geophysical data acquisition activities on a remote crew.
 
 #### [Back to Index](#index)
 <br>
