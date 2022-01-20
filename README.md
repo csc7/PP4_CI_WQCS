@@ -93,22 +93,28 @@ UX has been addressed around Jesse James Garrett's process, whose five planes in
 User stories are divided into the following three groups:
 
 - ### **First time users**
-1. As a user, I want to find a responsive website, so I can access it in any device without having the content affected.
-2. As a user, I want to find ...
-3. As a user, I want to .., so I d...
-4. As a user, I want to ..., so I ...
-5. As a user, I want to .., so I can have ...
-6. As a user, I want to .., so I can ...
+1. As a user, I want to have a description of the site with instructions, so I know how to use it and refer to them if needed.
+2. As a user, I want to have a blog so I can discuss HSE matters (including incidents) during data acquisition.
+3. As a user, I want to have a blog so I can discuss issues related to the facilities of the base camp with the Camp Boss.
+4. As a user, I want to have a blog so I can get help on IT related issues on crew.
+5. As a user, I want to have a blog so I can discuss general technical issues during data acquisition.
+6. As a user, I want to have a blog so I can discuss survey matters.
+7. As a user, I want to have a blog so I can discuss management matters of the crew.
+8. As a user, I want to have a blog so I can discuss the ongoing tasks related to the QA/QC of the data being acquired.
+9 As a user, I want to have a blog so I can discuss the ongoing tasks related to the processing of the data being acquired.
+10. As a user, I want to have a blog so I can discuss the status of the vehicles on crew and its mechanical issues (if any).
+11. As a user, I want to have a blog so I can check the personnel available on crew.
+12. As a user, I want to have a weather application so I can find a place on the world and get its current weather information.
+13. As a user, I want to be able to select the location for the weather information on a map, so I can find the location visually.
+14. As a user, I want to be able to select the location for the weather information on the same map manually, so I can go directly to the place if I have the coordinates.
+15. As a user, I want to be able to analyse the weather information in three groups (wind, temperature and "other"), so I immediately get the most relevant data (wind and temperature) for the planning of the work.
+16. As a user, I want to be able to display the weather information for the last 5, 15 or 30 days, so I can focus on the segment I consider most important.
+17. As a user, I want to be able to display the weather information on charts, so it is more convenient for interpretation and a visualization.
+18. As a user, I want to be able to contact the site administrator and/or owner and/or developer, so I can send feedback to them. 
 
 - ### **Returning users**
-7. As a returning user, I want to..., so I...
-8. As a returning user, I want a navigation menu on top and always visible, so I can access any content on the website from there and do not need to use the back button of the browser.
-9. As a returning user, I want .., so I do not need to ...
-10. As a returning user, I want to.. so I can ...
-11. As a returning user, I want to ..., so I ...
-12. As a returning user, I want to have a way to send feedback or make consultations, so I can collaborate and/or make consultations about the website and/or its content.
-13. As a returning user, I want to be informed if the contact form goes through, so I know if my message is sent or it is not.
-14. As a returning user, I want to have a way to contact the developer so I can contribute and/or indicate errors or bugs.
+19. As a returning user, I want a navigation menu on top and always visible, so I can access any content on the website from there and do not need to use the back button of the browser.
+20. As a user, I want to be able to contact the site administrator and/or owner and/or developer, so I can send feedback to them. 
 
 - ### **Site Owner**
 15. As owner, I want to create a website that provides a basic ... so users can use it to ...
