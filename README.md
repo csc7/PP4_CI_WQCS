@@ -47,25 +47,27 @@ Specifically, the goals of the project are the following:
 ___
 # **2 . User Experience**
 
-UX has been addressed (and remains as a constant activity) around Jesse James Garrett's process, whose five planes involves the following matters:
-- **STRATEGY**: to build a website (product) that creates wavelet signals and gives the option to contact the developer.
+UX has been addressed around Jesse James Garrett's process, whose five planes involves the following matters:
+- **STRATEGY**: to build a website (product) that helps on the planning and activities of a seismic/geophysical data acquisition crew.
 - **SCOPE**: the minimum viable product needs to include features that allow the user to know the following:
-    - Basic information about the about the functions being implemented (wavelet formulas).
-    - A graph of the wavelet, using Google Charts (please see credit below), based on input parameters given by the user.
-    - A section where user can input the type of wavelet, sampling rate, length of the signal and its frequency.
-    - A "Generate" button.
-    - An "Export" button.
-    - A quiz with ten questions.
-    - A contact form.
+    - Instruction page to let the user how to use the site.
+    - Weather page where the user can gather and analyse weather data from any point in the world that is picked on a map.
+    - Blog page where the user can use to post issues, comment, send consultations and find solutions.
+    - Contact page where the user can send feedback or report site issues.
 - **STRUCTURE**: the information is structured as follows:
-    - Wavelet functions, in a separate page called "Functions".
-    - Google Chart (please see credit below) graph, input parameters and generate/export buttons in a separate page called "Generator".
-    - A quiz with ten questions in a separate page called "Quiz".
-    - A contact form in a separate page called "Contact".
-    - A fixed navigation bar on top.
-    - A fixed footer.
+    - Instructions page (index.html).
+    - Weather page with a map on top left, selection of point top right, current data below this selection panel, and visualization of data on the bottom of this page.
+    - Blog page where topics are shown on the body.
+    - Topic pages, corresponding to the topics mentioned above, to read and post comments.
+    - Contact form page.
+    - Fixed navigation bar on top.
+    - Footer.
+    - Sign-in page.
+    - Sign-up page.
+    - Sign-out page.
+    - 404 page to let the user know of any error while loading the site.
 - **SKELETON**: the information is accessed through a fixed navigation menu on top of the pages.
-- **SURFACE**: the website is based on red, white and blue colours to give strong contrast and simultaneously a "live" design.
+- **SURFACE**: the website is based on a contrast between white and RGB(49, 49, 48), with some titles in RGB(76, 76, 211); some other variations close to these three colours are also present to enhance contrast.
 
 ## **User Goals**
 - To find an interactive website.
