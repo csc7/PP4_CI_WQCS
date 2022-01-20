@@ -168,7 +168,7 @@ Sans-serif font is used as a back-up in case the previous font cannot be loaded.
 <br>
 
 ## **Structure**
-The metadata includes the following keywords to help search engines to find the website: ..., Code Institute, software development, student, full-stack course, milestone project.
+The metadata includes the following keywords to help search engines to find the website: Seismic, geophysical, acquisition, processing, crew, field, weather, technical support, database, wind, temperature, Code Institute, software development, student, full-stack course, milestone project.
 
 The website consists of four pages (with subpages for the blog topics), organised in a header, a body and a footer. Django templates/pages have been used for sign-up, sign-in, sign-out and 404.
 
@@ -183,13 +183,14 @@ The header contains the logo on the left, the navigation bar with the four links
 
 The body of the pages are structured as follows for each of the pages:
 - #### *Instructions:*
-    It contains a ...
+    It contains a description of the main purpose of the website and three sections with instructions for each of the other pages: Weather, Blog and Contact.
 - #### *Weather:*
-    It has ...
+    It has a map on top left, selection of point on top right, current data below this selection panel, and a visualization panel of the data on the bottom of this page, below a row panel to select the amount of days to visualise and other data to show.
+
 - #### *Blog:*
-    It contains ...
+    It contains boxes with each topic of the blog to access.
 - #### *Contact:*
-    It has a simple contact form, centre-aligned, with name, surname, e-mail and description fields, before it finds the send button.
+    It has a simple contact form with name, surname, e-mail and description fields.
 <br>
     
 - ### **Footer**
