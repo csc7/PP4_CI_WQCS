@@ -139,12 +139,12 @@ User stories are divided into the following three groups:
 
 ## **User Requirements and Expectations**
 - A fixed and responsive navigation menu on top.
-- A dedicated page for ...
-- A dedicated page for ...
-- A dedicated page for ...
+- A dedicated page for the instructions.
+- A dedicated page for the weather information.
+- A dedicated page for blog.
 - A dedicated page for the contact form.
-- A fixed footer with contact links to the developer.
-- Strong contrast using red, white and blue.
+- A footer with contact links to the developer.
+- Use of Django templates/pages for sign-up, sign-in, sign-out and 404.
 <br><br>
 ## [Back to Index](#index)
 <br>
@@ -155,16 +155,14 @@ ___
 The design was planned to cover screen sizes from 320x568px to 1920x1370px.
 
 ## **Colours**
-Red, white (as background) and blue is the base of the website. The goal is to provide strong contrast and use colours that show a vivid website.
+White and RGB(49, 49, 48), with some titles in RGB(76, 76, 211). Other variations close to these three colours are also present to enhance contrast.
 
 #### [Back to Index](#index)
 <br>
 
 ## **Fonts**
-Google fonts (please see credits section below) were implemented on the website. Nunito/Montserrat were selected as the font pair for the website (following Google's suggestion), however only Nunito has been applied.
+Google fonts (please see credits section below) were implemented on the website. Heebo (Medium 500) for titles and Oxygen (Regular 400) for paragraphs.
 Sans-serif font is used as a back-up in case the previous font cannot be loaded.
-
-Colour #rgb(98, 98, 161), dark blue, was selected for paragraphs, while red and blue for headings.
 
 #### [Back to Index](#index)
 <br>
@@ -172,14 +170,14 @@ Colour #rgb(98, 98, 161), dark blue, was selected for paragraphs, while red and 
 ## **Structure**
 The metadata includes the following keywords to help search engines to find the website: ..., Code Institute, software development, student, full-stack course, milestone project.
 
-The visible website is organised in a header, a body and a footer.
+The website consists of four pages (with subpages for the blog topics), organised in a header, a body and a footer. Django templates/pages have been used for sign-up, sign-in, sign-out and 404.
 
 Wireframes were developed at the beginning in order to have a first design of the website.
 
 - ### **Header**
 
 In order to achieve the goals related to easiness and/or simplicity, a fixed navigation area in the header is provided. In the same area, a logo with the idea of the website is place to the left.
-The header contains the navigation bar with the four links to the body pages (please see next section).
+The header contains the logo on the left, the navigation bar with the four links to the body pages in the middle and the sign-up, sign-in and sign-out buttons on the right.
 
 - ### **Body**
 
@@ -188,7 +186,7 @@ The body of the pages are structured as follows for each of the pages:
     It contains a ...
 - #### *Weather:*
     It has ...
-- #### *Incidence Blog:*
+- #### *Blog:*
     It contains ...
 - #### *Contact:*
     It has a simple contact form, centre-aligned, with name, surname, e-mail and description fields, before it finds the send button.
@@ -196,7 +194,7 @@ The body of the pages are structured as follows for each of the pages:
     
 - ### **Footer**
 
-The footer contains links for social media (LinkedIn and GitHub) and e-mail. It is designed to remain fixed at the bottom of the webpages in order to have the links always visible to promote the developer of the website.\
+The footer contains links for social media (LinkedIn and GitHub) and e-mail. It is designed to remain at the bottom of the pages to have the links visible to promote the developer of the website.\
 <br><br>
 ## [Back to Index](#index)
 <br>
