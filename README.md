@@ -797,6 +797,19 @@ ___
 
     - Icon for website logo (wind), downloaded on December 7th, 2021, 09:15, from https://fontawesome.com/v5.15/icons/wind?style=solid .
 
+    - Icons for each topic in the blog page: https://fontawesome.com/, "i" tags copied on January 21st, 2022, starting at 16:00, URL above each "i" tag:
+        - https://fontawesome.com/v5.15/icons/drafting-compass?style=solid
+        - https://fontawesome.com/v5.15/icons/laptop?style=solid
+        - https://fontawesome.com/v5.15/icons/trailer?style=solid
+        - https://fontawesome.com/v5.15/icons/hard-hat?style=solid
+        - https://fontawesome.com/v5.15/icons/map-marker-alt?style=solid
+        - https://fontawesome.com/v5.15/icons/user-tie?style=solid
+        - https://fontawesome.com/v5.15/icons/calendar-check?style=regular
+        - https://fontawesome.com/v5.15/icons/wave-square?style=solid
+        - https://fontawesome.com/v5.15/icons/wrench?style=solid
+        - https://fontawesome.com/v5.15/icons/users?style=solid
+        
+
 
 - Google:
 
