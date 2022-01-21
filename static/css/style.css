@@ -509,12 +509,22 @@ td {
 /* BLOG PAGE */
 /* ********* */
 
+.card-body {
+    text-align: center;
+    margin: auto;
+}
+
+.topic-icon > i {
+    font-size: 300%;
+    padding-bottom: 20px;
+}
+
 #post-box {
     margin-top: 100px;
 }
 
-#blog-content {
-    margin-bottom: 80px;
+#blog-content.row {
+    margin-bottom: 0px;
 }
 
 /* **************** */

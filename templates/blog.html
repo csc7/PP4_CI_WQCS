@@ -18,11 +18,65 @@ Code copied from Code Institute "I Think Therefore I Blog" project,
                     <div id="post-box" class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
-                                {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-img-top"
-                                    src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                                <!-- Credit for icon/images in each topic
+                                of the blog: Font Awesome,
+                                https://fontawesome.com/,
+                                <i> tags copied on January 21st, 2022,
+                                starting at 16:00,
+                                URL above each <i> tag -->                                
+                                {% if post.title == "Technical Support" %}
+                                    <div class="topic-icon">
+                                        <!-- https://fontawesome.com/v5.15/icons/drafting-compass?style=solid -->
+                                        <i class="fas fa-drafting-compass"></i>
+                                    </div>
+                                {% elif post.title == "IT Support" %}
+                                    <div class="topic-icon">
+                                        <!-- https://fontawesome.com/v5.15/icons/laptop?style=solid -->
+                                        <i class="fas fa-laptop"></i>
+                                    </div>
+                                {% elif post.title == "Camp Boss" %}
+                                    <div class="topic-icon">
+                                        <!-- https://fontawesome.com/v5.15/icons/trailer?style=solid -->
+                                        <i class="fas fa-trailer"></i>
+                                    </div>
+                                {% elif post.title == "HSE" %}
+                                    <div class="topic-icon">
+                                        <!-- https://fontawesome.com/v5.15/icons/hard-hat?style=solid -->
+                                        <i class="fas fa-hard-hat"></i>
+                                    </div>
+                                    {% elif post.title == "Survey" %}
+                                    <div class="topic-icon">
+                                        <!-- https://fontawesome.com/v5.15/icons/map-marker-alt?style=solid -->
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                {% elif post.title == "Management" %}
+                                    <div class="topic-icon">
+                                        <!-- https://fontawesome.com/v5.15/icons/user-tie?style=solid -->
+                                        <i class="fas fa-user-tie"></i>
+                                    </div>
+                                {% elif post.title == "Data QA/QC" %}
+                                    <div class="topic-icon">
+                                        <!-- https://fontawesome.com/v5.15/icons/calendar-check?style=regular -->                                        
+                                        <i class="far fa-calendar-check"></i>
+                                    </div>
+                                {% elif post.title == "Processing" %}
+                                    <div class="topic-icon">
+                                        <!-- https://fontawesome.com/v5.15/icons/wave-square?style=solid -->
+                                        <i class="fas fa-wave-square"></i>
+                                    </div>
+                                {% elif post.title == "Mechanics" %}
+                                    <div class="topic-icon">
+                                        <!-- https://fontawesome.com/v5.15/icons/wrench?style=solid -->
+                                        <i class="fas fa-wrench"></i>
+                                    </div>
+                                {% elif post.title == "POB" %}
+                                    <div class="topic-icon">
+                                        <!-- https://fontawesome.com/v5.15/icons/users?style=solid -->
+                                        <i class="fas fa-users"></i>
+                                    </div>
                                 {% else %}
-                                <img class="card-img-top" src=" {{ post.featured_image.url }}">
+                                <img class="card-img-top"
+                                    src="/static/images/new-topic-in-blog.png">
                                 {% endif %}
                                 <div class="image-flash">
                                     <p class="author">Author: {{ post.author }}</p>
