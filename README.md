@@ -412,7 +412,7 @@ It is a different page that appears in case there is any issue when loading the 
 
 <br><br>
 ## [Back to Index](#index)
-<br>
+<br>git
 
 ___
 # **7 . Validation**
@@ -808,7 +808,7 @@ ___
         - https://fontawesome.com/v5.15/icons/wave-square?style=solid
         - https://fontawesome.com/v5.15/icons/wrench?style=solid
         - https://fontawesome.com/v5.15/icons/users?style=solid
-        
+
 
 
 - Google:
