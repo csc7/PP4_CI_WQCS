@@ -517,6 +517,7 @@ td {
 .topic-icon > i {
     font-size: 300%;
     padding-bottom: 20px;
+    color: rgb(98, 88, 184);
 }
 
 #post-box {
@@ -563,9 +564,17 @@ td {
     height: 710px;
 }
 
+#contact-form > form {
+    border-style: groove;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 5px;
+}
+
 #form-left-1 {
     height: 75px;
     margin: 5px;
+    
 }
 #form-left-2, #form-left-3, #form-right-2 {
     height: 75px;
@@ -812,6 +821,13 @@ td {
     }
 
     /* FORMS */
+
+    #contact-form > form {
+        border-style: none;
+        border-radius: none;
+        padding: none;
+        margin: none;
+    }
 
     #form-left-1 {
         margin-top: 50px;

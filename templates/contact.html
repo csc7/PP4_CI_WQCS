@@ -7,7 +7,7 @@
     <form action="/contact/" method="post">
         {% csrf_token %}
         
-        <div class="row">
+        <div id="form-row" class="row">
             <div class="col-12 col-lg-6">
                 <div id="form-left-1" class="col-12">
                     {{ form.name.errors }}
