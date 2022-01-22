@@ -465,38 +465,3 @@ function generateGoogleChartGraphs() {
 $('input:radio[name="records-to-display"]').change(e => sendWeatherData(e, false));
 $('#s-d-o-list-1').change(e => sendWeatherData(e, false));
 $('#s-d-o-list-2').change(e => sendWeatherData(e, false));
-
-
-
-
-//$('input:radio[name="records-to-display"]').change(generateGoogleChartGraphs());
-  
-  // END VISUALIZATION
-
-//function generateGraph() {
-//    dataForGoogleChartFunction = computeGraphData();
-//    google.charts.load('current', {'packages':['corechart']});
-//    google.charts.setOnLoadCallback(drawChart);
-//    function drawChart() {
-//        var data = google.visualization.arrayToDataTable(dataForGoogleChartFunction);
-//        var options = {
-//          curveType: 'none',
-//          legend: { position: 'bottom' }
-//        };
-//        var chart = new google.visualization.LineChart(document.getElementById('chart-left'));
-//        chart.draw(data, options);
-//    }
-//}
-//
-//// Compute the data, for each wavelet type, that will be used to make the Google graph
-//function computeGraphData() {
-//    let xVector = []; 
-//    let yVector = [];
-//    let dataForGraph = [];
-//    dataForGraph.push(["Time", "Amplitude"]);
-//    xVector.push([1, 2, 3, 4]);
-//    yVector.push([10, 12, 10, 15]);
-//    console.log(xVector);
-//    return dataForGraph;
-//
-//}

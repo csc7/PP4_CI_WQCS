@@ -11,15 +11,7 @@ Seismic Data Acquisition Website */
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@500&family=Oxygen&display=swap');
 
 
-
 /* GENERAL STYLES */
-
-/*
-body {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-}*/
 
 p {
     font-family: 'Oxygen', sans-serif;
@@ -33,6 +25,7 @@ h1, h2, h3 {
 hr {
     margin: 25px 25px;
 }
+
 
 /* BODY */
 #body-content {
@@ -69,14 +62,9 @@ hr {
     z-index: 10;
 }
 
-#header-menu > nav > button > span {
-
-}
-
 .navbar-toggler {
     background-color: white;
 }
-
 
 #log-in-button-1 > div, #log-in-button-2 > div, #log-in-button-3 > div{
     background-color: rgb(49, 49, 48);
@@ -92,11 +80,9 @@ hr {
     color:rgb(49, 49, 48);    
     margin-top: 10px;
     margin-bottom: 10px;
-    /*margin-left: 30px;*/
     float: right;
     font-family: 'Heebo', sans-serif;
 }
-
 
 #header-mdenu > nav {
     margin:auto;
@@ -114,11 +100,6 @@ hr {
 #header-menu > nav > button {
     margin: auto;
 }
-
-/*#header-menu {
-    padding: 0;
-    margin: auto;
-}*/
 
 
 /* Solution for modal windown appearing below elements, in the background:
