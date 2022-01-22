@@ -10,19 +10,15 @@
             </div>
         </div>
         <hr>
-    </div>
-    
+    </div>    
     <!-- Weather Data -->
-    <div id="top-container" class="container">
-        
+    <div id="top-container" class="container">        
         <section id="weather-map-and-data" class="row">
-
-            <div id="viewDiv" class="col-12 col-sm-12 col-md-12 col-lg-6">   
-            </div>       
-            
+            <!-- Map -->
+            <div id="viewDiv" class="col-12 col-sm-12 col-md-12 col-lg-6">  
+            </div>
+            <!-- Panel -->
             <div id="weather-data" class="col-12 col-sm-12 col-md-12 col-lg-6">
-
-                
                 <div class="row">
                     <div id="weather-data-title" class="col-12 weather-data-label"><p>Coordinates for Weather Data</p></div>
                     <div id="latitute-title" class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Latitude</p></div>
@@ -45,10 +41,8 @@
                     <div id="get-weather-data" class="col-12">
                         <button id="get-weather-data-button" type="submit">Get Data</button>
                     </div>
-                    
                     <div id="results-title" class="col-12 weather-data-label"><p>Weather Data</p></div>
-                    <!-- Weather Data -->
-                    
+                    <!-- Weather Information -->
                     <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Wind Speed</p></div>                                       
                     <div id="value-wind" class="col-12 col-sm-6 col-md-3 weather-data-value"><p></p></div>
                     <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Direction</p></div>
@@ -88,14 +82,13 @@
                     <p>(Log in to send data to database)</p>
                     {% endif %}
                     </div>
-                    
                     <!-- /.Weather Data -->
                 </div>
             </div>       
         </section>
         <hr>
     </div>
-    
+    <!-- Days and Other Data/Information Selection Panel -->
     <div class="container">
         <div id="select-data-options" class="row">            
             <div id="s-d-o-1" class="col-12 col-lg-2">
@@ -136,28 +129,32 @@
             </div>           
         </div>
         <hr>
+        <!-- Charts and Tables Data -->
         <div id="weather_extra_info" class="row">
             <div id="chart-left" class="col-12 order-1 col-lg-4 order-lg-1">
-                <!-- Google Charts
+                <!-- 1st Column
+                Google Charts
                 Line Charts
                 Copied and modified from https://developers.google.com/chart/interactive/docs/gallery/linechart on January 5th, 2022, at 20:40. -->                
                 <div id="curve_chart_left"></div>
             </div>
             <div id="chart-middle" class="col-12 order-3 col-lg-4 order-lg-2">
-                <!-- Google Charts
+                <!-- 2nd Column
+                Google Charts
                 Line Charts
                 Copied and modified from https://developers.google.com/chart/interactive/docs/gallery/linechart on January 5th, 2022, at 20:40. -->                
                 <div id="curve_chart_middle"></div>
             </div>
             <div id="chart-right" class="col-12 order-5 col-lg-4 order-lg-3">
-                <!-- Google Charts
+                <!-- 3rd Column
+                Google Charts
                 Line Charts
                 Copied and modified from https://developers.google.com/chart/interactive/docs/gallery/linechart on January 5th, 2022, at 20:40. -->                
                 <div id="curve_chart_right"></div>
             </div>
-            
             <div id="wind-extra-info" class="col-12 order-2 col-lg-4 order-lg-4">  
-                <hr>              
+                <hr>
+                <!-- 1st Table -->
                 <table id="wind-table">
                     <th>Date</th>
                     <th>Wind Speed</th>
@@ -172,9 +169,9 @@
                     {% endfor %}
                 </table>
             </div>
-            
             <div id="temperature-extra-info" class="col-12 order-4 col-lg-4 order-lg-5">
                 <hr>
+                <!-- 2nd Table -->
                 <table id="temperature-table">
                     <th>Date</th>
                     <th>Temperature</th>
@@ -189,9 +186,9 @@
                     {% endfor %}
                 </table>
             </div>
-            
             <div id="other-weather-extra-info" class="col-12 order-6 col-lg-4 order-lg-6">
                 <hr>
+                <!-- 3rd Table -->
                 <table id="other-weather-table">
                     <th>Date</th>
                     <th>{{ other_weather_data.other }}</th>

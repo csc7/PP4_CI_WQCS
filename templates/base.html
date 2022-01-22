@@ -10,15 +10,13 @@
         Code Institute, software development, student, full-stack course,
         milestone project">
     <title>Weather and Quality Control for Seismic Data Acquisition</title>
+
     <!-- Credit: Bootstrap
     Code copied on December 7th, 2021, 01:50 from Code Institute lessons
     Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">      
-    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">  
+
     <!--ArcGIS-->
-    <!--link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css">-->
-    <!--<script src="https://js.arcgis.com/4.21/"></script>-->
-    
     <!-- Script/Code for maps and picking of latitude and longitude:
     https://community.esri.com/t5/arcgis-api-for-javascript-questions/mouse-click-to-get-map-point-or-x-y/m-p/516073#M48139;
     copied and modified on December 8th, 2021, 04:00.-->
@@ -28,7 +26,8 @@
     <!-- This project's CSS file -->
     <link rel="stylesheet" href="/static/css/style.css">   
 
-    
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="static/images/wqcs-icon.PNG">    
 </head>
 <body id="body">
     <!-- Header -->
@@ -74,7 +73,6 @@
                     and signup.html)-->
                     <!-- Button trigger modal -->
 
-
                     {% if user.is_authenticated %}                    
                     <button type="button" class="btn btn-primary" onclick="window.location.href='{% url 'account_logout' %}';">
                         Sign Out
@@ -87,46 +85,14 @@
                                     Sign In
                                 </button> 
                             </div>
-                        
-                        
                             <div id="log-in-button-3" class="col-6 col-sm-6 col-md-6 col-lg-6">             
                                 <button type="submit" class="btn btn-primary" onclick="window.location.href='{% url 'account_signup' %}';">
                                     Sign Up
                                 </button>
                             </div>
-                        
                         </div>
                     {% endif %}
 
-                    <!-- 
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Log In</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="https://formdump.codeinstitute.net/" method="POST">
-                                        <div class="form-group">
-                                            <label for="username" class="col-form-label">Username</label>
-                                            <input type="text" class="form-control" id="username">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="password" class="col-form-label">Password</label>
-                                            <input type="text" class="form-control" id="password">
-                                        </div>
-                                        <div class="form-group">                                    
-                                            <input type="submit" class="form-control" id="recipient-name-submit" value="Submit">
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div> 
-                    </div>
-                    Modal -->
                 </div>              
             </div>
         </div>
@@ -173,7 +139,6 @@
                     <div id="footer-contact-link">
                         <a class="nav-link" href="contact.html">Contact</a>
                     </div>
-
                 </div>
             </div>    
         </div>
@@ -192,56 +157,14 @@
     Code copied on December 9th, 2021, at 20:37 -->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     
-    <!--ArgGIS-->
-
-    <!--OK-->
+    <!--ArgGIS / ESRI-->
     <script src="https://js.arcgis.com/3.18/"></script>
-    <script>
-            
-        //FIN OK
-    
-                //const view = new MapView({
-                //    map: map,
-                //    center: [-118.805, 34.027], // Longitude, latitude
-                //    zoom: 13, // Zoom level
-                //    container: "viewDiv" // Div element
-                //});
-                //const graphicsLayer = new GraphicsLayer();
-                //map.add(graphicsLayer);
-    //
-                //const point = { //Create a point
-                //    type: "point",
-                //    longitude: -118.80657463861,
-                //    latitude: 34.0005930608889
-                //};
-                //const simpleMarkerSymbol = {
-                //    type: "simple-marker",
-                //    color: [226, 119, 40],  // Orange
-                //    outline: {
-                //        color: [255, 255, 255], // White
-                //        width: 1
-                //    }
-                //};
-                //const pointGraphic = new Graphic({
-                //    geometry: point,
-                //    symbol: simpleMarkerSymbol
-                //});
-                //graphicsLayer.add(pointGraphic);
-            //});
-    </script>
 
     <!-- This website scripts -->    
     <script src="/static/js/move-content-hamburger.js"></script>      
 
-
     {% block scripts %}
     {% endblock %}
-    
 
-    
-    
-    
-
-    
 </body>
 </html>

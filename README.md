@@ -428,23 +428,23 @@ The website was tested using these **browsers** and also **Microsoft Internet Ex
 The following tools were used to validate the **files of the website**:
 
 ## **HTML Files**
-https://validator.w3.org/ was used to validate the HTML files. All files ended up with zero errors and warnings.
+https://validator.w3.org/ was used to validate the new HTML files (those not being part of the Django framework). To test them, unique HTML files base+index, base+weather, base+blog and base+contact were created. Control characters were also deleted. All files ended up with zero errors and warnings.
 Please check the evidence below:
 
 <details>
-    <summary>Functions Page</summary>
+    <summary>Instructions Page</summary>
 
 ![Evidence of no errors and warnings in the Functions HTML (index) file](docs/validation/validation-html-index.PNG) 
 </details>
 
 <details>
-    <summary>Generator Page</summary>
+    <summary>Weather Page</summary>
 
 ![Evidence of no errors and warnings in the Generator HTML file](docs/validation/validation-html-generator.PNG)
 </details>
 
 <details>
-    <summary>Quiz Page</summary>
+    <summary>Blog Page</summary>
 
 ![Evidence of no errors and warnings in the Quiz HTML file](docs/validation/validation-html-quiz.PNG) 
 </details>
