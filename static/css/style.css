@@ -403,9 +403,22 @@ a.nav-link {
     margin-top: 2px;
 }
 
+#send-weather-data > p {
+    font-family: 'Heebo', sans-serif;
+    color: rgb(49, 49, 48);
+    text-align: center;
+    font-size: 90%;
+    font-style: italic;
+    font-weight: normal;
+    
+    margin-top: 20px;
+}
+
 #latitude-input, #longitude-input {
     width: 100%;
-    color: rgb(76, 76, 211);;
+    color: rgb(76, 76, 211);
+    border-style: solid;
+    border-radius: 10px;
 }
 
 #get-weather-data {
@@ -578,12 +591,16 @@ td {
 #id_name, #id_surname, #id_email {
     width: 70%;
     float: right;
+    border-style: solid;
+    border-radius: 10px;
 }
 
 #id_text_content {
     width: 70%;
     float: right;
     height: 250px;
+    border-style: solid;
+    border-radius: 10px;
 }
 
 

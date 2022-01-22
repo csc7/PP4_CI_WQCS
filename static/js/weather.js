@@ -154,10 +154,10 @@ async function getStatus(e) {
     if (response.ok) {
         $("#value-wind").text(data.wind.speed);
         $("#value-wind-direction").text(data.wind.deg);
-        $("#value-temperature").text(data.main.temp);
-        $("#value-feels-like").text(data.main.feels_like);
-        $("#value-temperature-max").text(data.main.temp_max);
-        $("#value-temperature-min").text(data.main.temp_min);
+        $("#value-temperature").text((data.main.temp-273.15).toFixed(1));
+        $("#value-feels-like").text((data.main.feels_like-273.15).toFixed(1));
+        $("#value-temperature-max").text((data.main.temp_max-273.15).toFixed(1));
+        $("#value-temperature-min").text((data.main.temp_min-273.15).toFixed(1));
         $("#value-pressure").text(data.main.pressure);
         $("#value-humidity").text(data.main.humidity);
         $("#value-visibility").text(data.visibility);
@@ -199,13 +199,11 @@ async function sendWeatherData(e, write) {
         return;
       }
     }       
-
     // Selected data
     writeData = write;
     recordsToDisplay = $('input[name="records-to-display"]:checked').val();
     otherValueToDisplay1 = $('#s-d-o-list-1').val();
     otherValueToDisplay2 = $('#s-d-o-list-2').val();
-
     // Date and time
     currentDate = $('#value-date').text();
     const dateNow = new Date();
