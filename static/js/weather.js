@@ -1,12 +1,16 @@
-//const { getDefaultSettings } = require("http2");
+// ------------------------------------------------------------------
+// weather.js file to address interation of user with weather.html
+// ------------------------------------------------------------------
 
-//const { getDefaultSettings } = require("http2");
 
+// ------------------------------------------------------------------
 // Initial coordinate values
 var latitude = -6.263104;
 var longitude = 53.345278;
+// ------------------------------------------------------------------
 
 
+// ------------------------------------------------------------------
 // Detect in latitude and longitude are being entered manually
 // Credit: MDN Web Docs
 // Moz://a
@@ -16,6 +20,11 @@ const latitudeInput = document.querySelector('#latitude-input');
 latitudeInput.addEventListener('focus', (event) => {
   event.target.style.background = 'cyan';
 });
+// ------------------------------------------------------------------
+
+
+// ------------------------------------------------------------------
+// Latitude and longitude manual assignment
 
 latitudeInput.addEventListener('blur', (event) => {
   console.log(latitude);
@@ -65,12 +74,7 @@ longitudeInput.addEventListener('blur', (event) => {
     console.log(longitude);
   }
 });
-
-
-//var pg = require(["pg"]);
-//var connectionString = "postgres://userName:password@serverName/ip:5432/d4i9o0uj43bnqveeeee";
-//var pgClient = require(["pg"]).Client;
-//const db = pg(connectionString);
+// ------------------------------------------------------------------
 
 
 // ------------------------------------------------------------------
@@ -118,34 +122,28 @@ require(["esri/map", "esri/geometry/webMercatorUtils",
                         $("#longitude").text(mp.x.toFixed(4).toString());
                         });
                     });
-
 // ------------------------------------------------------------------
 
 
-
-
+// ------------------------------------------------------------------
 // Alternative to send answers with the Enter key
 function pressEnter (event) { 
     if (event.key === "Enter") {
         //sendAnswer();
     }    
 };
-
 // ------------------------------------------------------------------
 
+
+// ------------------------------------------------------------------
 // Check status of OpenWeather API
 // Credit for code: Code Institute
 // Credit for API: OpenWeather
 
-//const API_KEY = "";
 const API_URL = "api.openweathermap.org";
 $("#get-weather-data-button").click (e => getStatus(e));
 
-//const resultsModal = new bootstrap.Modal(document.getElementById("resultsModal"));
-//document.getElementById("log-in-button").addEventListener("click", e => getStatus(e));
-
 async function getStatus(e) {
-
 
     //const queryString = `https://${API_URL}/data/2.5/weather?q=London&appid=${API_KEY}`;
 
@@ -179,10 +177,17 @@ async function getStatus(e) {
         console.log(data.timezone);        
     }   
 }
+// ------------------------------------------------------------------
 
 
+// ------------------------------------------------------------------
+// Generate charts using Google resources
 generateGoogleChartGraphs ();
+// ------------------------------------------------------------------
 
+
+// ------------------------------------------------------------------
+// Send data to database using AJAX
 $("#send-weather-data-button").click (e => sendWeatherData(e, true));
 
 async function sendWeatherData(e, write) {
@@ -193,8 +198,7 @@ async function sendWeatherData(e, write) {
         alert("Please load data first");
         return;
       }
-    }    
-    
+    }       
 
     // Selected data
     writeData = write;
@@ -267,12 +271,11 @@ async function sendWeatherData(e, write) {
             setTimeout(generateGoogleChartGraphs, 5000);
         }    
     });
-    
 }
+// ------------------------------------------------------------------
 
 
-
-
+// ------------------------------------------------------------------
 //Credit for getUnixUTCTime(): https://stackoverflow.com/questions/847185/convert-a-unix-timestamp-to-time-in-javascript,
 //copied and modified on January 3rd, 2022, at 13;00
 function getUnixUTCTime(unix_timestamp) {
@@ -289,12 +292,12 @@ function getUnixUTCTime(unix_timestamp) {
     var formattedTime = hours + ':' + minutes + ':' + seconds;
     return(formattedTime);
 }
+// ------------------------------------------------------------------
 
 
+// ------------------------------------------------------------------
+// Data for Google Chart
 
-
-  ////////////////////////
-  // DATA FOR GOOGLE CHART
 function generateGoogleChartGraphs() {
   var col1=[], col2=[], col3=[], col4=[];
   var table1=[['Date', 'Wind Speed', 'Wind Direction']];
@@ -380,16 +383,14 @@ function generateGoogleChartGraphs() {
     let r = [col1[i], col3[i], col4[i]];
     table3.push(r);
   }
+// ------------------------------------------------------------------
 
 
-  // DATA FOR GOOGLE CHART
-  ////////////////////////
-
-  
-  // GRAPH
-  // Google Charts
-  // Line Charts
-  // Copied and modified from https://developers.google.com/chart/interactive/docs/gallery/linechart on January 5th, 2022, at 20:40. 
+// ------------------------------------------------------------------
+// GRAPH
+// Google Charts
+// Line Charts
+// Copied and modified from https://developers.google.com/chart/interactive/docs/gallery/linechart on January 5th, 2022, at 20:40. 
 
   google.charts.load('current', {'packages':['corechart']});
   google.charts.setOnLoadCallback(drawChart);
@@ -423,10 +424,14 @@ function generateGoogleChartGraphs() {
     chart3.draw(data3, options3);
   }
 }
+// ------------------------------------------------------------------
 
-// VISUALIZATION
+
+// ------------------------------------------------------------------
+// Visualization
 // Update tables and charts without writing new records (then 
 // second parameters is "false")
 $('input:radio[name="records-to-display"]').change(e => sendWeatherData(e, false));
 $('#s-d-o-list-1').change(e => sendWeatherData(e, false));
 $('#s-d-o-list-2').change(e => sendWeatherData(e, false));
+// ------------------------------------------------------------------

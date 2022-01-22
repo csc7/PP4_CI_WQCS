@@ -1,3 +1,4 @@
+// ------------------------------------------------------------------
 // Move content down when clicking the Bootstrap hamburguer
 // button in a fixed navigation menu
 // Copied from my own previous PP2_CI_WW Project
@@ -13,4 +14,4 @@ function moveContent () {
         firstElementToMove.style.marginTop = "0px";
     }
 }
-
+// ------------------------------------------------------------------
