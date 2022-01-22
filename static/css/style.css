@@ -238,12 +238,16 @@ a.nav-link {
     color: rgb(49, 49, 48);
 }
 
+#instructions-title > div > div > h3 {
+    padding-top: 20px;
+}
+
 #instructions-title {
     margin-top: 100px;
 }
 
 #body-content {
-    height: 1860px;
+    height: 1960px;
 }
 
 .instructions-image {
@@ -683,11 +687,11 @@ td {
 
     /* Instructions Page */
     #body-content {
-        height: 2200px;
+        height: 2450px;
     }
 }
 
-/* SCREEN SIZE BELOW 992px */
+/* SCREEN SIZE BELOW 768px */
 
 @media screen and (max-width: 768px) {
 
@@ -701,7 +705,7 @@ td {
 
     /* Instructions Page */
     #body-content {
-    height: 2600px;
+    height: 2950px;
 }
 
 
@@ -790,7 +794,7 @@ td {
     }
 
     #body-content {
-        height: 4700px;
+        height: 5000px;
     }
 
     #other-weather-extra-info {

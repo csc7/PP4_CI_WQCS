@@ -96,10 +96,10 @@ Code copied from Code Institute "I Think Therefore I Blog" project,
             <div class="row">
                 {% endif %}
                 {% endfor %}
-
             </div>
         </div>
     </div>
+    <!-- Up to six blog topics per page -->
     {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
@@ -108,7 +108,6 @@ Code copied from Code Institute "I Think Therefore I Blog" project,
             {% endif %}
             {% if page_obj.has_next %}
             <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-
             {% endif %}
         </ul>
     </nav>

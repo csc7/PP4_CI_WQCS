@@ -34,12 +34,17 @@ This website will provide a tool for seismic data acquisition companies to use w
 
 ___
 # **1 . Project Goals**
-The goal of the project is ...
+The goal of the project is to create a site that is useful for planning the daily activities of seismic or other geophysical data acquisition.
 
-Specifically, the goals of the project are the following:
-- To show ...
-- To build ...
-- To ...
+As weather conditions are important factors that have a direct impact on planning and costs, the idea of the website is to provide a tool to gather and analyse weather information, along with a blog with different topics to discuss usual issues found in this kind of work, in light of solving them in a centralised application, fact that is very valuable in crews with many workers, in remote locations.
+
+As wind and temperature might be the most important factors in terms of impact, they are show separately in two independents groups, with a third group with other weather information where the user can select what to get and analyse.
+
+Also, as remote locations might have difficulties for Internet connections (physical connections in early days, nowadays perhaps cost constraints only) and weather information might be compromised, at least the blog is intended to help on the resolution of issues in a centralised way, using a unique channel, factor that might be critical under usual conditions of work under presure where "noisy" communications are always unwanted.
+
+Additionally, an instructions page is given to help on the use of the site, and a contact page with a form where the user can send feedback if desired.
+
+
 <br><br>
 ## [Back to Index](#index)
 <br>
@@ -858,6 +863,8 @@ ___
     - To update "div" element instead of whole page with AJAX: https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax; accessed on January 4th, 2022, at 21:20.
 
     - To get date in Python: https://stackoverflow.com/questions/32490629/getting-todays-date-in-yyyy-mm-dd-in-python, copied on January 12th, 2022, at 18:40.
+
+    - To load static folder for favicon in HTML head: https://stackoverflow.com/questions/35054230/custom-tag-not-loaded-in-template, accessed on January 22nd, at 15:05.
 
 - W3C®. Copyright © 2021 W3C ® (MIT, ERCIM, Keio, Beihang):
     - How to introduce author in anchor element: https://www.w3.org/TR/2011/WD-html5-author-20110809/the-link-element.html, accessed on August 4th, 2021, at 00:06.

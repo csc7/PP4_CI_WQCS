@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">    
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,8 +26,11 @@
     <!-- This project's CSS file -->
     <link rel="stylesheet" href="/static/css/style.css">   
 
-    <!-- favicon -->
-    <link rel="icon" type="image/png" href="static/images/wqcs-icon.PNG">    
+    <!-- favicon
+    To load static folder for favicon:
+    https://stackoverflow.com/questions/35054230/custom-tag-not-loaded-in-template, accessed on January 22nd, at 15:05. -->
+    {% load static %}
+    <link rel="icon" type="image/png" href="{% static 'images/wqcs-icon.PNG' %}"/>    
 </head>
 <body id="body">
     <!-- Header -->
@@ -165,6 +168,5 @@
 
     {% block scripts %}
     {% endblock %}
-
 </body>
 </html>
