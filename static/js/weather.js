@@ -168,7 +168,7 @@ async function getStatus(e) {
         $("#value-description").text(data.weather[0].description);
         $("#value-country").text(data.sys.country);
         const date_now = new Date();
-        let current_date = date_now.getFullYear() + "-" + date_now.getMonth()+1 + "-" + 0+date_now.getDate();
+        let current_date = date_now.getFullYear() + "-" + date_now.getMonth()+1 + "-" + date_now.getDate();
         //let current_time = date_now.getHours() + ":" + date_now.getMinutes() + ":" + date_now.getSeconds();
         $("#value-date").text(current_date);
         let sunrise = getUnixUTCTime(data.sys.sunrise + data.timezone);
@@ -180,41 +180,6 @@ async function getStatus(e) {
     }   
 }
 
-
-
-
-// ------------------------------------------------------------------
-
-
-//fetch("https://ci-swapi.herokuapp.com/api/")
-//    .then(response => response.text()) // or .json()
-//    .then(data => displayData(data))
-//    .catch((e) => {
-//        console.log("Error: ", e);
-//})
-//
-//function displayData(data) {
-//document.getElementById("content").innerText = data;
-//}
-
-
-//$(document).ready(function () {
-//    $(document).on("click",'.car_add', function() {
-//        $car_id = $(this).attr('id')
-//        $.ajax({
-//            type: "POST",
-//            // This is the dictionary you are SENDING to your Django code. 
-//            // We are sending the 'action':add_car and the 'id: $car_id  
-//            // which is a variable that contains what car the user selected
-//            data: { action: "add_car", id: $car_id },
-//            success: function(data){
-//                // This will execute when where Django code returns a dictionary 
-//                // called 'data' back to us.
-//                $("#car").html("<strong>"+data.car+"</strong>");                
-//            }
-//        });
-//    });
-//});
 
 generateGoogleChartGraphs ();
 
@@ -299,7 +264,7 @@ async function sendWeatherData(e, write) {
             $("#wind-extra-info").load(location.href+" #wind-extra-info>*","");
             $("#temperature-extra-info").load(location.href+" #temperature-extra-info>*","");
             $("#other-weather-extra-info").load(location.href+" #other-weather-extra-info>*","");
-            setTimeout(generateGoogleChartGraphs, 10000);
+            setTimeout(generateGoogleChartGraphs, 5000);
         }    
     });
     

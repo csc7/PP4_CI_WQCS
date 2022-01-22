@@ -49,7 +49,7 @@ def get_weather_page(request):
         print(other_value_to_display_2)
         
         # Write new record
-        if write_data == True:
+        if write_data == "true":
             print("Writing = " + write_data)
         
             # Indexes from 1 to -1 to delete quotation marks  
@@ -76,21 +76,15 @@ def get_weather_page(request):
             value_sunrise = json.dumps(request.POST.get('valueSunrise'))[1:-1]
             value_sunset = json.dumps(request.POST.get('valueSunset'))[1:-1]
 
+            # To count records in a database table:
+            # https://stackoverflow.com/questions/15635790/how-to-count-the-number-of-rows-in-a-database-table-in-django,
+            # accessed on January 22nd, at 18:47.
+            recs = DataAndTimeForData.objects.filter().count()
 
-            #wind_speed_data = "0" # at the begining wind_speed_data is null!
-            #a=float(wind_speed_data)
-            #print(float(a)+10)
-            #print("It's AJAX")
-            #print(records_to_display)
-            
-            recs = 30
-            print(recs)
             if records_to_display == "5-last":
                 recs = 5
             elif records_to_display == "15-last":
                 recs = 15
-            #print(other_value_to_display)
-            
 
             record = DataAndTimeForData(date = value_date, time=value_time)
             record.save()
@@ -101,8 +95,6 @@ def get_weather_page(request):
                               wind_direction = wind_direction_data)
             record.save()
         
-            #d = WindData.objects.get()
-            #print(d)
             record = TemperatureData(temp_rec_id_id = pk,
                                      temperature = value_temperature,
                                      feels_like = value_feels_like,
@@ -121,35 +113,15 @@ def get_weather_page(request):
                                       sunset = value_sunset)
             record.save()    
     
-    # Identify amount of data (last records) to display
-    
-#    if last_records == 5 or last_records == 15:
-#        context = {
-#                'date_and_time': DataAndTimeForData.objects.order_by('-id')[:last_records],
-#                'wind_data': WindData.objects.order_by('-id')[:last_records],
-#                'temperature_data': TemperatureData.objects.order_by('-id')[:last_records],          
-#                'other_weather_data': OtherWeatherData.objects.order_by('-id')[:last_records]
-#            } 
-#    else:
-    print(other_value_to_display_1)
-    print(other_value_to_display_2)
-
-
-    #merged_list = list(chain(DataAndTimeForData.objects.all()[0:recs], OtherWeatherData.objects.values_list(other_value_to_display_1, other_value_to_display_2)[0:recs]))
-    
-
     context = {
             'date_and_time': DataAndTimeForData.objects.all().order_by('-id')[0:recs],
             'wind_data': WindData.objects.all().order_by('-id')[0:recs],
             'temperature_data': TemperatureData.objects.all().order_by('-id')[0:recs],          
-            #'other_weather_data': OtherWeatherData.objects.values_list(other_value_to_display_1, other_value_to_display_2)[0:recs],
-            # Merge two query sets to be able to iterate in template
             'other_weather_data': zip(DataAndTimeForData.objects.all().order_by('-id')[0:recs],
                                       OtherWeatherData.objects.values_list(
                                           other_value_to_display_1,
                                           other_value_to_display_2).order_by('-id')[0:recs]
                                     )
-            #'other_weather_data_2': OtherWeatherData.objects.values(other_value_to_display_2)[0:recs]
         }    
     
     return render(request, "weather.html", context)
