@@ -5,6 +5,7 @@ This website will provide a tool for seismic data acquisition companies to use w
 # **Index**
 #### [*Website Live Link*](https://pp4-ci-wqcs.herokuapp.com/)
 ### [1. Project Goals](#1--project-goals)
+### [1. Project Board](#1--project-board)
 ### [2. User Experience](#2--user-experience)
 - #### [User Goals](#user-goals-1)
 - #### [Site Owner Goals](#site-owner-goals-1)
