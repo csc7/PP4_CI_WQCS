@@ -30,7 +30,6 @@ hr {
 /* BODY */
 
 #body-content {
-    /*margin-top: 75px;*/
     padding-top: 0px;
 }
 
@@ -55,7 +54,6 @@ hr {
 }
 
 #header-menu {
-    /*background-color: rgb(0, 255, 55);*/
     margin: 0;
     font-family: 'Heebo', sans-serif;
     font-size: 100%;
@@ -121,7 +119,7 @@ https://stackoverflow.com/questions/10636667/bootstrap-modal-appearing-under-bac
 }
 
 
-/* LOG-IN, SIGN-UP and LOG-OUT*/
+/* SIGN-IN, SIGN-UP and LOG-OUT PAGES*/
 
 #body > div > div:nth-child(1) > div > p {
     margin-top: 50px;
@@ -139,6 +137,7 @@ https://stackoverflow.com/questions/10636667/bootstrap-modal-appearing-under-bac
     margin-bottom: 175px;
 }
 
+/* Input fields */
 #id_login, #id_username, #id_password, #id_password1, #id_password2 {
     border-style: solid;
     border-radius: 10px;
@@ -151,6 +150,7 @@ https://stackoverflow.com/questions/10636667/bootstrap-modal-appearing-under-bac
     text-align: left;
 }
 
+/* Django sign-in, sign-up and sign-out buttons*/
 #body > div > div:nth-child(2) > div > form > button,
 #signup_form > button {
     width: 200px;
@@ -161,8 +161,11 @@ https://stackoverflow.com/questions/10636667/bootstrap-modal-appearing-under-bac
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     font-family: 'Heebo', sans-serif;
+    border-style: solid;
+    border-color: rgb(49, 49, 48);
 }
 
+/* E-mail input fields */
 #id_email {
     width: 70%;
 }
@@ -231,6 +234,7 @@ a.nav-link {
 /* INSTRUCTIONS PAGE */
 /* ***************** */
 
+/* Main title */
 #instructions-title > div > div > h3, #body-content > section > div > h3 {
     color: rgb(49, 49, 48);
 }
@@ -247,6 +251,7 @@ a.nav-link {
     height: 1960px;
 }
 
+/* Instructions images */
 .instructions-image {
     display: block;
     margin-left: auto;
@@ -266,6 +271,7 @@ a.nav-link {
 /* WEATHER PAGE */
 /* ************ */
 
+/* Credits for Esri/ArcGIS and Google */
 #source-Esri, #source-Google {
     margin-top: 75px;
     font-family: 'Heebo', sans-serif;
@@ -274,6 +280,7 @@ a.nav-link {
     color: rgb(76, 76, 211);
 }
 
+/* Credits for Esri/ArcGIS and Google */
 #source-Esri > p, #source-Google > p {
     padding-top: 10px;
     margin-bottom: 0px;
@@ -283,14 +290,18 @@ a.nav-link {
     margin-bottom: 12px;   
 }
 
+/* Esri/ArcGIS Map */
 #viewDiv {
     padding: 0 20px;
 }
 
+/* Esri/ArcGIS Map */
 #viewDiv_gc {
     border-color: rgb(49, 49, 48);
     border-style: solid;
 }
+
+/* Panel */
 
 #manual-latitude, #label-for-latitude, #manual-longitude, #label-for-longitude {
     margin-top: 5px;
@@ -369,13 +380,15 @@ a.nav-link {
     height: 40px;
 }
 
-#results-title > p, #enter-manually-title > p, #weather-data-title > p{
+#results-title > p, #enter-manually-title > p, #weather-data-title > p {
     margin: auto;
     font-weight: 150%;
     text-align: center;
     font-size: 140%;
     color: rgb(98, 88, 184);
 }
+
+/* Selection panel */
 
 .radio-select-label {
     font-family: 'Heebo', sans-serif;
@@ -394,10 +407,14 @@ a.nav-link {
     margin-bottom: 225px;
 }
 
+/* Google Chart Graphs */
+
 #curve_chart_left, #curve_chart_middle, #curve_chart_right {
     width: 100%;
     height: 250px;
 }
+
+/* Tables */
 
 #wind-table {
     width: 90%;
@@ -513,6 +530,7 @@ td {
     font-family: 'Heebo', sans-serif;
 }
 
+/* Django input fields */
 #id_name, #id_surname, #id_email {
     width: 70%;
     float: right;
@@ -520,6 +538,7 @@ td {
     border-radius: 10px;
 }
 
+/* Django input field */
 #id_text_content {
     width: 70%;
     float: right;
@@ -528,6 +547,7 @@ td {
     border-radius: 10px;
 }
 
+/* Django button */
 #contact-form-button {
     width: 200px;
     height: 40px;
@@ -577,6 +597,8 @@ td {
 
 @media screen and (min-height: 1081px) {
 
+    /* FOOTER */
+
     footer {
         position: fixed;
         bottom: 70px;
@@ -591,6 +613,8 @@ td {
 
 @media screen and (max-width: 1200px) {
 
+    /* BLOG PAGE */
+
     #blog-content {
         margin-bottom: 240px;
     }
@@ -602,13 +626,20 @@ td {
 
 @media screen and (max-width: 992px) {
 
+    /* INSTRUCTIONS PAGE */
+    #body-content {
+        height: 2450px;
+    }
+
     #select-data-options {
         text-align: center;
     }
 
-    /* Instructions Page */
-    #body-content {
-        height: 2450px;
+    /* WEATHER PAGE */
+
+    #viewDiv {
+        width: 100%;
+        height: 300px;
     }
 
 }
@@ -618,6 +649,8 @@ td {
 
 @media screen and (max-width: 768px) {
 
+    /* HEADER  */
+
     #log-in-button-1 > button, #log-in-button-2 > button, #log-in-button-3 > button {
         position: relative;
         left: 5px;
@@ -625,7 +658,7 @@ td {
         padding-left:  2px;;
     }
 
-    /* Instructions Page */
+    /* INSTRUCTIONS PAGE */
     #body-content {
     height: 2950px;
     }
@@ -636,6 +669,8 @@ td {
 /* SCREEN SIZE BELOW 575px */
 
 @media screen and (max-width: 576px) {
+
+    /* HEADER */
 
     #company-logo {
         float: right;
@@ -682,6 +717,8 @@ td {
         padding:7px 4px 7px;
     }
 
+    /* FOOTER */
+
     #company-links > nav > a {
         padding-top: 0;
         padding-bottom: 10px;
@@ -704,9 +741,13 @@ td {
         text-align: center;
     }
 
+    /* INSTRUCTIONS PAGE */
+
     #instructions-title > div {
         margin-top: 50px;
     }
+
+    /* WEATHER PAGE */
 
     #source-Esri {
         margin-top: 125px;
@@ -720,8 +761,6 @@ td {
         margin-bottom: 400px;
     }
 
-    /* WEATHER */
-
     #source-Google {
         margin-top: 0;
     }
@@ -734,7 +773,7 @@ td {
         text-align: center;
     }
 
-    /* FORMS */
+    /* CONTACT PAGE */
 
     #contact-form > form {
         border-style: none;
