@@ -126,16 +126,6 @@ require(["esri/map", "esri/geometry/webMercatorUtils",
 
 
 // ------------------------------------------------------------------
-// Alternative to send answers with the Enter key
-function pressEnter (event) { 
-    if (event.key === "Enter") {
-        //sendAnswer();
-    }    
-};
-// ------------------------------------------------------------------
-
-
-// ------------------------------------------------------------------
 // Check status of OpenWeather API
 // Credit for code: Code Institute
 // Credit for API: OpenWeather
@@ -200,32 +190,32 @@ async function sendWeatherData(e, write) {
       }
     }       
     // Selected data
-    writeData = write;
-    recordsToDisplay = $('input[name="records-to-display"]:checked').val();
-    otherValueToDisplay1 = $('#s-d-o-list-1').val();
-    otherValueToDisplay2 = $('#s-d-o-list-2').val();
+    let writeData = write;
+    let recordsToDisplay = $('input[name="records-to-display"]:checked').val();
+    let otherValueToDisplay1 = $('#s-d-o-list-1').val();
+    let otherValueToDisplay2 = $('#s-d-o-list-2').val();
     // Date and time
-    currentDate = $('#value-date').text();
+    let currentDate = $('#value-date').text();
     const dateNow = new Date();
     let currentTime = dateNow.getHours() + ":" + dateNow.getMinutes() + ":" + dateNow.getSeconds();
     // Wind data
-    valueWind = $('#value-wind').text();
-    valueWindDir = $('#value-wind-direction').text();
+    let valueWind = $('#value-wind').text();
+    let valueWindDir = $('#value-wind-direction').text();
     // Temperature data
-    valueTemperature = $('#value-temperature').text();
-    valueFeelsLike = $('#value-feels-like').text();
-    valueTemperatureMax = $('#value-temperature-max').text();
-    valueTemperatureMin = $('#value-temperature-min').text();
+    let valueTemperature = $('#value-temperature').text();
+    let valueFeelsLike = $('#value-feels-like').text();
+    let valueTemperatureMax = $('#value-temperature-max').text();
+    let valueTemperatureMin = $('#value-temperature-min').text();
     // Other weather data
-    valuePressure = $("#value-pressure").text();
-    valueHumidity = $("#value-humidity").text();
-    valueVisibility = $("#value-visibility").text();
-    valueClouds = $("#value-clouds").text();
-    valueMain = $("#value-main").text();
-    valueDescription = $("#value-description").text();
-    valueCountry = $("#value-country").text();
-    valueSunrise = $("#value-sunrise").text();
-    valueSunset = $("#value-sunset").text();
+    let valuePressure = $("#value-pressure").text();
+    let valueHumidity = $("#value-humidity").text();
+    let valueVisibility = $("#value-visibility").text();
+    let valueClouds = $("#value-clouds").text();
+    let valueMain = $("#value-main").text();
+    let valueDescription = $("#value-description").text();
+    let valueCountry = $("#value-country").text();
+    let valueSunrise = $("#value-sunrise").text();
+    let valueSunset = $("#value-sunset").text();
    
     $.ajax({
         type: 'POST',        

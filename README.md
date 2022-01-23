@@ -509,34 +509,29 @@ https://jshint.com/ was used to validate the JavaScript files.
 Please check the parameters used for validation and evidence below:
 
 <details>
-    <summary>Parameters used for JavaScript validation in JSHint version 2.13.0</summary>
+    <summary>Parameters used for JavaScript validation in JSHint version 2.13.3</summary>
 
-![Evidence of no errors and warnings in the Functions (index) JavaScript file](docs/validation/validation-js-parameters.PNG) 
+![Parameters used for JavaScript validation in JSHint version 2.13](docs/validation/validation-js-move-configuration.PNG) 
 </details>
 
 <details>
-    <summary>Functions Page</summary>
+    <summary>Weather Page (weather.js JavaScript file). Plase note that google is an external variable from Google.</summary>
 
-![Evidence of no errors and warnings in the Functions (index) JavaScript file](docs/validation/validation-js-index.PNG) 
+![Evidence of no errors weather.js JavaScript file](docs/validation/validation-js-weather.PNG)
 </details>
 
 <details>
-    <summary>Generator Page. Plase note that dataForGoogleChartFunction, google and emailjs are external variable from Google (the first two) and EmailJS (the third); while sendData is the function that is called from the Generator page to send the graph data by e-mail.</summary>
+    <summary>File for moving the content down (move-content-hamburger.js)</summary>
 
-![Evidence of no errors and warnings in the Generator JavaScript file](docs/validation/validation-js-generator.PNG)
+![Evidence of no errors and warnings in the move-content-hamburger.js JavaScript file](docs/validation/validation-js-move-content.PNG) 
 </details>
 
 <details>
-    <summary>Quiz Page</summary>
+    <summary>File for checking the loading of the site (index.js JavaScript file).</summary>
 
-![Evidence of no errors and warnings in the Quiz JavaScript file](docs/validation/validation-js-quiz.PNG) 
+![Evidence of no errors and warnings in the index.js JavaScript file](docs/validation/validation-js-index.PNG)
 </details>
 
-<details>
-    <summary>Contact Page. Plase note that emailjs is an external variable from EmailJS; while sendMail is the function that is called from the Contact page to send the form.</summary>
-
-![Evidence of no errors and warnings in the Contact JavaScript  file](docs/validation/validation-js-contact.PNG) 
-</details>
 
 #### [Back to Index](#index)
 
