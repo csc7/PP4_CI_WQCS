@@ -64,7 +64,7 @@ hr {
     background-color: white;
 }
 
-#log-in-button-1 > div, #log-in-button-2 > div, #log-in-button-3 > div{
+#log-in-button-1 > div, #log-in-button-2 > div, #log-in-button-3 > div {
     background-color: rgb(49, 49, 48);
 }
 
@@ -74,7 +74,7 @@ hr {
 
 #log-in-button-1 > button, #log-in-button-2 > button, #log-in-button-3 > button {
     background-color: white;
-    border-color: white;
+    border-color: rgb(49, 49, 48); 
     color:rgb(49, 49, 48);    
     margin-top: 10px;
     margin-bottom: 10px;
@@ -97,25 +97,6 @@ hr {
 
 #header-menu > nav > button {
     margin: auto;
-}
-
-/* Solution for modal windown appearing below elements, in the background:
-Copied on June 19th, 2021, at 3:17, from Stack Overflow:
-https://stackoverflow.com/questions/10636667/bootstrap-modal-appearing-under-background
-*/
-.modal-backdrop {
-    z-index: -1;
-}
-
-#exampleModalCenter > div > div > div.modal-body > form > div > label,
-#exampleModalLongTitle {
-    font-family: 'Heebo', sans-serif;    
-}
-
-#recipient-name-submit {
-    background-color: rgb(49, 49, 48);
-    font-family: 'Heebo', sans-serif;
-    color: rgb(49, 49, 48);
 }
 
 
@@ -222,7 +203,7 @@ a.nav-link {
 
 #company-data > p {
     margin: 0;
-    inline-size: 1;
+    inline-size: 1px;
 }
 
 .navbar-toggler.toggler-example {
@@ -382,7 +363,7 @@ a.nav-link {
 
 #results-title > p, #enter-manually-title > p, #weather-data-title > p {
     margin: auto;
-    font-weight: 150%;
+    font-size: 150%;
     text-align: center;
     font-size: 140%;
     color: rgb(98, 88, 184);
@@ -776,10 +757,10 @@ td {
     /* CONTACT PAGE */
 
     #contact-form > form {
-        border-style: none;
-        border-radius: none;
-        padding: none;
-        margin: none;
+        border-style: hidden;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
     }
 
     #form-left-1 {
