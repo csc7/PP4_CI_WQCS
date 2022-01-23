@@ -474,6 +474,11 @@ Please check the evidence below:
 
 ## **CSS File**
 https://jigsaw.w3.org/css-validator/ was used to validate the CSS file.
+
+http://jigsaw.w3.org/css-validator/validator$link
+or
+http://jigsaw.w3.org/css-validator/check/referer (for HTML/XML document only)
+
 Please check the evidence below:
 
 <p>
@@ -493,9 +498,14 @@ Please check the evidence below:
 </p>
      
 <details>
-    <summary>CSS Filee</summary>
+    <summary>CSS File</summary>
 
-![Evidence of no errors in the CSS file](docs/validation/validation-css.PNG) 
+![Evidence of no errors in the CSS file](docs/validation/validation-css-1.PNG) 
+</details>
+<details>
+    <summary>CSS File (Warnings)</summary>
+
+![Evidence of no errors in the CSS file](docs/validation/validation-css-2.PNG) 
 </details>
 
 #### [Back to Index](#index)
