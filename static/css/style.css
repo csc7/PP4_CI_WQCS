@@ -253,7 +253,6 @@ a.nav-link {
     margin-right: auto;
     margin-bottom: 25px;
     width: 75%;
-    
 }
 
 .instruction-box {
@@ -261,8 +260,6 @@ a.nav-link {
     border-radius: 10px;
     padding: 5px
 }
-
-
 
 
 /* ************ */
@@ -275,7 +272,6 @@ a.nav-link {
     font-weight: bold;
     text-align: center;
     color: rgb(76, 76, 211);
-    
 }
 
 #source-Esri > p, #source-Google > p {
@@ -287,16 +283,7 @@ a.nav-link {
     margin-bottom: 12px;   
 }
 
-#weather-map-and-data {
-    
-}
-
 #viewDiv {
-    /* height: 350px; */
-    /*background-color: blueviolet;   */
-    /*position: relative;*/
-    /*height: 100%;
-    width: 100%;*/
     padding: 0 20px;
 }
 
@@ -305,60 +292,8 @@ a.nav-link {
     border-style: solid;
 }
 
-#weather-data {
-
-}
-
-#weather-data-title {
-
-}
-
-#latitute-title {
-
-}
-
-#latitute {
-
-}
-
-#longitude-title {
-
-}
-
-#longitude {
-
-}
-
-#enter-manually-title {
-
-}
-
-#manual-latitute-label {
-
-}
-
-#label-for-latitude {
-    
-}
-
 #manual-latitude, #label-for-latitude, #manual-longitude, #label-for-longitude {
     margin-top: 5px;
-}
-
-#manual-latitute {
-
-}
-
-#manual-longitude-label {
-
-}
-
-#label-for-longitude {
-    
-}
-
-#manual-longitude {
-
 }
 
 #get-weather-data {
@@ -378,26 +313,6 @@ a.nav-link {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     font-family: 'Heebo', sans-serif;
-}
-
-#results-title {
-
-}
-
-#results {
-
-}
-
-#chart-left {
-    
-}
-
-#chart-middle {
-    
-}
-
-#chart-right {
-    
 }
 
 .weather-data-label > p, #manual-latitude-label, #manual-longitude-label {
@@ -452,7 +367,6 @@ a.nav-link {
 #results-title, #enter-manually-title, #weather-data-title {
     margin-top: 20px;
     height: 40px;
-    
 }
 
 #results-title > p, #enter-manually-title > p, #weather-data-title > p{
@@ -470,17 +384,14 @@ a.nav-link {
 
 #wind-extra-info {
     margin-bottom: 225px;
-    /*height: 200px;*/
 }
 
 #temperature-extra-info {
     margin-bottom: 225px;
-    /*height: 250px;*/
 }
 
 #other-weather-extra-info {
     margin-bottom: 225px;
-    /*height: 250px;*/
 }
 
 #curve_chart_left, #curve_chart_middle, #curve_chart_right {
@@ -517,7 +428,6 @@ td {
 }
 
 
-
 /* ********* */
 /* BLOG PAGE */
 /* ********* */
@@ -540,6 +450,7 @@ td {
 #blog-content.row {
     margin-bottom: 0px;
 }
+
 
 /* **************** */
 /* POST DETAIL PAGE */
@@ -567,7 +478,6 @@ td {
 }
 
 
-
 /* ************ */
 /* CONTACT PAGE */
 /* ************ */
@@ -587,8 +497,8 @@ td {
 #form-left-1 {
     height: 75px;
     margin: 5px;
-    
 }
+
 #form-left-2, #form-left-3, #form-right-2 {
     height: 75px;
     margin: 5px;
@@ -618,7 +528,6 @@ td {
     border-radius: 10px;
 }
 
-
 #contact-form-button {
     width: 200px;
     height: 40px;
@@ -630,8 +539,6 @@ td {
     transform: translate(-50%, -50%);
     font-family: 'Heebo', sans-serif;
 }
-
-
 
 
 /* ************** */
@@ -665,16 +572,17 @@ td {
 /* MEDIA QUERIES */
 /* ************* */
 
+
 /* FOOTHER ON BIG SCREEN SIZE, HEIGHT ABOVE 1080px */
 
 @media screen and (min-height: 1081px) {
+
     footer {
         position: fixed;
         bottom: 70px;
         height: 200px;
         width: 100%;        
     }
-
 
 }
 
@@ -687,25 +595,24 @@ td {
         margin-bottom: 240px;
     }
 
-
-
 }
-
 
 
 /* SCREEN SIZE BELOW 992px */
 
 @media screen and (max-width: 992px) {
+
     #select-data-options {
         text-align: center;
     }
-
 
     /* Instructions Page */
     #body-content {
         height: 2450px;
     }
+
 }
+
 
 /* SCREEN SIZE BELOW 768px */
 
@@ -716,14 +623,12 @@ td {
         left: 5px;
         padding-right: 2px;
         padding-left:  2px;;
-  
     }
 
     /* Instructions Page */
     #body-content {
     height: 2950px;
-}
-
+    }
 
 }
 
@@ -740,14 +645,12 @@ td {
         padding-left: 10%;
     }
     
-
     #log-in-button-1 > button, #log-in-button-2 > button, #log-in-button-3 > button {
         margin-bottom: 5px;
         margin-top: 0px;
         /* To align vertically "Log In" inside the button*/
         padding-top: 6px;
         padding-bottom: 10px;
-        
     }
 
     #log-in-button-1, #log-in-button-2, #log-in-button-3 {
@@ -817,16 +720,7 @@ td {
         margin-bottom: 400px;
     }
 
-
     /* WEATHER */
-
-    .external-references {
-        
-    }
-
-    #sorce-Esri {
-        
-    }
 
     #source-Google {
         margin-top: 0;
@@ -862,7 +756,6 @@ td {
         height: 300px;
     }
 
-
     .form-labels {
         width: 100%;
         text-align: center;
@@ -883,6 +776,5 @@ td {
     #post-detail-body {
         padding-top: 75px;    
     }
-
 
 }
