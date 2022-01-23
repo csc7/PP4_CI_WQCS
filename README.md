@@ -434,38 +434,30 @@ The website was tested using these **browsers** and also **Microsoft Internet Ex
 The following tools were used to validate the **files of the website**:
 
 ## **HTML Files**
-https://validator.w3.org/ was used to validate the new HTML files (those not being part of the Django framework). To test them, unique HTML files base+index, base+weather, base+blog and base+contact were created. Control characters were also deleted. All files ended up with zero errors and warnings.
-Please check the evidence below:
+https://validator.w3.org/ was used to validate the new HTML files (those not being part of the Django framework). To test them, unique HTML files base+index, base+weather, base+blog and base+contact were created. The files were validated and accepted only when errors were related to control characters.
 
-<details>
-    <summary>Instructions Page</summary>
+Errors corrected using this sevice:
 
-![Evidence of no errors and warnings in the Functions HTML (index) file](docs/validation/validation-html-index.PNG) 
-</details>
+- base.html:
+    - Id body for body tag changed as it needs to have a different name; corrected after using the validator.
+<br>
+<br>
+- Instructions Page (index.html):
+    - All images were missing the "alt" attribute; they were added after using the validator.
+<br>
+<br>
+- Weather Page:
+    - Duplicated id ("s-d-o-4") identified, one of the changed to "s-d-o-5" after using the validator.
+    - Table headers "th" were not included in a "tr" tag; included after using the validator.
+<br>
+<br>
+- Blog Page:
+    - Image was missing the "alt" attribute; added after using the validator.
+<br>
+<br>
+- Contact Page:
+    - No errors found.
 
-<details>
-    <summary>Weather Page</summary>
-
-![Evidence of no errors and warnings in the Generator HTML file](docs/validation/validation-html-generator.PNG)
-</details>
-
-<details>
-    <summary>Blog Page</summary>
-
-![Evidence of no errors and warnings in the Quiz HTML file](docs/validation/validation-html-quiz.PNG) 
-</details>
-
-<details>
-    <summary>Contact Page</summary>
-
-![Evidence of no errors and warnings in the Contact HTML file](docs/validation/validation-html-contact.PNG) 
-</details>
-
-<details>
-    <summary>404 Page</summary>
-
-![Evidence of no errors and warnings in the 404 file](docs/validation/validation-html-404.PNG) 
-</details>
 
 #### [Back to Index](#index)
 
