@@ -28,6 +28,7 @@ hr {
 
 
 /* BODY */
+
 #body-content {
     /*margin-top: 75px;*/
     padding-top: 0px;
@@ -45,7 +46,6 @@ hr {
     padding-left: 10px;
     float: left;
     z-index: 20;
-    /*background-color: aqua;*/
 }
 
 #company-logo > a {
@@ -101,7 +101,6 @@ hr {
     margin: auto;
 }
 
-
 /* Solution for modal windown appearing below elements, in the background:
 Copied on June 19th, 2021, at 3:17, from Stack Overflow:
 https://stackoverflow.com/questions/10636667/bootstrap-modal-appearing-under-background
@@ -119,7 +118,6 @@ https://stackoverflow.com/questions/10636667/bootstrap-modal-appearing-under-bac
     background-color: rgb(49, 49, 48);
     font-family: 'Heebo', sans-serif;
     color: rgb(49, 49, 48);
-    
 }
 
 
@@ -141,23 +139,45 @@ https://stackoverflow.com/questions/10636667/bootstrap-modal-appearing-under-bac
     margin-bottom: 175px;
 }
 
+#id_login, #id_username, #id_password, #id_password1, #id_password2 {
+    border-style: solid;
+    border-radius: 10px;
+    width: 70%;
+    float: right;
+    text-align: left;
+}
 
+#signup_form > p {
+    text-align: left;
+}
+
+#body > div > div:nth-child(2) > div > form > button,
+#signup_form > button {
+    width: 200px;
+    height: 40px;    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-family: 'Heebo', sans-serif;
+}
+
+#id_email {
+    width: 70%;
+}
 
 
 /* FOOTER */
 
-
-
 #footer {
     position: relative;
     top: 100px;
-    background-color: rgb(49, 49, 48);
-    
+    background-color: rgb(49, 49, 48);    
 }
 
 #company-data {
-    padding: 25px;
-    /*background-color: rgb(55, 0, 255);*/    
+    padding: 25px;   
     color: white;
 }
 
@@ -165,9 +185,7 @@ https://stackoverflow.com/questions/10636667/bootstrap-modal-appearing-under-bac
     font-family: 'Heebo', sans-serif;
 }
 
-
 #company-links {
-    /*background-color: rgb(0, 255, 55);*/
     height: 50%;
     margin: 0;    
 }
@@ -178,7 +196,6 @@ a.nav-link {
 }
 
 #footer-contact-link {
-    /*background-color: rgb(255, 0, 212);*/
     height: 50%;
     margin: auto;
     text-align: center;
@@ -208,7 +225,6 @@ a.nav-link {
 .navbar-toggler.toggler-example {
     cursor: pointer;
 }
-
 
 
 /* ***************** */
@@ -409,8 +425,7 @@ a.nav-link {
     text-align: center;
     font-size: 90%;
     font-style: italic;
-    font-weight: normal;
-    
+    font-weight: normal;    
     margin-top: 20px;
 }
 
