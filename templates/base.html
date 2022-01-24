@@ -23,13 +23,14 @@
     <link rel="stylesheet" href="https://js.arcgis.com/3.18/dijit/themes/tundra/tundra.css">
     <link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/css/esri.css">   
 
+    {% load static %}
     <!-- This project's CSS file -->
-    <link rel="stylesheet" href="/static/css/style.css">   
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">   
 
     <!-- favicon
     To load static folder for favicon:
     https://stackoverflow.com/questions/35054230/custom-tag-not-loaded-in-template, accessed on January 22nd, at 15:05. -->
-    {% load static %}
+    
     <link rel="icon" type="image/png" href="{% static 'images/wqcs-icon.PNG' %}"/>    
 </head>
 <body id="body-main">

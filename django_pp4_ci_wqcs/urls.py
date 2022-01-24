@@ -34,3 +34,4 @@ urlpatterns = [
     #path('weather/', get_weather_page, name='get_weather_page'),
     #path('blog/', get_blog, name='get_blog'),    
 ]
+

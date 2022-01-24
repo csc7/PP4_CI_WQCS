@@ -1,0 +1,35 @@
+{
+  "name": "pp4_ci_wqcs",
+  "version": "1.0.0",
+  "description": "Weather Data and Support Blog",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "pg": "^8.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csc7/PP4_CI_WQCS.git"
+  },
+  "keywords": [
+    "weather",
+    "and",
+    "support",
+    "blog"
+  ],
+  "author": "Carlos Colombo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/csc7/PP4_CI_WQCS/issues"
+  },
+  "homepage": "https://github.com/csc7/PP4_CI_WQCS#readme",
+  "engines": {
+    "node": "14.x"
+  }
+}
