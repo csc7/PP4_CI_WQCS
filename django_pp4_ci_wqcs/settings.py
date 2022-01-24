@@ -47,9 +47,9 @@ ALLOWED_HOSTS = [
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-moccasin-canidae-gedulbh4.ws-us25.gitpod.io',
     'https://8000-moccasin-canidae-gedulbh4.ws-us27.gitpod.io',
-    'https://8000-moccasin-canidae-gedulbh4.ws-us28.gitpod.io'
+    'https://8000-moccasin-canidae-gedulbh4.ws-us28.gitpod.io',
+    'https://8000-csc7-pp4ciwqcs-nx9o6gmef7u.ws-us28.gitpod.io/'
 ]
-
 
 
 # Application definition
