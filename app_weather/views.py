@@ -121,7 +121,9 @@ def get_weather_page(request):
                                       OtherWeatherData.objects.values_list(
                                           other_value_to_display_1,
                                           other_value_to_display_2).order_by('-id')[0:recs]
-                                    )
+                                    ),
+            'other_value_to_display_1': other_value_to_display_1.capitalize(),
+            'other_value_to_display_2': other_value_to_display_2.capitalize()
         }    
     
     return render(request, "weather.html", context)
