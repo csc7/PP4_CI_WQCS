@@ -1,1 +1,1 @@
-web: gunicorn django_pp4_ci_wqcs.wsgi
+web: gunicorn pp4-ci-wqcs.wsgi
