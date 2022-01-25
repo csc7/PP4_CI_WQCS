@@ -121,6 +121,8 @@ def get_weather_page(request):
         other_weather_data = zip(DataAndTimeForData.objects.all().order_by('-id')[0:recs],
             OtherWeatherData.objects.values_list(other_value_to_display_1, other_value_to_display_2).order_by('-id')[0:recs])
     except FieldError:
+        other_weather_data = zip(DataAndTimeForData.objects.all().order_by('-id')[0:recs],
+            OtherWeatherData.objects.values_list('pressure', 'humidity').order_by('-id')[0:recs])
         print("An exception related to posting data occurred")
 
     
