@@ -549,25 +549,25 @@ https://wave.webaim.org/ was used to validate accessibility. Although there are 
 <details>
     <summary>Instructions Page</summary>
 
-![Evidence of no accessibility errors in the Instructions (index) HTML file](static/images/validation-accessibility-instructions.PNG) 
+![Evidence of no accessibility errors in the Instructions (index) HTML file](docs/validation/validation-accessibility-instructions.PNG) 
 </details>
 
 <details>
     <summary>Weather Page</summary>
+    Please see Bug section below
 
-![Evidence of no accessibility errors in the Weather HTML file](docs/validation/validation-accessibility-generator.PNG)
 </details>
 
 <details>
     <summary>Blog Page</summary>
 
-![Evidence of no accessibility errors in the Blog HTML file](static/images/validation-accessibility-blog.PNG) 
+![Evidence of no accessibility errors in the Blog HTML file](docs/validation/validation-accessibility-blog.PNG) 
 </details>
 
 <details>
     <summary>Contact Page</summary>
 
-![Evidence of no accessibility errors in the Contact HTML file](static/images/validation-accessibility-contact.PNG) 
+![Evidence of no accessibility errors in the Contact HTML file](docs/validation/validation-accessibility-contact.PNG) 
 </details>
 
 
@@ -581,64 +581,54 @@ https://wave.webaim.org/ was used to validate accessibility. Although there are 
 Google Lighthouse (used in Google, Microsoft Edge and Firefox) were used to evaluate the performance of the pages. Please check the results below:
 
 <details>
-    <summary>Functions Page for Cell Phones(93)</summary>
+    <summary>Instructions Page for Cell Phones(67)</summary>
 
-![Evidence of no accessibility errors in the Functions (index) HTML file](docs/validation/performance-functions-cell.PNG) 
+![Evidence of no accessibility errors in the Instructions (index) HTML file](docs/validation/validation-performance-instructions-cell-phone.PNG) 
 </details>
 
 <details>
-    <summary>Functions Page for Desktop (99)</summary>
+    <summary>Instructions Page for Desktop (85)</summary>
 
-![Evidence of no accessibility errors in the Functions (index) HTML file](docs/validation/performance-functions-desktop.PNG) 
+![Evidence of no accessibility errors in the Instructions (index) HTML file](docs/validation/validation-performance-instructions-desktop.PNG) 
 </details>
 
 <details>
-    <summary>Generator Page for Cell Phones(97)</summary>
+    <summary>Weather Page for Cell Phones(50)</summary>
 
-![Evidence of no accessibility errors in the Generator HTML file](docs/validation/performance-generator-cell.PNG)
+![Evidence of no accessibility errors in the Weather HTML file](docs/validation/validation-performance-weather-cell-phone.PNG)
 </details>
 
 <details>
-    <summary>Generator Page for Desktop (100)</summary>
+    <summary>Weather Page for Desktop (79)</summary>
 
-![Evidence of no accessibility errors in the Generator HTML file](docs/validation/performance-generator-desktop.PNG)
+![Evidence of no accessibility errors in the Weather HTML file](docs/validation/validation-performance-weather-desktop.PNG)
 </details>
 
 <details>
-    <summary>Quiz Page for Cell Phones(95)</summary>
+    <summary>Blog Page for Cell Phones(64)</summary>
 
-![Evidence of no accessibility errors in the Quiz HTML file](docs/validation/performance-quiz-cell.PNG) 
+![Evidence of no accessibility errors in the Blog HTML file](docs/validation/validation-performance-blog-cell-phone.PNG) 
 </details>
 
 <details>
-    <summary>Quiz Page for Desktop (99)</summary>
+    <summary>Blog Page for Desktop (90)</summary>
 
-![Evidence of no accessibility errors in the Quiz HTML file](docs/validation/performance-quiz-desktop.PNG) 
+![Evidence of no accessibility errors in the Blog HTML file](docs/validation/validation-performance-blog-desktop.PNG) 
 </details>
 
 <details>
-    <summary>Contact Page for Cell Phones(97)</summary>
+    <summary>Contact Page for Cell Phones(74)</summary>
 
-![Evidence of no accessibility errors in the Contact HTML file](docs/validation/performance-contact-cell.PNG) 
+![Evidence of no accessibility errors in the Contact HTML file](docs/validation/validation-performance-contact-cell-phone.PNG) 
 </details>
 
 <details>
-    <summary>Contact Page for Desktop (100)</summary>
+    <summary>Contact Page for Desktop (93)</summary>
 
-![Evidence of no accessibility errors in the Contact HTML file](docs/validation/performance-contact-desktop.PNG) 
+![Evidence of no accessibility errors in the Contact HTML file](docs/validation/validation-performance-contact-desktop.PNG) 
 </details>
 
-<details>
-    <summary>404 Page for Cell Phones(92)</summary>
 
-![Evidence of no accessibility errors in the 404 file](docs/validation/performanc-404-cell.PNG) 
-</details>
-
-<details>
-    <summary>404 Page for Desktop (100)</summary>
-
-![Evidence of no accessibility errors in the 404 file](docs/validation/performanc-404-desktop.PNG) 
-</details>
 
 <br><br>
 ## [Back to Index](#index)
@@ -686,11 +676,12 @@ Bugs that required more time and specific solutions were the following ones:
 
 | Bug | Solution |
 | ---- | ---- |
-| It was not possible to log into an administration account in Django. | The issue arises for Django version 4; solved with the help of Code Institute Tutor Assistance (Alan) on December 20th, 2021, at 15:55, by assigning the workspace URL to the variable CSRF_TRUSTED_ORIGINS in the settings.py file.
-CSRF_TRUSTED_ORIGINS = ['https://8000-aqua-jay-tl4cc8xk.ws-eu23.gitpod.io'] | 
+| It was not possible to log into an administration account in Django. | The issue arises for Django version 4; solved with the help of Code Institute Tutor Assistance (Alan) on December 20th, 2021, at 15:55, by assigning the workspace URL to the variable CSRF_TRUSTED_ORIGINS in the settings.py file to ['https://8000-aqua-jay-tl4cc8xk.ws-eu23.gitpod.io'] | 
 | The pages of the website could not be loaded all together, only either instructions and blog pages together, or weather and contact pages together, never the four pages together  | The issue was solved by changing the order of elements in the urlpatterns variable in the app (app_blog) urls.py file from Blog/(Post Detail)/Instructions/Weather/Contact to Instructions/Weather/Contact/Blog/(Post Detail); solution found on https://stackoverflow.com/questions/36429144/page-not-found-404-no-post-matches-the-given-query, on December 23rd, 2021, at 03:20. |
 | It was not possible to convert data (sent to views.py with AJAX, with POST) to float, even after trying with JSON.stringify() | Solved by deleting "dataType: 'json'," line, as the method seems to pass strings, which can be easily converted to float (before, a "ul" element was being received). Reference: https://stackoverflow.com/questions/1969476/ajax-success-event-not-working; accessed on January 4th, 2022, at 21:10. |
 | Django models in app_weather could not be migrated as a result of wrongly deleting migrations file, causing a deleted column not registered/available in the files when reversing the migrations. | Issue solved with the help of Code Institute Tutor Assistance (Igor) by deleting the Postgres database, creating a new one, deleting all migrations files in all applications (except each __init__.py), making migrations, migrating and creating superuser again. |
+| There were some issues with the deployment in Heroku, apparently as a result of a changes in Gitpod. | The issue was solved with the help of the Code Institute Tutor Assistance by installing Django version 3.2 (instead of version 4.0), creating a new workspace in Gitpod, and generating a new requirements.txt file. | 
+| It was not possible to test the accessibility of the weather.html file; when using https://wave.webaim.org/, the weather app/page stopped working (even if it was working right before using the validator), even when they are in different windows and/or browsers; the validator reads a "ul" string/tag, while the app/page reads the correct string. | The issue remains for future investigation. | 
 
 <br><br>
 ## [Back to Index](#index)
