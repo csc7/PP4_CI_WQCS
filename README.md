@@ -437,28 +437,28 @@ https://validator.w3.org/ was used to validate the new HTML files (those not bei
 
 Errors corrected using this sevice:
 
-- base.html:
+- **base.html**:
     - Id body for body tag changed as it needs to have a different name; corrected after using the validator.
 
 <br>
 
-- Instructions Page (index.html):
+- **Instructions Page (index.html)**:
     - All images were missing the "alt" attribute; they were added after using the validator.
 
 <br>
 
-- Weather Page:
+- **Weather Page**:
     - Duplicated id ("s-d-o-4") identified, one of the changed to "s-d-o-5" after using the validator.
     - Table headers "th" were not included in a "tr" tag; included after using the validator.
 
 <br>
 
-- Blog Page:
+- **Blog Page**:
     - Image was missing the "alt" attribute; added after using the validator.
 
 <br>
 
-- Contact Page:
+- **Contact Page**:
     - No errors found.
 
 
@@ -543,7 +543,7 @@ Please check the parameters used for validation and evidence below:
 
 ## **Python Files**
 
-- Django Project Files
+- **Django Project Files**
 <details>
     <summary>asgi.py</summary>
 
@@ -566,7 +566,7 @@ Please check the parameters used for validation and evidence below:
 </details>
 <br>
 
-- Instructions App
+- **Instructions App**
 <details>
     <summary>admin.py</summary>
 
@@ -599,7 +599,7 @@ Please check the parameters used for validation and evidence below:
 </details>
 <br>
 
-- Weather App
+- **Weather App**
 <details>
     <summary>admin.py</summary>
 
@@ -632,7 +632,7 @@ Please check the parameters used for validation and evidence below:
 </details>
 <br>
 
-- Blog App
+- **Blog App**
 <details>
     <summary>admin.py</summary>
 
@@ -670,7 +670,7 @@ Please check the parameters used for validation and evidence below:
 </details>
 <br>
 
-- Contact App
+- **Contact App**
 <details>
     <summary>admin.py</summary>
 
