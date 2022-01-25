@@ -17,9 +17,6 @@ from .forms import ContactForm
 
 def get_contact_page(request):
 
-    print(datetime.datetime.now().date())
-    print(datetime.datetime.now().time())
-
     
     #record = DataFromContactForm(date = value_date, time=value_time)
     #record.save()
@@ -31,7 +28,6 @@ def get_contact_page(request):
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
-            print(form.cleaned_data)
             record = DataFromContactForm(date = datetime.datetime.now().date(),
                                          time = datetime.datetime.now().time(),
                                          name = form.cleaned_data['name'],
