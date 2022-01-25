@@ -86,32 +86,37 @@ def get_weather_page(request):
             elif records_to_display == "15-last":
                 recs = 15
 
-            record = DataAndTimeForData(date = value_date, time=value_time)
-            record.save()
-            pk = record.id
+            try:
+                record = DataAndTimeForData(date = value_date, time=value_time)
+                record.save()
+                pk = record.id
 
-            record = WindData(wind_rec_id_id = pk,
-                              wind_speed = wind_speed_data,
-                              wind_direction = wind_direction_data)
-            record.save()
-        
-            record = TemperatureData(temp_rec_id_id = pk,
-                                     temperature = value_temperature,
-                                     feels_like = value_feels_like,
-                                     temperature_max = value_temperature_max,
-                                     temperature_min = value_temperature_min)
-            record.save()
+                record = WindData(wind_rec_id_id = pk,
+                                  wind_speed = wind_speed_data,
+                                  wind_direction = wind_direction_data)
+                record.save()
 
-            record = OtherWeatherData(other_rec_id = pk,
-                                      pressure = value_pressure,
-                                      humidity = value_humidity,
-                                      visibility = value_visibility,
-                                      sky = value_clouds,
-                                      main = value_main,
-                                      description = value_description,
-                                      sunrise = value_sunrise,
-                                      sunset = value_sunset)
-            record.save()    
+                record = TemperatureData(temp_rec_id_id = pk,
+                                         temperature = value_temperature,
+                                         feels_like = value_feels_like,
+                                         temperature_max = value_temperature_max,
+                                         temperature_min = value_temperature_min)
+                record.save()
+
+                record = OtherWeatherData(other_rec_id = pk,
+                                          pressure = value_pressure,
+                                          humidity = value_humidity,
+                                          visibility = value_visibility,
+                                          sky = value_clouds,
+                                          main = value_main,
+                                          description = value_description,
+                                          sunrise = value_sunrise,
+                                          sunset = value_sunset)
+                record.save()
+            
+            except FieldError as err:
+                print("An exception related to posting data occurred")
+
     
     context = {
             'date_and_time': DataAndTimeForData.objects.all().order_by('-id')[0:recs],
