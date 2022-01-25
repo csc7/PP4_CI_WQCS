@@ -27,8 +27,6 @@ latitudeInput.addEventListener('focus', (event) => {
 // Latitude and longitude manual assignment
 
 latitudeInput.addEventListener('blur', (event) => {
-  console.log(latitude);
-  console.log(longitude);
   event.target.style.background = '';
   if (parseFloat($("#longitude-input").val())){
     longitude = parseFloat($("#longitude-input").val());
@@ -43,8 +41,6 @@ latitudeInput.addEventListener('blur', (event) => {
       latitude = parseFloat($("#latitude-input").val());
     }
     map.centerAt([latitude, longitude]);
-    console.log(latitude);
-    console.log(longitude);
   }
 });
 
@@ -54,8 +50,6 @@ longitudeInput.addEventListener('focus', (event) => {
 });
 
 longitudeInput.addEventListener('blur', (event) => {
-  console.log(latitude);
-  console.log(longitude);
   event.target.style.background = '';
   if (parseFloat($("#latitude-input").val())){
      latitude = parseFloat($("#latitude-input").val());
@@ -70,8 +64,6 @@ longitudeInput.addEventListener('blur', (event) => {
       longitude = parseFloat($("#longitude-input").val());
     }
     map.centerAt([latitude, longitude]);
-    console.log(latitude);
-    console.log(longitude);
   }
 });
 // ------------------------------------------------------------------
@@ -162,9 +154,7 @@ async function getStatus(e) {
         let sunrise = getUnixUTCTime(data.sys.sunrise + data.timezone);
         $("#value-sunrise").text(sunrise);
         let sunset = getUnixUTCTime(data.sys.sunset + data.timezone);
-        $("#value-sunset").text(sunset);
-        console.log(data);
-        console.log(data.timezone);        
+        $("#value-sunset").text(sunset);    
     }   
 }
 // ------------------------------------------------------------------
