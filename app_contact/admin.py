@@ -11,5 +11,7 @@ from .models import DataFromContactForm
 ###############################################################################
 
 
+# Site registrations
+
 admin.site.register(DataFromContactForm)
 

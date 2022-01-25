@@ -14,9 +14,6 @@ from .forms import ContactForm
 ###############################################################################
 
 
-## Create your views here.
-
-
 # Reference: Django Project.
 # https://docs.djangoproject.com/en/4.0/topics/forms/
 
@@ -38,7 +35,8 @@ def get_contact_page(request):
                                          name = form.cleaned_data['name'],
                                          surname = form.cleaned_data['surname'],
                                          email = form.cleaned_data['email'],
-                                         description = form.cleaned_data['text_content']
+                                         description = form.cleaned_data[
+                                             'text_content']
                                         )
             record.save()
             # redirect to a new URL:

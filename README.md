@@ -671,37 +671,37 @@ Please check the parameters used for validation and evidence below:
 <details>
     <summary>admin.py</summary>
 
-![Evidence of file admin.py validated with http://pep8online.com/ ](docs/) 
+![Evidence of file admin.py validated with http://pep8online.com/ ](docs/validation/validation-python-contact-admin.PNG) 
 </details>
 <details>
     <summary>apps.py</summary>
 
-![Evidence of file apps.py validated with http://pep8online.com/ ](docs/) 
+![Evidence of file apps.py validated with http://pep8online.com/ ](docs/validation/validation-python-contact-apps.PNG) 
 </details>
 <details>
     <summary>forms.py</summary>
 
-![Evidence of file forms.py validated with http://pep8online.com/ ](docs/) 
+![Evidence of file forms.py validated with http://pep8online.com/ ](docs/validation/validation-python-contact-forms.PNG) 
 </details>
 <details>
     <summary>models.py</summary>
 
-![Evidence of file models.py validated with http://pep8online.com/ ](docs/) 
+![Evidence of file models.py validated with http://pep8online.com/ ](docs/validation/validation-python-contact-models.PNG) 
 </details>
 <details>
     <summary>tests.py</summary>
 
-![Evidence of file tests.py validated with http://pep8online.com/ ](docs/) 
+![Evidence of file tests.py validated with http://pep8online.com/ ](docs/validation/validation-python-contact-tests.PNG) 
 </details>
 <details>
     <summary>urls.py</summary>
 
-![Evidence of file urls.py validated with http://pep8online.com/ ](docs/) 
+![Evidence of file urls.py validated with http://pep8online.com/ ](docs/validation/validation-python-contact-urls.PNG) 
 </details>
 <details>
     <summary>views.py</summary>
 
-![Evidence of file views.py validated with http://pep8online.com/ ](docs/G) 
+![Evidence of file views.py validated with http://pep8online.com/ ](docs/validation/validation-python-contact-views.PNG) 
 </details>
 <br>
 

@@ -8,9 +8,6 @@ from django.db import models
 ###############################################################################
 
 
-# Create your models here.
-
-
 class DataFromContactForm(models.Model):
     """
     A contact form class for the data of the contact form

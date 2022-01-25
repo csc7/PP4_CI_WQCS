@@ -13,6 +13,9 @@ from django import forms
 
 
 class ContactForm(forms.Form):
+    """
+    Class for a Simple Contact Form with Django
+    """
     name = forms.CharField(label='Name', max_length=50)
     surname = forms.CharField(label='Surname', max_length=50)
     email = forms.EmailField(label='E-Mail', max_length=100, required=False)
