@@ -7,6 +7,8 @@ Code copied from Code Institute "I Think Therefore I Blog" project,
 
 {% block content %}
 
+{% load static %}
+
 <div class="container-fluid">
     <div class="row">        
         <!-- Blog Entries Column -->
@@ -75,7 +77,7 @@ Code copied from Code Institute "I Think Therefore I Blog" project,
                                     </div>
                                 {% else %}
                                 <img class="card-img-top"
-                                    src="/static/images/new-topic-in-blog.png" alt="Image related to topic of blog">
+                                    src="{% static  'images/new-topic-in-blog.png' %}" alt="Image related to topic of blog">
                                 {% endif %}
                                 <div class="image-flash">
                                     <p class="author">Author: {{ post.author }}</p>

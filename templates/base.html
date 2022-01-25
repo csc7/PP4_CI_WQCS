@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">    
 <head>
@@ -23,7 +24,6 @@
     <link rel="stylesheet" href="https://js.arcgis.com/3.18/dijit/themes/tundra/tundra.css">
     <link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/css/esri.css">   
 
-    {% load static %}
     <!-- This project's CSS file -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">   
 
@@ -164,8 +164,9 @@
     <!--ArgGIS / ESRI-->
     <script src="https://js.arcgis.com/3.18/"></script>
 
-    <!-- This website scripts -->    
-    <script src="/static/js/move-content-hamburger.js"></script>      
+    <!-- This website scripts -->
+    {% load static %}
+    <script src="{% static  'js/move-content-hamburger.js' %}"></script>      
 
     {% block scripts %}
     {% endblock %}

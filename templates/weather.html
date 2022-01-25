@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% load static %}
     <div class="container">
         <div class="row">
             <div id="source-Esri" class="col-12 col-sm-6 external-references">
@@ -211,13 +212,14 @@
 {% endblock %}
 
 {% block scripts %}
+
 <!-- Google Charts
 Line Charts
 Copied and modified from https://developers.google.com/chart/interactive/docs/gallery/linechart on January 5th, 2022, at 20:40. --> 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript"></script>
 <!-- This page javascript file --> 
-<script src="/static/js/weather.js"></script>
+<script src="{% static  'js/weather.js' %}"></script>
 {% endblock %}
 
 
