@@ -14,9 +14,9 @@ from itertools import chain
 
 from django.views.decorators.csrf import csrf_exempt
 
-recs = 100
+recs = 5
 other_value_to_display_1 = 'pressure'
-other_value_to_display_2 = 'humidity'
+other_value_to_display_2 = 'sky'
 
 @csrf_exempt
 def get_weather_page(request):
@@ -41,12 +41,11 @@ def get_weather_page(request):
         elif records_to_display == "15-last":
             recs = 15
         else:
-            recs = 30
+            recs = DataAndTimeForData.objects.filter().count()
         
         other_value_to_display_1 = str(json.dumps(request.POST.get('otherValueToDisplay1'))[1:-1])
-        other_value_to_display_2 = str(json.dumps(request.POST.get('otherValueToDisplay2'))[1:-0])
-        print(other_value_to_display_1)
-        print(other_value_to_display_2)
+        other_value_to_display_2 = str(json.dumps(request.POST.get('otherValueToDisplay2'))[1:-1])
+
         
         # Write new record
         if write_data == "true":
@@ -79,12 +78,14 @@ def get_weather_page(request):
             # To count records in a database table:
             # https://stackoverflow.com/questions/15635790/how-to-count-the-number-of-rows-in-a-database-table-in-django,
             # accessed on January 22nd, at 18:47.
-            recs = DataAndTimeForData.objects.filter().count()
+            total_recs = DataAndTimeForData.objects.filter().count()
 
             if records_to_display == "5-last":
                 recs = 5
             elif records_to_display == "15-last":
                 recs = 15
+            else:
+                recs = total_recs
 
             try:
                 record = DataAndTimeForData(date = value_date, time=value_time)
@@ -121,8 +122,8 @@ def get_weather_page(request):
         other_weather_data = zip(DataAndTimeForData.objects.all().order_by('-id')[0:recs],
             OtherWeatherData.objects.values_list(other_value_to_display_1, other_value_to_display_2).order_by('-id')[0:recs])
     except:
-        other_value_to_display_1 = 'pressure'
-        other_value_to_display_2 = 'humidity'
+        other_value_to_display_1 = str(json.dumps(request.POST.get('otherValueToDisplay1'))[1:-1])
+        other_value_to_display_2 = str(json.dumps(request.POST.get('otherValueToDisplay2'))[1:-1])
         other_weather_data = zip(DataAndTimeForData.objects.all().order_by('-id')[0:recs],
             OtherWeatherData.objects.values_list(other_value_to_display_1, other_value_to_display_2).order_by('-id')[0:recs])
         print("An exception related to posting data occurred")
