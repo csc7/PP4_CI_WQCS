@@ -1,7 +1,11 @@
+###############################################################################
+
+# IMPORTED RESOURCES #
+
+# EXTERNAL:
 from django.db import models
 
-
-# Create your models here.
+###############################################################################
 
 
 class DataFromContactForm(models.Model):

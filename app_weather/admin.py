@@ -1,7 +1,18 @@
-from django.contrib import admin
-from .models import DataAndTimeForData, WindData, TemperatureData, OtherWeatherData
+###############################################################################
 
-# Register your models here.
+# IMPORTED RESOURCES #
+
+# EXTERNAL:
+from django.contrib import admin
+
+# INTERNAL:
+from .models import DataAndTimeForData, WindData, TemperatureData
+from .models import OtherWeatherData
+
+###############################################################################
+
+
+# Site Registrations
 
 admin.site.register(DataAndTimeForData)
 admin.site.register(WindData)

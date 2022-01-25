@@ -23,17 +23,16 @@ class TestCommentAndPostForm(unittest.TestCase):
     Class for testing the contact form
     """
 
-
     def setUp(self):
         print("setUp")
-        self.test_data_for_comment = Comment(            
-            False,            
+        self.test_data_for_comment = Comment(
+            False,
             True,
             'Jkl',
             'Ghi@ghi.com',
             'Body text of comment'
         )
-        self.test_data_for_post = Post(            
+        self.test_data_for_post = Post(
             'postpost',
             'Title',
             'slug-example',
@@ -51,7 +50,9 @@ class TestCommentAndPostForm(unittest.TestCase):
 
     def test_comment_class_return(self):
         print("Testing class return in comment")
-        self.assertEqual(str(self.test_data_for_comment), 'Comment Body text of comment by Jkl')
+        self.assertEqual(str(self.test_data_for_comment),
+                         'Comment Body text of comment by Jkl'
+                         )
 
     def test_name_in_comment(self):
         print("Testing name in comment")
@@ -66,10 +67,11 @@ class TestCommentAndPostForm(unittest.TestCase):
         self.assertEqual(self.test_data_for_comment.body,
                          'Body text of comment'
                          )
+
     def test_post_class_return(self):
         print("Testing class return in post")
         self.assertEqual(str(self.test_data_for_post), 'Title')
-    
+
     def test_slug_in_post(self):
         print("Testing slug in comment")
         self.assertEqual(self.test_data_for_post.slug, 'slug-example')
