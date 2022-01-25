@@ -27,7 +27,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
-
+DEBUG = 'DEVELOPMENT' in os.environ
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -36,7 +36,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'django_pp4_ci_wqcs.herokuapp.com',
