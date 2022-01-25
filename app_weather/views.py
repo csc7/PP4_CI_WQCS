@@ -19,8 +19,8 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 recs = 5
-other_value_to_display_1 = 'pressure'
-other_value_to_display_2 = 'sky'
+#other_value_to_display_1 = 'pressure'
+#other_value_to_display_2 = 'sky'
 
 
 @csrf_exempt
@@ -149,6 +149,7 @@ def get_weather_page(request):
                                           sunrise=value_sunrise,
                                           sunset=value_sunset)
                 record.save()
+                print("Try with AJAX")
 
             except:
                 print("An exception related to AJAX posting data occurred")
@@ -162,6 +163,7 @@ def get_weather_page(request):
                                      other_value_to_display_2).order_by(
                                          '-id')[0:recs]
         )
+        print("Try outside AJAX")
     except:
         other_value_to_display_1 = str(json.dumps(request.POST.get(
                                                   'otherValueToDisplay1')
@@ -177,7 +179,7 @@ def get_weather_page(request):
                                      other_value_to_display_2).order_by(
                                          '-id')[0:recs]
                                  )
-        print("An exception related to posting data occurred")
+        print("An exception outside AJAX related to posting data occurred")
 
     context = {
             'date_and_time': DataAndTimeForData.objects.all().order_by(
