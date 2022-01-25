@@ -554,8 +554,8 @@ https://wave.webaim.org/ was used to validate accessibility. Although there are 
 
 <details>
     <summary>Weather Page</summary>
-    Please see Bug section below
 
+![Evidence of no accessibility errors in the Weather HTML file](docs/validation/validation-accessibility-weather.PNG) 
 </details>
 
 <details>
@@ -681,7 +681,7 @@ Bugs that required more time and specific solutions were the following ones:
 | It was not possible to convert data (sent to views.py with AJAX, with POST) to float, even after trying with JSON.stringify() | Solved by deleting "dataType: 'json'," line, as the method seems to pass strings, which can be easily converted to float (before, a "ul" element was being received). Reference: https://stackoverflow.com/questions/1969476/ajax-success-event-not-working; accessed on January 4th, 2022, at 21:10. |
 | Django models in app_weather could not be migrated as a result of wrongly deleting migrations file, causing a deleted column not registered/available in the files when reversing the migrations. | Issue solved with the help of Code Institute Tutor Assistance (Igor) by deleting the Postgres database, creating a new one, deleting all migrations files in all applications (except each __init__.py), making migrations, migrating and creating superuser again. |
 | There were some issues with the deployment in Heroku, apparently as a result of a changes in Gitpod. | The issue was solved with the help of the Code Institute Tutor Assistance by installing Django version 3.2 (instead of version 4.0), creating a new workspace in Gitpod, and generating a new requirements.txt file. | 
-| It was not possible to test the accessibility of the weather.html file; when using https://wave.webaim.org/, the weather app/page stopped working (even if it was working right before using the validator), even when they are in different windows and/or browsers; the validator reads a "ul" string/tag, while the app/page reads the correct string. | The issue remains for future investigation. | 
+| It was not possible to test the accessibility of the weather.html file; when using https://wave.webaim.org/, the weather app/page stopped working (even if it was working right before using the validator), even when they are in different windows and/or browsers; the validator reads a "ul" string/tag, while the app/page reads the correct string. | The issue was solved with the help of the Code Institute Tutor Assistance by working with try/except options; however the resulting "FieldError" could not be addressed and a general "except" was used. | 
 
 <br><br>
 ## [Back to Index](#index)
