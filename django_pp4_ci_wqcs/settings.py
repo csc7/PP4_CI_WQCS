@@ -44,7 +44,17 @@ ALLOWED_HOSTS = [
     'https://pp4-ci-wqcs.herokuapp.com/',
     'localhost',
     '8080-moccasin-canidae-gedulbh4.ws-us28.gitpod.io',
-    '8080-csc7-pp4ciwqcs-nx9o6gmef7u.ws-us28.gitpod.io'
+    '8080-moccasin-canidae-gedulbh4.ws-us29.gitpod.io',
+    '8080-moccasin-canidae-gedulbh4.ws-us30.gitpod.io',
+    '8080-moccasin-canidae-gedulbh4.ws-us31.gitpod.io',
+    '8080-moccasin-canidae-gedulbh4.ws-us32.gitpod.io',
+    '8080-moccasin-canidae-gedulbh4.ws-us33.gitpod.io',
+    '8080-csc7-pp4ciwqcs-nx9o6gmef7u.ws-us28.gitpod.io',
+    '8080-csc7-pp4ciwqcs-nx9o6gmef7u.ws-us29.gitpod.io',
+    '8080-csc7-pp4ciwqcs-nx9o6gmef7u.ws-us30.gitpod.io',
+    '8080-csc7-pp4ciwqcs-nx9o6gmef7u.ws-us31.gitpod.io',
+    '8080-csc7-pp4ciwqcs-nx9o6gmef7u.ws-us32.gitpod.io',
+    '8080-csc7-pp4ciwqcs-nx9o6gmef7u.ws-us33.gitpod.io'
 ]
 
 # Just for Django version 4; solved with the help of
@@ -53,9 +63,21 @@ ALLOWED_HOSTS = [
 
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-moccasin-canidae-gedulbh4.ws-us25.gitpod.io',
+    'https://8000-moccasin-canidae-gedulbh4.ws-us26.gitpod.io',
     'https://8000-moccasin-canidae-gedulbh4.ws-us27.gitpod.io',
     'https://8000-moccasin-canidae-gedulbh4.ws-us28.gitpod.io',
-    'https://8000-csc7-pp4ciwqcs-nx9o6gmef7u.ws-us28.gitpod.io/'
+    'https://8000-moccasin-canidae-gedulbh4.ws-us29.gitpod.io',
+    'https://8000-moccasin-canidae-gedulbh4.ws-us30.gitpod.io',
+    'https://8000-moccasin-canidae-gedulbh4.ws-us31.gitpod.io',
+    'https://8000-moccasin-canidae-gedulbh4.ws-us32.gitpod.io',
+    'https://8000-moccasin-canidae-gedulbh4.ws-us33.gitpod.io',
+    'https://8000-csc7-pp4ciwqcs-nx9o6gmef7u.ws-us28.gitpod.io/',
+    'https://8000-csc7-pp4ciwqcs-nx9o6gmef7u.ws-us29.gitpod.io/',
+    'https://8000-csc7-pp4ciwqcs-nx9o6gmef7u.ws-us30.gitpod.io/',
+    'https://8000-csc7-pp4ciwqcs-nx9o6gmef7u.ws-us31.gitpod.io/',
+    'https://8000-csc7-pp4ciwqcs-nx9o6gmef7u.ws-us32.gitpod.io/',
+    'https://8000-csc7-pp4ciwqcs-nx9o6gmef7u.ws-us33.gitpod.io/'
+
 ]
 
 # Application definition
