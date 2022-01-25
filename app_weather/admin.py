@@ -12,6 +12,8 @@ from .models import OtherWeatherData
 ###############################################################################
 
 
+# Site Registrations
+
 admin.site.register(DataAndTimeForData)
 admin.site.register(WindData)
 admin.site.register(TemperatureData)
