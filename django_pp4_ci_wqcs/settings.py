@@ -40,7 +40,8 @@ ALLOWED_HOSTS = [
     'pp4-ci-wqcs.herokuapp.com',
     'https://pp4-ci-wqcs.herokuapp.com/',
     'localhost',
-    '8080-moccasin-canidae-gedulbh4.ws-us28.gitpod.io'
+    '8080-moccasin-canidae-gedulbh4.ws-us28.gitpod.io',
+    '8080-csc7-pp4ciwqcs-nx9o6gmef7u.ws-us28.gitpod.io'
 ]
 
 # Just for Django version 4; solved with the help of
