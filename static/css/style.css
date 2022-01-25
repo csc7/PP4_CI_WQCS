@@ -780,8 +780,12 @@ td {
         text-align: center;
     }
     
-    #id_name, #id_surname, #id_email {
+    #id_name, #id_surname, #e-mail-contact > #id_email {
         height: 30px;
+        width: 100%;
+    }
+    
+    #id_email {
         width: 100%;
     }
     
