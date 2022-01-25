@@ -1,14 +1,23 @@
+###############################################################################
+
+# IMPORTED RESOURCES #
+
+# EXTERNAL:
+from django.contrib import admin
+from django_summernote.admin import SummernoteModelAdmin
+
+# INTERNAL:
+from .models import Post, Comment
+
+###############################################################################
+
+
 # Code copied from Code Institute "I Think Therefore I Blog" project
 # on December 20th, 2022 at 17:31
-
-from django.contrib import admin
-from .models import Post, Comment
-from django_summernote.admin import SummernoteModelAdmin
 
 
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
-
     list_display = ('title', 'slug', 'status', 'created_on')
     search_fields = ['title', 'content']
     list_filter = ('status', 'created_on')

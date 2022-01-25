@@ -1,15 +1,25 @@
+###############################################################################
+
+# IMPORTED RESOURCES #
+
+# EXTERNAL:
+from django.shortcuts import render, HttpResponse, get_object_or_404
+from django.views import generic, View
+
+# INTERNAL:
+from .models import Post
+from .forms import CommentForm
+
+###############################################################################
+
+
 # Code copied from Code Institute "I Think Therefore I Blog" project
 # on December 20th, 2022 at 17:50; later modified on December23rd, 2021 at
 # 15:20.
 
-from django.shortcuts import render, HttpResponse, get_object_or_404
-from django.views import generic, View
-from .models import Post
-from .forms import CommentForm
 
-
-# Create your views here.
 class PostList(generic.ListView):
+    
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'blog.html'
@@ -57,7 +67,6 @@ class PostDetail(View):
         else:
             comment_form = CommentForm()
 
-
         return render(
             request,
             "post_detail.html",
@@ -69,16 +78,3 @@ class PostDetail(View):
                 "comment_form": CommentForm(),
             },
         )
-
-
-#class WeatherPage(View):
-#    #template_name = 'weather.html'
-#    def get(self, request):
-#        return render(request, "weather.html")
-
-
-
-
-
-#def get_base(request):
-#    return render(request, "pp4_ci_wqcs/base.html")

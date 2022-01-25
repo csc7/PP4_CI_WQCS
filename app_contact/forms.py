@@ -1,6 +1,16 @@
-#https://docs.djangoproject.com/en/4.0/topics/forms/
+###############################################################################
 
+# IMPORTED RESOURCES #
+
+# EXTERNAL:
 from django import forms
+
+###############################################################################
+
+
+# Reference: Django Project.
+# https://docs.djangoproject.com/en/4.0/topics/forms/
+
 
 class ContactForm(forms.Form):
     name = forms.CharField(label='Name', max_length=50)

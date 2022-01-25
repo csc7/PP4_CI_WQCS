@@ -1,7 +1,11 @@
-from django.db import models
-#from datetime import datetime
+###############################################################################
 
-# Create your models here.
+# IMPORTED RESOURCES #
+
+# EXTERNAL:
+from django.db import models
+
+###############################################################################
 
 
 class DataAndTimeForData(models.Model):
@@ -23,7 +27,6 @@ class WindData(models.Model):
         return f"Wind speed: {self.wind_speed}; wind direction: {self.wind_direction}"
 
 
-
 class TemperatureData(models.Model):
     # Primary key (id field) automatically added my Django
     temp_rec_id = models.ForeignKey(DataAndTimeForData, on_delete=models.CASCADE)
@@ -34,6 +37,7 @@ class TemperatureData(models.Model):
 
     def __str__(self):
         return f"Temperature: {self.temperature}"
+
 
 class OtherWeatherData(models.Model):
     # Primary key (id field) automatically added my Django

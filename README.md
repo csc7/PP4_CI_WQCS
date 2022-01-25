@@ -540,8 +540,160 @@ Please check the parameters used for validation and evidence below:
 
 ## **Python Files**
 
+- Django Project Files
+<details>
+    <summary>asgi.py</summary>
 
+![Evidence of file asgi.py validated with http://pep8online.com/ ](docs/validation/validation-python-django-asgi.PNG) 
+</details>
+<details>
+    <summary>settings.py</summary>
 
+![Evidence of file settings.py validated with http://pep8online.com/ ](docs/validation/validation-python-django-settings.PNG) 
+</details>
+<details>
+    <summary>urls.py</summary>
+
+![Evidence of file urls.py validated with http://pep8online.com/ ](docs/validation/validation-python-django-urls.PNG) 
+</details>
+<details>
+    <summary>wsgi.py</summary>
+
+![Evidence of file wsgi.py validated with http://pep8online.com/ ](docs/validation/validation-python-django-wsgi.PNG) 
+</details>
+<br>
+
+- Instructions App
+<details>
+    <summary>admin.py</summary>
+
+![Evidence of file admin.py validated with http://pep8online.com/ ](docs/validation/validation-python-instructions-admin.PNG) 
+</details>
+<details>
+    <summary>apps.py</summary>
+
+![Evidence of file apps.py validated with http://pep8online.com/ ](docs/validation/validation-python-instructions-apps.PNG) 
+</details>
+<details>
+    <summary>models.py</summary>
+
+![Evidence of file models.py validated with http://pep8online.com/ ](docs/validation/validation-python-instructions-models.PNG) 
+</details>
+<details>
+    <summary>tests.py</summary>
+
+![Evidence of file tests.py validated with http://pep8online.com/ ](docs/validation/validation-python-instructions-tests.PNG) 
+</details>
+<details>
+    <summary>urls.py</summary>
+
+![Evidence of file urls.py validated with http://pep8online.com/ ](docs/validation/validation-python-instructions-urls.PNG) 
+</details>
+<details>
+    <summary>views.py</summary>
+
+![Evidence of file views.py validated with http://pep8online.com/ ](docs/validation/validation-python-instructions-views.PNG) 
+</details>
+<br>
+
+- Weather App
+<details>
+    <summary>admin.py</summary>
+
+![Evidence of file admin.py validated with http://pep8online.com/ ](docs/) 
+</details>
+<details>
+    <summary>apps.py</summary>
+
+![Evidence of file apps.py validated with http://pep8online.com/ ](docs/) 
+</details>
+<details>
+    <summary>models.py</summary>
+
+![Evidence of file models.py validated with http://pep8online.com/ ](docs/) 
+</details>
+<details>
+    <summary>tests.py</summary>
+
+![Evidence of file tests.py validated with http://pep8online.com/ ](docs/) 
+</details>
+<details>
+    <summary>urls.py</summary>
+
+![Evidence of file urls.py validated with http://pep8online.com/ ](docs/) 
+</details>
+<details>
+    <summary>views.py</summary>
+
+![Evidence of file views.py validated with http://pep8online.com/ ](docs/G) 
+</details>
+<br>
+
+- Blog App
+<details>
+    <summary>admin.py</summary>
+
+![Evidence of file admin.py validated with http://pep8online.com/ ](docs/) 
+</details>
+<details>
+    <summary>apps.py</summary>
+
+![Evidence of file apps.py validated with http://pep8online.com/ ](docs/) 
+</details>
+<details>
+    <summary>models.py</summary>
+
+![Evidence of file models.py validated with http://pep8online.com/ ](docs/) 
+</details>
+<details>
+    <summary>tests.py</summary>
+
+![Evidence of file tests.py validated with http://pep8online.com/ ](docs/) 
+</details>
+<details>
+    <summary>urls.py</summary>
+
+![Evidence of file urls.py validated with http://pep8online.com/ ](docs/) 
+</details>
+<details>
+    <summary>views.py</summary>
+
+![Evidence of file views.py validated with http://pep8online.com/ ](docs/G) 
+</details>
+<br>
+
+- Contact App
+<details>
+    <summary>admin.py</summary>
+
+![Evidence of file admin.py validated with http://pep8online.com/ ](docs/) 
+</details>
+<details>
+    <summary>apps.py</summary>
+
+![Evidence of file apps.py validated with http://pep8online.com/ ](docs/) 
+</details>
+<details>
+    <summary>models.py</summary>
+
+![Evidence of file models.py validated with http://pep8online.com/ ](docs/) 
+</details>
+<details>
+    <summary>tests.py</summary>
+
+![Evidence of file tests.py validated with http://pep8online.com/ ](docs/) 
+</details>
+<details>
+    <summary>urls.py</summary>
+
+![Evidence of file urls.py validated with http://pep8online.com/ ](docs/) 
+</details>
+<details>
+    <summary>views.py</summary>
+
+![Evidence of file views.py validated with http://pep8online.com/ ](docs/G) 
+</details>
+<br>
 
 ## **Accessibility**
 https://wave.webaim.org/ was used to validate accessibility. Although there are warnings, all pages contains zero errors. Please check evidence below:

@@ -1,5 +1,19 @@
+###############################################################################
+
+# IMPORTED RESOURCES #
+
+# EXTERNAL:
+
+
+# INTERNAL:
+
+
+###############################################################################
+
+
 # Code copied from Code Institute "I Think Therefore I Blog" project
 # on December 20th, 2022 at 18:09, later modified.
+
 
 #from . import views
 from app_blog import views

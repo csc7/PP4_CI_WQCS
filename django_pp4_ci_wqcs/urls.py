@@ -1,3 +1,13 @@
+###############################################################################
+
+# IMPORTED RESOURCES #
+
+# EXTERNAL:
+from django.contrib import admin
+from django.urls import path, include
+
+###############################################################################
+
 """django_pp4_ci_wqcs URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -13,25 +23,13 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include
-#from pp4_ci_wqcs.views import get_base
-#from pp4_ci_wqcs.views import get_index
-#from pp4_ci_wqcs.views import get_weather_page
-#from pp4_ci_wqcs.views import get_blog
-#from pp4_ci_wqcs.views import get_contact
 
 urlpatterns = [
-    path('admin/', admin.site.urls),    
-    path('summernote/', include('django_summernote.urls')),   
-    path('', include('app_instructions.urls'), name='app_weather_urls'), 
+    path('admin/', admin.site.urls),
+    path('summernote/', include('django_summernote.urls')),
+    path('', include('app_instructions.urls'), name='app_weather_urls'),
     path('', include('app_weather.urls'), name='app_weather_urls'),
     path('', include('app_contact.urls'), name='app_weather_urls'),
     path('', include('app_blog.urls'), name='app_blog_urls'),
     path('accounts/', include('allauth.urls')),
-    #path('base/', get_base, name='get_base'),
-    #path('', get_index, name='get_index'),
-    #path('weather/', get_weather_page, name='get_weather_page'),
-    #path('blog/', get_blog, name='get_blog'),    
 ]
-

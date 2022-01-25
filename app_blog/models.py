@@ -1,9 +1,17 @@
-# Code copied from Code Institute "I Think Therefore I Blog" project
-# on December 20th, 2022 at 13:34
+###############################################################################
 
+# IMPORTED RESOURCES #
+
+# EXTERNAL:
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+
+###############################################################################
+
+
+# Code copied from Code Institute "I Think Therefore I Blog" project
+# on December 20th, 2022 at 13:34
 
 
 STATUS = ((0, "Draft"), (1, "Published"))

@@ -1,18 +1,21 @@
+###############################################################################
+
+# IMPORTED RESOURCES #
+
+# EXTERNAL:
 from django.shortcuts import render
-from .models import DataAndTimeForData, WindData, TemperatureData, OtherWeatherData
 import json
 import re
 from itertools import chain
 
-#from django.contrib.staticfiles.storage import staticfiles_storage
-#file_handle = staticfiles_storage.open('js/weather.js')
-# contents = file_handle.read()
+# INTERNAL:
+from .models import DataAndTimeForData, WindData, TemperatureData, OtherWeatherData
 
-
-# Create your views here.
+###############################################################################
 
 
 from django.views.decorators.csrf import csrf_exempt
+
 
 recs = 5
 other_value_to_display_1 = 'pressure'
@@ -20,7 +23,6 @@ other_value_to_display_2 = 'sky'
 
 @csrf_exempt
 def get_weather_page(request):
-
        
     global recs
     global other_value_to_display_1
@@ -46,7 +48,6 @@ def get_weather_page(request):
         other_value_to_display_1 = str(json.dumps(request.POST.get('otherValueToDisplay1'))[1:-1])
         other_value_to_display_2 = str(json.dumps(request.POST.get('otherValueToDisplay2'))[1:-1])
 
-        
         # Write new record
         if write_data == "true":
             print("Writing = " + write_data)
@@ -127,7 +128,6 @@ def get_weather_page(request):
         other_weather_data = zip(DataAndTimeForData.objects.all().order_by('-id')[0:recs],
             OtherWeatherData.objects.values_list(other_value_to_display_1, other_value_to_display_2).order_by('-id')[0:recs])
         print("An exception related to posting data occurred")
-
     
     context = {
             'date_and_time': DataAndTimeForData.objects.all().order_by('-id')[0:recs],

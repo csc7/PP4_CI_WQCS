@@ -1,7 +1,15 @@
+###############################################################################
+
+# IMPORTED RESOURCES #
+
+# EXTERNAL:
 from django.contrib import admin
+
+# INTERNAL:
 from .models import DataFromContactForm
 
-# Register your models here.
+###############################################################################
+
 
 admin.site.register(DataFromContactForm)
 

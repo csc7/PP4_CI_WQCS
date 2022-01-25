@@ -14,10 +14,6 @@ from .models import DataAndTimeForData, WindData, TemperatureData, OtherWeatherD
 ###############################################################################
 
 
-# Create your tests here.
-
-
-
 class TestWeatherApp(unittest.TestCase):
     """
     Class for testing the contact form

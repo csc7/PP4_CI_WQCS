@@ -1,4 +1,11 @@
+###############################################################################
+
+# IMPORTED RESOURCES #
+
+# EXTERNAL:
 from django.apps import AppConfig
+
+###############################################################################
 
 
 class AppWeatherConfig(AppConfig):
