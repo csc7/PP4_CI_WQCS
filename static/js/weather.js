@@ -73,14 +73,14 @@ longitudeInput.addEventListener('blur', (event) => {
 // Code for maps and picking of latitude and longitude, by LloydBronn, (01-05-2017 10:00 AM):
 // https://community.esri.com/t5/arcgis-api-for-javascript-questions/mouse-click-to-get-map-point-or-x-y/m-p/516073#M48139;
 // copied and modified on December 8th, 2021, 04:00.
-
 var map;
 require(["esri/map", "esri/geometry/webMercatorUtils",
         "esri/graphic", "esri/InfoTemplate", "esri/symbols/SimpleMarkerSymbol",
         "esri/symbols/SimpleLineSymbol", "esri/Color", "dojo/dom", "dojo/domReady!"
-        ], function (Map, webMercatorUtils, MapView,
+        ], function (Map, webMercatorUtils,
                     Graphic, InfoTemplate, SimpleMarkerSymbol,
                     SimpleLineSymbol, Color, dom){
+                    //esriConfig.apiKey = "AAPKcb5628ff50b04f38bfb15788ab6d79afBV-DZA2SyobB3bFx8LlFMQR0LAkOly9XoAJSPmAMmbNTnWzCqixPSdFYZV_DpGC6";
                     map = new Map("viewDiv", {
                         basemap: "streets",
                         //center: [-6.263104, 53.345278],   
