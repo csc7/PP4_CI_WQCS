@@ -44,7 +44,7 @@ def get_weather_page(request):
             recs = 30
         
         other_value_to_display_1 = str(json.dumps(request.POST.get('otherValueToDisplay1'))[1:-1])
-        other_value_to_display_2 = str(json.dumps(request.POST.get('otherValueToDisplay2'))[1:-1])
+        other_value_to_display_2 = str(json.dumps(request.POST.get('otherValueToDisplay2'))[1:-0])
         print(other_value_to_display_1)
         print(other_value_to_display_2)
         
@@ -114,15 +114,17 @@ def get_weather_page(request):
                                           sunset = value_sunset)
                 record.save()
             
-            except FieldError as err:
-                print("An exception related to posting data occurred")
+            except:
+                print("An exception related to AJAX posting data occurred")
 
     try:
         other_weather_data = zip(DataAndTimeForData.objects.all().order_by('-id')[0:recs],
             OtherWeatherData.objects.values_list(other_value_to_display_1, other_value_to_display_2).order_by('-id')[0:recs])
-    except FieldError:
+    except:
+        other_value_to_display_1 = 'pressure'
+        other_value_to_display_2 = 'humidity'
         other_weather_data = zip(DataAndTimeForData.objects.all().order_by('-id')[0:recs],
-            OtherWeatherData.objects.values_list('pressure', 'humidity').order_by('-id')[0:recs])
+            OtherWeatherData.objects.values_list(other_value_to_display_1, other_value_to_display_2).order_by('-id')[0:recs])
         print("An exception related to posting data occurred")
 
     
