@@ -19,8 +19,8 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 recs = 5
-#other_value_to_display_1 = 'pressure'
-#other_value_to_display_2 = 'sky'
+other_value_to_display_1 = 'pressure'
+other_value_to_display_2 = 'sky'
 
 
 @csrf_exempt

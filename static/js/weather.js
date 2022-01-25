@@ -81,13 +81,12 @@ require(["esri/map", "esri/geometry/webMercatorUtils",
         ], function (Map, webMercatorUtils,
                     Graphic, InfoTemplate, SimpleMarkerSymbol,
                     SimpleLineSymbol, Color, dom){
-                    //esriConfig.apiKey = "AAPKcb5628ff50b04f38bfb15788ab6d79afBV-DZA2SyobB3bFx8LlFMQR0LAkOly9XoAJSPmAMmbNTnWzCqixPSdFYZV_DpGC6";
                     map = new Map("viewDiv", {
                         basemap: "streets",
                         //center: [-6.263104, 53.345278],   
                         center: [latitude, longitude],                     
                         zoom: 14,
-                        slider: false
+                        slider: true
                     });
                     var symbol = new SimpleMarkerSymbol(
                         SimpleMarkerSymbol.STYLE_CIRCLE,
