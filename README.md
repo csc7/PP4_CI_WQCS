@@ -5,6 +5,7 @@ This website will provide a tool for seismic data acquisition companies to use w
 # **Index**
 #### [*Website Live Link*](https://pp4-ci-wqcs.herokuapp.com/)
 ### [1. Project Goals](#1--project-goals)
+### [1. Notes](#1--project-board)
 ### [1. Project Board](#1--project-board)
 ### [2. User Experience](#2--user-experience)
 - #### [User Goals](#user-goals-1)
@@ -45,6 +46,24 @@ Also, as remote locations might have difficulties for Internet connections (phys
 
 Additionally, an instructions page is given to help on the use of the site, and a contact page with a form where the user can send feedback if desired.
 
+
+<br><br>
+## [Back to Index](#index)
+<br>
+
+___
+# **1 . Project Goals**
+<br><br>
+## [Back to Index](#index)
+<br>
+
+___
+# **1 . Notes**
+
+If opening the project wigh Gitpod from GitHub (top right green button), please run the following command as new workspaces need to have their dependencies:
+pip3 install -r requirements.txt
+
+Please keep in mind that the interaction with the database and corresponding display of data is slow.
 
 <br><br>
 ## [Back to Index](#index)

@@ -78,7 +78,7 @@ var map;
 require(["esri/map", "esri/geometry/webMercatorUtils",
         "esri/graphic", "esri/InfoTemplate", "esri/symbols/SimpleMarkerSymbol",
         "esri/symbols/SimpleLineSymbol", "esri/Color", "dojo/dom", "dojo/domReady!"
-        ], function (Map, webMercatorUtils,
+        ], function (Map, webMercatorUtils, MapView,
                     Graphic, InfoTemplate, SimpleMarkerSymbol,
                     SimpleLineSymbol, Color, dom){
                     map = new Map("viewDiv", {
