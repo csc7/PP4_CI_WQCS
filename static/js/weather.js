@@ -210,7 +210,7 @@ async function sendWeatherData(e, write) {
     $.ajax({
         type: 'POST',        
         url: '/weather/',
-        //dataType: 'json',
+        dataType: 'json',
         data: {
             // Selected Data
             'writeData' : writeData,
