@@ -291,11 +291,10 @@ The following languages, software and tools were implemented using Windows 10 Pr
 ## **Software, Frameworks, Applications and Other Tools**
 - #### **GitHub**
 - #### **Gitpod**
-- #### **Django**
+- #### **Django 3.2**
 - #### **django-allauth**
 - #### **Font Awesome (v5.15)**
 - #### **Bootstrap (v4.0)**
-- #### **EmailJS**
 - #### **Balsamiq Wireframes (v4.2.4, Editor Version 2.6.0)**
 - #### **Google Fonts**
 - #### **W3C Markup Validation Service**
@@ -440,21 +439,25 @@ Errors corrected using this sevice:
 
 - base.html:
     - Id body for body tag changed as it needs to have a different name; corrected after using the validator.
+
 <br>
-<br>
+
 - Instructions Page (index.html):
     - All images were missing the "alt" attribute; they were added after using the validator.
+
 <br>
-<br>
+
 - Weather Page:
     - Duplicated id ("s-d-o-4") identified, one of the changed to "s-d-o-5" after using the validator.
     - Table headers "th" were not included in a "tr" tag; included after using the validator.
+
 <br>
-<br>
+
 - Blog Page:
     - Image was missing the "alt" attribute; added after using the validator.
+
 <br>
-<br>
+
 - Contact Page:
     - No errors found.
 
