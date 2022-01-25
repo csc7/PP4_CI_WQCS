@@ -547,34 +547,30 @@ Please check the parameters used for validation and evidence below:
 https://wave.webaim.org/ was used to validate accessibility. Although there are warnings, all pages contains zero errors. Please check evidence below:
 
 <details>
-    <summary>Functions Page</summary>
+    <summary>Instructions Page</summary>
 
-![Evidence of no accessibility errors in the Functions (index) HTML file](docs/validation/validation-accessibility-index.PNG) 
+![Evidence of no accessibility errors in the Instructions (index) HTML file](static/images/validation-accessibility-instructions.PNG) 
 </details>
 
 <details>
-    <summary>Generator Page</summary>
+    <summary>Weather Page</summary>
 
-![Evidence of no accessibility errors in the Generator HTML file](docs/validation/validation-accessibility-generator.PNG)
+![Evidence of no accessibility errors in the Weather HTML file](docs/validation/validation-accessibility-generator.PNG)
 </details>
 
 <details>
-    <summary>Quiz Page</summary>
+    <summary>Blog Page</summary>
 
-![Evidence of no accessibility errors in the Quiz HTML file](docs/validation/validation-accessibility-quiz.PNG) 
+![Evidence of no accessibility errors in the Blog HTML file](static/images/validation-accessibility-blog.PNG) 
 </details>
 
 <details>
     <summary>Contact Page</summary>
 
-![Evidence of no accessibility errors in the Contact HTML file](docs/validation/validation-accessibility-contact.PNG) 
+![Evidence of no accessibility errors in the Contact HTML file](static/images/validation-accessibility-contact.PNG) 
 </details>
 
-<details>
-    <summary>404 Page</summary>
 
-![Evidence of no accessibility errors in the 404 file](docs/validation/validation-accessibility-404.PNG) 
-</details>
 
 #### [Back to Index](#index)
 
