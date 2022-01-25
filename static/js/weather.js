@@ -75,10 +75,10 @@ longitudeInput.addEventListener('blur', (event) => {
 // copied and modified on December 8th, 2021, 04:00.
 
 var map;
-require(["esri/map", "esri/geometry/webMercatorUtils",
+require(["esri/map", "esri/geometry/webMercatorUtils", "esri/views/MapView",
         "esri/graphic", "esri/InfoTemplate", "esri/symbols/SimpleMarkerSymbol",
         "esri/symbols/SimpleLineSymbol", "esri/Color", "dojo/dom", "dojo/domReady!"
-        ], function (Map, webMercatorUtils,
+        ], function (Map, webMercatorUtils, MapView,
                     Graphic, InfoTemplate, SimpleMarkerSymbol,
                     SimpleLineSymbol, Color, dom){
                     //esriConfig.apiKey = "AAPKcb5628ff50b04f38bfb15788ab6d79afBV-DZA2SyobB3bFx8LlFMQR0LAkOly9XoAJSPmAMmbNTnWzCqixPSdFYZV_DpGC6";
