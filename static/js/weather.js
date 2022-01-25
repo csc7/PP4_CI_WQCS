@@ -75,7 +75,7 @@ longitudeInput.addEventListener('blur', (event) => {
 // copied and modified on December 8th, 2021, 04:00.
 
 var map;
-require(["esri/map", "esri/geometry/webMercatorUtils", "esri/views/MapView",
+require(["esri/map", "esri/geometry/webMercatorUtils",
         "esri/graphic", "esri/InfoTemplate", "esri/symbols/SimpleMarkerSymbol",
         "esri/symbols/SimpleLineSymbol", "esri/Color", "dojo/dom", "dojo/domReady!"
         ], function (Map, webMercatorUtils, MapView,
@@ -87,7 +87,7 @@ require(["esri/map", "esri/geometry/webMercatorUtils", "esri/views/MapView",
                         //center: [-6.263104, 53.345278],   
                         center: [latitude, longitude],                     
                         zoom: 14,
-                        slider: false
+                        slider: true
                     });
                     var symbol = new SimpleMarkerSymbol(
                         SimpleMarkerSymbol.STYLE_CIRCLE,
