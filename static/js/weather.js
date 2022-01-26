@@ -126,8 +126,6 @@ $("#get-weather-data-button").click (e => getStatus(e));
 
 async function getStatus(e) {
 
-    //const queryString = `https://${API_URL}/data/2.5/weather?q=London&appid=${API_KEY}`;
-
     const queryString = `https://${API_URL}/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=a4e017407a1ea716fa42316b9fe012b5`;
     const response = await fetch(queryString);
     const data = await response.json();

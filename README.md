@@ -964,16 +964,34 @@ Bugs that required more time and specific solutions were the following ones:
 ___
 # 10 . Deployment
 
-The website was fully written in Gitpod, permanently tested with Gitpod preview, and periodically deployed to GigHub Pages (in a main branch).
+The website was fully written in Gitpod, permanently tested with Gitpod preview, and periodically deployed to GigHub Pages (in a main branch) and Heroku.
 
 The fully deployed website, accessible by anyone, is found [here](https://csc7.github.io/PP2_CI_WW), whose URL is https://csc7.github.io/PP2_CI_WW . Its repository is found [here](https://github.com/csc7/PP4_CI_WQCS), whose URL is https://github.com/csc7/PP2_CI_WW.
 
-Based on the Code Institute's Love Running project content, the following steps has been applied to have the front-end final version deployed:
-1. Select website repository in GitHub account.
-2. Go to "Settings" (up in the menu, to the right).
-3. Select "Pages" in the menu on the left.
-4. At the beginning, in "Source", select "Branch: main", and click "Save".
-5. The URL address of the deployed website will appear on top of the page, as can be observed in the screenshot below in the drop-down item.
+The site requires access to OpenWeather and Google Chart API, whose configuration have been carried out following the instructions of their developers:
+
+OpenWeather: https://openweathermap.org/current
+Google Charts: https://developers.google.com/chart/interactive/docs/gallery/linechart
+
+Follow these steps to deploy in Heroku platform:
+
+1 - Creat JSON file (use asdlkfjasdlkfj as a wizard) to be able to run JavaScript on Heroku.
+
+2 - Include dependencies in a requirements.txt file, which is used by Heroku to install the dependencies. Use this command: "pip3 freeze > requirements.txt"
+
+3 - Create new app from the dashboard of your Heroku account.
+
+4 - Go to settings of the apps (do that before deploying the code).
+
+5 - Ignore this step if you do not use credentials to access other services. In Config Vars, create a new one giving the name of CREDS, and assign to content of the JSON file with credentials to its value.
+
+6 - Go to Buildpacks and add Python and Node.js, in that order, keeping Python on top and NodeJS below.
+
+7 - Go to the deploy sections of the app, select GitHub as the Deployment method, assign a name for the repository to connect to GitHub, and connect.
+
+8 - Go to the bottom and select whether you want automatic (rebuilding for each commit) or manual deployment.
+
+You will get a button with a link to your app if successfully deployed.
 
 <details>
     <summary>GitHub Pages Screenshot</summary>
@@ -984,7 +1002,7 @@ Based on the Code Institute's Love Running project content, the following steps 
 \
 After first deployment, several updates have been carried out before the final version. These updates were implemented in the deployed website from Gitpod, just by using the "push" command for every commit (change) in the ongoing development.
 
-The project can also be forked from the repository (https://github.com/csc7/PP2_CI_WW), please check for the "Fork" button, top-right of the page, to achieve this task.
+The project repository can be forked from GitHub (https://github.com/csc7/PP2_CI_WW), please check for the "Fork" button, top-right of the page, to achieve this task.
 
 <br><br>
 ## [Back to Index](#index)
