@@ -438,9 +438,9 @@ It is located in the header, fixed on all pages to facilitate navigation, and re
     <summary>Check Image</summary>
 
 ![Fixed Navigation Menu for Desktop Image](docs/features-and-evidence/fixed-navigation-menu.PNG)
-![Fixed Navigation Menu for Tablets Image](docs/features-and-evidence/fixed-navigation-menu-tablet.png)
-![Fixed Navigation Menu for Cell Phones Image](docs/features-and-evidence/fixed-navigation-menu-cell-1.png)
-![Fixed Expanded Navigation Menu for Cell Phones Image](docs/features-and-evidence/fixed-navigation-menu-cell-2.png)
+![Fixed Navigation Menu for Tablets Image](docs/features-and-evidence/fixed-navigation-menu-tablet.PNG)
+![Fixed Navigation Menu for Cell Phones Image](docs/features-and-evidence/fixed-navigation-menu-cell-1.PNG)
+![Fixed Expanded Navigation Menu for Cell Phones Image](docs/features-and-evidence/fixed-navigation-menu-cell-2.PNG)
 </details>
 <br>
 
@@ -454,9 +454,9 @@ They can be found in the Instructions page (home), they explain how to use the w
 <details>
     <summary>Check Images</summary>
 
-![Instructions Page Top Image](docs/features-and-evidence/functions-page-top.PNG)
+![Instructions Page Top Image](docs/features-and-evidence/instructions-page-top.PNG)
 
-![Instructions Page Bottom Image](docs/features-and-evidence/functions-page-bottom.PNG)
+![Instructions Page Bottom Image](docs/features-and-evidence/instructions-page-bottom.PNG)
 
 </details>
 <br>
@@ -473,7 +473,7 @@ It can be found in the Weather page and allows users to collect and analyse weat
 <details>
     <summary>Check Image</summary>
 
-![Weather App Image](docs/features-and-evidence/fixed-navigation-bar-on-top-contact-page.PNG)
+![Weather App Image](docs/features-and-evidence/weather-page.PNG)
 
 </details>
 <br>
@@ -488,7 +488,7 @@ It can be found in the Blog page and allows users to send and consult issues the
 <details>
     <summary>Check Image</summary>
 
-![Weather App Image](docs/features-and-evidence/fixed-navigation-bar-on-top-contact-page.PNG)
+![Blog App Image](docs/features-and-evidence/blog-page.PNG)
 
 </details>
 <br>
@@ -504,7 +504,7 @@ It can be found in the Contact and allows users to contact the website developer
 <details>
     <summary>Check Image</summary>
 
-![Weather App Image](docs/features-and-evidence/fixed-navigation-bar-on-top-contact-page.PNG)
+![Contact App Image](docs/features-and-evidence/contact-page.PNG)
 
 </details>
 <br>
@@ -527,9 +527,9 @@ It is located at the bottom of all pages, containing icons with links to LinkedI
 <br>
 
 
-- ### **Registration Status**
+- ### **Registration**
 
-They are Django complementary pages and tools to have registration options in the site, and sign-in, sign-up and sign-out pages for the user. 
+They are Django complementary tools and pages to have registration options in the site for users. There are sign-in, sign-up and sign-out pages that work as interfaces for this purpose. 
 
 *User Stories Addressed by this Feature: 19; 24; 31; 33; 34; 35 and 36.*
 
@@ -537,13 +537,14 @@ They are Django complementary pages and tools to have registration options in th
 <details>
     <summary>Check Image</summary>
 
-![404-page Image](docs/features-and-evidence/404.PNG)
-
+![Registration Sign-In Images](docs/features-and-evidence/sign-in.PNG)
+![Registration Sign-Up Images](docs/features-and-evidence/sign-up.PNG)
+![Registration Sign-Out Images](docs/features-and-evidence/sign-out.PNG)
 </details>
 
 <br><br>
 ## [Back to Index](#index)
-<br>git
+<br>
 
 
 
