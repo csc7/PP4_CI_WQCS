@@ -124,7 +124,7 @@ User stories are divided into the following three groups:
 3. As a user, I want to be able to select the location for the weather information on a map, so I can find the location visually.
 4. As a user, I want to be able to select the location for the weather information on the same map manually, so I can go directly to the place if I have the coordinates.
 5. As a user, I want to be able to analyse the weather information in three groups (wind, temperature and "other"), so I immediately get the most relevant data (wind and temperature) for the planning of the work.
-6. As a user, I want to be able to display the weather information for the last 5, 15 or 30 days, so I can focus on the segment I consider most important.
+6. As a user, I want to be able to display the weather information for the last 5, 15 or all days, so I can focus on the segment I consider most important.
 7. As a user, I want to be able to display the weather information on charts, so it is more convenient for interpretation and a visualization.
 8. As a user, I want to have a blog so I can discuss HSE matters (including incidents) during data acquisition.
 9. As a user, I want to have a blog so I can discuss issues related to the facilities of the base camp with the Camp Boss.
@@ -957,7 +957,7 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Include Esri/ArcGIS map on the Weather App to select/pick a location | Get coordinates of picked location/place | Works as expected | 
+| Weather App | Include Esri/ArcGIS map on the Weather App to select/pick a location | Get coordinates of picked location/place | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
@@ -970,7 +970,7 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Include Esri/ArcGIS map on the Weather App to select/pick a location | Get coordinates of picked location/place | Works as expected | 
+| Weather App | Include Esri/ArcGIS map on the Weather App to select/pick a location | Get coordinates of picked location/place | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
@@ -983,12 +983,12 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Weather App | Design of ... | Different designs ... | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/features-and-evidence/Esri-map-manual.PNG) 
+![Esri/ArcGIS Map Image for Manual Coordinates](docs/features-and-evidence/Esri-map-manual.PNG) 
 </details>
 <br><br>
 
@@ -996,25 +996,25 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Weather App | Divide the weather information in three groups: wind, temperature and other | Three different charts and tables with the corresponding information | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![Weather Three Groups Image](docs/features-and-evidence/weather-three-groups.PNG) 
 </details>
 <br><br>
 
-6. As a user, I want to be able to display the weather information for the last 5, 15 or 30 days, so I can focus on the segment I consider most important.
+6. As a user, I want to be able to display the weather information for the last 5, 15 or all days, so I can focus on the segment I consider most important.
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Weather App | Give option to select 5, 15 or all days/data | Show selection | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![All Weather Data Image](docs/features-and-evidence/all-weather-data.PNG) 
 </details>
 <br><br>
 
@@ -1022,12 +1022,12 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Weather App | Add Google Charts | Show selected data on charts | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![Charts for Three Gropus of Weather Data Image](docs/features-and-evidence/weather-three-groups-charts.PNG) 
 </details>
 <br><br>
 
@@ -1035,12 +1035,13 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Blog App | Include HSE topic in Blog App | Dedicated page to send consultations, comments and/or find solutions | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![HSE Topic on Blog Image](docs/features-and-evidence/blog-page-2-hse.PNG) 
+![HSE Page on Blog Image](docs/features-and-evidence/blog-page-2-hse-2.PNG) 
 </details>
 <br><br>
 
@@ -1048,12 +1049,13 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Blog App | Include camp-boss/facilities topic in Blog App | Dedicated page to send consultations, comments and/or find solutions | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![Camp-boss Topic on Blog Image](docs/features-and-evidence/blog-page-2-camp-boss.PNG) 
+![Camp-boss Page on Blog Image](docs/features-and-evidence/blog-page-2-camp-boss-2.PNG) 
 </details>
 <br><br>
 
@@ -1061,12 +1063,13 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Blog App | Include IT-support topic in Blog App | Dedicated page to send consultations, comments and/or find solutions | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![IT-support Topic on Blog Image](docs/features-and-evidence/blog-page-2-it-support.PNG) 
+![IT-support Page on Blog Image](docs/features-and-evidence/blog-page-2-it-support-2.PNG) 
 </details>
 <br><br>
 
@@ -1074,12 +1077,13 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Blog App | Include technical issues topic in Blog App | Dedicated page to send consultations, comments and/or find solutions | Works as expected |  
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![Technical Issues Topic on Blog Image](docs/features-and-evidence/blog-page-2-technical-support.PNG) 
+![Technical Issues Page on Blog Image](docs/features-and-evidence/blog-page-2-technical-support-2.PNG) 
 </details>
 <br><br>
 
@@ -1087,12 +1091,13 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Blog App | Include survey topic in Blog App | Dedicated page to send consultations, comments and/or find solutions | Works as expected |  
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![HSE Topic on Blog Image](docs/am-i-responsive.PNG) 
+![HSE Page on Blog Image](docs/am-i-responsive.PNG) 
 </details>
 <br><br>
 
@@ -1100,12 +1105,13 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Blog App | Include management topic in Blog App | Dedicated page to send consultations, comments and/or find solutions | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![HSE Topic on Blog Image](docs/am-i-responsive.PNG) 
+![HSE Page on Blog Image](docs/am-i-responsive.PNG) 
 </details>
 <br><br>
 
@@ -1113,12 +1119,13 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Blog App | Include data QA/QC topic in Blog App | Dedicated page to send consultations, comments and/or find solutions | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![HSE Topic on Blog Image](docs/am-i-responsive.PNG) 
+![HSE Page on Blog Image](docs/am-i-responsive.PNG) 
 </details>
 <br><br>
 
@@ -1126,12 +1133,13 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Blog App | Include processing topic in Blog App | Dedicated page to send consultations, comments and/or find solutions | Works as expected |  
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![HSE Topic on Blog Image](docs/am-i-responsive.PNG) 
+![HSE Page on Blog Image](docs/am-i-responsive.PNG) 
 </details>
 <br><br>
 
@@ -1139,12 +1147,13 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Blog App | Include mechanics topic in Blog App | Dedicated page to send consultations, comments and/or find solutions | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![HSE Topic on Blog Image](docs/am-i-responsive.PNG) 
+![HSE Page on Blog Image](docs/am-i-responsive.PNG) 
 </details>
 <br><br>
 
@@ -1152,12 +1161,13 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Blog App | Include personnel (POB, for personnel on board) topic in Blog App | Dedicated page to send consultations, comments and/or find solutions | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![HSE Topic on Blog Image](docs/am-i-responsive.PNG) 
+![HSE Page on Blog Image](docs/am-i-responsive.PNG) 
 </details>
 <br><br>
 
