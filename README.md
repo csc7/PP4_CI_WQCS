@@ -424,31 +424,14 @@ The following languages, software and tools were implemented using Windows 10 Pr
 ___
 # **6 . Features**
 
-The website consists of four pages, where each of them is divided in three parts: header, body and footer. The features contained in each of the pages and parts are the following ones:
-
-
-
-- ### **Website logo**
-
-It is located in all pages, fixed, top-left, and always visible.
-
-*User Stories Addressed by this Feature: 8; ... and 21.*
-
-*Please check "8. Testing of User Stories" for more details.*
-<details>
-    <summary>Check Image</summary>
-
-![Website Logo Image](docs/features-and-evidence/website-logo.PNG)
-
-</details>
-<br>
+The site consists of four pages, where each of them is divided in three parts: header, body and footer. The features contained in each of the pages and parts are the following ones:
 
 
 - ### **Fixed navigation menu**
 
 It is located in the header, fixed on all pages to facilitate navigation, and responsive.
 
-*User Stories Addressed by this Feature: 8; ... and 21.*
+*User Stories Addressed by this Feature: 19; 21; 29; 33 and 34.*
 
 *Please check "8. Testing of User Stories" for more details.*
 <details>
@@ -465,40 +448,74 @@ It is located in the header, fixed on all pages to facilitate navigation, and re
 
 They can be found in the Instructions page (home), they explain how to use the weather and blog pages.
 
-*User Stories Addressed by this Feature: 8; ... and 21.*
+*User Stories Addressed by this Feature: 1; 25; 33 and 34.*
 
 *Please check "8. Testing of User Stories" for more details.*
 <details>
     <summary>Check Images</summary>
 
-![Functions Page Top Image](docs/features-and-evidence/functions-page-top.PNG)
+![Instructions Page Top Image](docs/features-and-evidence/functions-page-top.PNG)
 
-![Functions Page Bottom Image](docs/features-and-evidence/functions-page-bottom.PNG)
+![Instructions Page Bottom Image](docs/features-and-evidence/functions-page-bottom.PNG)
 
 </details>
 <br>
 
 
-- ### **Contact Form**
+- ### **Weather App**
 
-It can be found in the Contact page and allows users to contact the website developer. It prevents the form to be sent with incomplete fields, informs the user if the message goes through and disables the send button in order not to send the consultation more than once.
+It can be found in the Weather page and allows users to collect and analyse weather information.
 
-*User Stories Addressed by this Feature: 8; ... and 21.*
+
+*User Stories Addressed by this Feature: 2; 3; 4; 5; 6; 7; 26; 33 and 34.*
 
 *Please check "8. Testing of User Stories" for more details.*
 <details>
     <summary>Check Image</summary>
 
-![Contact Form Image](docs/features-and-evidence/fixed-navigation-bar-on-top-contact-page.PNG)
+![Weather App Image](docs/features-and-evidence/fixed-navigation-bar-on-top-contact-page.PNG)
 
 </details>
 <br>
+
+- ### **Blog App**
+
+It can be found in the Blog page and allows users to send and consult issues they find in their daily activities, and find solutions for them.
+
+*User Stories Addressed by this Feature: 8; 9; 10; 11; 12; 13; 14; 15; 16; 17; 27; 33 and 34.*
+
+*Please check "8. Testing of User Stories" for more details.*
+<details>
+    <summary>Check Image</summary>
+
+![Weather App Image](docs/features-and-evidence/fixed-navigation-bar-on-top-contact-page.PNG)
+
+</details>
+<br>
+
+
+- ### **Contact App**
+
+It can be found in the Contact and allows users to contact the website developer. It prevents the form to be sent with incomplete fields, informs the user if the message goes through and disables the send button in order not to send the consultation more than once.
+
+*User Stories Addressed by this Feature: 18; 20; 28; 30; 33 and 34*
+
+*Please check "8. Testing of User Stories" for more details.*
+<details>
+    <summary>Check Image</summary>
+
+![Weather App Image](docs/features-and-evidence/fixed-navigation-bar-on-top-contact-page.PNG)
+
+</details>
+<br>
+
+
 
 - ### **Footer**
 
 It is located at the bottom of all pages, containing icons with links to LinkedIn, GitHub and e-mail application (to automatically load developer's e-mail address in the addressee field).
 
-*User Stories Addressed by this Feature: 8; ... and 21.*
+*User Stories Addressed by this Feature: 18; 20; 23; 28; 30; 33 and 34.*
 
 *Please check "8. Testing of User Stories" for more details.*
 <details>
@@ -510,11 +527,11 @@ It is located at the bottom of all pages, containing icons with links to LinkedI
 <br>
 
 
-- ### **404 page**
+- ### **Registration Status**
 
-It is a different page that appears in case there is any issue when loading the page, like a similar incorrect URL. It contains a light red background and contains the message *"Sorry, something went wrong."*.
+They are Django complementary pages and tools to have registration options in the site, and sign-in, sign-up and sign-out pages for the user. 
 
-*User Stories Addressed by this Feature: 8; ... and 21.*
+*User Stories Addressed by this Feature: 19; 24; 31; 33; 34; 35 and 36.*
 
 *Please check "8. Testing of User Stories" for more details.*
 <details>
@@ -527,6 +544,9 @@ It is a different page that appears in case there is any issue when loading the 
 <br><br>
 ## [Back to Index](#index)
 <br>git
+
+
+
 
 ___
 # **7 . Validation**
@@ -917,7 +937,7 @@ ___
 The following are testing of User Stories previously described above:
 <br><br>
 
-1. As a user, I want to find a responsive website, so I can access it in any device without having the content affected.
+1. As a user, I want to have a description of the site with instructions, so I know how to use it and refer to them if needed.
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
@@ -930,11 +950,466 @@ The following are testing of User Stories previously described above:
 </details>
 <br><br>
 
-2. As a user, I want ..., so I ...
+2. As a user, I want to have a weather application so I can find a place on the world and get its current weather information.
 
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
 
+<details>
+    <summary>Screenshot</summary>
 
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
 <br><br>
+
+3. As a user, I want to be able to select the location for the weather information on a map, so I can find the location visually.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+4. As a user, I want to be able to select the location for the weather information on the same map manually, so I can go directly to the place if I have the coordinates.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+5. As a user, I want to be able to analyse the weather information in three groups (wind, temperature and "other"), so I immediately get the most relevant data (wind and temperature) for the planning of the work.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+6. As a user, I want to be able to display the weather information for the last 5, 15 or 30 days, so I can focus on the segment I consider most important.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+7. As a user, I want to be able to display the weather information on charts, so it is more convenient for interpretation and a visualization.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+8. As a user, I want to have a blog so I can discuss HSE matters (including incidents) during data acquisition.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+9. As a user, I want to have a blog so I can discuss issues related to the facilities of the base camp with the Camp Boss.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+10. As a user, I want to have a blog so I can get help on IT related issues on crew.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+11. As a user, I want to have a blog so I can discuss general technical issues during data acquisition.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+12. As a user, I want to have a blog so I can discuss survey matters.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+13. As a user, I want to have a blog so I can discuss management matters of the crew.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+14. As a user, I want to have a blog so I can discuss the ongoing tasks related to the QA/QC of the data being acquired.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+15. As a user, I want to have a blog so I can discuss the ongoing tasks related to the processing of the data being acquired.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+16. As a user, I want to have a blog so I can discuss the status of the vehicles on crew and its mechanical issues (if any).
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+17. As a user, I want to have a blog so I can check the personnel available on crew.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+18. As a user, I want to be able to contact the site administrator and/or owner and/or developer, so I can send feedback to them.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+19. As a user, I want to be able to find the sign-up button easily, so I can quickly access the site.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+
+- ### **Returning users**
+20. As a returning user, I want to be able to contact the site administrator and/or owner and/or developer, so I can send feedback to them.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+21. As a returning user, I want a navigation menu on top and always visible, so I can access any content on the website from there and do not need to use the back button of the browser.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+22. As a returning user, I want to be able to find the sign-in and sign-out buttons easily, so I can quickly access the site.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+23. As a returning user, I want to have a way to contact the developer so I can contribute and/or indicate errors or bugs.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+24. As a returning user, I want to be informed if the contact form goes through, so I know if my message is sent or it is not.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+
+- ### **Site Owner**
+25. As owner, I want to provide a description of the site, with instructions, so users know how to use it.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+26. As owner, I want to create a tool that provides weather information around the world, so users can use it to plan seismic/geophysical data acquisition activities, or any other work that depends on weather conditions.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+27. As owner, I want to create a blog, in the same tool, so users can present, discuss, solve issues and find solutions about their daily activities on crew.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+28. As owner, I want to receive feedback from users, so I can take actions in response to them if needed.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+29. As owner, I want to provide a navigation menu on top and always visible, so users can access any content at any time without needing the back button.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+30. As owner, I want to give as many options to be contacted as possible, so users can choose forms or links in the footer to send their consultations and/or feedback in a very fast way.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+31. As owner, I want to have users registered and ask them to sign-in to access all site capabilities, so the site is accessible to members of the crew and an administrator (e.g., a member of the management team like the Party Manager or Admin) can act as moderator.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+32. As owner, I want to set the basis of a product, so I can improve it in the future and adapt it to specific crews or projects.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+33. As owner, along with other points of this section, I want to show my work and give the option to users to contact me if they wish.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+34. As owner, I want to provide a responsive website, so user can access it from any device without any constraint to navigate, find and/or use the website.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+35. As owner, I want to inform users if they consultation/message was successfully sent, so they know if they need to resend it or they do not.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+36. As owner, I want to inform the user, through an error page, if there is any error when loading the website.
+
+| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
+| --- | --- | --- | --- |
+| Website | Design of ... | Different designs ... | Works as expected | 
+
+<details>
+    <summary>Screenshot</summary>
+
+![Am I Responsive Image](docs/am-i-responsive.PNG) 
+</details>
+<br><br>
+
+
 
 ## [Back to Index](#index)
 <br>
