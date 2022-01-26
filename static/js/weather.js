@@ -20,11 +20,6 @@ const latitudeInput = document.querySelector('#latitude-input');
 latitudeInput.addEventListener('focus', (event) => {
   event.target.style.background = 'cyan';
 });
-// ------------------------------------------------------------------
-
-
-// ------------------------------------------------------------------
-// Latitude and longitude manual assignment
 
 latitudeInput.addEventListener('blur', (event) => {
   event.target.style.background = '';
@@ -34,13 +29,13 @@ latitudeInput.addEventListener('blur', (event) => {
   if (parseFloat($("#latitude-input").val()) > 90 ||
       parseFloat($("#latitude-input").val()) < -90
      ){
-    alert("Please enter a number betwee -180° and 180°");
+    alert("Please enter a number betwee -90° and 90°");
     $("#latitude-input").val('');
   } else {    
     if (!(isNaN(parseFloat($("#latitude-input").val())))) {
       latitude = parseFloat($("#latitude-input").val());
     }
-    map.centerAt([latitude, longitude]);
+    map.centerAt([longitude, latitude]);
   }
 });
 
@@ -63,7 +58,7 @@ longitudeInput.addEventListener('blur', (event) => {
     if (!(isNaN(parseFloat($("#longitude-input").val())))) {
       longitude = parseFloat($("#longitude-input").val());
     }
-    map.centerAt([latitude, longitude]);
+    map.centerAt([longitude, latitude]);
   }
 });
 // ------------------------------------------------------------------

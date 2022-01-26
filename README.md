@@ -405,6 +405,7 @@ The following languages, software and tools were implemented using Windows 10 Pr
 - #### **Font Awesome (v5.15)**
 - #### **Bootstrap (v4.0)**
 - #### **Balsamiq Wireframes (v4.2.4, Editor Version 2.6.0)**
+- #### ERDPlus, to make the data model graph.
 - #### **Google Fonts**
 - #### **W3C Markup Validation Service**
 - #### **W3C CSS Validation Service**
@@ -416,7 +417,7 @@ The following languages, software and tools were implemented using Windows 10 Pr
 - #### **Microsoft Edge, version 91.0.864.59, Official build, 64-bit (and its development tool)**
 - #### **Firefox, 89.0.2, 64-bit (and its development tool)**
 - #### **Microsoft Internet Explorer, version 2004, OS Build 19041.1052**
-- #### Babel JavaScript compiler (transpiler, to try to solve ES5 issues for Internet Explorer, finally not implemented, https://babeljs.io/docs/en/babel-standalone).
+
 <br><br>
 ## [Back to Index](#index)
 
@@ -444,7 +445,7 @@ It is located in the header, fixed on all pages to facilitate navigation, and re
 </details>
 <br>
 
-- ### **Instructions**
+- ### **Instructions App**
 
 They can be found in the Instructions page (home), they explain how to use the weather and blog pages.
 
@@ -942,12 +943,13 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of pages and their visualization adapt to different screen sizes | Different designs in different devices showing correctly | Works as expected | 
+| Instructions App | Include steps to use the site, separated by sections | Design Instructions App/Page with separated steps and sections | Same as expected result | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![Instructions Page Top Image](docs/features-and-evidence/instructions-page-top.PNG)
+![Instructions Page Bottom Image](docs/features-and-evidence/instructions-page-bottom.PNG)
 </details>
 <br><br>
 
@@ -955,12 +957,12 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Website | Include Esri/ArcGIS map on the Weather App to select/pick a location | Get coordinates of picked location/place | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![Esri/ArcGIS Map to Pick Location](docs/features-and-evidence/Esri-map.PNG) 
 </details>
 <br><br>
 
@@ -968,12 +970,12 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Website | Include Esri/ArcGIS map on the Weather App to select/pick a location | Get coordinates of picked location/place | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![Esri/ArcGIS Map to Pick Location](docs/features-and-evidence/Esri-map.PNG) 
 </details>
 <br><br>
 
@@ -986,7 +988,7 @@ The following are testing of User Stories previously described above:
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![Am I Responsive Image](docs/features-and-evidence/Esri-map-manual.PNG) 
 </details>
 <br><br>
 
@@ -1533,6 +1535,9 @@ ___
 
     - To define a second database: https://docs.djangoproject.com/en/4.0/topics/db/multi-db/; accessed on December 28th, 2021, 20:10.
 
+
+- ERD:
+    - ERDPlus, to make the data model graph, https://erdplus.com/standalone 
 
 - ESRI:
     - Code for maps and picking of latitude and longitude, by LloydBronn, (01-05-2017 10:00 AM): https://community.esri.com/t5/arcgis-api-for-javascript-questions/mouse-click-to-get-map-point-or-x-y/m-p/516073#M48139; copied and modified on December 8th, 2021, 04:00.
