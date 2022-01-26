@@ -1096,8 +1096,8 @@ The following are testing of User Stories previously described above:
 <details>
     <summary>Screenshot</summary>
 
-![HSE Topic on Blog Image](docs/am-i-responsive.PNG) 
-![HSE Page on Blog Image](docs/am-i-responsive.PNG) 
+![Survey Topic on Blog Image](docs/features-and-evidence/blog-page-survey.PNG) 
+![Survey Page on Blog Image](docs/features-and-evidence/blog-page-survey-2.PNG) 
 </details>
 <br><br>
 
@@ -1110,8 +1110,8 @@ The following are testing of User Stories previously described above:
 <details>
     <summary>Screenshot</summary>
 
-![HSE Topic on Blog Image](docs/am-i-responsive.PNG) 
-![HSE Page on Blog Image](docs/am-i-responsive.PNG) 
+![Management Topic on Blog Image](docs/features-and-evidence/blog-page-management.PNG) 
+![Management Page on Blog Image](docs/features-and-evidence/blog-page-management-2.PNG) 
 </details>
 <br><br>
 
@@ -1124,8 +1124,8 @@ The following are testing of User Stories previously described above:
 <details>
     <summary>Screenshot</summary>
 
-![HSE Topic on Blog Image](docs/am-i-responsive.PNG) 
-![HSE Page on Blog Image](docs/am-i-responsive.PNG) 
+![Data QA/QC Topic on Blog Image](docs/features-and-evidence/blog-page-data-qa-qc.PNG) 
+![Data QA/QC Page on Blog Image](docs/features-and-evidence/blog-page-data-qa-qc-2.PNG) 
 </details>
 <br><br>
 
@@ -1138,8 +1138,8 @@ The following are testing of User Stories previously described above:
 <details>
     <summary>Screenshot</summary>
 
-![HSE Topic on Blog Image](docs/am-i-responsive.PNG) 
-![HSE Page on Blog Image](docs/am-i-responsive.PNG) 
+![Processing Topic on Blog Image](docs/features-and-evidence/blog-page-processing.PNG) 
+![Processing Page on Blog Image](docs/features-and-evidence/blog-page-processing-2.PNG) 
 </details>
 <br><br>
 
@@ -1152,8 +1152,8 @@ The following are testing of User Stories previously described above:
 <details>
     <summary>Screenshot</summary>
 
-![HSE Topic on Blog Image](docs/am-i-responsive.PNG) 
-![HSE Page on Blog Image](docs/am-i-responsive.PNG) 
+![Mechanics Topic on Blog Image](docs/features-and-evidence/blog-page-mechanics.PNG) 
+![Mechanics Page on Blog Image](docs/features-and-evidence/blog-page-mechanics-2.PNG) 
 </details>
 <br><br>
 
@@ -1166,8 +1166,8 @@ The following are testing of User Stories previously described above:
 <details>
     <summary>Screenshot</summary>
 
-![HSE Topic on Blog Image](docs/am-i-responsive.PNG) 
-![HSE Page on Blog Image](docs/am-i-responsive.PNG) 
+![POB Topic on Blog Image](docs/features-and-evidence/blog-page-pob.PNG) 
+![POB Page on Blog Image](docs/features-and-evidence/blog-page-pob-2.PNG) 
 </details>
 <br><br>
 
