@@ -1,6 +1,6 @@
 # Site under construction.
 
-This website will provide a tool for seismic data acquisition companies to use weather data and a blog to plan their operations and interactions with the client.
+**This website will provide a tool for seismic data acquisition companies to use weather data and a blog to plan their operations and interactions with the client.**
 
 # **Index**
 #### [*Website Live Link*](https://pp4-ci-wqcs.herokuapp.com/)
@@ -12,6 +12,7 @@ This website will provide a tool for seismic data acquisition companies to use w
 - #### [Site Owner Goals](#site-owner-goals-1)
 - #### [User Stories](#user-stories-1)
 - #### [User Requirements and Expectations](#user-requirements-and-expectations-1)
+### [2. Data Model](#2--user-experience)
 ### [3. Design Choices](#3--design-choices)
 - #### [Colours](#colours-1)
 - #### [Fonts](#fonts-1)
@@ -170,6 +171,93 @@ User stories are divided into the following three groups:
 - A dedicated page for the contact form.
 - A footer with contact links to the developer.
 - Use of Django templates/pages for sign-up, sign-in, sign-out and 404.
+<br><br>
+## [Back to Index](#index)
+<br>
+
+
+
+___
+# **1 . Data Model**
+
+The project is based in data provided by OpenWeather (https://openweathermap.org/) and Django models for the support (blog) page. Design and structure of Post and Comment tables are copied from the Code Institute "I Think Therefore I Blog" project. The following chart shows the data involved and how they are related:
+
+![Data Model Image](static/images/data-model.PNG)
+
+The following are the tables involved in the relational model, along with data types and measurement units.
+
+Find OpenWeather API information [here](https://openweathermap.org/current) (https://openweathermap.org/current).
+
+- #### **WEATHER DATA AND TIME**
+Since the planning should be base on date and time, all entries and tables are related to this table, whose primiry key (ID) relates the data to the specific date and time.
+
+    - **ID:** integer, primary key
+    - **Date:** date
+    - **Time:** custom field (time)
+
+- #### **WEATHER WIND DATA**
+
+    - **ID:** integer
+    - **Wind Spped:** float, meter/second
+    - **Wind Direction:** float, degrees
+    - **Rec ID:** integer, foreign key
+
+- #### **WEATHER TEMPERATURE DATA**
+
+    - **ID:** integer
+    - **Temperature:** float, Kelvin, converted to Celsius
+    - **Feels Like:** float, Kelvin, converted to Celsius
+    - **Minimum Temperature:** float, Kelvin, converted to Celsius
+    - **Maximum Temperature:** float, Kelvin, converted to Celsius
+    - **Rec ID:** integer, foreign key
+
+- #### **WEATHER OTHER DATA**
+
+    - **ID:** integer
+    - **Pressure:** float, hPa (atmospheric pressure)
+    - **Humidity:** float, percentage
+    - **Visibility:** float, meters
+    - **Sky:** float, cloudiness, percentage
+    - **Main:** text, weather parameters (rain, snow, etc.)
+    - **Description:** text, weather condition
+    - **Sunrise:** custom (time), sunrise time, unix, UTC
+    - **Sunset:** custom (time), sunset time, unix, UTC
+    - **Rec ID:** integer, foreign key
+
+- #### **POST**
+
+    - **ID:** integer, primary key
+    - **Title:** text
+    - **Slug:** text
+    - **Author:** text
+    - **Feature Image:** image
+    - **Excerpt:** text
+    - **Updated:** date
+    - **Content:** text
+    - **Created:** date
+    - **Status:** integer
+    - **Like:** boolean
+
+- #### **COMMENT**
+
+    - **ID:** integer, primary key
+    - **Name:** text
+    - **E-mail:** text
+    - **Body:** text
+    - **Created:** date
+    - **Approved:** boolean
+    - **Post:** integer, foreign key
+
+- #### **CONTACT FORM**
+
+    - **ID:** integer, primary key
+    - **Date:** date
+    - **Time:** custom (time)
+    - **Name:** text
+    - **Surname:** text
+    - **E-mail:** text
+    - **Description:** text
+
 <br><br>
 ## [Back to Index](#index)
 <br>
