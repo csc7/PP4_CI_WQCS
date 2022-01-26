@@ -188,11 +188,13 @@ The following are the tables involved in the relational model, along with data t
 
 Find OpenWeather API information [here](https://openweathermap.org/current) (https://openweathermap.org/current).
 
-- #### **WEATHER DATA AND TIME**
-Since the planning should be base on date and time, all entries and tables are related to this table, whose primiry key (ID) relates the data to the specific date and time.
+Since the planning should be base on date and time, **all entries and tables are related to the Weather Data and Time table**, whose primiry key (ID) relates the data to the specific date and time.
 
-    - **ID:** integer, primary key
-    - **Date:** date
+
+- #### **WEATHER DATA AND TIME**
+
+    - **ID:** integer, primary key    
+    - **Date:** date    
     - **Time:** custom field (time)
 
 - #### **WEATHER WIND DATA**
