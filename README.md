@@ -333,22 +333,22 @@ Please check the PDFs files for each case in the following links:
 <details>
     <summary>Desktop Wireframe Image for Instructions Page</summary>
 
-![Desktop Wireframe Image for Instructions App/Page](docs/wireframes/wireframe-desktop-functions.PNG)
+![Desktop Wireframe Image for Instructions App/Page](docs/wireframes/wireframe-wqcs-desktop-instructions.PNG)
 </details>
 <details>
     <summary>Desktop Wireframe Image for Weather Page</summary>
 
-![Desktop Wireframe Image for Weather App/Page](docs/wireframes/wireframe-desktop-generator.PNG)
+![Desktop Wireframe Image for Weather App/Page](docs/wireframes/wireframe-wqcs-desktop-weather.PNG)
 </details>
 <details>
     <summary>Desktop Wireframe Image for Blog Page</summary>
 
-![Desktop Wireframe Image for Blog App/Page](docs/wireframes/wireframe-desktop-quiz.PNG)
+![Desktop Wireframe Image for Blog App/Page](docs/wireframes/wireframe-wqcs-desktop-blog.PNG)
 </details>
 <details>
     <summary>Desktop Wireframe Image for Contact Page</summary>
 
-![Desktop Wireframe Image for Contact App/Page](docs/wireframes/wireframe-desktop-contact.PNG)
+![Desktop Wireframe Image for Contact App/Page](docs/wireframes/wireframe-wqcs-desktop-contact.PNG)
 </details>
 
 <details>
@@ -385,7 +385,7 @@ Please check the PDFs files for each case in the following links:
 
 <br>
 
-[PDF File for Desktop Wireframe](docs/wireframes/wireframe-desktop.pdf)
+[PDF File for Desktop Wireframe](docs/wireframes/wireframe-wqcs-desktop.pdf)
 
 [PDF File for Tablet Wireframe](docs/wireframes/wireframe-tablet.pdf)
 
