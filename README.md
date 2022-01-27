@@ -572,6 +572,8 @@ The website was tested using these **browsers** and also **Microsoft Internet Ex
 
 The following tools were used to validate the **files of the website**:
 
+<br>
+
 ### **HTML Files**
 https://validator.w3.org/ was used to validate the new HTML files (those not being part of the Django framework). To test them, unique HTML files base+index, base+weather, base+blog and base+contact were created. The files were validated and accepted only when errors were related to control characters.
 
@@ -1515,9 +1517,10 @@ ___
 
     - Tutor Assistance: Django models in app_weather could not be migrated as a result of wrongly deleting migrations file; issue solved with the help of Code Institute Tutor Assistance (Igor) by deleting the Postgres database, creating a new one, deleting all migrations files in all applications (except each __init__.py), making migrations, migrating and creating superuser again.
 
-- Love Maths - Essentials Project, from Code Institute, as a guide, source of design, concepts and code for this project, especially for the Quiz page.
+    - Tutor Assistance: to reinstall Django version 3.2 (from version 4.0) after changes in Gitpod.
 
-- Love Running - Essentials Project, from Code Institute, as a guide, source of design, concepts and code for this project.
+    - Tutor Assistance: to deal with deployment and DEBUG issues.
+
 
 - Balsamiq Wireframes: I have used it to create all the wireframes.
 
@@ -1589,6 +1592,8 @@ ___
     - Google Fonts: Heebo (Medium 500) and Oxygen (Regular 400), first imported on December 7th, 2021, 08:01, from: https://fonts.google.com/; (<style>
     @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@500&family=Oxygen&display=swap');</style>).
 
+    - Google Charts: Line Charts, copied and modified from https://developers.google.com/chart/interactive/docs/gallery/linechart on January 5th, 2022, at 20:40. 
+
 - Heroku:
 
     - To deply Node.js in Heroku: https://devcenter.heroku.com/articles/deploying-nodejs#:~:text=To%20create%20a%20package.,json%20file .
@@ -1600,9 +1605,12 @@ ___
 - MDN Web Docs Moz://a;
     - To perform an action when an input field changes: https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event; accessed on January 7th, 2022, at 18:17.
 
-- OpenWeatherMap:
+- OpenWeather:
 
-    - ADFSD
+    © 2012 — 2021 OpenWeather ® All rights reserved.
+    This team provides the API for the weather information of the site.
+    Web: https://openweathermap.org/ .
+    Current Weather Data API: https://openweathermap.org/current .
 
 - Stack Overflow:
 
