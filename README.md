@@ -1175,25 +1175,27 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Contact App / Footer | Include Contact App/page and contact links in the footer | Working Contact App/page and links in footer | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![Confirmation of Contact Form Sent Image](docs/features-and-evidence/confirmation-of-contact-form.PNG) 
+![Footer Image](docs/features-and-evidence/footer.PNG) 
+
 </details>
 <br><br>
 
-19. As a user, I want to be able to find the sign-up button easily, so I can quickly access the site.
+19. As a user, I want to be able to find the sign-in button easily, so I can quickly access the site.
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Fixed navigation menu | Include sign-in button in fixed top menu | Access sign-in page | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![Sing-in Image](docs/features-and-evidence/sign-in.PNG) 
 </details>
 <br><br>
 
@@ -1203,12 +1205,13 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Contact App / Footer | Include Contact App/page and contact links in the footer | Working Contact App/page and links in footer | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![Contact App Image](docs/features-and-evidence/contact-page.PNG) 
+![Footer Image](docs/features-and-evidence/footer.PNG) 
 </details>
 <br><br>
 
@@ -1216,12 +1219,12 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Fixed navigation menu | Include links to all apps of the site on top, along with sign-in, sign-up and sign-out options | Access different apps and sign-in/sign-up/sign-out options | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![Fixec Menu on Top Image](docs/features-and-evidence/fixed-navigation-menu.PNG) 
 </details>
 <br><br>
 
@@ -1229,12 +1232,12 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Fixed navigation menu | Include sign-in, sign-up and sign-out options in fixed top menu | Access sign-in, sign-up and sign-out options from the menu | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![Fixec Menu on Top Image](docs/features-and-evidence/fixed-navigation-menu.PNG) 
 </details>
 <br><br>
 
@@ -1242,12 +1245,13 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Contact App / Footer | Include Contact App/page and contact links in the footer | Working Contact App/page and links in footer | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![Contact App Image](docs/features-and-evidence/contact-page.PNG) 
+![Footer Image](docs/features-and-evidence/footer.PNG) 
 </details>
 <br><br>
 
@@ -1255,12 +1259,12 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Contact App | Include a page that informs the user if the message has been sent, along with the data sent (so it works as a confirmation) | Page showing up after sending the data with the contact form | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![Confirmation of Data Sent with Contact Form Image](docs/features-and-evidence/confirmation-of-contact-form.PNG) 
 </details>
 <br><br>
 
