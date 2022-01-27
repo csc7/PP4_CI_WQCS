@@ -411,6 +411,7 @@ The following languages, software and tools were implemented using Windows 10 Pr
 - #### **GitHub**
 - #### **Gitpod**
 - #### **Django 3.2**
+- #### **jQuery**
 - #### **django-allauth**
 - #### **PostgreSQL**
 - #### **Font Awesome (v5.15)**
@@ -429,10 +430,12 @@ The following languages, software and tools were implemented using Windows 10 Pr
 - #### **Firefox, 89.0.2, 64-bit (and its development tool)**
 - #### **Microsoft Internet Explorer, version 2004, OS Build 19041.1052**
 
+
 <br>
 ## [Back to Index](#index)
-<br><br><br>
+<br><br>
 
+<br>
 ___
 # **9 . Features**
 
@@ -554,12 +557,10 @@ They are Django complementary tools and pages to have registration options in th
 ![Registration Sign-Out Images](docs/features-and-evidence/sign-out.PNG)
 </details>
 
+
 <br>
 ## [Back to Index](#index)
 <br><br>
-
-
-
 
 ___
 # **10 . Validation**
@@ -1600,7 +1601,7 @@ ___
 
 - jQuery:
 
-    - Checked several methods at https://api.jquery.com/ .
+    - Checked several methods at https://api.jquery.com/, https://jquery.com/ .
 
 - MDN Web Docs Moz://a;
     - To perform an action when an input field changes: https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event; accessed on January 7th, 2022, at 18:17.
