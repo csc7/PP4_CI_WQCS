@@ -1,6 +1,6 @@
 # Site under construction.
 
-#### **This project is about a tool for seismic/geophysical data acquisition companies to use weather data and a support blog to plan their operations and interactions with the client.**
+#### **This project is about a tool for seismic/geophysical data acquisition companies to use weather data and a support blog to plan their operations, daily activities on crew and interactions with the client.**
 <br><br>
 
 # **Index**
@@ -334,53 +334,53 @@ Please check the PDFs files for each case in the following links:
 <details>
     <summary>Desktop Wireframe Image for Instructions Page</summary>
 
-![Desktop Wireframe Image for Functions Page](docs/wireframes/wireframe-desktop-functions.PNG)
+![Desktop Wireframe Image for Instructions App/Page](docs/wireframes/wireframe-desktop-functions.PNG)
 </details>
 <details>
     <summary>Desktop Wireframe Image for Weather Page</summary>
 
-![Desktop Wireframe Image for Generator Page](docs/wireframes/wireframe-desktop-generator.PNG)
+![Desktop Wireframe Image for Weather App/Page](docs/wireframes/wireframe-desktop-generator.PNG)
 </details>
 <details>
     <summary>Desktop Wireframe Image for Blog Page</summary>
 
-![Desktop Wireframe Image for Quiz Page](docs/wireframes/wireframe-desktop-quiz.PNG)
+![Desktop Wireframe Image for Blog App/Page](docs/wireframes/wireframe-desktop-quiz.PNG)
 </details>
 <details>
     <summary>Desktop Wireframe Image for Contact Page</summary>
 
-![Desktop Wireframe Image for Contact Page](docs/wireframes/wireframe-desktop-contact.PNG)
+![Desktop Wireframe Image for Contact App/Page](docs/wireframes/wireframe-desktop-contact.PNG)
 </details>
 
 <details>
     <summary>Tablet Wireframe Image for Instructions Page</summary>
 
-![Tablet Wireframe Image for Functions Page](docs/wireframes/wireframe-tablet-functions.PNG)
+![Tablet Wireframe Image for Instructions App/Page](docs/wireframes/wireframe-tablet-functions.PNG)
 </details>
 <details>
     <summary>Tablet Wireframe Image for Weather Page</summary>
 
-![Tablet Wireframe Image for Generator Page](docs/wireframes/wireframe-tablet-generator.PNG)
+![Tablet Wireframe Image for Weather App/Page](docs/wireframes/wireframe-tablet-generator.PNG)
 </details>
 <details>
     <summary>Tablet Wireframe Image for Blog Page</summary>
 
-![Tablet Wireframe Image for Quiz Page](docs/wireframes/wireframe-tablet-quiz.PNG)
+![Tablet Wireframe Image for Blog App/Page](docs/wireframes/wireframe-tablet-quiz.PNG)
 </details>
 <details>
     <summary>Tablet Wireframe Image for Contact Page</summary>
 
-![Tablet Wireframe Image for Contact Page](docs/wireframes/wireframe-tablet-contact.PNG)
+![Tablet Wireframe Image for Contact App/Page](docs/wireframes/wireframe-tablet-contact.PNG)
 </details>
 <details>
     <summary>Cell Wireframe Image for Instructions and Weather Pages</summary>
 
-![Tablet Wireframe Image for Quiz Page](docs/wireframes/wireframe-cell-functions-generator-pages.PNG)
+![Tablet Wireframe Image for Instructions and Weather Page](docs/wireframes/wireframe-cell-functions-generator-pages.PNG)
 </details>
 <details>
     <summary>Cell Wireframe Image for Blog and Contact Pages</summary>
 
-![Tablet Wireframe Image for Contact Page](docs/wireframes/wireframe-cell-quiz-contact-pages.PNG)
+![Tablet Wireframe Image for Blog and Contact Page](docs/wireframes/wireframe-cell-quiz-contact-pages.PNG)
 </details>
 
 
@@ -416,7 +416,7 @@ The following languages, software and tools were implemented using Windows 10 Pr
 - #### **Font Awesome (v5.15)**
 - #### **Bootstrap (v4.0)**
 - #### **Balsamiq Wireframes (v4.2.4, Editor Version 2.6.0)**
-- #### ERDPlus, to make the data model graph.
+- #### **ERDPlus, to make the data model graph**
 - #### **Google Fonts**
 - #### **W3C Markup Validation Service**
 - #### **W3C CSS Validation Service**
@@ -563,8 +563,6 @@ They are Django complementary tools and pages to have registration options in th
 
 ___
 # **10 . Validation**
-
-The introductory image on top of this README file was generated using the [Am I Responsive site](http://ami.responsivedesign.is/?url=https%3A%2F%2Fcsc7.github.io%2FPP1_CI_TGC) to test how the website displays in different screen sizes.
 
 **Development tools** of **Google Chrome** (Version 97.0.4692.71, Official Build, 64-bit), **Microsoft Edge** (Version 97.0.1072.62, Official build, 64-bit) and **Firefox** (Version 97.0.1072.62, Official build, 64-bit) have been used to test the behaviour of the website for screen sizes between 320x568px to 1920x1370px.
 
@@ -1434,9 +1432,7 @@ The following are testing of User Stories previously described above:
 ___
 # 12 . Bugs
 
-Some bugs were related to positioning of elements in the page. They were fixed by assigning proper values, most of them with the help of a temporary background colour for the element.
-
-Then, many minor bugs were solved just by assigning the correct property and/or by trial and error.
+Some bugs were related to design, positioning and tags of elements in the page, with variables in Django templates among them. Also, many minor bugs were solved just by assigning the correct property and/or by trial and error.
 
 Bugs that required more time and specific solutions were the following ones:
 
@@ -1459,7 +1455,7 @@ ___
 
 The website was fully written in Gitpod, permanently tested with Gitpod preview, and periodically deployed to GigHub Pages (in a main branch) and Heroku.
 
-The fully deployed website, accessible by anyone, is found [here](https://csc7.github.io/PP2_CI_WW), whose URL is https://csc7.github.io/PP2_CI_WW . Its repository is found [here](https://github.com/csc7/PP4_CI_WQCS), whose URL is https://github.com/csc7/PP2_CI_WW.
+The fully deployed website, accessible by anyone, is found [here](https://pp4-ci-wqcs.herokuapp.com/), whose URL is https://pp4-ci-wqcs.herokuapp.com/ . Its repository is found [here](https://github.com/csc7/PP4_CI_WQCS), whose URL is https://github.com/csc7/PP4_CI_WQCS.
 
 The site requires access to OpenWeather and Google Chart API, whose configuration have been carried out following the instructions of their developers:
 
@@ -1492,7 +1488,6 @@ You will get a button with a link to your app if successfully deployed.
 ![Deployment on Heroku Image](docs/features-and-evidence/heroku-deployment.PNG) 
 </details>
 
-\
 After first deployment, several updates have been carried out before the final version. These updates were implemented in the deployed website from Gitpod, just by using the "push" command for every commit (change) in the ongoing development.
 
 The project repository can be forked from GitHub (https://github.com/csc7/PP4_CI_WQCS), please check for the "Fork" button, top-right of the page, to achieve this task.
