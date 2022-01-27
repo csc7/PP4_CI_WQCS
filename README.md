@@ -8,34 +8,34 @@
 
 
 ### [1. Project Goals](#1--project-goals)
-### [2. Considerations](#1--considerations)
-### [3. Project Board](#1--project-board)
-### [4. User Experience](#2--user-experience)
+### [2. Considerations](#2--considerations)
+### [3. Project Board](#3--project-board)
+### [4. User Experience](#4--user-experience)
 - #### [User Goals](#user-goals-1)
 - #### [Site Owner Goals](#site-owner-goals-1)
 - #### [User Stories](#user-stories-1)
 - #### [User Requirements and Expectations](#user-requirements-and-expectations-1)
-### [5. Data Model](#2--user-experience)
-### [6. Design Choices](#3--design-choices)
+### [5. Data Model](#5--data-model)
+### [6. Design Choices](#6--design-choices)
 - #### [Colours](#colours-1)
 - #### [Fonts](#fonts-1)
 - #### [Structure](#structure-1)
-### [7. Wireframes](#4--wireframes)
-### [8. Technologies used](#5--technologies-used)
+### [7. Wireframes](#7--wireframes)
+### [8. Technologies used](#8--technologies-used)
 - #### [Languages](#languages-1)
-- #### [Software and Other Tools](#software-and-other-tools-1)
-### [9. Features](#6--features)
-### [10. Validation](#7--validation)
+- #### [Software, Frameworks, Applications and Other Tools](#software-frameworks-applications-and-other-tools-1)
+### [9. Features](#9--features)
+### [10. Validation](#10--validation)
 - #### [HTML Files](#html-files-1)
 - #### [CSS File](#css-file-1)
 - #### [JavaScript Files](#javascript-files-1)
 - #### [Accessibility](#accessibility-1)
 - #### [Performance](#performance-1)
-### [11. Testing of User Stories](#8--testing-of-user-stories)
-### [12. Bugs](#9--bugs)
-### [13. Deployment](#10--deployment)
-### [14. Credits](#11--credits)
-### [15. Acknowledgements](#12--acknowledgements)
+### [11. Testing of User Stories](#11--testing-of-user-stories)
+### [12. Bugs](#12--bugs)
+### [13. Deployment](#13--deployment)
+### [14. Credits](#14--credits)
+### [15. Acknowledgements](#15--acknowledgements)
 <br><br>
 
 ___
@@ -180,7 +180,7 @@ User stories are divided into the following three groups:
 - A dedicated page for blog.
 - A dedicated page for the contact form.
 - A footer with contact links to the developer.
-- Use of Django templates/pages for sign-up, sign-in, sign-out and 404.
+- Use of Django templates/pages for sign-up, sign-in, sign-out.
 <br><br>
 ## [Back to Index](#index)
 <br>
@@ -543,7 +543,7 @@ It is located at the bottom of all pages, containing icons with links to LinkedI
 
 They are Django complementary tools and pages to have registration options in the site for users. There are sign-in, sign-up and sign-out pages that work as interfaces for this purpose. 
 
-*User Stories Addressed by this Feature: 19; 24; 31; 33; 34; 35 and 36.*
+*User Stories Addressed by this Feature: 19; 24; 31; 33; 34; and 35.*
 
 *Please check "8. Testing of User Stories" for more details.*
 <details>
@@ -1468,7 +1468,7 @@ Google Charts: https://developers.google.com/chart/interactive/docs/gallery/line
 
 Follow these steps to deploy in Heroku platform:
 
-1 - Creat JSON file (use asdlkfjasdlkfj as a wizard) to be able to run JavaScript on Heroku.
+1 - Creat JSON file (use the command line "npm init" as a wizard, installing the Heroku CLI in Gitpod if necessary and if this environment is being used) to be able to run JavaScript on Heroku. More details in Heroku site, https://devcenter.heroku.com/articles/deploying-nodejs#:~:text=To%20create%20a%20package.,json%20file .
 
 2 - Include dependencies in a requirements.txt file, which is used by Heroku to install the dependencies. Use this command: "pip3 freeze > requirements.txt"
 
@@ -1489,13 +1489,13 @@ You will get a button with a link to your app if successfully deployed.
 <details>
     <summary>GitHub Pages Screenshot</summary>
 
-![Deployment on GitHub Pages Image](docs/GitHub-Pages.PNG) 
+![Deployment on Heroku Image](docs/features-and-evidence/heroku-deployment.PNG) 
 </details>
 
 \
 After first deployment, several updates have been carried out before the final version. These updates were implemented in the deployed website from Gitpod, just by using the "push" command for every commit (change) in the ongoing development.
 
-The project repository can be forked from GitHub (https://github.com/csc7/PP2_CI_WW), please check for the "Fork" button, top-right of the page, to achieve this task.
+The project repository can be forked from GitHub (https://github.com/csc7/PP4_CI_WQCS), please check for the "Fork" button, top-right of the page, to achieve this task.
 
 <br><br>
 ## [Back to Index](#index)
@@ -1593,6 +1593,10 @@ ___
 
     - Google Fonts: Heebo (Medium 500) and Oxygen (Regular 400), first imported on December 7th, 2021, 08:01, from: https://fonts.google.com/; (<style>
     @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@500&family=Oxygen&display=swap');</style>).
+
+- Heroku:
+
+    - To deply Node.js in Heroku: https://devcenter.heroku.com/articles/deploying-nodejs#:~:text=To%20create%20a%20package.,json%20file .
 
 - jQuery:
 
