@@ -572,7 +572,7 @@ The website was tested using these **browsers** and also **Microsoft Internet Ex
 
 The following tools were used to validate the **files of the website**:
 
-## **HTML Files**
+### **HTML Files**
 https://validator.w3.org/ was used to validate the new HTML files (those not being part of the Django framework). To test them, unique HTML files base+index, base+weather, base+blog and base+contact were created. The files were validated and accepted only when errors were related to control characters.
 
 Errors corrected using this service:
@@ -607,7 +607,7 @@ Errors corrected using this service:
 <br>
 
 
-## **CSS File**
+### **CSS File**
 https://jigsaw.w3.org/css-validator/ was used to validate the CSS file.
 
 http://jigsaw.w3.org/css-validator/validator$link
@@ -647,7 +647,7 @@ Please check the evidence below:
 
 <br><br>
 
-## **JavaScript Files**
+### **JavaScript Files**
 https://jshint.com/ was used to validate the JavaScript files.
 Please check the parameters used for validation and evidence below:
 
@@ -681,7 +681,7 @@ Please check the parameters used for validation and evidence below:
 <br>
 
 
-## **Python Files**
+### **Python Files**
 
 - **Django Project Files**
 <details>
@@ -854,7 +854,7 @@ Please check the parameters used for validation and evidence below:
 <br>
 
 
-## **Accessibility**
+### **Accessibility**
 https://wave.webaim.org/ was used to validate accessibility. Although there are warnings, all pages contain zero errors. Please check evidence below:
 
 <details>
@@ -888,7 +888,7 @@ https://wave.webaim.org/ was used to validate accessibility. Although there are 
 <br>
 
 
-## **Performance**
+### **Performance**
 Google Lighthouse (used in Google, Microsoft Edge and Firefox) were used to evaluate the performance of the pages. Please check the results below:
 
 <details>
