@@ -354,22 +354,22 @@ Please check the PDFs files for each case in the following links:
 <details>
     <summary>Tablet Wireframe Image for Instructions Page</summary>
 
-![Tablet Wireframe Image for Instructions App/Page](docs/wireframes/wireframe-tablet-functions.PNG)
+![Tablet Wireframe Image for Instructions App/Page](docs/wireframes/wireframe-wqcs-tablet-instructions.PNG)
 </details>
 <details>
     <summary>Tablet Wireframe Image for Weather Page</summary>
 
-![Tablet Wireframe Image for Weather App/Page](docs/wireframes/wireframe-tablet-generator.PNG)
+![Tablet Wireframe Image for Weather App/Page](docs/wireframes/wireframe-wqcs-tablet-weather.PNG)
 </details>
 <details>
     <summary>Tablet Wireframe Image for Blog Page</summary>
 
-![Tablet Wireframe Image for Blog App/Page](docs/wireframes/wireframe-tablet-quiz.PNG)
+![Tablet Wireframe Image for Blog App/Page](docs/wireframes/wireframe-wqcs-tablet-blog.PNG)
 </details>
 <details>
     <summary>Tablet Wireframe Image for Contact Page</summary>
 
-![Tablet Wireframe Image for Contact App/Page](docs/wireframes/wireframe-tablet-contact.PNG)
+![Tablet Wireframe Image for Contact App/Page](docs/wireframes/wireframe-wqcs-tablet-contact.PNG)
 </details>
 <details>
     <summary>Cell Wireframe Image for Instructions and Weather Pages</summary>
@@ -387,7 +387,7 @@ Please check the PDFs files for each case in the following links:
 
 [PDF File for Desktop Wireframe](docs/wireframes/wireframe-wqcs-desktop.pdf)
 
-[PDF File for Tablet Wireframe](docs/wireframes/wireframe-tablet.pdf)
+[PDF File for Tablet Wireframe](docs/wireframes/wireframe-wqcs-tablet.pdf)
 
 [PDF File for Cell Wireframe](docs/wireframes/wireframe-cell.pdf)
 <br><br>
