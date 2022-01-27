@@ -46,7 +46,7 @@ As weather conditions are important factors that have a direct impact on plannin
 
 As wind and temperature might be the most important factors in terms of impact, they are show separately in two independents groups, with a third group with other weather information where the user can select what to get and analyse.
 
-Also, as remote locations might have difficulties for Internet connections (physical connections in early days, nowadays perhaps cost constraints only) and weather information might be compromised, at least the blog is intended to help on the resolution of issues in a centralised way, using a unique channel, factor that might be critical under usual conditions of work under presure where "noisy" communications are always unwanted.
+Also, as remote locations might have difficulties for Internet connections (physical connections in early days, nowadays perhaps cost constraints only) and weather information might be compromised, at least the blog is intended to help on the resolution of issues in a centralised way, using a unique channel, factor that might be critical under usual conditions of work under pressure where "noisy" communications are always unwanted.
 
 Additionally, an instructions page is given to help on the use of the site, and a contact page with a form where the user can send feedback if desired.
 
@@ -59,7 +59,7 @@ Additionally, an instructions page is given to help on the use of the site, and 
 ___
 # **2 . Considerations**
 
-If opening the project wigh Gitpod from GitHub (top right green button), please run the following command as new workspaces need to have their dependencies:
+If opening the project with Gitpod from GitHub (top right green button), please run the following command as new workspaces need to have their dependencies:
 pip3 install -r requirements.txt
 
 Please keep in mind that the interaction with the database and corresponding display of data is slow, it might take several seconds until the data is display on tables and/or Google Charts.
@@ -109,7 +109,7 @@ UX has been addressed around Jesse James Garrett's process, whose five planes in
 ## **User Goals**
 - To find an interactive website.
 - To navigate through a responsive website.
-- To have a page where it is possible to get and analise weather data for planning the work.
+- To have a page where it is possible to get and analyse weather data for planning the work.
 - To have a blog where issues can be consulted, posted, commented and solved.
 - To be able to contact the site administrator, owner and/or developer if desired.
 
@@ -198,7 +198,7 @@ The following are the tables involved in the relational model, along with data t
 
 Find OpenWeather API information [here](https://openweathermap.org/current) (https://openweathermap.org/current).
 
-Since the planning should be base on date and time, **all entries and tables are related to the Weather Data and Time table**, whose primiry key (ID) relates the data to the specific date and time.
+Since the planning should be based on date and time, **all entries and tables are related to the Weather Data and Time table**, whose primary key (ID) relates the data to the specific date and time.
 
 
 - #### **WEATHER DATA AND TIME**
@@ -210,7 +210,7 @@ Since the planning should be base on date and time, **all entries and tables are
 - #### **WEATHER WIND DATA**
 
     - **ID:** integer
-    - **Wind Spped:** float, meter/second
+    - **Wind Speed:** float, meter/second
     - **Wind Direction:** float, degrees
     - **Rec ID:** integer, foreign key
 
@@ -232,8 +232,8 @@ Since the planning should be base on date and time, **all entries and tables are
     - **Sky:** float, cloudiness, percentage
     - **Main:** text, weather parameters (rain, snow, etc.)
     - **Description:** text, weather condition
-    - **Sunrise:** custom (time), sunrise time, unix, UTC
-    - **Sunset:** custom (time), sunset time, unix, UTC
+    - **Sunrise:** custom (time), sunrise time, UNIX, UTC
+    - **Sunset:** custom (time), sunset time, UNIX, UTC
     - **Rec ID:** integer, foreign key
 
 - #### **POST**
@@ -441,11 +441,11 @@ The site consists of four pages, where each of them is divided in three parts: h
 
 - ### **Fixed navigation menu**
 
-It is located in the header, fixed on all pages to facilitate navigation, and responsive.
+It is in the header, fixed on all pages to facilitate navigation, and responsive.
 
 *User Stories Addressed by this Feature: 19; 21; 29; 33 and 34.*
 
-*Please check "8. Testing of User Stories" for more details.*
+*Please check "11. Testing of User Stories" for more details.*
 <details>
     <summary>Check Image</summary>
 
@@ -462,7 +462,7 @@ They can be found in the Instructions page (home), they explain how to use the w
 
 *User Stories Addressed by this Feature: 1; 25; 33 and 34.*
 
-*Please check "8. Testing of User Stories" for more details.*
+*Please check "11. Testing of User Stories" for more details.*
 <details>
     <summary>Check Images</summary>
 
@@ -481,7 +481,7 @@ It can be found in the Weather page and allows users to collect and analyse weat
 
 *User Stories Addressed by this Feature: 2; 3; 4; 5; 6; 7; 26; 33 and 34.*
 
-*Please check "8. Testing of User Stories" for more details.*
+*Please check "11. Testing of User Stories" for more details.*
 <details>
     <summary>Check Image</summary>
 
@@ -492,11 +492,11 @@ It can be found in the Weather page and allows users to collect and analyse weat
 
 - ### **Blog App**
 
-It can be found in the Blog page and allows users to send and consult issues they find in their daily activities, and find solutions for them.
+It can be found in the Blog page and allows users to send and consult issues they find in their daily activities and find solutions for them.
 
 *User Stories Addressed by this Feature: 8; 9; 10; 11; 12; 13; 14; 15; 16; 17; 27; 33 and 34.*
 
-*Please check "8. Testing of User Stories" for more details.*
+*Please check "11. Testing of User Stories" for more details.*
 <details>
     <summary>Check Image</summary>
 
@@ -512,7 +512,7 @@ It can be found in the Contact and allows users to contact the website developer
 
 *User Stories Addressed by this Feature: 18; 20; 28; 30; 33 and 34*
 
-*Please check "8. Testing of User Stories" for more details.*
+*Please check "11. Testing of User Stories" for more details.*
 <details>
     <summary>Check Image</summary>
 
@@ -529,7 +529,7 @@ It is located at the bottom of all pages, containing icons with links to LinkedI
 
 *User Stories Addressed by this Feature: 18; 20; 23; 28; 30; 33 and 34.*
 
-*Please check "8. Testing of User Stories" for more details.*
+*Please check "11. Testing of User Stories" for more details.*
 <details>
     <summary>Check Image</summary>
 
@@ -545,7 +545,7 @@ They are Django complementary tools and pages to have registration options in th
 
 *User Stories Addressed by this Feature: 19; 24; 31; 33; 34; and 35.*
 
-*Please check "8. Testing of User Stories" for more details.*
+*Please check "11. Testing of User Stories" for more details.*
 <details>
     <summary>Check Image</summary>
 
@@ -577,7 +577,7 @@ The following tools were used to validate the **files of the website**:
 ## **HTML Files**
 https://validator.w3.org/ was used to validate the new HTML files (those not being part of the Django framework). To test them, unique HTML files base+index, base+weather, base+blog and base+contact were created. The files were validated and accepted only when errors were related to control characters.
 
-Errors corrected using this sevice:
+Errors corrected using this service:
 
 - **base.html**:
     - Id body for body tag changed as it needs to have a different name; corrected after using the validator.
@@ -660,7 +660,7 @@ Please check the parameters used for validation and evidence below:
 </details>
 
 <details>
-    <summary>Weather Page (weather.js JavaScript file). Plase note that google is an external variable from Google.</summary>
+    <summary>Weather Page (weather.js JavaScript file). Please note that google is an external variable from Google.</summary>
 
 ![Evidence of no errors weather.js JavaScript file](docs/validation/validation-js-weather.PNG)
 </details>
@@ -851,7 +851,7 @@ Please check the parameters used for validation and evidence below:
 <br>
 
 ## **Accessibility**
-https://wave.webaim.org/ was used to validate accessibility. Although there are warnings, all pages contains zero errors. Please check evidence below:
+https://wave.webaim.org/ was used to validate accessibility. Although there are warnings, all pages contain zero errors. Please check evidence below:
 
 <details>
     <summary>Instructions Page</summary>
@@ -1038,7 +1038,7 @@ The following are testing of User Stories previously described above:
 <details>
     <summary>Screenshot</summary>
 
-![Charts for Three Gropus of Weather Data Image](docs/features-and-evidence/weather-three-groups-charts.PNG) 
+![Charts for Three Groups of Weather Data Image](docs/features-and-evidence/weather-three-groups-charts.PNG) 
 </details>
 <br><br>
 
@@ -1235,7 +1235,7 @@ The following are testing of User Stories previously described above:
 <details>
     <summary>Screenshot</summary>
 
-![Fixec Menu on Top Image](docs/features-and-evidence/fixed-navigation-menu.PNG) 
+![Fixed Menu on Top Image](docs/features-and-evidence/fixed-navigation-menu.PNG) 
 </details>
 <br><br>
 
@@ -1248,7 +1248,7 @@ The following are testing of User Stories previously described above:
 <details>
     <summary>Screenshot</summary>
 
-![Fixec Menu on Top Image](docs/features-and-evidence/fixed-navigation-menu.PNG) 
+![Fixed Menu on Top Image](docs/features-and-evidence/fixed-navigation-menu.PNG) 
 </details>
 <br><br>
 
@@ -1312,7 +1312,7 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Blog App | Develop a blot page that works as support for sending consultations, tickes and/or comment and find solutions for the daily activities of the work | Show information for every work topic and interact with user | Works as expected | 
+| Blog App | Develop a blot page that works as support for sending consultations, tickets and/or comment and find solutions for the daily activities of the work | Show information for every work topic and interact with user | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
@@ -1396,7 +1396,7 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Responsive desing | Responsive behaviour of site for different screen sizes and devices | Works as expected | 
+| Website | Responsive design | Responsive behaviour of site for different screen sizes and devices | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
@@ -1404,7 +1404,7 @@ The following are testing of User Stories previously described above:
 ![Fixed Navigation Menu on Top Image](docs/features-and-evidence/fixed-navigation-menu-cell-1.PNG) 
 ![Fixed Navigation Menu on Top 2 Image](docs/features-and-evidence/fixed-navigation-menu-cell-2.PNG) 
 ![Instructions Page for Desktop Image](docs/features-and-evidence/example-instructions.PNG) 
-![Weather Page For Tablet Image](docs/features-and-evidence/example-weather.PNG) 
+![Weather Page for Tablet Image](docs/features-and-evidence/example-weather.PNG) 
 ![Blog Page for Cell Image](docs/features-and-evidence/example-blog.PNG) 
 
 </details>
@@ -1445,9 +1445,9 @@ Bugs that required more time and specific solutions were the following ones:
 | It was not possible to log into an administration account in Django. | The issue arises for Django version 4; solved with the help of Code Institute Tutor Assistance (Alan) on December 20th, 2021, at 15:55, by assigning the workspace URL to the variable CSRF_TRUSTED_ORIGINS in the settings.py file to ['https://8000-aqua-jay-tl4cc8xk.ws-eu23.gitpod.io'] | 
 | The pages of the website could not be loaded all together, only either instructions and blog pages together, or weather and contact pages together, never the four pages together  | The issue was solved by changing the order of elements in the urlpatterns variable in the app (app_blog) urls.py file from Blog/(Post Detail)/Instructions/Weather/Contact to Instructions/Weather/Contact/Blog/(Post Detail); solution found on https://stackoverflow.com/questions/36429144/page-not-found-404-no-post-matches-the-given-query, on December 23rd, 2021, at 03:20. |
 | It was not possible to convert data (sent to views.py with AJAX, with POST) to float, even after trying with JSON.stringify() | Solved by deleting "dataType: 'json'," line, as the method seems to pass strings, which can be easily converted to float (before, a "ul" element was being received). Reference: https://stackoverflow.com/questions/1969476/ajax-success-event-not-working; accessed on January 4th, 2022, at 21:10. |
-| Django models in app_weather could not be migrated as a result of wrongly deleting migrations file, causing a deleted column not registered/available in the files when reversing the migrations. | Issue solved with the help of Code Institute Tutor Assistance (Igor) by deleting the Postgres database, creating a new one, deleting all migrations files in all applications (except each __init__.py), making migrations, migrating and creating superuser again. |
-| There were some issues with the deployment in Heroku, apparently as a result of a changes in Gitpod. | The issue was solved with the help of the Code Institute Tutor Assistance by installing Django version 3.2 (instead of version 4.0), creating a new workspace in Gitpod, and generating a new requirements.txt file. | 
-| It was not possible to test the accessibility of the weather.html file; when using https://wave.webaim.org/, the weather app/page stopped working (even if it was working right before using the validator), even when they are in different windows and/or browsers; the validator reads a "ul" string/tag, while the app/page reads the correct string. | The issue was solved with the help of the Code Institute Tutor Assistance by working with try/except options; however the resulting "FieldError" could not be addressed and a general "except" was used. In addition, query of data was carried out outside the "context" variable of the views.py file of the weather app. However, after a while, and without changing the files, the issue has arisen again; the weather app/page seems to works fine after any change in the Config Vars of Heroku. | 
+| Django models in app_weather could not be migrated because of wrongly deleting migrations file, causing a deleted column not registered/available in the files when reversing the migrations. | Issue solved with the help of Code Institute Tutor Assistance (Igor) by deleting the Postgres database, creating a new one, deleting all migrations files in all applications (except each __init__.py), making migrations, migrating and creating superuser again. |
+| There were some issues with the deployment in Heroku, apparently because of changes in Gitpod. | The issue was solved with the help of the Code Institute Tutor Assistance by installing Django version 3.2 (instead of version 4.0), creating a new workspace in Gitpod, and generating a new requirements.txt file. | 
+| It was not possible to test the accessibility of the weather.html file; when using https://wave.webaim.org/, the weather app/page stopped working (even if it was working right before using the validator), even when they are in different windows and/or browsers; the validator reads a "ul" string/tag, while the app/page reads the correct string. | The issue was solved with the help of the Code Institute Tutor Assistance by working with try/except options; however, the resulting "FieldError" could not be addressed and a general "except" was used. In addition, query of data was carried out outside the "context" variable of the views.py file of the weather app. However, after a while, and without changing the files, the issue has arisen again; the weather app/page seems to work fine after any change in the Config Vars of Heroku. | 
 | Esri/ArcGIS map does not pan/zoom in touch screen cell devices. | The issue is still under investigation, it could be related to specific versions of the API, JavaScript and/or browsers, although it cannot yet be confirmed. | 
 
 <br><br>
@@ -1468,7 +1468,7 @@ Google Charts: https://developers.google.com/chart/interactive/docs/gallery/line
 
 Follow these steps to deploy in Heroku platform:
 
-1 - Creat JSON file (use the command line "npm init" as a wizard, installing the Heroku CLI in Gitpod if necessary and if this environment is being used) to be able to run JavaScript on Heroku. More details in Heroku site, https://devcenter.heroku.com/articles/deploying-nodejs#:~:text=To%20create%20a%20package.,json%20file .
+1 - Create JSON file (use the command line "npm init" as a wizard, installing the Heroku CLI in Gitpod if necessary and if this environment is being used) to be able to run JavaScript on Heroku. More details in Heroku site, https://devcenter.heroku.com/articles/deploying-nodejs#:~:text=To%20create%20a%20package.,json%20file .
 
 2 - Include dependencies in a requirements.txt file, which is used by Heroku to install the dependencies. Use this command: "pip3 freeze > requirements.txt"
 
@@ -1525,8 +1525,6 @@ ___
 - Balsamiq Wireframes: I have used it to create all the wireframes.
 
 - Jesse James Garrett's process for user experience.
-
-- Babel JavaScript compiler (transpiler, to try to solve ES5 issues for Internet Explorer, finally not implemented, https://babeljs.io/docs/en/babel-standalone). Tested on August 6th, 2021, between 5:30 and 6:30 approximately.
 
 - Bootstrap:
 

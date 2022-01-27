@@ -163,7 +163,7 @@ def get_weather_page(request):
                                      other_value_to_display_2).order_by(
                                          '-id')[0:recs]
         )
-        print("Try outside AJAX")
+        
     except:
         other_value_to_display_1 = str(json.dumps(request.POST.get(
                                                   'otherValueToDisplay1')
