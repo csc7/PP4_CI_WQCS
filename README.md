@@ -158,7 +158,6 @@ User stories are divided into the following three groups:
 33. As owner, along with other points of this section, I want to show my work and give the option to users to contact me if they wish.
 34. As owner, I want to provide a responsive website, so user can access it from any device without any constraint to navigate, find and/or use the website.
 35. As owner, I want to inform users if they consultation/message was successfully sent, so they know if they need to resend it or they do not.
-36. As owner, I want to inform the user, through an error page, if there is any error when loading the website.
 
 
 #### [Back to Index](#index)
@@ -1274,12 +1273,13 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Instructions App | Include steps to use the site, separated by sections | Design Instructions App/Page with separated steps and sections | Same as expected result | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![Instructions Page Top Image](docs/features-and-evidence/instructions-page-top.PNG)
+![Instructions Page Bottom Image](docs/features-and-evidence/instructions-page-bottom.PNG)
 </details>
 <br><br>
 
@@ -1287,12 +1287,12 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Weather App | Develop a weather app/page with selection of location for weather and display of data with tables and charts | Displayed information on selected location according to user preferences | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![Weather App/Page Image](docs/features-and-evidence/weather-page.PNG) 
 </details>
 <br><br>
 
@@ -1300,12 +1300,12 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Blog App | Develop a blot page that works as support for sending consultations, tickes and/or comment and find solutions for the daily activities of the work | Show information for every work topic and interact with user | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![Blog App Image](docs/features-and-evidence/blog-page.PNG) 
 </details>
 <br><br>
 
@@ -1313,12 +1313,13 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Contact App / Footer | Include Contact App/page and contact links in the footer | Working Contact App/page and links in footer | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![Contact App Image](docs/features-and-evidence/contact-page.PNG) 
+![Footer Image](docs/features-and-evidence/footer.PNG) 
 </details>
 <br><br>
 
@@ -1326,12 +1327,12 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Fixed navigation menu | Include links to all apps of the site on top, along with sign-in, sign-up and sign-out options | Access different apps and sign-in/sign-up/sign-out options | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![Fixec Menu on Top Image](docs/features-and-evidence/fixed-navigation-menu.PNG) 
 </details>
 <br><br>
 
@@ -1339,12 +1340,13 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Contact App / Footer | Include Contact App/page and contact links in the footer | Working Contact App/page and links in footer | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![Contact App Image](docs/features-and-evidence/contact-page.PNG) 
+![Footer Image](docs/features-and-evidence/footer.PNG) 
 </details>
 <br><br>
 
@@ -1352,12 +1354,12 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Registration | Apply Django options for user registration | Registered users and ability to manage them in Django Administration | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![Registered Users Image](docs/features-and-evidence/registered-users.PNG) 
 </details>
 <br><br>
 
@@ -1365,38 +1367,34 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Site | Build site according to goals | Use and feedback from users | Ongoing | 
 
-<details>
-    <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
-</details>
 <br><br>
 
 33. As owner, along with other points of this section, I want to show my work and give the option to users to contact me if they wish.
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Site | Build site according to goals | Use and feedback from users | Ongoing | 
 
-<details>
-    <summary>Screenshot</summary>
-
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
-</details>
 <br><br>
 
 34. As owner, I want to provide a responsive website, so user can access it from any device without any constraint to navigate, find and/or use the website.
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Website | Responsive desing | Responsive behaviour of site for different screen sizes and devices | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![Fixed Navigation Menu on Top Image](docs/features-and-evidence/fixed-navigation-menu-cell-1.PNG) 
+![Fixed Navigation Menu on Top 2 Image](docs/features-and-evidence/fixed-navigation-menu-cell-2.PNG) 
+![Instructions Page for Desktop Image](docs/features-and-evidence/example-instructions.PNG) 
+![Weather Page For Tablet Image](docs/features-and-evidence/example-weather.PNG) 
+![Blog Page for Cell Image](docs/features-and-evidence/example-blog.PNG) 
+
 </details>
 <br><br>
 
@@ -1404,26 +1402,16 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
+| Contact App | Include a page that informs the user if the message has been sent, along with the data sent (so it works as a confirmation) | Page showing up after sending the data with the contact form | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
 
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
+![Confirmation of Data Sent with Contact Form Image](docs/features-and-evidence/confirmation-of-contact-form.PNG) 
 </details>
 <br><br>
 
-36. As owner, I want to inform the user, through an error page, if there is any error when loading the website.
 
-| FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
-| --- | --- | --- | --- |
-| Website | Design of ... | Different designs ... | Works as expected | 
-
-<details>
-    <summary>Screenshot</summary>
-
-![Am I Responsive Image](docs/am-i-responsive.PNG) 
-</details>
 <br><br>
 
 
