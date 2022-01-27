@@ -1,38 +1,41 @@
 # Site under construction.
 
-**This website will provide a tool for seismic data acquisition companies to use weather data and a blog to plan their operations and interactions with the client.**
+#### **This project is about a tool for seismic/geophysical data acquisition companies to use weather data and a support blog to plan their operations and interactions with the client.**
+<br><br>
 
 # **Index**
-#### [*Website Live Link*](https://pp4-ci-wqcs.herokuapp.com/)
+#### [*Site Live Link*](https://pp4-ci-wqcs.herokuapp.com/) (https://pp4-ci-wqcs.herokuapp.com/)
+
+
 ### [1. Project Goals](#1--project-goals)
-### [1. Notes](#1--project-board)
-### [1. Project Board](#1--project-board)
-### [2. User Experience](#2--user-experience)
+### [2. Considerations](#1--project-board)
+### [3. Project Board](#1--project-board)
+### [4. User Experience](#2--user-experience)
 - #### [User Goals](#user-goals-1)
 - #### [Site Owner Goals](#site-owner-goals-1)
 - #### [User Stories](#user-stories-1)
 - #### [User Requirements and Expectations](#user-requirements-and-expectations-1)
-### [2. Data Model](#2--user-experience)
-### [3. Design Choices](#3--design-choices)
+### [5. Data Model](#2--user-experience)
+### [6. Design Choices](#3--design-choices)
 - #### [Colours](#colours-1)
 - #### [Fonts](#fonts-1)
 - #### [Structure](#structure-1)
-### [4. Wireframes](#4--wireframes)
-### [5. Technologies used](#5--technologies-used)
+### [7. Wireframes](#4--wireframes)
+### [8. Technologies used](#5--technologies-used)
 - #### [Languages](#languages-1)
 - #### [Software and Other Tools](#software-and-other-tools-1)
-### [6. Features](#6--features)
-### [7. Validation](#7--validation)
+### [9. Features](#6--features)
+### [10. Validation](#7--validation)
 - #### [HTML Files](#html-files-1)
 - #### [CSS File](#css-file-1)
 - #### [JavaScript Files](#javascript-files-1)
 - #### [Accessibility](#accessibility-1)
 - #### [Performance](#performance-1)
-### [8. Testing of User Stories](#8--testing-of-user-stories)
-### [9. Bugs](#9--bugs)
-### [10. Deployment](#10--deployment)
-### [11. Credits](#11--credits)
-### [12. Acknowledgements](#12--acknowledgements)
+### [11. Testing of User Stories](#8--testing-of-user-stories)
+### [12. Bugs](#9--bugs)
+### [13. Deployment](#10--deployment)
+### [14. Credits](#11--credits)
+### [15. Acknowledgements](#12--acknowledgements)
 <br><br>
 
 ___
@@ -52,26 +55,34 @@ Additionally, an instructions page is given to help on the use of the site, and 
 ## [Back to Index](#index)
 <br>
 
-___
-# **1 . Project Goals**
-<br><br>
-## [Back to Index](#index)
-<br>
 
 ___
-# **1 . Notes**
+# **2 . Considerations**
 
 If opening the project wigh Gitpod from GitHub (top right green button), please run the following command as new workspaces need to have their dependencies:
 pip3 install -r requirements.txt
 
-Please keep in mind that the interaction with the database and corresponding display of data is slow.
+Please keep in mind that the interaction with the database and corresponding display of data is slow, it might take several seconds until the data is display on tables and/or Google Charts.
+
+<br><br>
+## [Back to Index](#index)
+<br>
+
+
+
+___
+# **3 . Project Board**
+
+A project board was created in GitHub to help on the planning of the work when building the site; it can be observed [here](https://github.com/csc7/PP4_CI_WQCS/projects/1) (https://github.com/csc7/PP4_CI_WQCS/projects/1).
+
+In addition, issues can directly be found [here](https://github.com/csc7/PP4_CI_WQCS/issues) (https://github.com/csc7/PP4_CI_WQCS/issues)
 
 <br><br>
 ## [Back to Index](#index)
 <br>
 
 ___
-# **2 . User Experience**
+# **4 . User Experience**
 
 UX has been addressed around Jesse James Garrett's process, whose five planes involves the following matters:
 - **STRATEGY**: to build a website (product) that helps on the planning and activities of a seismic/geophysical data acquisition crew.
@@ -177,7 +188,7 @@ User stories are divided into the following three groups:
 
 
 ___
-# **1 . Data Model**
+# **5 . Data Model**
 
 The project is based in data provided by OpenWeather (https://openweathermap.org/) and Django models for the support (blog) page. Design and structure of Post and Comment tables are copied from the Code Institute "I Think Therefore I Blog" project. The following chart shows the data involved and how they are related:
 
@@ -264,7 +275,7 @@ Since the planning should be base on date and time, **all entries and tables are
 <br>
 
 ___
-# **3 . Design Choices**
+# **6 . Design Choices**
 
 The design was planned to cover screen sizes from 320x568px to 1920x1370px.
 
@@ -315,7 +326,7 @@ The footer contains links for social media (LinkedIn and GitHub) and e-mail. It 
 <br>
 
 ___
-# **4 . Wireframes**
+# **7 . Wireframes**
 
 Wireframes were developed in order to gather goals, user stories, requirements and expectations, and have the design references for desktop, tablet and mobile devices.
 Please check the PDFs files for each case in the following links:
@@ -385,7 +396,7 @@ Please check the PDFs files for each case in the following links:
 <br>
 
 ___
-# **5 . Technologies Used**
+# **8 . Technologies Used**
 
 The following languages, software and tools were implemented using Windows 10 Pro:
 ## **Languages**
@@ -401,6 +412,7 @@ The following languages, software and tools were implemented using Windows 10 Pr
 - #### **Gitpod**
 - #### **Django 3.2**
 - #### **django-allauth**
+- #### **PostgreSQL**
 - #### **Font Awesome (v5.15)**
 - #### **Bootstrap (v4.0)**
 - #### **Balsamiq Wireframes (v4.2.4, Editor Version 2.6.0)**
@@ -422,7 +434,7 @@ The following languages, software and tools were implemented using Windows 10 Pr
 
 
 ___
-# **6 . Features**
+# **9 . Features**
 
 The site consists of four pages, where each of them is divided in three parts: header, body and footer. The features contained in each of the pages and parts are the following ones:
 
@@ -550,7 +562,7 @@ They are Django complementary tools and pages to have registration options in th
 
 
 ___
-# **7 . Validation**
+# **10 . Validation**
 
 The introductory image on top of this README file was generated using the [Am I Responsive site](http://ami.responsivedesign.is/?url=https%3A%2F%2Fcsc7.github.io%2FPP1_CI_TGC) to test how the website displays in different screen sizes.
 
@@ -930,7 +942,7 @@ Google Lighthouse (used in Google, Microsoft Edge and Firefox) were used to eval
 <br>
 
 ___
-# **8 . Testing of User Stories**
+# **11 . Testing of User Stories**
 
 
 ## **First time users**
@@ -1420,7 +1432,7 @@ The following are testing of User Stories previously described above:
 <br>
 
 ___
-# 9 . Bugs
+# 12 . Bugs
 
 Some bugs were related to positioning of elements in the page. They were fixed by assigning proper values, most of them with the help of a temporary background colour for the element.
 
@@ -1436,13 +1448,14 @@ Bugs that required more time and specific solutions were the following ones:
 | Django models in app_weather could not be migrated as a result of wrongly deleting migrations file, causing a deleted column not registered/available in the files when reversing the migrations. | Issue solved with the help of Code Institute Tutor Assistance (Igor) by deleting the Postgres database, creating a new one, deleting all migrations files in all applications (except each __init__.py), making migrations, migrating and creating superuser again. |
 | There were some issues with the deployment in Heroku, apparently as a result of a changes in Gitpod. | The issue was solved with the help of the Code Institute Tutor Assistance by installing Django version 3.2 (instead of version 4.0), creating a new workspace in Gitpod, and generating a new requirements.txt file. | 
 | It was not possible to test the accessibility of the weather.html file; when using https://wave.webaim.org/, the weather app/page stopped working (even if it was working right before using the validator), even when they are in different windows and/or browsers; the validator reads a "ul" string/tag, while the app/page reads the correct string. | The issue was solved with the help of the Code Institute Tutor Assistance by working with try/except options; however the resulting "FieldError" could not be addressed and a general "except" was used. In addition, query of data was carried out outside the "context" variable of the views.py file of the weather app. However, after a while, and without changing the files, the issue has arisen again; the weather app/page seems to works fine after any change in the Config Vars of Heroku. | 
+| Esri/ArcGIS map does not pan/zoom in touch screen cell devices. | The issue is still under investigation, it could be related to specific versions of the API, JavaScript and/or browsers, although it cannot yet be confirmed. | 
 
 <br><br>
 ## [Back to Index](#index)
 <br>
 
 ___
-# 10 . Deployment
+# 13 . Deployment
 
 The website was fully written in Gitpod, permanently tested with Gitpod preview, and periodically deployed to GigHub Pages (in a main branch) and Heroku.
 
@@ -1489,7 +1502,7 @@ The project repository can be forked from GitHub (https://github.com/csc7/PP2_CI
 <br>
 
 ___
-# 11 . Credits
+# 14 . Credits
 
 - Code Institute:
 
@@ -1641,7 +1654,7 @@ ___
 
 ## [Back to Index](#index)
 ___
-# 12 . Acknowledgements
+# 15 . Acknowledgements
 
 I would like to acknowledge and thank the following people for being part of this project and for helping me in the development of it:
 - To my wife and family, for always supporting and helping.
