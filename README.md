@@ -556,6 +556,7 @@ They are Django complementary tools and pages to have registration options in th
 ![Registration Sign-Up Images](docs/features-and-evidence/sign-up.PNG)
 ![Registration Sign-Out Images](docs/features-and-evidence/sign-out.PNG)
 </details>
+
 <br><br>
 ## [Back to Index](#index)
 <br><br>
