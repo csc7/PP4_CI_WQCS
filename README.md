@@ -435,7 +435,8 @@ The following languages, software and tools were implemented using Windows 10 Pr
 ## [Back to Index](#index)
 <br><br>
 
-<br>
+
+
 ___
 # **9 . Features**
 
@@ -556,8 +557,6 @@ They are Django complementary tools and pages to have registration options in th
 ![Registration Sign-Up Images](docs/features-and-evidence/sign-up.PNG)
 ![Registration Sign-Out Images](docs/features-and-evidence/sign-out.PNG)
 </details>
-
-
 <br>
 ## [Back to Index](#index)
 <br><br>
