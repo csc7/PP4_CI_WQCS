@@ -8,7 +8,7 @@
 
 
 ### [1. Project Goals](#1--project-goals)
-### [2. Considerations](#1--project-board)
+### [2. Considerations](#1--considerations)
 ### [3. Project Board](#1--project-board)
 ### [4. User Experience](#2--user-experience)
 - #### [User Goals](#user-goals-1)
