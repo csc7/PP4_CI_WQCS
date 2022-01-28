@@ -31,9 +31,9 @@
 - #### [Python Files](#python-files-1)
 - #### [Accessibility](#accessibility-1)
 - #### [Performance](#performance-1)
-### [11. Testing](#11--testing-of-user-stories)
+### [11. Testing](#11--testing)
 - #### [Testing of Python Files with unittest](#testing-of-python-files-with-unittest-1)
-- #### [Testing of User](#testing-of-user-stories-1)
+- #### [Testing of User Stories](#testing-of-user-stories-1)
 ### [12. Bugs](#12--bugs)
 ### [13. Deployment](#13--deployment)
 ### [14. Credits](#14--credits)
@@ -965,6 +965,9 @@ The data model and Python files were tested with unittest; it was used to test t
 ![unittest Image 1](docs/features-and-evidence/python-testing.PNG)
 ![unittest Image 2](docs/features-and-evidence/python-testing-2.PNG)
 </details>
+
+<br><br>
+## [Back to Index](#index)
 <br><br>
 
 ## **Testing of User Stories**
