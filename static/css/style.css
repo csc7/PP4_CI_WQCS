@@ -29,6 +29,10 @@ hr {
 
 /* BODY */
 
+body {
+    background-color: rgb(236, 238, 238);
+}
+
 #body-content {
     padding-top: 0px;
 }
@@ -144,6 +148,7 @@ hr {
     font-family: 'Heebo', sans-serif;
     border-style: solid;
     border-color: rgb(49, 49, 48);
+    background-color: white;
 }
 
 /* E-mail input fields */
@@ -243,7 +248,8 @@ a.nav-link {
 .instruction-box {
     border-style: groove;
     border-radius: 10px;
-    padding: 5px
+    padding: 5px;
+    background-color: white;
 }
 
 
@@ -304,6 +310,7 @@ a.nav-link {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     font-family: 'Heebo', sans-serif;
+    background-color: white;
 }
 
 .weather-data-label > p, #manual-latitude-label, #manual-longitude-label {
@@ -388,6 +395,13 @@ a.nav-link {
 }
 
 /* Google Chart Graphs */
+
+#curve_chart_left > div > div > div > svg,
+#curve_chart_middle > div > div > div > svg,
+#curve_chart_right > div > div > div > svg {
+    border-style: groove;
+    border-radius: 10px;
+}
 
 #curve_chart_left, #curve_chart_middle, #curve_chart_right {
     width: 100%;
@@ -538,6 +552,7 @@ td {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     font-family: 'Heebo', sans-serif;
+    background-color: white;
 }
 
 

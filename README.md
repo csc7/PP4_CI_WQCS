@@ -279,7 +279,7 @@ ___
 The design was planned to cover screen sizes from 320x568px to 1920x1370px.
 
 ## **Colours**
-White and RGB(49, 49, 48), with some titles in RGB(76, 76, 211). Other variations close to these three colours are also present to enhance contrast.
+White and RGB(49, 49, 48), with some titles in RGB(76, 76, 211). Other variations close to these three colours are also present to enhance contrast. The backgound of the body was set to RGB(236, 238, 238) in order to have a good contrast as well.
 
 #### [Back to Index](#index)
 <br>
