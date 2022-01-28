@@ -427,10 +427,10 @@ The following languages, software and tools were implemented using Windows 10 Pr
 - #### **JavaScript AJAX**
 - #### **WAVE Web Accessibility Evaluation Tool**
 - #### **Google Lighthouse (used in Google, Microsoft Edge and Firefox)**
-- #### **Google Chrome, version 91.0.4472.114, Official Build, 64-bit (and its development tool)**
-- #### **Microsoft Edge, version 91.0.864.59, Official build, 64-bit (and its development tool)**
-- #### **Firefox, 89.0.2, 64-bit (and its development tool)**
-- #### **Microsoft Internet Explorer, version 2004, OS Build 19041.1052**
+- #### **Google Chrome, version 97.0.4692.71, Official Build, 64-bit (and its development tool)**
+- #### **Microsoft Edge, version 97.0.1072.62, Official build, 64-bit (and its development tool)**
+- #### **Firefox, 96.0.3, 64-bit (and its development tool)**
+- #### **Microsoft Internet Explorer, version 2004, OS Build 19041.1415, Microsoft Corporation**
 
 
 <br><br>
@@ -516,7 +516,7 @@ It can be found in the Blog page and allows users to send and consult issues the
 
 It can be found in the Contact and allows users to contact the website developer. It prevents the form to be sent with incomplete fields, informs the user if the message goes through and disables the send button in order not to send the consultation more than once.
 
-*User Stories Addressed by this Feature: 18; 20; 28; 30; 33 and 34*
+*User Stories Addressed by this Feature: 18; 20; 28; 30; 33 and 34.*
 
 *Please check "11. Testing of User Stories" for more details.*
 <details>
@@ -567,11 +567,11 @@ They are Django complementary tools and pages to have registration options in th
 ___
 # **10 . Validation**
 
-**Development tools** of **Google Chrome** (Version 97.0.4692.71, Official Build, 64-bit), **Microsoft Edge** (Version 97.0.1072.62, Official build, 64-bit) and **Firefox** (Version 97.0.1072.62, Official build, 64-bit) have been used to test the behaviour of the website for screen sizes between 320x568px to 1920x1370px.
+**Development tools** of **Google Chrome** (Version 97.0.4692.71, Official Build, 64-bit), **Microsoft Edge** (Version 97.0.1072.62, Official build, 64-bit) and **Firefox** (Version 96.0.3, 64-bit) have been used to test the behaviour of the website for screen sizes between 320x568px to 1920x1370px.
 
 The website was tested using these **browsers** and also **Microsoft Internet Explorer** (Version 2004, OS Build 19041.1415, Microsoft Corporation). **Samsung Internet** (version 15.0.2.47) was also used to test the website. In addition, some users have collaborated checking the website in the cell phones, mostly with **Android-based operating systems**.
 
-**Devices** used for testing and validation include Dell and Toshiba laptops, Samsung cell phones. **Operative systems** include Windows 10 Enterprise (remote desktop), Windows 10 Pro, Windows 10 Home and Android. **Processors** for desktop and laptops were Intel.
+**Devices** used for testing and validation include Dell and Samsung cell phones. **Operative systems** include Windows 10 Enterprise (remote desktop), Windows 10 Pro and Android. **Processors** for desktop and laptops were Intel.
 
 The following tools were used to validate the **files of the website**:
 
@@ -617,7 +617,7 @@ https://jigsaw.w3.org/css-validator/ was used to validate the CSS file.
 
 http://jigsaw.w3.org/css-validator/validator$link
 or
-http://jigsaw.w3.org/css-validator/check/referer (for HTML/XML document only)
+http://jigsaw.w3.org/css-validator/check/referer **(for HTML/XML document only)**
 
 Please check the evidence below:
 
@@ -663,7 +663,7 @@ Please check the parameters used for validation and evidence below:
 </details>
 
 <details>
-    <summary>Weather Page (weather.js JavaScript file). Please note that google is an external variable from Google.</summary>
+    <summary>Weather Page (weather.js JavaScript file). Please note that google is an external variable from Google</summary>
 
 ![Evidence of no errors weather.js JavaScript file](docs/validation/validation-js-weather.PNG)
 </details>
@@ -675,7 +675,7 @@ Please check the parameters used for validation and evidence below:
 </details>
 
 <details>
-    <summary>File for checking the loading of the site (index.js JavaScript file).</summary>
+    <summary>File for checking the loading of the site (index.js JavaScript file)</summary>
 
 ![Evidence of no errors and warnings in the index.js JavaScript file](docs/validation/validation-js-index.PNG)
 </details>
@@ -687,6 +687,11 @@ Please check the parameters used for validation and evidence below:
 
 
 ### **Python Files**
+
+PEP8 was used to check the files written in Python, with "All right" results.
+
+The tool can be accessed with this link: http://pep8online.com .
+
 
 - **Django Project Files**
 <details>
@@ -1021,7 +1026,7 @@ The following are testing of User Stories previously described above:
 
 | FEATURE | ACTION | EXPECTED RESULT | ACTUAL RESULT |
 | --- | --- | --- | --- |
-| Weather App | Design of ... | Different designs ... | Works as expected | 
+| Weather App | Include to input field to assign latitude and longitude for the Esri/ArcGIS map on the Weather App | Map moves to input latitude and longitude assigned manually | Works as expected | 
 
 <details>
     <summary>Screenshot</summary>
@@ -1462,13 +1467,13 @@ Bugs that required more time and specific solutions were the following ones:
 
 | Bug | Solution |
 | ---- | ---- |
-| It was not possible to log into an administration account in Django. | The issue arises for Django version 4; solved with the help of Code Institute Tutor Assistance (Alan) on December 20th, 2021, at 15:55, by assigning the workspace URL to the variable CSRF_TRUSTED_ORIGINS in the settings.py file to ['https://8000-aqua-jay-tl4cc8xk.ws-eu23.gitpod.io'] | 
-| The pages of the website could not be loaded all together, only either instructions and blog pages together, or weather and contact pages together, never the four pages together  | The issue was solved by changing the order of elements in the urlpatterns variable in the app (app_blog) urls.py file from Blog/(Post Detail)/Instructions/Weather/Contact to Instructions/Weather/Contact/Blog/(Post Detail); solution found on https://stackoverflow.com/questions/36429144/page-not-found-404-no-post-matches-the-given-query, on December 23rd, 2021, at 03:20. |
-| It was not possible to convert data (sent to views.py with AJAX, with POST) to float, even after trying with JSON.stringify() | Solved by deleting "dataType: 'json'," line, as the method seems to pass strings, which can be easily converted to float (before, a "ul" element was being received). Reference: https://stackoverflow.com/questions/1969476/ajax-success-event-not-working; accessed on January 4th, 2022, at 21:10. |
+| It was not possible to log into an administration account in Django. | The issue arises for Django version 4; solved with the help of Code Institute Tutor Assistance (Alan) on December 20th, 2021, at 15:55, by assigning the workspace URL to the variable CSRF_TRUSTED_ORIGINS in the settings.py file. | 
+| The pages of the website could not be loaded all together, only either instructions and blog pages together, or weather and contact pages together, never the four pages together.  | The issue was solved by changing the order of elements in the urlpatterns variable in the app (app_blog) urls.py file from Blog/(Post Detail)/Instructions/Weather/Contact to Instructions/Weather/Contact/Blog/(Post Detail); solution found on https://stackoverflow.com/questions/36429144/page-not-found-404-no-post-matches-the-given-query, on December 23rd, 2021, at 03:20. |
+| It was not possible to convert data (sent to views.py with AJAX, with POST) to float, even after trying with JSON.stringify(). | Solved by deleting "dataType: 'json'," line, as the method seems to pass strings, which can be easily converted to float (before, a "ul" element was being received). Reference: https://stackoverflow.com/questions/1969476/ajax-success-event-not-working; accessed on January 4th, 2022, at 21:10. |
 | Django models in app_weather could not be migrated because of wrongly deleting migrations file, causing a deleted column not registered/available in the files when reversing the migrations. | Issue solved with the help of Code Institute Tutor Assistance (Igor) by deleting the Postgres database, creating a new one, deleting all migrations files in all applications (except each __init__.py), making migrations, migrating and creating superuser again. |
 | There were some issues with the deployment in Heroku, apparently because of changes in Gitpod. | The issue was solved with the help of the Code Institute Tutor Assistance by installing Django version 3.2 (instead of version 4.0), creating a new workspace in Gitpod, and generating a new requirements.txt file. | 
 | It was not possible to test the accessibility of the weather.html file; when using https://wave.webaim.org/, the weather app/page stopped working (even if it was working right before using the validator), even when they are in different windows and/or browsers; the validator reads a "ul" string/tag, while the app/page reads the correct string. | The issue was solved with the help of the Code Institute Tutor Assistance by working with try/except options; however, the resulting "FieldError" could not be addressed and a general "except" was used. In addition, query of data was carried out outside the "context" variable of the views.py file of the weather app. | 
-| Data with DateField format for Django data models could not be tested | To test, the code addresses a shift of one position in the instantiated class (since the class DataAndTimeForData does not assign a value to date); the issue could be related to a change of date format in the Django configuration that was not reverted back, although this reason cannot be confirmed. |
+| Data with DateField format for Django data models could not be tested. | To test, the code addresses a shift of one position in the instantiated class (since the class DataAndTimeForData does not assign a value to date); the issue could be related to a change of date format in the Django configuration that was not reverted back, although this reason cannot be confirmed. |
 | Esri/ArcGIS map does not pan/zoom in touch screen cell devices. | The issue is still under investigation, it could be related to specific versions of the API, JavaScript and/or browsers, although it cannot yet be confirmed. | 
 
 <br><br>
@@ -1676,11 +1681,10 @@ ___
 - W3C®. Copyright © 2021 W3C ® (MIT, ERCIM, Keio, Beihang):
     - How to introduce author in anchor element: https://www.w3.org/TR/2011/WD-html5-author-20110809/the-link-element.html, accessed on August 4th, 2021, at 00:06.
 
-- W3Schools (Powered by W3.CSS):
+- W3Schools (Powered by W3.CSS), https://www.w3schools.com/:
 
     - Intro to AJAX: https://www.w3schools.com/js/js_ajax_intro.asp, on January 1st, 2022.
 
-    - ...: https://www.w3schools.com/...; accessed on ..., 2021, at 23:55.
 
 
 <br><br>
@@ -1694,6 +1698,7 @@ I would like to acknowledge and thank the following people for being part of thi
 - To my wife and family, for always supporting and helping.
 - Code Institute, for providing knowledge, guide, content and tools.
 - My mentor, Mo, for helping with very valuable guide and support.
+- Code Institute Tutor Assistance for helping when needed.
 - Code Institute community in Slack for permanently being an online reference.
 - All the valuable information provided by the sources mentioned above in the credits.
 
