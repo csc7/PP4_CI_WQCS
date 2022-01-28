@@ -279,7 +279,7 @@ ___
 The design was planned to cover screen sizes from 320x568px to 1920x1370px.
 
 ## **Colours**
-White and RGB(49, 49, 48), with some titles in RGB(76, 76, 211). Other variations close to these three colours are also present to enhance contrast. The backgound of the body was set to RGB(236, 238, 238) in order to have a good contrast as well.
+White and RGB(49, 49, 48), with some titles in RGB(76, 76, 211). Other variations close to these three colours are also present to enhance contrast. The background of the body was set to RGB(236, 238, 238) in order to have a good contrast as well.
 
 #### [Back to Index](#index)
 <br>
@@ -374,12 +374,12 @@ Please check the PDFs files for each case in the following links:
 <details>
     <summary>Cell Wireframe Image for Instructions and Weather Pages</summary>
 
-![Tablet Wireframe Image for Instructions and Weather Page](docs/wireframes/docs/wireframes/wireframe-cell-instructions-weather-pages.PNG)
+![Tablet Wireframe Image for Instructions and Weather Page](docs/wireframes/wireframe-cell-instructions-weather-pages.PNG)
 </details>
 <details>
     <summary>Cell Wireframe Image for Blog and Contact Pages</summary>
 
-![Tablet Wireframe Image for Blog and Contact Page](docs/wireframes/docs/wireframes/wireframe-cell-blog-contact-pages.PNG)
+![Tablet Wireframe Image for Blog and Contact Page](docs/wireframes/wireframe-cell-blog-contact-pages.PNG)
 </details>
 
 
@@ -1462,7 +1462,8 @@ Bugs that required more time and specific solutions were the following ones:
 | It was not possible to convert data (sent to views.py with AJAX, with POST) to float, even after trying with JSON.stringify() | Solved by deleting "dataType: 'json'," line, as the method seems to pass strings, which can be easily converted to float (before, a "ul" element was being received). Reference: https://stackoverflow.com/questions/1969476/ajax-success-event-not-working; accessed on January 4th, 2022, at 21:10. |
 | Django models in app_weather could not be migrated because of wrongly deleting migrations file, causing a deleted column not registered/available in the files when reversing the migrations. | Issue solved with the help of Code Institute Tutor Assistance (Igor) by deleting the Postgres database, creating a new one, deleting all migrations files in all applications (except each __init__.py), making migrations, migrating and creating superuser again. |
 | There were some issues with the deployment in Heroku, apparently because of changes in Gitpod. | The issue was solved with the help of the Code Institute Tutor Assistance by installing Django version 3.2 (instead of version 4.0), creating a new workspace in Gitpod, and generating a new requirements.txt file. | 
-| It was not possible to test the accessibility of the weather.html file; when using https://wave.webaim.org/, the weather app/page stopped working (even if it was working right before using the validator), even when they are in different windows and/or browsers; the validator reads a "ul" string/tag, while the app/page reads the correct string. | The issue was solved with the help of the Code Institute Tutor Assistance by working with try/except options; however, the resulting "FieldError" could not be addressed and a general "except" was used. In addition, query of data was carried out outside the "context" variable of the views.py file of the weather app. However, after a while, and without changing the files, the issue has arisen again; the weather app/page seems to work fine after any change in the Config Vars of Heroku. | 
+| It was not possible to test the accessibility of the weather.html file; when using https://wave.webaim.org/, the weather app/page stopped working (even if it was working right before using the validator), even when they are in different windows and/or browsers; the validator reads a "ul" string/tag, while the app/page reads the correct string. | The issue was solved with the help of the Code Institute Tutor Assistance by working with try/except options; however, the resulting "FieldError" could not be addressed and a general "except" was used. In addition, query of data was carried out outside the "context" variable of the views.py file of the weather app. | 
+| Data with DateField format for Django data models could not be tested | To test, the code addresses a shift of one position in the instantiated class (since the class DataAndTimeForData does not assign a value to date); the issue could be related to a change of date format in the Django configuration that was not reverted back, although this reason cannot be confirmed. |
 | Esri/ArcGIS map does not pan/zoom in touch screen cell devices. | The issue is still under investigation, it could be related to specific versions of the API, JavaScript and/or browsers, although it cannot yet be confirmed. | 
 
 <br><br>
