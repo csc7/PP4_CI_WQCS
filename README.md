@@ -374,12 +374,12 @@ Please check the PDFs files for each case in the following links:
 <details>
     <summary>Cell Wireframe Image for Instructions and Weather Pages</summary>
 
-![Tablet Wireframe Image for Instructions and Weather Page](docs/wireframes/wireframe-cell-functions-generator-pages.PNG)
+![Tablet Wireframe Image for Instructions and Weather Page](docs/wireframes/docs/wireframes/wireframe-cell-instructions-weather-pages.PNG)
 </details>
 <details>
     <summary>Cell Wireframe Image for Blog and Contact Pages</summary>
 
-![Tablet Wireframe Image for Blog and Contact Page](docs/wireframes/wireframe-cell-quiz-contact-pages.PNG)
+![Tablet Wireframe Image for Blog and Contact Page](docs/wireframes/docs/wireframes/wireframe-cell-blog-contact-pages.PNG)
 </details>
 
 
@@ -389,7 +389,7 @@ Please check the PDFs files for each case in the following links:
 
 [PDF File for Tablet Wireframe](docs/wireframes/wireframe-wqcs-tablet.pdf)
 
-[PDF File for Cell Wireframe](docs/wireframes/wireframe-cell.pdf)
+[PDF File for Cell Wireframe](docs/wireframes/wireframe-wqcs-cell.pdf)
 <br><br>
 ## [Back to Index](#index)
 <br><br>
@@ -415,6 +415,7 @@ The following languages, software and tools were implemented using Windows 10 Pr
 - #### **PostgreSQL**
 - #### **Font Awesome (v5.15)**
 - #### **Bootstrap (v4.0)**
+- #### **unittest**
 - #### **Balsamiq Wireframes (v4.2.4, Editor Version 2.6.0)**
 - #### **ERDPlus, to make the data model graph**
 - #### **Google Fonts**
@@ -948,8 +949,23 @@ Google Lighthouse (used in Google, Microsoft Edge and Firefox) were used to eval
 <br><br>
 
 ___
-# **11 . Testing of User Stories**
+# **11 . Testing**
 
+## **Testing of Python files with unittest**
+
+The data model and Python files were tested with unittest; it was used to test the assignation of values to the fields of each table of the data model.
+
+31 tests were written and succesfully executed in 0.005 seconds.
+
+<details>
+    <summary>Screenshot of unittest result</summary>
+
+![unittest Image 1](docs/features-and-evidence/python-testing.PNG)
+![unittest Image 2](docs/features-and-evidence/python-testing-2.PNG)
+</details>
+<br><br>
+
+## **Testing of User Stories**
 
 ## **First time users**
 
@@ -1606,10 +1622,14 @@ ___
 
 - OpenWeather:
 
-    © 2012 — 2021 OpenWeather ® All rights reserved.
+    - © 2012 — 2021 OpenWeather ® All rights reserved.
     This team provides the API for the weather information of the site.
     Web: https://openweathermap.org/ .
     Current Weather Data API: https://openweathermap.org/current .
+
+- Python unittest:
+
+    - As reference for testing in Python: https://docs.python.org/3/library/unittest.html .
 
 - Stack Overflow:
 
