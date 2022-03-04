@@ -394,6 +394,20 @@ a.nav-link {
     margin-bottom: 225px;
 }
 
+/* CRUD Panel */
+
+#crud-title {
+    
+}
+
+#crud-title > p{
+    font-family: 'Heebo', sans-serif;
+    margin: auto;
+    text-align: center;
+    font-size: 140%;
+    color: rgb(98, 88, 184);
+}
+
 /* Google Chart Graphs */
 
 #curve_chart_left > div > div > div > svg,
