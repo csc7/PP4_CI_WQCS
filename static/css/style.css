@@ -396,16 +396,46 @@ a.nav-link {
 
 /* CRUD Panel */
 
-#crud-title {
-    
+#crud-panel-title {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-#crud-title > p{
+#crud-panel-title > p {
     font-family: 'Heebo', sans-serif;
     margin: auto;
     text-align: center;
     font-size: 140%;
     color: rgb(98, 88, 184);
+}
+
+.crud-button-div {
+    height: 50px;
+}
+
+.crud-button {
+    width: 200px;
+    height: 40px;    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-family: 'Heebo', sans-serif;
+    background-color: white;
+}
+
+#crud-panel-status {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#crud-panel-status > p {
+    font-family: 'Heebo', sans-serif;
+    margin: auto;
+    text-align: center;
+    font-size: 140%;
+    color: rgb(102, 204, 55);
 }
 
 /* Google Chart Graphs */
