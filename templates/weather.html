@@ -80,7 +80,7 @@
                     {% if user.is_authenticated %}   
                         <button id="send-weather-data-button" type="submit">Send Data to DB</button>
                     {% else %}
-                    <p>(Log in to send data to database)</p>
+                        <p>(Log in to send data to database)</p>
                     {% endif %}
                     </div>
                     <!-- /.Weather Data -->
@@ -137,19 +137,27 @@
                 <div id="crud-panel-title" class="col-12">
                     <p>Record Edition</p>
                 </div>
-                <!-- CRUD Panel Buutons -->       
-                <div class="col-12 col-md-6 col-lg-3 crud-button-div">
-                    <button class="crud-button" type="submit">Create</button>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 crud-button-div">
-                    <button class="crud-button" type="submit">Select</button>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 crud-button-div">
-                    <button class="crud-button" type="submit">Update</button>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 crud-button-div">
-                    <button class="crud-button" type="submit">Delete</button>
-                </div>
+                <!-- CRUD Panel Buutons -->
+                {% if user.is_authenticated %}    
+                    <div class="col-12 col-md-6 col-lg-3 crud-button-div">
+                        <button id="crud-create-button" class="crud-button" type="submit">Create</button>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3 crud-button-div">
+                        <button class="crud-button" type="submit">Select</button>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3 crud-button-div">
+                        <button class="crud-button" type="submit">Update</button>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3 crud-button-div">
+                        <button class="crud-button" type="submit">Delete</button>
+                    </div>
+                    <div class="col-12" id="crud-create-or-edit-panel">
+                    </div>
+                {% else %}
+                    <div class="col-12">
+                        <p id="crud-log-in-to-edit">(Log in to create, edit or delete records)</p>
+                    </div>
+                {% endif %}
                 <!-- CRUD Panel Status -->
                 <div id="crud-panel-status" class="col-12">
                     <p>Status</p>

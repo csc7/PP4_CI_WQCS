@@ -1629,8 +1629,12 @@ ___
 
     - Checked several methods at https://api.jquery.com/, https://jquery.com/ .
 
+    - CSS style with jQuery: https://api.jquery.com/css/, accessed on March 5th, 2022, at 04:35.
+
 - MDN Web Docs Moz://a;
     - To perform an action when an input field changes: https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event; accessed on January 7th, 2022, at 18:17.
+
+    - Type time with seconds (00:00:00): https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/time, accessed on March 5th, 2022, at 05:37 .
 
 - OpenWeather:
 

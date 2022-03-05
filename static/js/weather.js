@@ -405,3 +405,153 @@ $('input:radio[name="records-to-display"]').change(e => sendWeatherData(e, false
 $('#s-d-o-list-1').change(e => sendWeatherData(e, false));
 $('#s-d-o-list-2').change(e => sendWeatherData(e, false));
 // ------------------------------------------------------------------
+
+
+
+$('#crud-create-button').click(function(){
+  console.log("Testing");
+  // CSS style with jQuery: https://api.jquery.com/css/, accessed on March 5th, 2022, at 04:35
+  $('#crud-create-or-edit-panel').css("margin-top","50px");
+  // Type time with seconds (00:00:00): https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/time, accessed on March 5th, 2022, at 05:37
+  document.getElementById('crud-create-or-edit-panel').innerHTML = `
+  <div class="container">
+    <div class="row">
+
+    <div class="col-12 col-sm-3 weather-data-label text-right">
+      <label for="crud-value-wind" id="label-for-crud-value-wind">Wind Spped</label>
+    </div>                                       
+    <div class="col-12 col-sm-3 weather-data-value">
+      <input id="crud-value-wind" type="number">
+    </div>
+
+    <div class="col-12 col-sm-3 weather-data-label text-right">
+      <label for="crud-value-wind-direction" id="label-for-crud-value-wind-direction">Direction</label>
+    </div>
+    <div class="col-12 col-sm-3 weather-data-value">
+      <input id="crud-value-wind-direction" type="number">
+    </div>
+
+    <div class="col-12 col-sm-3 weather-data-label text-right">
+      <label for="crud-value-temperature" id="label-for-crud-value-temperature">Temperature</label>
+    </div>
+    <div class="col-12 col-sm-3 weather-data-value">
+      <input id="crud-value-temperature" type="number">
+    </div>
+
+    <div class="col-12 col-sm-3 weather-data-label text-right">
+      <label for="crud-value-feels-like" id="label-for-crud-value-feels-like">Feels Like</label>
+    </div>
+    <div class="col-12 col-sm-3 weather-data-value">
+      <input id="crud-value-feels-like" type="number">
+    </div>
+
+    <div class="col-12 col-sm-3 weather-data-label text-right">
+      <label for="crud-value-temperature-max" id="label-for-crud-value-temperature-max">Temp. Max</label>
+    </div>
+    <div class="col-12 col-sm-3 weather-data-value">
+      <input id="crud-value-temperature-max" type="number">
+    </div>
+
+    <div class="col-12 col-sm-3 weather-data-label text-right">
+      <label for="crud-value-temperature-min" id="label-for-crud-value-temperature-min">Temp. Min</label>
+    </div>
+    <div class="col-12 col-sm-3 weather-data-value">
+      <input id="crud-value-temperature-min" type="number">
+    </div>
+
+    <div class="col-12 col-sm-3 weather-data-label text-right">
+      <label for="crud-value-pressure" id="label-for-crud-value-pressure">Pressure</label>
+    </div>
+    <div class="col-12 col-sm-3 weather-data-value">
+      <input id="crud-value-pressure" type="number">
+    </div>
+
+    <div class="col-12 col-sm-3 weather-data-label text-right">
+      <label for="crud-value-humidity" id="label-for-crud-value-humidity">Humidity</label>
+    </div>
+    <div class="col-12 col-sm-3 weather-data-value">
+      <input id="crud-value-humidity" type="number">
+    </div>
+
+    <div class="col-12 col-sm-3 weather-data-label text-right">
+      <label for="crud-value-visibility" id="label-for-crud-value-visibility">Visibility</label>
+    </div>
+    <div class="col-12 col-sm-3 weather-data-value">
+      <input id="crud-value-visibility" type="number">
+    </div>
+
+    <div class="col-12 col-sm-3 weather-data-label text-right">
+      <label for="crud-value-clouds" id="label-for-crud-value-clouds">Sky</label>
+    </div>
+    <div class="col-12 col-sm-3 weather-data-value">
+      <input id="crud-value-clouds" type="number">
+    </div>
+
+    <div class="col-12 col-sm-3 weather-data-label text-right"> 
+      <label for="crud-value-main" id="label-for-crud-value-main">Main</label>
+    </div>
+    <div class="col-12 col-sm-3 weather-data-value">
+      <input id="crud-value-main" type="text" maxlength="16">
+    </div>
+
+    <div class="col-12 col-sm-3 weather-data-label text-right">
+      <label for="crud-value-description" id="label-for-crud-value-description">Description</label>
+    </div>
+    <div class="col-12 col-sm-3 weather-data-value">
+      <input id="crud-value-description" type="text" maxlength="16">
+    </div>
+
+    <div class="col-12 col-sm-3 weather-data-label text-right">
+      <label for="crud-value-country" id="label-for-crud-value-country">Country</label>
+    </div>
+    <div class="col-12 col-sm-3 weather-data-value">
+      <input id="crud-value-country" type="text" maxlength="16">
+    </div>
+
+    <div class="col-12 col-sm-3 weather-data-label text-right">
+      <label for="crud-value-date" id="label-for-crud-value-date">Date</label>
+    </div>
+    <div class="col-12 col-sm-3 weather-data-value">
+      <input id="crud-value-date" type="date">
+    </div>
+
+    <div class="col-12 col-sm-3 weather-data-label text-right">
+      <label for="crud-value-sunrise" id="label-for-crud-value-sunrise">Sunrise</label>
+    </div>
+    <div class="col-12 col-sm-3 weather-data-value">
+      <input id="crud-value-sunrise" type="time" step="2">
+    </div>
+
+    <div class="col-12 col-sm-3 weather-data-label text-right">
+      <label for="crud-value-sunset" id="label-for-crud-value-sunset"">Sunset</label>
+    </div>
+    <div class="col-12 col-sm-3 weather-data-value">
+      <input id="crud-value-sunset" type="time" step="2">
+    </div>
+
+
+    <div class="col-12" id="crud-send-weather-data-button-div">
+      <button id="crud-send-weather-data-button" type="submit">Send Data to DB</button>
+    </div>
+
+  </div>
+</div>
+  
+  `;
+
+  $('#crud-send-weather-data-button-div').css("height","100px")
+
+  $('#crud-send-weather-data-button').css({
+    "width": "200px",
+    "height": "40px", 
+    "position": "absolute",
+    "top": "50%",
+    "left": "50%",
+    "-ms-transform": "translate(-50%, -50%)",
+    "transform": "translate(-50%, -50%)",
+    "font-family": "'Heebo', sans-serif",
+    "background-color": "white"
+  });
+
+
+});

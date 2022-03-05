@@ -313,7 +313,8 @@ a.nav-link {
     background-color: white;
 }
 
-.weather-data-label > p, #manual-latitude-label, #manual-longitude-label {
+.weather-data-label > p, #manual-latitude-label,
+#manual-longitude-label, .weather-data-label > label {
     color: rgb(49, 49, 48);
     font-family: 'Heebo', sans-serif;
     text-align: right;
@@ -332,7 +333,7 @@ a.nav-link {
     margin-top: 2px;
 }
 
-#send-weather-data > p {
+#send-weather-data > p, #crud-log-in-to-edit {
     font-family: 'Heebo', sans-serif;
     color: rgb(49, 49, 48);
     text-align: center;
@@ -342,7 +343,7 @@ a.nav-link {
     margin-top: 20px;
 }
 
-#latitude-input, #longitude-input {
+#latitude-input, #longitude-input, .weather-data-value > input {
     width: 100%;
     color: rgb(76, 76, 211);
     border-style: solid;
@@ -426,7 +427,7 @@ a.nav-link {
 }
 
 #crud-panel-status {
-    margin-top: 20px;
+    margin-top: 0;
     margin-bottom: 20px;
 }
 
@@ -436,6 +437,11 @@ a.nav-link {
     text-align: center;
     font-size: 140%;
     color: rgb(102, 204, 55);
+}
+
+#crud-create-or-edit-panel {
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 /* Google Chart Graphs */
