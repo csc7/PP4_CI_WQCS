@@ -139,8 +139,16 @@ async function getStatus(e) {
         $("#value-main").text(data.weather[0].main);
         $("#value-description").text(data.weather[0].description);
         $("#value-country").text(data.sys.country);
+        // To guarante two characters for day and month and avoid issues when writing the database 
+        // (otherwise it assign only one for those smaller than 10),
+        // https://www.w3schools.com/js/js_date_methods.asp, accessed on March 5th, 2022, at 21:20
+        const days = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12",
+                       "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
+                       "25", "26", "27", "28", "29", "30", "31"];
+        const months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
         const date_now = new Date();
-        let current_date = date_now.getFullYear() + "-" + date_now.getMonth()+1 + "-" + date_now.getDate();
+        let current_date = date_now.getFullYear() + "-" + months[date_now.getMonth()] + "-" + days[date_now.getDate()-1];
+        console.log(current_date);
         //let current_time = date_now.getHours() + ":" + date_now.getMinutes() + ":" + date_now.getSeconds();
         $("#value-date").text(current_date);
         let sunrise = getUnixUTCTime(data.sys.sunrise + data.timezone);
@@ -180,6 +188,8 @@ async function sendWeatherData(e, write) {
     let currentDate = $('#value-date').text();
     const dateNow = new Date();
     let currentTime = dateNow.getHours() + ":" + dateNow.getMinutes() + ":" + dateNow.getSeconds();
+    console.log(dateNow);
+    console.log(currentTime);
     // Wind data
     let valueWind = $('#value-wind').text();
     let valueWindDir = $('#value-wind-direction').text();

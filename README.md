@@ -1476,7 +1476,7 @@ Bugs that required more time and specific solutions were the following ones:
 | It was not possible to test the accessibility of the weather.html file; when using https://wave.webaim.org/, the weather app/page stopped working (even if it was working right before using the validator), even when they are in different windows and/or browsers; the validator reads a "ul" string/tag, while the app/page reads the correct string. | The issue was solved with the help of the Code Institute Tutor Assistance by working with try/except options; however, the resulting "FieldError" could not be addressed and a general "except" was used. In addition, query of data was carried out outside the "context" variable of the views.py file of the weather app. | 
 | Data with DateField format for Django data models could not be tested. | To test, the code addresses a shift of one position in the instantiated class (since the class DataAndTimeForData does not assign a value to date); the issue could be related to a change of date format in the Django configuration that was not reverted back, although this reason cannot be confirmed. |
 | Esri/ArcGIS map does not pan/zoom in touch screen cell devices. | The issue is still under investigation, it could be related to specific versions of the API, JavaScript and/or browsers, although it cannot yet be confirmed. | 
-
+| Weather records were not created/saved in the database. | The issue was caused by the format of the date (assigning only one character for days or months smaller than 10). Issue solved by creating arrays of two-characters for days and months, and using the system date and month to read the two-character day or month; https://www.w3schools.com/js/js_date_methods.asp, accessed on March 5th, 2022, at 21:20. | 
 <br><br>
 ## [Back to Index](#index)
 <br><br>
@@ -1689,6 +1689,8 @@ ___
 - W3Schools (Powered by W3.CSS), https://www.w3schools.com/:
 
     - Intro to AJAX: https://www.w3schools.com/js/js_ajax_intro.asp, on January 1st, 2022.
+
+    - To guarante two characters for day and month and avoid issues when writing the database (otherwise it assign only one for those smaller than 10), https://www.w3schools.com/js/js_date_methods.asp, accessed on March 5th, 2022, at 21:20.
 
 
 

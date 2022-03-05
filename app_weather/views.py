@@ -8,6 +8,7 @@ import json
 import re
 from itertools import chain
 
+
 # INTERNAL:
 from .models import DataAndTimeForData, WindData
 from .models import TemperatureData, OtherWeatherData
@@ -16,6 +17,12 @@ from .models import TemperatureData, OtherWeatherData
 
 
 from django.views.decorators.csrf import csrf_exempt
+
+
+
+#for item in WindData(wind_rec_id_id=pk):
+#    print(item)
+
 
 
 recs = 5
@@ -70,6 +77,7 @@ def get_weather_page(request):
 
             # Date and time
             value_date = json.dumps(request.POST.get('valueDate'))[1:-1]
+            print("Date = " + value_date)
             value_time = json.dumps(request.POST.get('valueTime'))[1:-1]
             # Wind data
             wind_speed_data = float(json.dumps(request.POST.get(
