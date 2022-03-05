@@ -407,9 +407,10 @@ $('#s-d-o-list-2').change(e => sendWeatherData(e, false));
 // ------------------------------------------------------------------
 
 
+// ------------------------------------------------------------------
+// CRUD panel to create data
 
 $('#crud-create-button').click(function(){
-  console.log("Testing");
   // CSS style with jQuery: https://api.jquery.com/css/, accessed on March 5th, 2022, at 04:35
   $('#crud-create-or-edit-panel').css("margin-top","50px");
   // Type time with seconds (00:00:00): https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/time, accessed on March 5th, 2022, at 05:37
@@ -555,3 +556,89 @@ $('#crud-create-button').click(function(){
 
 
 });
+// ------------------------------------------------------------------
+
+
+// ------------------------------------------------------------------
+// CRUD Panel - Send data to database using AJAX
+
+$("#crud-send-weather-data-button").click (e => sendWeatherDataInCrud(e, true));
+
+async function sendWeatherDataInCrud(e, write) {
+
+    console.log("Send data CRUD init");
+     
+    // Selected data
+    let writeData = write;
+    let recordsToDisplay = $('input[name="records-to-display"]:checked').val();
+    let otherValueToDisplay1 = $('#s-d-o-list-1').val();
+    let otherValueToDisplay2 = $('#s-d-o-list-2').val();
+    // Date and time
+    let currentDate = $('#crud-value-date').text();
+    const dateNow = new Date();
+    let currentTime = dateNow.getHours() + ":" + dateNow.getMinutes() + ":" + dateNow.getSeconds();
+    // Wind data
+    let valueWind = $('#crud-value-wind').text();
+    let valueWindDir = $('#crud-value-wind-direction').text();
+    // Temperature data
+    let valueTemperature = $('#crud-value-temperature').text();
+    let valueFeelsLike = $('#crud-value-feels-like').text();
+    let valueTemperatureMax = $('#crud-value-temperature-max').text();
+    let valueTemperatureMin = $('#crud-value-temperature-min').text();
+    // Other weather data
+    let valuePressure = $("#crud-value-pressure").text();
+    let valueHumidity = $("#crud-value-humidity").text();
+    let valueVisibility = $("#crud-value-visibility").text();
+    let valueClouds = $("#crud-value-clouds").text();
+    let valueMain = $("#crud-value-main").text();
+    let valueDescription = $("#crud-value-description").text();
+    let valueCountry = $("#crud-value-country").text();
+    let valueSunrise = $("#crud-value-sunrise").text();
+    let valueSunset = $("#crud-value-sunset").text();
+
+    console.log("CRUD create read data");
+   
+    $.ajax({
+        type: 'POST',        
+        url: '/weather/',
+        //dataType: 'json',
+        data: {
+            // Selected Data
+            'writeData' : writeData,
+            'recordsToDisplay': recordsToDisplay,
+            'otherValueToDisplay1': otherValueToDisplay1,
+            'otherValueToDisplay2': otherValueToDisplay2,
+            // Date and time
+            'valueDate': currentDate,
+            'valueTime': currentTime,
+            // Wind data
+            'valueWind': valueWind, 
+            'valueWindDir': valueWindDir,
+            // Temperature data
+            'valueTemperature': valueTemperature,
+            'valueFeelsLike': valueFeelsLike,
+            'valueTemperatureMax': valueTemperatureMax,
+            'valueTemperatureMin': valueTemperatureMin,
+            // Other weather data
+            'valuePressure' : valuePressure,
+            'valueHumidity' : valueHumidity,
+            'valueVisibility' : valueVisibility,
+            'valueClouds' : valueClouds,
+            'valueMain' : valueMain,
+            'valueDescription' : valueDescription,
+            'valueCountry' : valueCountry,
+            'valueSunrise' : valueSunrise,
+            'valueSunset' : valueSunset },
+        success: function (data) {
+          if (write){
+              alert("Record created, new data will appear below.");
+            }
+            // https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
+            $("#wind-extra-info").load(location.href+" #wind-extra-info>*","");
+            $("#temperature-extra-info").load(location.href+" #temperature-extra-info>*","");
+            $("#other-weather-extra-info").load(location.href+" #other-weather-extra-info>*","");
+            setTimeout(generateGoogleChartGraphs, 5000);
+        }    
+    });
+}
+// ------------------------------------------------------------------
