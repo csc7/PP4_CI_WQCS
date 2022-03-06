@@ -414,7 +414,12 @@ a.nav-link {
     height: 50px;
 }
 
-.crud-button {
+#crud-create-or-edit-panel {
+    display: none;
+}
+
+.crud-button, #crud-send-weather-data-button,
+#crud-hide-panel-button {
     width: 200px;
     height: 40px;    
     position: absolute;
@@ -424,6 +429,14 @@ a.nav-link {
     transform: translate(-50%, -50%);
     font-family: 'Heebo', sans-serif;
     background-color: white;
+}
+
+#crud-send-weather-data-button-div {
+    height: 100px;
+}
+
+#crud-hide-panel-button-div {
+    height: 30px;
 }
 
 #crud-panel-status {

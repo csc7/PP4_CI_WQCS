@@ -148,7 +148,6 @@ async function getStatus(e) {
         const months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
         const date_now = new Date();
         let current_date = date_now.getFullYear() + "-" + months[date_now.getMonth()] + "-" + days[date_now.getDate()-1];
-        console.log(current_date);
         //let current_time = date_now.getHours() + ":" + date_now.getMinutes() + ":" + date_now.getSeconds();
         $("#value-date").text(current_date);
         let sunrise = getUnixUTCTime(data.sys.sunrise + data.timezone);
@@ -188,8 +187,6 @@ async function sendWeatherData(e, write) {
     let currentDate = $('#value-date').text();
     const dateNow = new Date();
     let currentTime = dateNow.getHours() + ":" + dateNow.getMinutes() + ":" + dateNow.getSeconds();
-    console.log(dateNow);
-    console.log(currentTime);
     // Wind data
     let valueWind = $('#value-wind').text();
     let valueWindDir = $('#value-wind-direction').text();
@@ -421,151 +418,15 @@ $('#s-d-o-list-2').change(e => sendWeatherData(e, false));
 // CRUD panel to create data
 
 $('#crud-create-button').click(function(){
-  // CSS style with jQuery: https://api.jquery.com/css/, accessed on March 5th, 2022, at 04:35
-  $('#crud-create-or-edit-panel').css("margin-top","50px");
-  // Type time with seconds (00:00:00): https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/time, accessed on March 5th, 2022, at 05:37
-  document.getElementById('crud-create-or-edit-panel').innerHTML = `
-  <div class="container">
-    <div class="row">
-
-    <div class="col-12 col-sm-3 weather-data-label text-right">
-      <label for="crud-value-wind" id="label-for-crud-value-wind">Wind Spped</label>
-    </div>                                       
-    <div class="col-12 col-sm-3 weather-data-value">
-      <input id="crud-value-wind" type="number">
-    </div>
-
-    <div class="col-12 col-sm-3 weather-data-label text-right">
-      <label for="crud-value-wind-direction" id="label-for-crud-value-wind-direction">Direction</label>
-    </div>
-    <div class="col-12 col-sm-3 weather-data-value">
-      <input id="crud-value-wind-direction" type="number">
-    </div>
-
-    <div class="col-12 col-sm-3 weather-data-label text-right">
-      <label for="crud-value-temperature" id="label-for-crud-value-temperature">Temperature</label>
-    </div>
-    <div class="col-12 col-sm-3 weather-data-value">
-      <input id="crud-value-temperature" type="number">
-    </div>
-
-    <div class="col-12 col-sm-3 weather-data-label text-right">
-      <label for="crud-value-feels-like" id="label-for-crud-value-feels-like">Feels Like</label>
-    </div>
-    <div class="col-12 col-sm-3 weather-data-value">
-      <input id="crud-value-feels-like" type="number">
-    </div>
-
-    <div class="col-12 col-sm-3 weather-data-label text-right">
-      <label for="crud-value-temperature-max" id="label-for-crud-value-temperature-max">Temp. Max</label>
-    </div>
-    <div class="col-12 col-sm-3 weather-data-value">
-      <input id="crud-value-temperature-max" type="number">
-    </div>
-
-    <div class="col-12 col-sm-3 weather-data-label text-right">
-      <label for="crud-value-temperature-min" id="label-for-crud-value-temperature-min">Temp. Min</label>
-    </div>
-    <div class="col-12 col-sm-3 weather-data-value">
-      <input id="crud-value-temperature-min" type="number">
-    </div>
-
-    <div class="col-12 col-sm-3 weather-data-label text-right">
-      <label for="crud-value-pressure" id="label-for-crud-value-pressure">Pressure</label>
-    </div>
-    <div class="col-12 col-sm-3 weather-data-value">
-      <input id="crud-value-pressure" type="number">
-    </div>
-
-    <div class="col-12 col-sm-3 weather-data-label text-right">
-      <label for="crud-value-humidity" id="label-for-crud-value-humidity">Humidity</label>
-    </div>
-    <div class="col-12 col-sm-3 weather-data-value">
-      <input id="crud-value-humidity" type="number">
-    </div>
-
-    <div class="col-12 col-sm-3 weather-data-label text-right">
-      <label for="crud-value-visibility" id="label-for-crud-value-visibility">Visibility</label>
-    </div>
-    <div class="col-12 col-sm-3 weather-data-value">
-      <input id="crud-value-visibility" type="number">
-    </div>
-
-    <div class="col-12 col-sm-3 weather-data-label text-right">
-      <label for="crud-value-clouds" id="label-for-crud-value-clouds">Sky</label>
-    </div>
-    <div class="col-12 col-sm-3 weather-data-value">
-      <input id="crud-value-clouds" type="number">
-    </div>
-
-    <div class="col-12 col-sm-3 weather-data-label text-right"> 
-      <label for="crud-value-main" id="label-for-crud-value-main">Main</label>
-    </div>
-    <div class="col-12 col-sm-3 weather-data-value">
-      <input id="crud-value-main" type="text" maxlength="16">
-    </div>
-
-    <div class="col-12 col-sm-3 weather-data-label text-right">
-      <label for="crud-value-description" id="label-for-crud-value-description">Description</label>
-    </div>
-    <div class="col-12 col-sm-3 weather-data-value">
-      <input id="crud-value-description" type="text" maxlength="16">
-    </div>
-
-    <div class="col-12 col-sm-3 weather-data-label text-right">
-      <label for="crud-value-country" id="label-for-crud-value-country">Country</label>
-    </div>
-    <div class="col-12 col-sm-3 weather-data-value">
-      <input id="crud-value-country" type="text" maxlength="16">
-    </div>
-
-    <div class="col-12 col-sm-3 weather-data-label text-right">
-      <label for="crud-value-date" id="label-for-crud-value-date">Date</label>
-    </div>
-    <div class="col-12 col-sm-3 weather-data-value">
-      <input id="crud-value-date" type="date">
-    </div>
-
-    <div class="col-12 col-sm-3 weather-data-label text-right">
-      <label for="crud-value-sunrise" id="label-for-crud-value-sunrise">Sunrise</label>
-    </div>
-    <div class="col-12 col-sm-3 weather-data-value">
-      <input id="crud-value-sunrise" type="time" step="2">
-    </div>
-
-    <div class="col-12 col-sm-3 weather-data-label text-right">
-      <label for="crud-value-sunset" id="label-for-crud-value-sunset"">Sunset</label>
-    </div>
-    <div class="col-12 col-sm-3 weather-data-value">
-      <input id="crud-value-sunset" type="time" step="2">
-    </div>
-
-
-    <div class="col-12" id="crud-send-weather-data-button-div">
-      <button id="crud-send-weather-data-button" type="submit">Send Data to DB</button>
-    </div>
-
-  </div>
-</div>
-  
-  `;
-
-  $('#crud-send-weather-data-button-div').css("height","100px")
-
-  $('#crud-send-weather-data-button').css({
-    "width": "200px",
-    "height": "40px", 
-    "position": "absolute",
-    "top": "50%",
-    "left": "50%",
-    "-ms-transform": "translate(-50%, -50%)",
-    "transform": "translate(-50%, -50%)",
-    "font-family": "'Heebo', sans-serif",
-    "background-color": "white"
-  });
-
-
+  // Dislpay panel to create/edit records and send them to the database
+  $('#crud-create-or-edit-panel').css("display","block")
 });
+
+$('#crud-hide-panel-button').click(function(){
+  // Dislpay panel to create/edit records and send them to the database
+  $('#crud-create-or-edit-panel').css("display","none")
+});
+
 // ------------------------------------------------------------------
 
 
@@ -576,6 +437,29 @@ $("#crud-send-weather-data-button").click (e => sendWeatherDataInCrud(e, true));
 
 async function sendWeatherDataInCrud(e, write) {
 
+    if (write){
+      if ($('#crud-value-wind').val() == '' ||
+          $('#crud-value-wind-direction').val() == '' ||
+          $('#crud-value-value-temperature').val() == '' ||
+          $('#crud-value-value-feels-like').val() == '' ||
+          $('#crud-value-temperature-max').val() == '' ||
+          $('#crud-value-temperature-min').val() == '' ||
+          $('#crud-value-pressure').val() == '' ||
+          $('#crud-value-humidity').val() == '' ||
+          $('#crud-value-visibility').val() == '' ||
+          $('#crud-value-clouds').val() == '' ||
+          $('#crud-value-main').val() == '' ||
+          $('#crud-value-description').val() == '' ||
+          $('#crud-value-country').val() == '' ||
+          $('#crud-value-date').val() == '' ||
+          $('#crud-value-sunrise').val() == '' ||
+          $('#crud-value-sunset').val() == ''){
+        console.log($('#crud-value-wind').val())
+        alert("Please load data first");
+        return;
+      }
+    }  
+
     console.log("Send data CRUD init");
      
     // Selected data
@@ -584,27 +468,28 @@ async function sendWeatherDataInCrud(e, write) {
     let otherValueToDisplay1 = $('#s-d-o-list-1').val();
     let otherValueToDisplay2 = $('#s-d-o-list-2').val();
     // Date and time
-    let currentDate = $('#crud-value-date').text();
+    let currentDate = $('#crud-value-date').val();
     const dateNow = new Date();
     let currentTime = dateNow.getHours() + ":" + dateNow.getMinutes() + ":" + dateNow.getSeconds();
     // Wind data
-    let valueWind = $('#crud-value-wind').text();
-    let valueWindDir = $('#crud-value-wind-direction').text();
+    let valueWind = $('#crud-value-wind').val();
+    console.log(valueWind);
+    let valueWindDir = $('#crud-value-wind-direction').val();
     // Temperature data
-    let valueTemperature = $('#crud-value-temperature').text();
-    let valueFeelsLike = $('#crud-value-feels-like').text();
-    let valueTemperatureMax = $('#crud-value-temperature-max').text();
-    let valueTemperatureMin = $('#crud-value-temperature-min').text();
+    let valueTemperature = $('#crud-value-temperature').val();
+    let valueFeelsLike = $('#crud-value-feels-like').val();
+    let valueTemperatureMax = $('#crud-value-temperature-max').val();
+    let valueTemperatureMin = $('#crud-value-temperature-min').val();
     // Other weather data
-    let valuePressure = $("#crud-value-pressure").text();
-    let valueHumidity = $("#crud-value-humidity").text();
-    let valueVisibility = $("#crud-value-visibility").text();
-    let valueClouds = $("#crud-value-clouds").text();
-    let valueMain = $("#crud-value-main").text();
-    let valueDescription = $("#crud-value-description").text();
-    let valueCountry = $("#crud-value-country").text();
-    let valueSunrise = $("#crud-value-sunrise").text();
-    let valueSunset = $("#crud-value-sunset").text();
+    let valuePressure = $("#crud-value-pressure").val();
+    let valueHumidity = $("#crud-value-humidity").val();
+    let valueVisibility = $("#crud-value-visibility").val();
+    let valueClouds = $("#crud-value-clouds").val();
+    let valueMain = $("#crud-value-main").val();
+    let valueDescription = $("#crud-value-description").val();
+    let valueCountry = $("#crud-value-country").val();
+    let valueSunrise = $("#crud-value-sunrise").val();
+    let valueSunset = $("#crud-value-sunset").val();
 
     console.log("CRUD create read data");
    
