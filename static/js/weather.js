@@ -565,3 +565,33 @@ async function sendWeatherDataInCrud(e, write) {
     });
 }
 // ------------------------------------------------------------------
+
+
+// ------------------------------------------------------------------
+// Edit data in database using AJAX
+$(".edit-button-in-table").click (e => sendWeatherDataToEdit(e, "edition"));
+
+async function sendWeatherDataToEdit(e, write) {
+  
+     
+    // Selected data
+    let writeData = write;
+    let id_to_retrieve = 45;
+  
+    $.ajax({
+        type: 'POST',        
+        url: '/weather/',
+        //dataType: 'json',
+        data: {
+            // Data
+            'writeData' : writeData,
+            'id_to_retrieve' : id_to_retrieve},
+        success: function (data) {
+          if (write){
+              alert("Retrieving data, data to edit will appear in the edition panel.");
+            }
+            setTimeout(generateGoogleChartGraphs, 5000);
+        }    
+    });
+}
+// ------------------------------------------------------------------

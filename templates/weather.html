@@ -342,8 +342,14 @@
                             <td style="display:none;">{{ item.wind_rec_id.time }}</td>
                             <td>{{ item.wind_speed }}</td>
                             <td>{{ item.wind_direction }}</td>
-                            <td><button type="submit" class="btn btn-warning btn-sm edit-button-in-table">Edit</button></td>
-                            <td><button type="submit" class="btn btn-danger btn-sm delete-button-in-table">Delete</button></td>
+                            <td>
+                                <form action="" method="post">
+                                    <input type="submit" name="upvote" value="Upvote" class="btn btn-warning btn-sm edit-button-in-table">
+                                </form>
+                            </td>
+
+                            <!-- <td><button type="submit" class="btn btn-warning btn-sm edit-button-in-table">Edit</button></td>
+                            <td><button type="submit" class="btn btn-danger btn-sm delete-button-in-table">Delete</button></td> -->
                         </tr>
                     {% endfor %}
                 </table>

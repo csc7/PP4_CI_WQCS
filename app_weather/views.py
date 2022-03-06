@@ -72,6 +72,23 @@ def get_weather_page(request):
                                                   'otherValueToDisplay2')
                                                   )[1:-1])
 
+
+        ##############################################
+        # Edit record
+        if write_data == "edition":
+            print("Edition mode.")
+
+            
+
+            context = {
+                'value': "HELLO",
+            }
+
+            return render(request, "weather.html", context)
+
+
+        ##############################################
+
         # Write new record
         if write_data == "true":
             print("Writing = " + write_data)
