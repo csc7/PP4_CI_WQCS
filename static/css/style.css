@@ -378,6 +378,15 @@ a.nav-link {
 
 /* Selection panel */
 
+#select-data-options-title {
+    font-family: 'Heebo', sans-serif;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 140%;
+    color: rgb(98, 88, 184);
+}
+
 .radio-select-label {
     font-family: 'Heebo', sans-serif;
     color: rgb(98, 88, 184);
@@ -416,6 +425,9 @@ a.nav-link {
 
 #crud-create-or-edit-panel {
     display: none;
+    background-color: rgb(202, 200, 198);
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
 .crud-button, #crud-send-weather-data-button,
@@ -440,8 +452,8 @@ a.nav-link {
 }
 
 #crud-panel-status {
-    margin-top: 0;
-    margin-bottom: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 #crud-panel-status > p {

@@ -91,7 +91,12 @@
     </div>
     <!-- Days and Other Data/Information Selection Panel -->
     <div class="container">
-        <div id="select-data-options" class="row">            
+        <div id="select-data-options" class="row">
+            <div class="col-12">
+                <div>
+                    <p id="select-data-options-title">Select Records to Read and Display</p>
+                </div>                
+            </div>     
             <div id="s-d-o-1" class="col-12 col-lg-2">
                 <input type="radio" id="5-days" name="records-to-display" value="5-last" checked="checked">
                 <label for="5-days" class="radio-select-label">Last 5 days</label>
@@ -139,131 +144,128 @@
                 </div>
                 <!-- CRUD Panel Buutons -->
                 {% if user.is_authenticated %}    
-                    <div class="col-12 col-md-6 col-lg-3 crud-button-div">
-                        <button id="crud-create-button" class="crud-button" type="submit">Create</button>
+                    <div class="col-12 col-md-4 crud-button-div">
+                        <button id="crud-create-button" class="crud-button" type="submit">Create Record</button>
                     </div>
-                    <div class="col-12 col-md-6 col-lg-3 crud-button-div">
-                        <button class="crud-button" type="submit">Select</button>
+                    <div class="col-12 col-md-4 crud-button-div">
+                        <button class="crud-button" type="submit">Select and Update</button>
                     </div>
-                    <div class="col-12 col-md-6 col-lg-3 crud-button-div">
-                        <button class="crud-button" type="submit">Update</button>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3 crud-button-div">
-                        <button class="crud-button" type="submit">Delete</button>
+                    <div class="col-12 col-md-4 crud-button-div">
+                        <button class="crud-button" type="submit">Select and Delete</button>
                     </div>
                     <!-- Div to show field when create or edit is selected (initially hidden by CSS file) -->
                     <div class="col-12" id="crud-create-or-edit-panel">
                         <div class="container">
                             <div class="row">
-                                <div class="col-12 col-sm-3 weather-data-label text-right">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
                                     <label for="crud-value-wind" id="label-for-crud-value-wind">Wind Spped</label>
                                 </div>                                       
-                                <div class="col-12 col-sm-3 weather-data-value">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
                                     <input id="crud-value-wind" type="number" required>
                                 </div>
                             
-                                <div class="col-12 col-sm-3 weather-data-label text-right">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
                                     <label for="crud-value-wind-direction" id="label-for-crud-value-wind-direction">Direction</label>
                                 </div>
-                                <div class="col-12 col-sm-3 weather-data-value">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
                                     <input id="crud-value-wind-direction" type="number" required>
                                 </div>
                             
-                                <div class="col-12 col-sm-3 weather-data-label text-right">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
                                     <label for="crud-value-temperature" id="label-for-crud-value-temperature">Temperature</label>
                                 </div>
-                                <div class="col-12 col-sm-3 weather-data-value">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
                                     <input id="crud-value-temperature" type="number" required>
                                 </div>
                             
-                                <div class="col-12 col-sm-3 weather-data-label text-right">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
                                     <label for="crud-value-feels-like" id="label-for-crud-value-feels-like">Feels Like</label>
                                 </div>
-                                <div class="col-12 col-sm-3 weather-data-value">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
                                     <input id="crud-value-feels-like" type="number" required>
                                 </div>
                             
-                                <div class="col-12 col-sm-3 weather-data-label text-right">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
                                     <label for="crud-value-temperature-max" id="label-for-crud-value-temperature-max">Temp. Max</label>
                                 </div>
-                                <div class="col-12 col-sm-3 weather-data-value">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
                                     <input id="crud-value-temperature-max" type="number" required>
                                 </div>
                             
-                                <div class="col-12 col-sm-3 weather-data-label text-right">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
                                     <label for="crud-value-temperature-min" id="label-for-crud-value-temperature-min">Temp. Min</label>
                                 </div>
-                                <div class="col-12 col-sm-3 weather-data-value">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
                                     <input id="crud-value-temperature-min" type="number" required>
                                 </div>
                             
-                                <div class="col-12 col-sm-3 weather-data-label text-right">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
                                     <label for="crud-value-pressure" id="label-for-crud-value-pressure">Pressure</label>
                                 </div>
-                                <div class="col-12 col-sm-3 weather-data-value">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
                                     <input id="crud-value-pressure" type="number" required>
                                 </div>
                             
-                                <div class="col-12 col-sm-3 weather-data-label text-right">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
                                     <label for="crud-value-humidity" id="label-for-crud-value-humidity">Humidity</label>
                                 </div>
-                                <div class="col-12 col-sm-3 weather-data-value">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
                                     <input id="crud-value-humidity" type="number" required>
                                 </div>
                             
-                                <div class="col-12 col-sm-3 weather-data-label text-right">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
                                     <label for="crud-value-visibility" id="label-for-crud-value-visibility">Visibility</label>
                                 </div>
-                                <div class="col-12 col-sm-3 weather-data-value">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
                                     <input id="crud-value-visibility" type="number" required>
                                 </div>
                             
-                                <div class="col-12 col-sm-3 weather-data-label text-right">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
                                     <label for="crud-value-clouds" id="label-for-crud-value-clouds">Sky</label>
                                 </div>
-                                <div class="col-12 col-sm-3 weather-data-value">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
                                     <input id="crud-value-clouds" type="number" required>
                                 </div>
                             
-                                <div class="col-12 col-sm-3 weather-data-label text-right"> 
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right"> 
                                     <label for="crud-value-main" id="label-for-crud-value-main">Main</label>
                                 </div>
-                                <div class="col-12 col-sm-3 weather-data-value">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
                                     <input id="crud-value-main" type="text" maxlength="16" required>
                                 </div>
                             
-                                <div class="col-12 col-sm-3 weather-data-label text-right">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
                                     <label for="crud-value-description" id="label-for-crud-value-description">Description</label>
                                 </div>
-                                <div class="col-12 col-sm-3 weather-data-value">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
                                     <input id="crud-value-description" type="text" maxlength="16" required>
                                 </div>
                             
-                                <div class="col-12 col-sm-3 weather-data-label text-right">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
                                     <label for="crud-value-country" id="label-for-crud-value-country">Country</label>
                                 </div>
-                                <div class="col-12 col-sm-3 weather-data-value">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
                                     <input id="crud-value-country" type="text" maxlength="16" required>
                                 </div>
                             
-                                <div class="col-12 col-sm-3 weather-data-label text-right">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
                                     <label for="crud-value-date" id="label-for-crud-value-date">Date</label>
                                 </div>
-                                <div class="col-12 col-sm-3 weather-data-value">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
                                     <input id="crud-value-date" type="date" required>
                                 </div>
                             
-                                <div class="col-12 col-sm-3 weather-data-label text-right">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
                                     <label for="crud-value-sunrise" id="label-for-crud-value-sunrise">Sunrise</label>
                                 </div>
-                                <div class="col-12 col-sm-3 weather-data-value">
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
                                     <!-- Type time with seconds (00:00:00):
                                     https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/time,
                                     accessed on March 5th, 2022, at 05:37 -->
                                     <input id="crud-value-sunrise" type="time" step="2" required>
                                 </div>
                             
-                                <div class="col-12 col-sm-3 weather-data-label text-right">
+                                <div class="col-12 col-sm-3 weather-data-label text-center text-sm-right">
                                     <label for="crud-value-sunset" id="label-for-crud-value-sunset"">Sunset</label>
                                 </div>
                                 <div class="col-12 col-sm-3 weather-data-value">
@@ -290,7 +292,7 @@
                 {% endif %}
                 <!-- CRUD Panel Status -->
                 <div id="crud-panel-status" class="col-12">
-                    <p>Status</p>
+                    <p ></p>
                 </div>
             </div>
         </div>

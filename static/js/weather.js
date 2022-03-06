@@ -419,12 +419,14 @@ $('#s-d-o-list-2').change(e => sendWeatherData(e, false));
 
 $('#crud-create-button').click(function(){
   // Dislpay panel to create/edit records and send them to the database
-  $('#crud-create-or-edit-panel').css("display","block")
+  $('#crud-create-or-edit-panel').css("display","block");
+  $('#crud-panel-status > p').text("Create a record");
 });
 
 $('#crud-hide-panel-button').click(function(){
   // Dislpay panel to create/edit records and send them to the database
-  $('#crud-create-or-edit-panel').css("display","none")
+  $('#crud-create-or-edit-panel').css("display","none");
+  $('#crud-panel-status > p').text("");
 });
 
 // ------------------------------------------------------------------
@@ -436,6 +438,9 @@ $('#crud-hide-panel-button').click(function(){
 $("#crud-send-weather-data-button").click (e => sendWeatherDataInCrud(e, true));
 
 async function sendWeatherDataInCrud(e, write) {
+
+  $('#crud-panel-status > p').text("Sending data to the database")
+  
 
     if (write){
       if ($('#crud-value-wind').val() == '' ||
@@ -454,7 +459,7 @@ async function sendWeatherDataInCrud(e, write) {
           $('#crud-value-date').val() == '' ||
           $('#crud-value-sunrise').val() == '' ||
           $('#crud-value-sunset').val() == ''){
-        console.log($('#crud-value-wind').val())
+        $('#crud-panel-status > p').text("Create a record");
         alert("Please load data first");
         return;
       }
@@ -528,6 +533,7 @@ async function sendWeatherDataInCrud(e, write) {
           if (write){
               alert("Record created, new data will appear below.");
             }
+            $('#crud-panel-status > p').text("Data sent to database")
             // https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
             $("#wind-extra-info").load(location.href+" #wind-extra-info>*","");
             $("#temperature-extra-info").load(location.href+" #temperature-extra-info>*","");
