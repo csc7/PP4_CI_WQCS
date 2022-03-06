@@ -148,10 +148,10 @@
                         <button id="crud-create-button" class="crud-button" type="submit">Create Record</button>
                     </div>
                     <div class="col-12 col-md-4 crud-button-div">
-                        <button class="crud-button" type="submit">Select and Update</button>
+                        <button id="crud-select-and-edit-button" class="crud-button" type="submit">Select and Update</button>
                     </div>
                     <div class="col-12 col-md-4 crud-button-div">
-                        <button class="crud-button" type="submit">Select and Delete</button>
+                        <button id="crud-delete-button" class="crud-button" type="submit">Select and Delete</button>
                     </div>
                     <!-- Div to show field when create or edit is selected (initially hidden by CSS file) -->
                     <div class="col-12" id="crud-create-or-edit-panel">
@@ -277,12 +277,19 @@
                                 <div class="col-12" id="crud-send-weather-data-button-div">
                                     <button id="crud-send-weather-data-button" type="submit">Send Data to DB</button>
                                 </div>
-                                <div class="col-12" id="crud-hide-panel-button-div">
-                                    <button id="crud-hide-panel-button" type="submit">Hide Panel</button>
-                                </div>              
+                                             
                             </div>
                         </div>                      
                     </div>
+                    <div class="col-12" id="crud-quit-edition-mode-button-div">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <button id="crud-quit-edition-mode-button" type="submit">Quit Edition Mode</button>
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div> 
                     <!-- CRUD Send to database, hide (in CSS file) if not needed -->
                     
                 {% else %}
@@ -335,6 +342,8 @@
                             <td style="display:none;">{{ item.wind_rec_id.time }}</td>
                             <td>{{ item.wind_speed }}</td>
                             <td>{{ item.wind_direction }}</td>
+                            <td><button type="submit" class="btn btn-warning btn-sm edit-button-in-table">Edit</button></td>
+                            <td><button type="submit" class="btn btn-danger btn-sm delete-button-in-table">Delete</button></td>
                         </tr>
                     {% endfor %}
                 </table>
@@ -351,7 +360,9 @@
                             <td>{{ temp.temp_rec_id.date }}</td>
                             <td style="display:none;">{{ temp.temp_rec_id.time }}</td>
                             <td>{{ temp.temperature }}</td>
-                            <td>{{ temp.feels_like }}</td>                            
+                            <td>{{ temp.feels_like }}</td>
+                            <td><button type="submit" class="btn btn-warning btn-sm edit-button-in-table">Edit</button></td>
+                            <td><button type="submit" class="btn btn-danger btn-sm delete-button-in-table">Delete</button></td>                         
                         </tr>
                     {% endfor %}
                 </table>
@@ -369,6 +380,8 @@
                             <td style="display:none;">{{ other.0.time }}</td>
                             <td>{{ other.1.0 }}</td>
                             <td>{{ other.1.1 }}</td>
+                            <td><button type="submit" class="btn btn-warning btn-sm edit-button-in-table">Edit</button></td>
+                            <td><button type="submit" class="btn btn-danger btn-sm delete-button-in-table">Delete</button></td>
                         </tr>
                     {% endfor %}
                 </table>

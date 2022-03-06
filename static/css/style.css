@@ -426,12 +426,14 @@ a.nav-link {
 #crud-create-or-edit-panel {
     display: none;
     background-color: rgb(202, 200, 198);
+    margin-top: 25px;
+    margin-bottom: 0;
     padding-top: 25px;
-    padding-bottom: 25px;
+    padding-bottom: 0;
 }
 
 .crud-button, #crud-send-weather-data-button,
-#crud-hide-panel-button {
+#crud-quit-edition-mode-button {
     width: 200px;
     height: 40px;    
     position: absolute;
@@ -447,8 +449,16 @@ a.nav-link {
     height: 100px;
 }
 
-#crud-hide-panel-button-div {
+#crud-quit-edition-mode-button-div {
+    margin-top: -1px;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    display: none;
     height: 30px;
+}
+
+.background-color-grey {
+    background-color: rgb(202, 200, 198);
 }
 
 #crud-panel-status {
@@ -464,10 +474,7 @@ a.nav-link {
     color: rgb(102, 204, 55);
 }
 
-#crud-create-or-edit-panel {
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
+
 
 /* Google Chart Graphs */
 
@@ -511,6 +518,14 @@ a.nav-link {
 td {
     font-family: 'Oxygen', sans-serif;
     color: rgb(76, 76, 211);;
+}
+
+.edit-button-in-table {
+    display: none;
+}
+
+.delete-button-in-table {
+    display: none;
 }
 
 

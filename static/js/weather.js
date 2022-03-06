@@ -415,17 +415,39 @@ $('#s-d-o-list-2').change(e => sendWeatherData(e, false));
 
 
 // ------------------------------------------------------------------
-// CRUD panel to create data
+// CRUD panel buttons
 
 $('#crud-create-button').click(function(){
   // Dislpay panel to create/edit records and send them to the database
   $('#crud-create-or-edit-panel').css("display","block");
+  $('#crud-quit-edition-mode-button-div').css("display","block");
   $('#crud-panel-status > p').text("Create a record");
 });
 
-$('#crud-hide-panel-button').click(function(){
+$('#crud-select-and-edit-button').click(function(){
+  // Dislpay panel to create/edit records and send them to the database
+  $('.edit-button-in-table').css("display","block");
+  $('#crud-create-or-edit-panel').css("display","block");
+  $('#crud-quit-edition-mode-button-div').css("display","block");
+  $('.delete-button-in-table').css("display","none");
+  $('#crud-panel-status > p').text("Edit a record by clicking the button in the table");
+});
+
+$('#crud-delete-button').click(function(){
+  // Dislpay panel to create/edit records and send them to the database
+  $('.delete-button-in-table').css("display","block");
+  $('#crud-create-or-edit-panel').css("display","none");
+  $('#crud-quit-edition-mode-button-div').css("display","block");
+  $('.edit-button-in-table').css("display","none");
+  $('#crud-panel-status > p').text("Delete a record by clicking the button in the table");
+});
+
+$('#crud-quit-edition-mode-button').click(function(){
   // Dislpay panel to create/edit records and send them to the database
   $('#crud-create-or-edit-panel').css("display","none");
+  $('#crud-quit-edition-mode-button-div').css("display","none");
+  $('.edit-button-in-table').css("display","none");
+  $('.delete-button-in-table').css("display","none");
   $('#crud-panel-status > p').text("");
 });
 

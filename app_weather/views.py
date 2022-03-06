@@ -23,6 +23,9 @@ from django.views.decorators.csrf import csrf_exempt
 #for item in WindData(wind_rec_id_id=pk):
 #    print(item)
 
+#wind_data = WindData.objects.all()
+#for data in wind_data:
+#    print(data.wind_rec_id)
 
 
 recs = 5
