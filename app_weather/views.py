@@ -78,12 +78,11 @@ def get_weather_page(request):
         if write_data == "edition":
             print("Edition mode.")
 
-            
 
             context = {
-                'value': "HELLO",
+                'wind_data': WindData.objects.all().order_by('-id')[0:5],
             }
-
+            print (context)
             return render(request, "weather.html", context)
 
 
