@@ -613,7 +613,7 @@ $(document).ready(function(){
 
 $(".edit-button-in-table").click(function(){
 
-  let id = "4";
+  let id = this.id.slice(12);
   let otherValueToDisplay1 = $('#s-d-o-list-1').val();
   let otherValueToDisplay2 = $('#s-d-o-list-2').val();
   console.log(otherValueToDisplay2);
@@ -639,7 +639,24 @@ $(".edit-button-in-table").click(function(){
       alert("Retrieving data, data to edit will appear in the edition panel.");
       //https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
       //$("#crud-panel-status").load(location.href+" #crud-panel-status>*","");
+      // Wind data
       $('#crud-value-wind').val(fields['wind_speed']);
+      $('#crud-value-wind-direction').val(fields['wind_direction']);
+      // Temperature data
+      $('#crud-value-temperature').val(fields['wind_speed']);
+      $('#crud-value-feels-like').val(fields['wind_speed']);
+      $('#crud-value-temperature-max').val(fields['wind_speed']);
+      $('#crud-value-temperature-min').val(fields['wind_speed']);
+      // Other weather data
+      $("#crud-value-pressure").val(fields['wind_speed']);
+      $("#crud-value-humidity").val(fields['wind_speed']);
+      $("#crud-value-visibility").val(fields['wind_speed']);
+      $("#crud-value-clouds").val(fields['wind_speed']);
+      $("#crud-value-main").val(fields['wind_speed']);
+      $("#crud-value-description").val(fields['wind_speed']);
+      $("#crud-value-country").val(fields['wind_speed']);
+      $("#crud-value-sunrise").val("00:00:00");
+      $("#crud-value-sunset").val(fields['wind_speed']);
   })
   .catch(error => {
       console.log(`Ajax Error: ${error}`);

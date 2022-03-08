@@ -35,7 +35,6 @@ other_value_to_display_1 = 'pressure'
 other_value_to_display_2 = 'sky'
 
 
-
 @csrf_exempt
 def get_weather_page(request):
     """
@@ -96,20 +95,20 @@ def get_weather_page(request):
             print(id)
             context_edit = {
                 'edition': True,
-                'date_and_time_': DataAndTimeForData.objects.objects.get(id='10'),
-                'wind_data_': WindData.objects.get(id='10'),
-                'temperature_data_': TemperatureData.objects.get(id='10'),
-                'other_weather_data_': OtherWeatherData.objects.get(id='10')
+                'date_and_time_': DataAndTimeForData.objects.get(id=id),
+                'wind_data_': WindData.objects.get(wind_rec_id_id=id),
+                'temperature_data_': TemperatureData.objects.get(temp_rec_id_id=id),
+                'other_weather_data_': OtherWeatherData.objects.get(other_rec_id=id)
             }
-
+            print(context_edit)
             record_to_edit = serializers.serialize(
                 "json",
-                WindData.objects.all().order_by('-id')[id-1:id],
-                fields=('wind_rec_id', 'wind_speed', 'wind_direction')
+                WindData.objects.filter(wind_rec_id_id=id),
+                fields=('wind_rec_id_id', 'wind_speed', 'wind_direction')
             )
 
             print("context_edit sent")
-            print(context_edit)
+            
 
             return JsonResponse(record_to_edit, safe=False)
 
