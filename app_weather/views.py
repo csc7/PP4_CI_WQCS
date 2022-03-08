@@ -96,10 +96,10 @@ def get_weather_page(request):
             print(id)
             context_edit = {
                 'edition': True,
-                'date_and_time_': DataAndTimeForData.objects.all().order_by('-id')[id-1:id],
-                'wind_data_': WindData.objects.all().order_by('-id')[id-1:id],
-                'temperature_data_': TemperatureData.objects.all().order_by('-id')[id-1:id],
-                'other_weather_data_': OtherWeatherData.objects.all().order_by('-id')[id-1:id]
+                'date_and_time_': DataAndTimeForData.objects.objects.get(id='10'),
+                'wind_data_': WindData.objects.get(id='10'),
+                'temperature_data_': TemperatureData.objects.get(id='10'),
+                'other_weather_data_': OtherWeatherData.objects.get(id='10')
             }
 
             record_to_edit = serializers.serialize(
