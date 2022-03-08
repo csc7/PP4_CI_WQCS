@@ -300,9 +300,12 @@
                 <!-- CRUD Panel Status -->
                 <div id="crud-panel-status" class="col-12">
                     <p ></p>
-                    {% for item in wind_data %}
-                    <p >{{ item.wind_speed }}</p>
-                    {% endfor %}
+                    
+                    
+                    <p id="test_for_ajax"></p>
+                    
+                    
+
                 </div>
             </div>
         </div>
@@ -345,11 +348,11 @@
                             <td style="display:none;">{{ item.wind_rec_id.time }}</td>
                             <td>{{ item.wind_speed }}</td>
                             <td>{{ item.wind_direction }}</td>
-                            <td>
-                                <form action="" method="post">
-                                    <input type="submit" name="upvote" value="Upvote" class="btn btn-warning btn-sm edit-button-in-table">
+                            <!--<td>
+                                <form method="post" action='/weather/'>
+                                    <input type="submit" name="Edit" value="{{ item.wind_rec_id_id }}" class="btn btn-warning btn-sm edit-button-in-table">
                                 </form>
-                            </td>
+                            </td>-->
 
                             <!-- <td><button type="submit" class="btn btn-warning btn-sm edit-button-in-table">Edit</button></td>
                             <td><button type="submit" class="btn btn-danger btn-sm delete-button-in-table">Delete</button></td> -->
@@ -370,7 +373,8 @@
                             <td style="display:none;">{{ temp.temp_rec_id.time }}</td>
                             <td>{{ temp.temperature }}</td>
                             <td>{{ temp.feels_like }}</td>
-                            <td><button type="submit" class="btn btn-warning btn-sm edit-button-in-table">Edit</button></td>
+                            <!--<input type="hidden" value="{{ temp.temp_rec_id_id }}" name="temp_rec_id_{{ temp.temp_rec_id_id }}" id="temp_{{ temp.temp_rec_id_id }}">-->
+                            <td><button type="submit" class="btn btn-warning btn-sm edit-button-in-table" id="temp_rec_id_{{ temp.temp_rec_id_id }}">{{ temp.temp_rec_id_id }}</button></td>
                             <td><button type="submit" class="btn btn-danger btn-sm delete-button-in-table">Delete</button></td>                         
                         </tr>
                     {% endfor %}

@@ -180,6 +180,7 @@ async function sendWeatherData(e, write) {
     }       
     // Selected data
     let writeData = write;
+    console.log(writeData);
     let recordsToDisplay = $('input[name="records-to-display"]:checked').val();
     let otherValueToDisplay1 = $('#s-d-o-list-1').val();
     let otherValueToDisplay2 = $('#s-d-o-list-2').val();
@@ -569,29 +570,79 @@ async function sendWeatherDataInCrud(e, write) {
 
 // ------------------------------------------------------------------
 // Edit data in database using AJAX
-$(".edit-button-in-table").click (e => sendWeatherDataToEdit(e, "edition"));
+//$(".edit-button-in-table").click(e => sendWeatherDataToEdit(e, "edition"));
+//
+//async function sendWeatherDataToEdit(e, write) {  
+//     
+//    // Selected data
+//    let writeData = write;
+//    let id = this.event.target.id.slice(12);
+//    let otherValueToDisplay1 = $('#s-d-o-list-1').val();
+//    let otherValueToDisplay2 = $('#s-d-o-list-2').val();
+//    console.log(id);
+//      
+//    $.ajax({
+//        type: 'POST',        
+//        url: '/weather/',
+//        //dataType: 'json',
+//        data: {
+//            // Data
+//            'otherValueToDisplay1': otherValueToDisplay1,
+//            'otherValueToDisplay2': otherValueToDisplay2,
+//            'writeData' : writeData,
+//            'id' : id
+//            },
+//        success: function (data) {
+//          if (write){
+//              alert("Retrieving data, data to edit will appear in the edition panel.");
+//            }
+//            // https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
+//            $("#crud-panel-status").load(location.href+" #crud-panel-status>*","");
+//            //$("#crud-panel-status").html("#crud-panel-status");
+//            let users = JSON.parse(data);
+//            const fields = record_to_edit[0]['fields'];
+//            $('#crud-panel-status').val(fields['wind_speed']);
+//            setTimeout(generateGoogleChartGraphs, 5000);
+//        }    
+//    });
+//}
+//// ------------------------------------------------------------------
 
-async function sendWeatherDataToEdit(e, write) {
-  
-     
-    // Selected data
-    let writeData = write;
-    let id_to_retrieve = 45;
-  
-    $.ajax({
-        type: 'POST',        
-        url: '/weather/',
-        //dataType: 'json',
-        data: {
-            // Data
-            'writeData' : writeData,
-            'id_to_retrieve' : id_to_retrieve},
-        success: function (data) {
-          if (write){
-              alert("Retrieving data, data to edit will appear in the edition panel.");
-            }
-            setTimeout(generateGoogleChartGraphs, 5000);
-        }    
-    });
-}
-// ------------------------------------------------------------------
+
+$(document).ready(function(){
+
+$(".edit-button-in-table").click(function(){
+
+  let id = "4";
+  let otherValueToDisplay1 = $('#s-d-o-list-1').val();
+  let otherValueToDisplay2 = $('#s-d-o-list-2').val();
+  console.log(otherValueToDisplay2);
+  console.log(otherValueToDisplay1);
+
+  fetch('/weather/', {
+      headers: {
+          'Accept': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest',
+          'id': id,
+          'otherValueToDisplay1': otherValueToDisplay1,
+          'otherValueToDisplay2': otherValueToDisplay2
+      },
+  })
+  .then(response => {
+      return response.json();
+  })
+  .then(data => {
+      
+      let record_to_edit = JSON.parse(data);
+      const fields = record_to_edit[0]['fields'];
+      console.log(fields['wind_speed']);
+      alert("Retrieving data, data to edit will appear in the edition panel.");
+      //https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
+      //$("#crud-panel-status").load(location.href+" #crud-panel-status>*","");
+      $('#crud-value-wind').val(fields['wind_speed']);
+  })
+  .catch(error => {
+      console.log(`Ajax Error: ${error}`);
+  })
+})
+});

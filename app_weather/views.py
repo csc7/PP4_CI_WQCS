@@ -8,6 +8,8 @@ import json
 import re
 from itertools import chain
 
+from django.http import JsonResponse
+from django.core import serializers
 
 # INTERNAL:
 from .models import DataAndTimeForData, WindData
@@ -31,6 +33,7 @@ from django.views.decorators.csrf import csrf_exempt
 recs = 5
 other_value_to_display_1 = 'pressure'
 other_value_to_display_2 = 'sky'
+
 
 
 @csrf_exempt
@@ -72,24 +75,62 @@ def get_weather_page(request):
                                                   'otherValueToDisplay2')
                                                   )[1:-1])
 
-
+        
         ##############################################
+
         # Edit record
-        if write_data == "edition":
-            print("Edition mode.")
+        #if write_data == "edition":
+        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
 
+            id = int(request.headers.get('id'))
+            other_value_to_display_1 = request.headers.get('otherValueToDisplay1')
+            other_value_to_display_2 = request.headers.get('otherValueToDisplay2')
+            print(other_value_to_display_1)
+            print(other_value_to_display_2)
+            print("Edition mode.")       
+            
 
-            context = {
-                'wind_data': WindData.objects.all().order_by('-id')[0:5],
+            #id = str(json.dumps(request.POST.get(
+            #                                      'id')
+            #                                      )[1:-1])
+            print(id)
+            context_edit = {
+                'edition': True,
+                'date_and_time_': DataAndTimeForData.objects.all().order_by('-id')[id-1:id],
+                'wind_data_': WindData.objects.all().order_by('-id')[id-1:id],
+                'temperature_data_': TemperatureData.objects.all().order_by('-id')[id-1:id],
+                'other_weather_data_': OtherWeatherData.objects.all().order_by('-id')[id-1:id]
             }
-            print (context)
-            return render(request, "weather.html", context)
+
+            record_to_edit = serializers.serialize(
+                "json",
+                WindData.objects.all().order_by('-id')[id-1:id],
+                fields=('wind_rec_id', 'wind_speed', 'wind_direction')
+            )
+
+            print("context_edit sent")
+            print(context_edit)
+
+            return JsonResponse(record_to_edit, safe=False)
 
 
+            
+            
+            
+
+            #return render(request, "weather.html", context_edit)
+            #return context_edit
+        
+            
         ##############################################
+
+
 
         # Write new record
         if write_data == "true":
+
+            print(other_value_to_display_1)
+            print(other_value_to_display_2)
             print("Writing = " + write_data)
 
             # Indexes from 1 to -1 to delete quotation marks
@@ -208,7 +249,13 @@ def get_weather_page(request):
                                  )
         print("An exception outside AJAX related to posting data occurred")
 
+    
+    print("BEFORE CONTEXT")
+    
+
+
     context = {
+            'edition': False,
             'date_and_time': DataAndTimeForData.objects.all().order_by(
                 '-id'
                 )[0:recs],
@@ -219,6 +266,19 @@ def get_weather_page(request):
             'other_weather_data': other_weather_data,
             'other_value_to_display_1': other_value_to_display_1.capitalize(),
             'other_value_to_display_2': other_value_to_display_2.capitalize()
-        }
-
+    }
+    #print(context)
     return render(request, "weather.html", context)
+
+
+
+#def edit_record(request, id_of_record):
+#
+#    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+#        # Returns a JSON dataset of the selected user, with only the necessary fields that can be edited
+#        record_ = serializers.serialize(
+#            "json", 
+#            WindData.objects.filter(wind_rec_id_id=id_of_record),
+#            fields=('wind_speed', 'wind_direction')
+#        )
+#        return JsonResponse(user, safe=False)
