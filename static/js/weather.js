@@ -256,18 +256,19 @@ async function sendWeatherData(e, write) {
 // ------------------------------------------------------------------
 //Credit for getUnixUTCTime(): https://stackoverflow.com/questions/847185/convert-a-unix-timestamp-to-time-in-javascript,
 //copied and modified on January 3rd, 2022, at 13;00
+//Revisited on March 9th, 2022, at 6:51 to ensure two digits in hours, minutes and seconds.
 function getUnixUTCTime(unix_timestamp) {
     // Create a new JavaScript Date object based on the timestamp
     // multiplied by 1000 so that the argument is in milliseconds, not seconds.
     var date = new Date(unix_timestamp * 1000);
     // Hours part from the timestamp
-    var hours = date.getHours();
+    var hours = "0" + date.getHours();
     // Minutes part from the timestamp
-    var minutes = date.getMinutes();
+    var minutes = "0" + date.getMinutes();
     // Seconds part from the timestamp
-    var seconds = date.getSeconds();
+    var seconds = "0" + date.getSeconds();
     // Will display time in 10:30:23 format
-    var formattedTime = hours + ':' + minutes + ':' + seconds;
+    var formattedTime = hours.slice(-2) + ':' + minutes.slice(-2) + ':' + seconds.slice(-2);
     return(formattedTime);
 }
 // ------------------------------------------------------------------
@@ -607,6 +608,14 @@ async function sendWeatherDataInCrud(e, write) {
 //    });
 //}
 //// ------------------------------------------------------------------
+
+
+
+// Serialized string to return as JsonResponse
+// Code Institue Tutor Assistance (Scott and John) helped and suggested serialization.
+// Original code base on the following JavaScript and Django templates, accessed on March 8th, 2022:
+// Javascript: https://github.com/ShavingSeagull/TheHub/blob/master/static/js/administration.js
+// Template: https://github.com/ShavingSeagull/TheHub/blob/master/templates/administration/edit_user.html, lines 183 to 190.
 
 
 $(document).ready(function(){

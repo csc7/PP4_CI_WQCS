@@ -89,7 +89,8 @@ def get_weather_page(request):
 
         # Edit record
         #if write_data == "edition":
-        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+
+        if request.headers.get('x-requested-with') == 'XMLHttpRequest' and write_data != "true":
 
             id = int(request.headers.get('id'))
             other_value_to_display_1 = request.headers.get('otherValueToDisplay1')
@@ -154,7 +155,14 @@ def get_weather_page(request):
             #)
 
             # Serialized string to return as JsonResponse
-            # Built like this to merge four query sets
+            # Code Institue Tutor Assistance (Scott and John) helped and suggested serialization.
+            # Original code base on the following JavaScript and Django templates, accessed on March 8th, 2022:
+            # Javascript: https://github.com/ShavingSeagull/TheHub/blob/master/static/js/administration.js
+            # Template: https://github.com/ShavingSeagull/TheHub/blob/master/templates/administration/edit_user.html, lines 183 to 190.
+            # Later built like this to merge four query sets, after investigating the format of the serialized JsonResponse
+            # Using json.dumps to replace single quotation by double one
+            # https://stackoverflow.com/questions/18283725/how-to-create-a-python-dictionary-with-double-quotes-as-default-quote-format
+            # Accessed on March 9th, 2022, at 5:00.
             record_to_edit = '[{"model": "app_weather", "pk": ' + str(id) + \
                 ', "fields": {"date": "' + date_string + '", "time": "' + \
                 time_string + '", "country": "' + country + '", '+ json.dumps((dictionary))[1:] + '}]'
@@ -319,7 +327,9 @@ def get_weather_page(request):
             'other_value_to_display_1': other_value_to_display_1.capitalize(),
             'other_value_to_display_2': other_value_to_display_2.capitalize()
     }
-    #print(context)
+
+    write_data = "false"
+
     return render(request, "weather.html", context)
 
 
