@@ -616,6 +616,7 @@ $(".edit-button-in-table").click(function(){
   let id = this.id.slice(12);
   let otherValueToDisplay1 = $('#s-d-o-list-1').val();
   let otherValueToDisplay2 = $('#s-d-o-list-2').val();
+  let country = $("#value-country").val();
   console.log(otherValueToDisplay2);
   console.log(otherValueToDisplay1);
 
@@ -625,7 +626,8 @@ $(".edit-button-in-table").click(function(){
           'X-Requested-With': 'XMLHttpRequest',
           'id': id,
           'otherValueToDisplay1': otherValueToDisplay1,
-          'otherValueToDisplay2': otherValueToDisplay2
+          'otherValueToDisplay2': otherValueToDisplay2,
+          'country': country
       },
   })
   .then(response => {
@@ -635,28 +637,32 @@ $(".edit-button-in-table").click(function(){
       
       let record_to_edit = JSON.parse(data);
       const fields = record_to_edit[0]['fields'];
+      //const fields2 = record_to_edit_2[0]['fields'];
       console.log(fields['wind_speed']);
       alert("Retrieving data, data to edit will appear in the edition panel.");
       //https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
       //$("#crud-panel-status").load(location.href+" #crud-panel-status>*","");
+      // Date and time
+      $('#crud-value-date').val(fields['date']);
+      $('#crud-value-time').val(fields['time']);
       // Wind data
       $('#crud-value-wind').val(fields['wind_speed']);
       $('#crud-value-wind-direction').val(fields['wind_direction']);
       // Temperature data
-      $('#crud-value-temperature').val(fields['wind_speed']);
-      $('#crud-value-feels-like').val(fields['wind_speed']);
-      $('#crud-value-temperature-max').val(fields['wind_speed']);
-      $('#crud-value-temperature-min').val(fields['wind_speed']);
+      $('#crud-value-temperature').val(fields['temperature']);
+      $('#crud-value-feels-like').val(fields['feels_like']);
+      $('#crud-value-temperature-max').val(fields['temperature_max']);
+      $('#crud-value-temperature-min').val(fields['temperature_min']);
       // Other weather data
-      $("#crud-value-pressure").val(fields['wind_speed']);
-      $("#crud-value-humidity").val(fields['wind_speed']);
-      $("#crud-value-visibility").val(fields['wind_speed']);
-      $("#crud-value-clouds").val(fields['wind_speed']);
-      $("#crud-value-main").val(fields['wind_speed']);
-      $("#crud-value-description").val(fields['wind_speed']);
-      $("#crud-value-country").val(fields['wind_speed']);
-      $("#crud-value-sunrise").val("00:00:00");
-      $("#crud-value-sunset").val(fields['wind_speed']);
+      $("#crud-value-pressure").val(fields['pressure']);
+      $("#crud-value-humidity").val(fields['humidity']);
+      $("#crud-value-visibility").val(fields['visibility']);
+      $("#crud-value-clouds").val(fields['sky']);
+      $("#crud-value-main").val(fields['main']);
+      $("#crud-value-description").val(fields['description']);
+      $("#crud-value-country").val(fields['country']);
+      $("#crud-value-sunrise").val(fields['sunrise']);
+      $("#crud-value-sunset").val(fields['sunset']);
   })
   .catch(error => {
       console.log(`Ajax Error: ${error}`);

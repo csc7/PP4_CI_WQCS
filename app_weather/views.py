@@ -19,6 +19,8 @@ from .models import TemperatureData, OtherWeatherData
 
 
 from django.views.decorators.csrf import csrf_exempt
+from collections import namedtuple
+
 
 
 
@@ -33,6 +35,14 @@ from django.views.decorators.csrf import csrf_exempt
 recs = 5
 other_value_to_display_1 = 'pressure'
 other_value_to_display_2 = 'sky'
+
+
+class JSONData:
+
+    def __init__(self, JSON_dict):
+        self.JSON_dict = JSON_dict
+            
+
 
 
 @csrf_exempt
@@ -84,6 +94,7 @@ def get_weather_page(request):
             id = int(request.headers.get('id'))
             other_value_to_display_1 = request.headers.get('otherValueToDisplay1')
             other_value_to_display_2 = request.headers.get('otherValueToDisplay2')
+            country = request.headers.get('country')
             print(other_value_to_display_1)
             print(other_value_to_display_2)
             print("Edition mode.")       
@@ -93,23 +104,65 @@ def get_weather_page(request):
             #                                      'id')
             #                                      )[1:-1])
             print(id)
-            context_edit = {
-                'edition': True,
-                'date_and_time_': DataAndTimeForData.objects.get(id=id),
-                'wind_data_': WindData.objects.get(wind_rec_id_id=id),
-                'temperature_data_': TemperatureData.objects.get(temp_rec_id_id=id),
-                'other_weather_data_': OtherWeatherData.objects.get(other_rec_id=id)
-            }
-            print(context_edit)
-            record_to_edit = serializers.serialize(
-                "json",
-                WindData.objects.filter(wind_rec_id_id=id),
-                fields=('wind_rec_id_id', 'wind_speed', 'wind_direction')
-            )
-
-            print("context_edit sent")
+            #context_edit = {
+            #    'edition': True,
+            #    'date_and_time_': DataAndTimeForData.objects.get(id=id),
+            #    'wind_data_': WindData.objects.get(wind_rec_id_id=id),
+            #    'temperature_data_': TemperatureData.objects.get(temp_rec_id_id=id),
+            #    'other_weather_data_': OtherWeatherData.objects.get(other_rec_id=id)
+            #}
             
+            
+            dictionary = {}
 
+            dict_elem_1 = DataAndTimeForData.objects.filter(id=id).values('date', 'time')
+            serialized_JSON = JSONData(dict_elem_1[0])
+            date_string = str(serialized_JSON.JSON_dict['date'])
+            time_string = str(serialized_JSON.JSON_dict['time'])
+            print(date_string)            
+            print(time_string)
+            
+            dict_elem_2 = WindData.objects.filter(wind_rec_id_id=id).values('wind_speed', 'wind_direction')          
+            dictionary.update(dict_elem_2[0])            
+
+            dict_elem_3 = TemperatureData.objects.filter(temp_rec_id_id=id).values(
+                'temperature',
+                'feels_like',
+                'temperature_max',
+                'temperature_min'
+            )
+            dictionary.update(dict_elem_3[0])
+
+            dict_elem_4 = OtherWeatherData.objects.filter(other_rec_id=id).values(
+                'pressure',
+                'humidity',
+                'visibility',
+                'sky',
+                'main',
+                'description',
+                'sunrise',
+                'sunset'
+            )
+            dictionary.update(dict_elem_4[0])
+
+            #serialized_JSON_2 = JSONData(dictionary)
+
+            #record_to_edit_3 = serializers.serialize(
+            #    "json",
+            #    DataAndTimeForData.objects.filter(id=id),
+            #    fields=('date', 'time')
+            #)
+
+            # Serialized string to return as JsonResponse
+            # Built like this to merge four query sets
+            record_to_edit = '[{"model": "app_weather", "pk": ' + str(id) + \
+                ', "fields": {"date": "' + date_string + '", "time": "' + \
+                time_string + '", "country": "' + country + '", '+ json.dumps((dictionary))[1:] + '}]'
+            for char in record_to_edit:
+                if char == ''' ' ''':
+                    char = ''' " '''
+            
+            print(record_to_edit)
             return JsonResponse(record_to_edit, safe=False)
 
 
