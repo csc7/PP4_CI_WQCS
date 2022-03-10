@@ -38,7 +38,10 @@ other_value_to_display_2 = 'sky'
 
 
 class JSONData:
-
+    """
+    Class for instantiate the dictionary that will be part of the
+    serialization for the returned JsonResponse
+    """
     def __init__(self, JSON_dict):
         self.JSON_dict = JSON_dict
             
@@ -89,9 +92,10 @@ def get_weather_page(request):
 
         # Edit record
         #if write_data == "edition":
-
-        if request.headers.get('x-requested-with') == 'XMLHttpRequest' and write_data != "true":
-
+        print("Editing: " + str(request.headers.get('editionMode')))
+        if request.headers.get('x-requested-with') == 'XMLHttpRequest' and request.headers.get('editionMode') == "on":
+            print("Editing: YES")
+            
             id = int(request.headers.get('id'))
             other_value_to_display_1 = request.headers.get('otherValueToDisplay1')
             other_value_to_display_2 = request.headers.get('otherValueToDisplay2')
@@ -328,7 +332,6 @@ def get_weather_page(request):
             'other_value_to_display_2': other_value_to_display_2.capitalize()
     }
 
-    write_data = "false"
 
     return render(request, "weather.html", context)
 

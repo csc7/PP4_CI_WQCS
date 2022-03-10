@@ -40,7 +40,7 @@
                         <input id="longitude-input" type="number">
                     </div>
                     <div id="get-weather-data" class="col-12">
-                        <button id="get-weather-data-button" type="submit">Get Data</button>
+                        <button id="get-weather-data-button" type="button">Get Data</button>
                     </div>
                     <div id="results-title" class="col-12 weather-data-label"><p>Weather Data</p></div>
                     <!-- Weather Information -->
@@ -78,7 +78,7 @@
                     <div id="value-sunset" class="col-12 col-sm-6 col-md-3 weather-data-value"><p></p></div>
                     <div id="send-weather-data" class="col-12">   
                     {% if user.is_authenticated %}   
-                        <button id="send-weather-data-button" type="submit">Send Data to DB</button>
+                        <button id="send-weather-data-button" type="button">Send Data to DB</button>
                     {% else %}
                         <p>(Log in to send data to database)</p>
                     {% endif %}
@@ -374,8 +374,8 @@
                             <td>{{ temp.temperature }}</td>
                             <td>{{ temp.feels_like }}</td>
                             <!--<input type="hidden" value="{{ temp.temp_rec_id_id }}" name="temp_rec_id_{{ temp.temp_rec_id_id }}" id="temp_{{ temp.temp_rec_id_id }}">-->
-                            <td><button type="submit" class="btn btn-warning btn-sm edit-button-in-table" id="temp_rec_id_{{ temp.temp_rec_id_id }}">{{ temp.temp_rec_id_id }}</button></td>
-                            <td><button type="submit" class="btn btn-danger btn-sm delete-button-in-table">Delete</button></td>                         
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="temp_rec_id_{{ temp.temp_rec_id_id }}">{{ temp.temp_rec_id_id }}</button></td>
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table">Delete</button></td>                         
                         </tr>
                     {% endfor %}
                 </table>
@@ -393,8 +393,8 @@
                             <td style="display:none;">{{ other.0.time }}</td>
                             <td>{{ other.1.0 }}</td>
                             <td>{{ other.1.1 }}</td>
-                            <td><button type="submit" class="btn btn-warning btn-sm edit-button-in-table">Edit</button></td>
-                            <td><button type="submit" class="btn btn-danger btn-sm delete-button-in-table">Delete</button></td>
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table">Edit</button></td>
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table">Delete</button></td>
                         </tr>
                     {% endfor %}
                 </table>

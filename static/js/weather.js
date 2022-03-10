@@ -111,6 +111,8 @@ require(["esri/map", "esri/geometry/webMercatorUtils",
 // ------------------------------------------------------------------
 
 
+
+
 // ------------------------------------------------------------------
 // Check status of OpenWeather API
 // Credit for code: Code Institute
@@ -164,13 +166,19 @@ async function getStatus(e) {
 generateGoogleChartGraphs ();
 // ------------------------------------------------------------------
 
+var edition_mode = "off"
+
+
+$(document).on("click", "#send-weather-data-button", e => sendWeatherData(e, true));
 
 // ------------------------------------------------------------------
 // Send data to database using AJAX
-$("#send-weather-data-button").click (e => sendWeatherData(e, true));
+//$("#send-weather-data-button").click (e => sendWeatherData(e, true));
 
 async function sendWeatherData(e, write) {
-  
+
+  $("#send-weather-data-button").attr('disabled', true);
+
     // Check that data was got at least once
     if (write){
       if ($('#value-wind').text() == ''){
@@ -238,6 +246,7 @@ async function sendWeatherData(e, write) {
             'valueCountry' : valueCountry,
             'valueSunrise' : valueSunrise,
             'valueSunset' : valueSunset },
+            
         success: function (data) {
           if (write){
               alert("Database updated, new data will appear below.");
@@ -246,9 +255,18 @@ async function sendWeatherData(e, write) {
             $("#wind-extra-info").load(location.href+" #wind-extra-info>*","");
             $("#temperature-extra-info").load(location.href+" #temperature-extra-info>*","");
             $("#other-weather-extra-info").load(location.href+" #other-weather-extra-info>*","");
+            
+            
             setTimeout(generateGoogleChartGraphs, 5000);
+            $("#send-weather-data-button").attr('disabled', false);
+            //$(".edit-button-in-table").attr('disabled', false);
+            
+            
         }    
+
+        
     });
+   
 }
 // ------------------------------------------------------------------
 
@@ -462,7 +480,7 @@ $('#crud-quit-edition-mode-button').click(function(){
 $("#crud-send-weather-data-button").click (e => sendWeatherDataInCrud(e, true));
 
 async function sendWeatherDataInCrud(e, write) {
-
+  
   $('#crud-panel-status > p').text("Sending data to the database")
   
 
@@ -563,6 +581,7 @@ async function sendWeatherDataInCrud(e, write) {
             $("#temperature-extra-info").load(location.href+" #temperature-extra-info>*","");
             $("#other-weather-extra-info").load(location.href+" #other-weather-extra-info>*","");
             setTimeout(generateGoogleChartGraphs, 5000);
+            
         }    
     });
 }
@@ -620,14 +639,21 @@ async function sendWeatherDataInCrud(e, write) {
 
 $(document).ready(function(){
 
-$(".edit-button-in-table").click(function(){
+  //$(document).one("click", "#send-weather-data-button", e => sendWeatherData(e, true));
 
+  $(".edit-button-in-table").click(function(){ 
+  
   let id = this.id.slice(12);
+
+  $(".edit-button-in-table").attr('disabled', true);
+
   let otherValueToDisplay1 = $('#s-d-o-list-1').val();
   let otherValueToDisplay2 = $('#s-d-o-list-2').val();
   let country = $("#value-country").val();
   console.log(otherValueToDisplay2);
   console.log(otherValueToDisplay1);
+
+  edition_mode = "on"
 
   fetch('/weather/', {
       headers: {
@@ -636,11 +662,13 @@ $(".edit-button-in-table").click(function(){
           'id': id,
           'otherValueToDisplay1': otherValueToDisplay1,
           'otherValueToDisplay2': otherValueToDisplay2,
-          'country': country
+          'country': country,
+          'editionMode' : edition_mode
       },
   })
   .then(response => {
       return response.json();
+      
   })
   .then(data => {
       
@@ -672,9 +700,13 @@ $(".edit-button-in-table").click(function(){
       $("#crud-value-country").val(fields['country']);
       $("#crud-value-sunrise").val(fields['sunrise']);
       $("#crud-value-sunset").val(fields['sunset']);
+      
+      $(".edit-button-in-table").attr('disabled', false);
   })
   .catch(error => {
-      console.log(`Ajax Error: ${error}`);
+      console.log(`Ajax error: ${error}`);
   })
+
+
 })
 });
