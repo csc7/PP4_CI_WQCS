@@ -179,6 +179,8 @@ async function sendWeatherData(e, write) {
 
   $("#send-weather-data-button").attr('disabled', true);
 
+  
+
     // Check that data was got at least once
     if (write){
       if ($('#value-wind').text() == ''){
@@ -255,6 +257,11 @@ async function sendWeatherData(e, write) {
             $("#wind-extra-info").load(location.href+" #wind-extra-info>*","");
             $("#temperature-extra-info").load(location.href+" #temperature-extra-info>*","");
             $("#other-weather-extra-info").load(location.href+" #other-weather-extra-info>*","");
+            $(".edit-button-in-table").load(location.href+" .edit-button-in-table>*","");
+            
+            
+            
+            
             
             
             setTimeout(generateGoogleChartGraphs, 5000);
@@ -262,11 +269,12 @@ async function sendWeatherData(e, write) {
             //$(".edit-button-in-table").attr('disabled', false);
             
             
+            
         }    
 
         
     });
-   
+    
 }
 // ------------------------------------------------------------------
 
@@ -641,7 +649,8 @@ $(document).ready(function(){
 
   //$(document).one("click", "#send-weather-data-button", e => sendWeatherData(e, true));
 
-  $(".edit-button-in-table").click(function(){ 
+  $(document).on('click', '.edit-button-in-table', function(){
+  //$(".edit-button-in-table").click(function(){ 
   
   let id = this.id.slice(12);
 
