@@ -741,7 +741,8 @@ $(document).ready(function(){
       const fields = record_to_edit[0]['fields'];
       //const fields2 = record_to_edit_2[0]['fields'];
       console.log(fields['wind_speed']);
-      alert("Retrieving data, data to edit will appear in the edition panel.");
+      $('#crud-panel-status > p').text("Retrieving data, data to edit will appear in the edition panel.");
+      //alert("Retrieving data, data to edit will appear in the edition panel.");
       //https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
       // Hidden ID for later update with "Send Data to DB" button in crud panel
       $('#hidden-id-for-update').text(fields['wind_rec_id_id']);
@@ -768,6 +769,7 @@ $(document).ready(function(){
       $("#crud-value-sunset").val(fields['sunset']);
       
       $(".edit-button-in-table").attr('disabled', false);
+      $('#crud-panel-status > p').text("Data ready to edit in the edition panel.");
   })
   .catch(error => {
       console.log(`Ajax error: ${error}`);
