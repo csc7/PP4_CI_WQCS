@@ -455,9 +455,10 @@ $('#crud-create-button').click(function(){
 $('#crud-select-and-edit-button').click(function(){
   // Dislpay panel to create/edit records and send them to the database
   $('.edit-button-in-table').css("display","block");
+  $('.delete-button-in-table').css("display","block");
   $('#crud-create-or-edit-panel').css("display","block");
   $('#crud-quit-edition-mode-button-div').css("display","block");
-  $('.delete-button-in-table').css("display","none");
+  //$('.delete-button-in-table').css("display","none");
   $('#crud-panel-status > p').text("Edit a record by clicking the button in the table");
 });
 
@@ -485,7 +486,7 @@ $('#crud-quit-edition-mode-button').click(function(){
 // ------------------------------------------------------------------
 // CRUD Panel - Send data to database using AJAX
 
-$("#crud-send-weather-data-button").click (e => sendWeatherDataInCrud(e, true));
+$("#crud-send-weather-data-button").click (e => sendWeatherDataInCrud(e, "update"));
 
 async function sendWeatherDataInCrud(e, write) {
   
@@ -510,7 +511,7 @@ async function sendWeatherDataInCrud(e, write) {
           $('#crud-value-sunrise').val() == '' ||
           $('#crud-value-sunset').val() == ''){
         $('#crud-panel-status > p').text("Create a record");
-        alert("Please load data first");
+        alert("Please ensure there are no empty fields before updating.");
         return;
       }
     }  
@@ -518,6 +519,8 @@ async function sendWeatherDataInCrud(e, write) {
     console.log("Send data CRUD init");
      
     // Selected data
+    let idToUpdate = $('#hidden-id-for-update').text();
+    console.log("id to update: " + idToUpdate)
     let writeData = write;
     let recordsToDisplay = $('input[name="records-to-display"]:checked').val();
     let otherValueToDisplay1 = $('#s-d-o-list-1').val();
@@ -553,6 +556,8 @@ async function sendWeatherDataInCrud(e, write) {
         url: '/weather/',
         //dataType: 'json',
         data: {
+            //
+            'idToUpdate' : idToUpdate,
             // Selected Data
             'writeData' : writeData,
             'recordsToDisplay': recordsToDisplay,
@@ -649,11 +654,14 @@ $(document).ready(function(){
 
   //$(document).one("click", "#send-weather-data-button", e => sendWeatherData(e, true));
 
+  // Use of .on instead of .click, https://stackoverflow.com/questions/37775138/jquery-button-click-event-isnt-working-on-datatable,
+  // accessed on March 10th, 2022, at 21:00
   $(document).on('click', '.edit-button-in-table', function(){
   //$(".edit-button-in-table").click(function(){ 
   
-  let id = this.id.slice(12);
-
+  // Slice 8 valid for edit buttons of three tables since their IDs have the same prefix length
+  let id = this.id.slice(8);
+  console.log(id);
   $(".edit-button-in-table").attr('disabled', true);
 
   let otherValueToDisplay1 = $('#s-d-o-list-1').val();
@@ -687,7 +695,8 @@ $(document).ready(function(){
       console.log(fields['wind_speed']);
       alert("Retrieving data, data to edit will appear in the edition panel.");
       //https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
-      //$("#crud-panel-status").load(location.href+" #crud-panel-status>*","");
+      // Hidden ID for later update with "Send Data to DB" button in crud panel
+      $('#hidden-id-for-update').text(fields['wind_rec_id_id']);
       // Date and time
       $('#crud-value-date').val(fields['date']);
       $('#crud-value-time').val(fields['time']);
@@ -715,7 +724,7 @@ $(document).ready(function(){
   .catch(error => {
       console.log(`Ajax error: ${error}`);
   })
-
-
 })
+
+
 });

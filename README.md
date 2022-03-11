@@ -1691,6 +1691,10 @@ ___
 
     - Using json.dumps to replace single quotation by double one, https://stackoverflow.com/questions/18283725/how-to-create-a-python-dictionary-with-double-quotes-as-default-quote-format; accessed on March 9th, 2022, at 5:00.
 
+    - Use of jQuery ".on" instead of ".click" to be able to lauch functions by clicking on a button after an AJAX "success", https://stackoverflow.com/questions/37775138/jquery-button-click-event-isnt-working-on-datatable, accessed on March 10th, 2022, at 21:00.
+
+    - To define date format in Django template, https://stackoverflow.com/questions/7737146/how-can-i-change-the-default-django-date-template-format, on March 11th, 2022, at 2:39.
+
 - W3C®. Copyright © 2021 W3C ® (MIT, ERCIM, Keio, Beihang):
     - How to introduce author in anchor element: https://www.w3.org/TR/2011/WD-html5-author-20110809/the-link-element.html, accessed on August 4th, 2021, at 00:06.
 
@@ -1699,6 +1703,8 @@ ___
     - Intro to AJAX: https://www.w3schools.com/js/js_ajax_intro.asp, on January 1st, 2022.
 
     - To guarante two characters for day and month and avoid issues when writing the database (otherwise it assign only one for those smaller than 10), https://www.w3schools.com/js/js_date_methods.asp, accessed on March 5th, 2022, at 21:20.
+
+    
 
 
 

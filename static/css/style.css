@@ -406,6 +406,11 @@ a.nav-link {
 
 /* CRUD Panel */
 
+/* Hidden element to associate record for later update */
+#hidden-id-for-update {
+    display: none;
+}
+
 #crud-panel-title {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -425,7 +430,7 @@ a.nav-link {
 
 #crud-create-or-edit-panel {
     display: none;
-    background-color: rgb(202, 200, 198);
+    background-color: rgb(221, 221, 218);
     margin-top: 25px;
     margin-bottom: 0;
     padding-top: 25px;
@@ -527,6 +532,13 @@ td {
 .delete-button-in-table {
     display: none;
 }
+
+/*
+#edition-table {
+    display: none;
+}
+*/
+
 
 
 /* ********* */

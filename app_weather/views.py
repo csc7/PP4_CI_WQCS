@@ -127,7 +127,10 @@ def get_weather_page(request):
             print(date_string)            
             print(time_string)
             
-            dict_elem_2 = WindData.objects.filter(wind_rec_id_id=id).values('wind_speed', 'wind_direction')          
+            # Read here the ID of all related records (wind_rec_id_id) as
+            # primary key of main table (DataAndTimeForData model) has a
+            # shifted ID with respect to the ID of the related tables.
+            dict_elem_2 = WindData.objects.filter(wind_rec_id_id=id).values('wind_speed', 'wind_direction', 'wind_rec_id_id')          
             dictionary.update(dict_elem_2[0])            
 
             dict_elem_3 = TemperatureData.objects.filter(temp_rec_id_id=id).values(
@@ -286,15 +289,96 @@ def get_weather_page(request):
             except:
                 print("An exception related to AJAX posting data occurred")
 
+        # Write new record
+        if write_data == "update":
+            
+            id_to_update = int(json.dumps(request.POST.get('idToUpdate'))[1:-1])
+            print (id_to_update)
+
+            # Read input fields in edition panel
+
+            # Indexes from 1 to -1 to delete quotation marks
+
+            # Date and time
+            value_date = json.dumps(request.POST.get('valueDate'))[1:-1]
+            print("Date = " + value_date)
+            value_time = json.dumps(request.POST.get('valueTime'))[1:-1]
+            # Wind data
+            wind_speed_data = float(json.dumps(request.POST.get(
+                                               'valueWind'))[1:-1]
+                                    )
+            wind_direction_data = float(json.dumps(request.POST.get(
+                                                   'valueWindDir'))[1:-1]
+                                        )
+            # Temperature data
+            value_temperature = float(json.dumps(request.POST.get(
+                                                 'valueTemperature'))[1:-1]
+                                      )
+            value_feels_like = float(json.dumps(request.POST.get(
+                                                'valueFeelsLike'))[1:-1]
+                                     )
+            value_temperature_max = float(json.dumps(request.POST.get(
+                                          'valueTemperatureMax'))[1:-1]
+                                          )
+            value_temperature_min = float(json.dumps(request.POST.get(
+                                          'valueTemperatureMin'))[1:-1]
+                                          )
+            # Other weather data
+            value_pressure = float(json.dumps(request.POST.get(
+                                              'valuePressure'))[1:-1]
+                                   )
+            value_humidity = float(json.dumps(request.POST.get(
+                                              'valueHumidity'))[1:-1]
+                                   )
+            value_visibility = json.dumps(request.POST.get(
+                                          'valueVisibility'))[1:-1]
+            value_clouds = float(json.dumps(request.POST.get(
+                                            'valueClouds'))[1:-1]
+                                 )
+            value_main = json.dumps(request.POST.get('valueMain'))[1:-1]
+            value_description = json.dumps(request.POST.get(
+                                           'valueDescription'))[1:-1]
+            value_country = json.dumps(request.POST.get('valueCountry'))[1:-1]
+            value_sunrise = json.dumps(request.POST.get('valueSunrise'))[1:-1]
+            value_sunset = json.dumps(request.POST.get('valueSunset'))[1:-1]
+
+            # Update records
+            try:
+                WindData.objects.filter(wind_rec_id_id=id_to_update).update(wind_speed=wind_speed_data)
+                WindData.objects.filter(wind_rec_id_id=id_to_update).update(wind_speed=wind_speed_data)
+                TemperatureData.objects.filter(temp_rec_id_id=id_to_update).update(temperature=value_temperature)
+                TemperatureData.objects.filter(temp_rec_id_id=id_to_update).update(feels_like=value_feels_like)
+                TemperatureData.objects.filter(temp_rec_id_id=id_to_update).update(temperature_max=value_temperature_max)
+                TemperatureData.objects.filter(temp_rec_id_id=id_to_update).update(temperature_min=value_temperature_min)
+                OtherWeatherData.objects.filter(other_rec_id=id_to_update).update(pressure=value_pressure)
+                OtherWeatherData.objects.filter(other_rec_id=id_to_update).update(humidity=value_humidity)
+                OtherWeatherData.objects.filter(other_rec_id=id_to_update).update(visibility=value_visibility)
+                OtherWeatherData.objects.filter(other_rec_id=id_to_update).update(sky=value_clouds)
+                OtherWeatherData.objects.filter(other_rec_id=id_to_update).update(main=value_main)
+                OtherWeatherData.objects.filter(other_rec_id=id_to_update).update(description=value_description)
+                OtherWeatherData.objects.filter(other_rec_id=id_to_update).update(sunrise=value_sunrise)
+                OtherWeatherData.objects.filter(other_rec_id=id_to_update).update(sunset=value_sunset)
+
+            except:
+                print("An exception related to AJAX posting data occurred")
+
+
+
+
+
+
+
     try:
         other_weather_data = zip(
                                  DataAndTimeForData.objects.all().order_by(
                                      '-id')[0:recs],
                                  OtherWeatherData.objects.values_list(
                                      other_value_to_display_1,
-                                     other_value_to_display_2).order_by(
-                                         '-id')[0:recs]
-        )
+                                     other_value_to_display_2,
+                                     'other_rec').order_by(
+                                         '-id')[0:recs],
+                                
+                                )
         
     except:
         other_value_to_display_1 = str(json.dumps(request.POST.get(
@@ -308,8 +392,9 @@ def get_weather_page(request):
                                      '-id')[0:recs],
                                  OtherWeatherData.objects.values_list(
                                      other_value_to_display_1,
-                                     other_value_to_display_2).order_by(
-                                         '-id')[0:recs]
+                                     other_value_to_display_2,
+                                     'other_rec_id').order_by(
+                                         '-id')[0:recs],
                                  )
         print("An exception outside AJAX related to posting data occurred")
 
@@ -331,7 +416,6 @@ def get_weather_page(request):
             'other_value_to_display_1': other_value_to_display_1.capitalize(),
             'other_value_to_display_2': other_value_to_display_2.capitalize()
     }
-
 
     return render(request, "weather.html", context)
 

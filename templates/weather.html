@@ -157,6 +157,7 @@
                     <div class="col-12" id="crud-create-or-edit-panel">
                         <div class="container">
                             <div class="row">
+                                <div id="hidden-id-for-update"></div>
                                 <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
                                     <label for="crud-value-wind" id="label-for-crud-value-wind">Wind Spped</label>
                                 </div>                                       
@@ -344,10 +345,13 @@
                     </tr>                                                        
                     {% for item in wind_data %}
                         <tr>
-                            <td>{{ item.wind_rec_id.date }}</td>
-                            <td style="display:none;">{{ item.wind_rec_id.time }}</td>
+                            <!-- Date format taken from https://stackoverflow.com/questions/7737146/how-can-i-change-the-default-django-date-template-format
+                            on March 11th, 2022, at 2:39 -->
+                            <td>{{ item.wind_rec_id.date|date:"Y-m-d" }}</td>
                             <td>{{ item.wind_speed }}</td>
                             <td>{{ item.wind_direction }}</td>
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="wind_sp_{{ item.wind_rec_id_id }}">Update {{ item.wind_rec_id_id }}</button></td>
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="wind_dir_{{ item.wind_rec_id_id }}">Delete {{ item.wind_rec_id_id }}</button></td>  
                             <!--<td>
                                 <form method="post" action='/weather/'>
                                     <input type="submit" name="Edit" value="{{ item.wind_rec_id_id }}" class="btn btn-warning btn-sm edit-button-in-table">
@@ -369,13 +373,14 @@
                     <th>Feels Like</th>   
                     {% for temp in temperature_data %}
                         <tr>
-                            <td>{{ temp.temp_rec_id.date }}</td>
-                            <td style="display:none;">{{ temp.temp_rec_id.time }}</td>
+                            <!-- Date format taken from https://stackoverflow.com/questions/7737146/how-can-i-change-the-default-django-date-template-format
+                            on March 11th, 2022, at 2:39 -->
+                            <td>{{ temp.temp_rec_id.date|date:"Y-m-d" }}</td>
                             <td>{{ temp.temperature }}</td>
                             <td>{{ temp.feels_like }}</td>
                             <!--<input type="hidden" value="{{ temp.temp_rec_id_id }}" name="temp_rec_id_{{ temp.temp_rec_id_id }}" id="temp_{{ temp.temp_rec_id_id }}">-->
-                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="temp_rec_id_{{ temp.temp_rec_id_id }}">{{ temp.temp_rec_id_id }}</button></td>
-                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table">Delete</button></td>                         
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="temp_up_{{ temp.temp_rec_id_id }}">Update {{ temp.temp_rec_id_id }}</button></td>
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="temp_del_{{ temp.temp_rec_id_id }}">Delete {{ temp.temp_rec_id_id }}</button></td>                         
                         </tr>
                     {% endfor %}
                 </table>
@@ -389,16 +394,18 @@
                     <th>{{ other_value_to_display_2 }}</th>   
                     {% for other in other_weather_data %}
                         <tr>
-                            <td>{{ other.0.date }}</td>
-                            <td style="display:none;">{{ other.0.time }}</td>
+                            <!-- Date format taken from https://stackoverflow.com/questions/7737146/how-can-i-change-the-default-django-date-template-format
+                            on March 11th, 2022, at 2:39 -->
+                            <td>{{ other.0.date|date:"Y-m-d" }}</td>
                             <td>{{ other.1.0 }}</td>
                             <td>{{ other.1.1 }}</td>
-                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table">Edit</button></td>
-                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table">Delete</button></td>
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="other_1_{{ other.1.2 }}">Update {{ other.1.2 }}</button></td>
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="other_rec_2_{{ other.1.2 }}">Delete {{ other.1.2 }}</button></td>      
                         </tr>
                     {% endfor %}
                 </table>
             </div>
+            
         </div>
     </div>
     <!-- /.Weather Data -->    
