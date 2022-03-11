@@ -407,9 +407,9 @@ a.nav-link {
 /* CRUD Panel */
 
 /* Hidden element to associate record for later update */
-#hidden-id-for-update {
+/*#hidden-id-for-update {
     display: none;
-}
+}*/
 
 #crud-panel-title {
     margin-top: 20px;

@@ -642,13 +642,61 @@ async function sendWeatherDataInCrud(e, write) {
 //// ------------------------------------------------------------------
 
 
+// Delete records
+$(document).on('click', '.delete-button-in-table', function(){
+
+  let idToDelete = this.id.slice(9);
+  console.log(idToDelete);
+  $(".delete-button-in-table").attr('disabled', true);
+
+  let writeData = "deletion";
+  console.log(writeData);
+  let recordsToDisplay = $('input[name="records-to-display"]:checked').val();
+  let otherValueToDisplay1 = $('#s-d-o-list-1').val();
+  let otherValueToDisplay2 = $('#s-d-o-list-2').val();
+  let country = $("#value-country").val();
+  console.log(otherValueToDisplay2);
+  console.log(otherValueToDisplay1);
+
+  let deletionMode = "on";
+
+  $.ajax({
+    type: 'POST',        
+    url: '/weather/',
+    //dataType: 'json',
+    data: {
+        //
+        'idToDelete' : idToDelete,
+        'writeData' : writeData,
+        'recordsToDisplay': recordsToDisplay,
+        'otherValueToDisplay1': otherValueToDisplay1,
+        'otherValueToDisplay2': otherValueToDisplay2,
+    },
+    success: function (data) {
+
+        alert("Record deleted.");
+        
+        $('#crud-panel-status > p').text("Data sent to database")
+        // https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
+        $("#wind-extra-info").load(location.href+" #wind-extra-info>*","");
+        $("#temperature-extra-info").load(location.href+" #temperature-extra-info>*","");
+        $("#other-weather-extra-info").load(location.href+" #other-weather-extra-info>*","");
+        setTimeout(generateGoogleChartGraphs, 5000);
+        
+    }    
+});
+
+});
+
+
+
+
 
 // Serialized string to return as JsonResponse
 // Code Institue Tutor Assistance (Scott and John) helped and suggested serialization.
 // Original code base on the following JavaScript and Django templates, accessed on March 8th, 2022:
 // Javascript: https://github.com/ShavingSeagull/TheHub/blob/master/static/js/administration.js
 // Template: https://github.com/ShavingSeagull/TheHub/blob/master/templates/administration/edit_user.html, lines 183 to 190.
-
 
 $(document).ready(function(){
 
@@ -725,6 +773,7 @@ $(document).ready(function(){
       console.log(`Ajax error: ${error}`);
   })
 })
+
 
 
 });

@@ -289,7 +289,8 @@ def get_weather_page(request):
             except:
                 print("An exception related to AJAX posting data occurred")
 
-        # Write new record
+
+        # Update record
         if write_data == "update":
             
             id_to_update = int(json.dumps(request.POST.get('idToUpdate'))[1:-1])
@@ -363,9 +364,18 @@ def get_weather_page(request):
                 print("An exception related to AJAX posting data occurred")
 
 
-
-
-
+        # Delete record
+        if write_data == "deletion":
+        #if json.dumps(request.POST.get('deletionMode'))[1:-1]:
+            
+            id_to_delete = int(json.dumps(request.POST.get('idToDelete'))[1:-1])
+            print("Will DELETE")
+            print (id_to_delete)
+            
+            DataAndTimeForData.objects.filter(id=id_to_delete).delete()
+            WindData.objects.filter(wind_rec_id_id=id_to_delete).delete()
+            TemperatureData.objects.filter(temp_rec_id_id=id_to_delete).delete()
+            OtherWeatherData.objects.filter(other_rec_id=id_to_delete).delete()
 
 
     try:
