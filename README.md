@@ -1529,8 +1529,10 @@ At this point, the env.py file should at least include the following lines:
 
 
 *os.environ["DATABASE_URL"] = "your_database_URL*
+
 *os.environ["SECRET_KEY"] = "your_random_key"*
-*os.environ["CLOUDINARY_URL"] = "your_Cloudinary_URL"
+
+*os.environ["CLOUDINARY_URL"] = "your_Cloudinary_URL"*
 
 The secret key must match that one in Heroku in Config Vars (which you need to add manually).
 
