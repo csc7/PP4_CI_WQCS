@@ -1494,35 +1494,66 @@ The site requires access to OpenWeather and Google Chart API, whose configuratio
 OpenWeather: https://openweathermap.org/current
 Google Charts: https://developers.google.com/chart/interactive/docs/gallery/linechart
 
-Follow these steps to deploy in Heroku platform:
+The project is deployed to Heroku, with resources in Cloudinary (to avoid having the files deleted in case Heroku dyno is deleted for no use), using a PostgreSQL database.
 
-1 - Create JSON file (use the command line "npm init" as a wizard, installing the Heroku CLI in Gitpod if necessary and if this environment is being used) to be able to run JavaScript on Heroku. More details in Heroku site, https://devcenter.heroku.com/articles/deploying-nodejs#:~:text=To%20create%20a%20package.,json%20file .
+After first deployment, several updates have been carried out before the final version. These updates were implemented in the deployed website from Gitpod, just by using the "push" command for every commit (change) in the ongoing development.
 
-2 - Include dependencies in a requirements.txt file, which is used by Heroku to install the dependencies. Use this command: "pip3 freeze > requirements.txt"
+The project repository can be forked (top right of page) or cloned (in "Code" button) from GitHub: https://github.com/csc7/PP4_CI_WQCS.
 
-3 - Create new app from the dashboard of your Heroku account.
+Follow these steps to deploy the project.:
 
-4 - Go to settings of the apps (do that before deploying the code).
+ - *File settings.py is already set up in this repository to comply with this deployment (installed apps, allowed hosts, keys, storages and file paths.*
 
-5 - Ignore this step if you do not use credentials to access other services. In Config Vars, create a new one giving the name of CREDS, and assign to content of the JSON file with credentials to its value.
+ - *Procfile file (with "web: gunicorn django_pp4_ci_wqcs.wsgi" in it, without quotations), needed by Heroku to run the project, is already created.*
 
-6 - Go to Buildpacks and add Python and Node.js, in that order, keeping Python on top and NodeJS below.
+ - *File requirements.txt (created with "pip3 freeze > requirements.txt" command), with all required dependencies, is already created in this repository.*
 
-7 - Go to the deploy sections of the app, select GitHub as the Deployment method, assign a name for the repository to connect to GitHub, and connect.
+1 - Copy (clone, in "Code" button on top of the file listing) or fork (top right of page) the project into your repository. Fetch, submit and suggest/bring changes are not enabled if you fork.
 
-8 - Go to the bottom and select whether you want automatic (rebuilding for each commit) or manual deployment.
+2 - Create JSON file (use the command line "npm init" as a wizard, installing the Heroku CLI in Gitpod if necessary and if this environment is being used) to be able to run JavaScript on Heroku. More details in Heroku site, https://devcenter.heroku.com/articles/deploying-nodejs#:~:text=To%20create%20a%20package.,json%20file .
 
-You will get a button with a link to your app if successfully deployed.
+3 - In your Heroku account, create new app from the dashboard of your Heroku account.
+
+4 - Add a PostgreSQL database in Heroku "Resources" tab.
+
+5 - In Heroku "Settings" tab, copy the database URL (in "Reveal Config Vars") and paste it in an env.py file that you need to create in the root of your project in your IDE. DO NOT FORGET to prevent it from being pushed to your repository (as it contains private information). REMEMBER TO INCLUDE this env.py file in the .gitignore file (in your project root directory) so it is not pushed to your repository.
+
+6 - In the env.py file, add "import os" (without quotations) at the top and create a variable, in a different row, for the database as follows: "os.environ["DATABASE_URL"] = "your_database_URL".
+
+
+7 - As all in your env.py file is not visible (if properly included in the .gitignore file), include here all sensitive information, e.g., your secret key for the database in a new line:
+
+At this point, the env.py file should at least include the following lines:
+
+*import os*
+
+*os.environ["DATABASE_URL"] = "your_database_URL*
+*os.environ["SECRET_KEY"] = "your_random_key"*
+*os.environ["CLOUDINARY_URL"] = "your_Cloudinary_URL"
+
+The secret key must match that one in Heroku in Config Vars (which you need to add manually).
+
+8 - Add your Cloudinary URL in the Config Vars of Heroku.
+
+9 - Add DISABLE_COLLECTSTATIC equals to some value (e.g., 1) in Config Vars of Heroku if you do not want to read static files from Cloudinary while developing new features or editing the current code. Ignore this step if you do not plan to make changes.
+
+10 - In Heroku, connect your GitHub account in the "Deploy" tab and deploy branch with the button at the bottom, selecting if you want automatic updates on the Heroku deployed projects from GitHub.
+
+11 - For a production setting, remember to setup the DEBUG variable to False in settings.py.
+
+12 - In Heroku, delete from DISABLE_COLLECTSTATIC from Config Vars if you had it activated.
+
+13 - In Heroku "Deploy" tab, deploy branch at the bottom and check log to confirm that the deployment has been successful.
+
+
 
 <details>
-    <summary>GitHub Pages Screenshot</summary>
+    <summary>Heroku "Overview" of Deploy Project Screenshot</summary>
 
 ![Deployment on Heroku Image](docs/features-and-evidence/heroku-deployment.PNG) 
 </details>
 
-After first deployment, several updates have been carried out before the final version. These updates were implemented in the deployed website from Gitpod, just by using the "push" command for every commit (change) in the ongoing development.
 
-The project repository can be forked from GitHub (https://github.com/csc7/PP4_CI_WQCS), please check for the "Fork" button, top-right of the page, to achieve this task.
 
 <br><br>
 ## [Back to Index](#index)
