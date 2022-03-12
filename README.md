@@ -1527,6 +1527,7 @@ At this point, the env.py file should at least include the following lines:
 
 *import os*
 
+
 *os.environ["DATABASE_URL"] = "your_database_URL*
 *os.environ["SECRET_KEY"] = "your_random_key"*
 *os.environ["CLOUDINARY_URL"] = "your_Cloudinary_URL"
@@ -1548,7 +1549,7 @@ The secret key must match that one in Heroku in Config Vars (which you need to a
 
 
 <details>
-    <summary>Heroku "Overview" of Deploy Project Screenshot</summary>
+    <summary>Screenshot/Evidence of Heroku "Overview" of the Deployed Project</summary>
 
 ![Deployment on Heroku Image](docs/features-and-evidence/heroku-deployment.PNG) 
 </details>
