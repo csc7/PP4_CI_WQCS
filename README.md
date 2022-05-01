@@ -1632,9 +1632,9 @@ ___
 
     - Font Awesome Script / Kit, link copied on December 7th, 2021, 05:07 from Font Awesome personal account.
 
-    - Icon for LinkedIn: link copied on December 7th, 2021, 05:50 from https://fontawesome.com/v5.15/icons/linkedin?style=brands (<i class="fab fa-linkedin"></i>).
+    - Icon for LinkedIn: link copied on December 7th, 2021, 05:50, from https://fontawesome.com/v5.15/icons/linkedin?style=brands (<i class="fab fa-linkedin"></i>).
 
-    - Icon for GitHub: link copied on December 7th, 2021, 05:52 from https://fontawesome.com/v5.15/icons/github-square?style=brands (<i class="fab fa-github-square"></i>).
+    - Icon for GitHub: link copied on December 7th, 2021, 05:52, from https://fontawesome.com/v5.15/icons/github-square?style=brands (<i class="fab fa-github-square"></i>).
 
     - Icon for E-mail/Envelope: link copied on December 7th, 2021, 05:53 from https://fontawesome.com/v5.15/icons/envelope-square?style=solid (<i class="fas fa-envelope-square"></i>).
 
@@ -1652,6 +1652,9 @@ ___
         - https://fontawesome.com/v5.15/icons/wrench?style=solid
         - https://fontawesome.com/v5.15/icons/users?style=solid
 
+    - Icon for edition of records, link copied on May 1st, 2022, at 22:20, from https://fontawesome.com/v4/icon/pencil (<i class="fa fa-pencil" aria-hidden="true"></i>).
+
+    - Icon for deletion of records, link copied on May 1st, 2022, at 22:25, from https://fontawesome.com/v4/icon/trash (<i class="fa fa-trash" aria-hidden="true"></i>).
 
 
 - Google:

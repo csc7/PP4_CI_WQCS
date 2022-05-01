@@ -302,11 +302,8 @@
                 <div id="crud-panel-status" class="col-12">
                     <p ></p>
                     
+                    <p id="test_for_ajax"></p>                  
                     
-                    <p id="test_for_ajax"></p>
-                    
-                    
-
                 </div>
             </div>
         </div>
@@ -350,8 +347,10 @@
                             <td>{{ item.wind_rec_id.date|date:"Y-m-d" }}</td>
                             <td>{{ item.wind_speed }}</td>
                             <td>{{ item.wind_direction }}</td>
-                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="wind_sp_{{ item.wind_rec_id_id }}">Update {{ item.wind_rec_id_id }}</button></td>
-                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="wind_dir_{{ item.wind_rec_id_id }}">Delete {{ item.wind_rec_id_id }}</button></td>  
+                            <!-- Icon for edition of records, link copied on May 1st, 2022, at 22:20, from https://fontawesome.com/v4/icon/pencil -->
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="wind_sp_{{ item.wind_rec_id_id }}"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                            <!-- Icon for deletion of records, link copied on May 1st, 2022, at 22:25, from https://fontawesome.com/v4/icon/trash -->
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="wind_dir_{{ item.wind_rec_id_id }}"><i class="fa fa-trash" aria-hidden="true"></i></button></td>  
                             <!--<td>
                                 <form method="post" action='/weather/'>
                                     <input type="submit" name="Edit" value="{{ item.wind_rec_id_id }}" class="btn btn-warning btn-sm edit-button-in-table">
@@ -379,8 +378,11 @@
                             <td>{{ temp.temperature }}</td>
                             <td>{{ temp.feels_like }}</td>
                             <!--<input type="hidden" value="{{ temp.temp_rec_id_id }}" name="temp_rec_id_{{ temp.temp_rec_id_id }}" id="temp_{{ temp.temp_rec_id_id }}">-->
-                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="temp_up_{{ temp.temp_rec_id_id }}">Update {{ temp.temp_rec_id_id }}</button></td>
-                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="temp_del_{{ temp.temp_rec_id_id }}">Delete {{ temp.temp_rec_id_id }}</button></td>                         
+
+                            <!-- Icon for edition of records, link copied on May 1st, 2022, at 22:20, from https://fontawesome.com/v4/icon/pencil -->
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="temp_up_{{ temp.temp_rec_id_id }}"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                            <!-- Icon for deletion of records, link copied on May 1st, 2022, at 22:25, from https://fontawesome.com/v4/icon/trash -->
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="temp_del_{{ temp.temp_rec_id_id }}"><i class="fa fa-trash" aria-hidden="true"></button></td>                         
                         </tr>
                     {% endfor %}
                 </table>
@@ -399,8 +401,10 @@
                             <td>{{ other.0.date|date:"Y-m-d" }}</td>
                             <td>{{ other.1.0 }}</td>
                             <td>{{ other.1.1 }}</td>
-                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="other_1_{{ other.1.2 }}">Update {{ other.1.2 }}</button></td>
-                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="other_2__{{ other.1.2 }}">Delete {{ other.1.2 }}</button></td>      
+                            <!-- Icon for edition of records, link copied on May 1st, 2022, at 22:20, from https://fontawesome.com/v4/icon/pencil -->
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="other_1_{{ other.1.2 }}"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                            <!-- Icon for deletion of records, link copied on May 1st, 2022, at 22:25, from https://fontawesome.com/v4/icon/trash -->
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="other_2__{{ other.1.2 }}"><i class="fa fa-trash" aria-hidden="true"></button></td>      
                         </tr>
                     {% endfor %}
                 </table>
