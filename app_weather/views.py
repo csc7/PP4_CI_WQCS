@@ -7,9 +7,9 @@ from django.shortcuts import render
 import json
 import re
 from itertools import chain
-
 from django.http import JsonResponse
 from django.core import serializers
+from django.contrib import messages
 
 # INTERNAL:
 from .models import DataAndTimeForData, WindData
@@ -54,6 +54,8 @@ def get_weather_page(request):
     Views for Weather Page/App and Processing of weather data
     from OpenWeatherMap App
     """
+
+    messages.success(request, "Record written")
 
     global recs
     global other_value_to_display_1

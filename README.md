@@ -1588,6 +1588,8 @@ ___
     Javascript: https://github.com/ShavingSeagull/TheHub/blob/master/static/js/administration.js
     Template: https://github.com/ShavingSeagull/TheHub/blob/master/templates/administration/edit_user.html, lines 183 to 190.
 
+    - Toasts: copied from Code Institute, Boutique Ado Project, on May 1st, 2022, at 23:25
+
 
 - Balsamiq Wireframes: I have used it to create all the wireframes.
 

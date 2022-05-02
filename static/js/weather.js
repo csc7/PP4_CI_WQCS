@@ -257,13 +257,8 @@ async function sendWeatherData(e, write) {
             $("#wind-extra-info").load(location.href+" #wind-extra-info>*","");
             $("#temperature-extra-info").load(location.href+" #temperature-extra-info>*","");
             $("#other-weather-extra-info").load(location.href+" #other-weather-extra-info>*","");
-            $(".edit-button-in-table").load(location.href+" .edit-button-in-table>*","");
-            
-            
-            
-            
-            
-            
+            $(".edit-button-in-table").load(location.href+" .edit-button-in-table>*","");        
+
             setTimeout(generateGoogleChartGraphs, 5000);
             $("#send-weather-data-button").attr('disabled', false);
             //$(".edit-button-in-table").attr('disabled', false);

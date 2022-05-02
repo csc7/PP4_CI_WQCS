@@ -104,6 +104,26 @@ body {
 }
 
 
+/* TOASTS -  Bootstrap */
+/* Copie from Code Institute, Boutique Ado Project, on May 1st, 2022, at 23:57 */
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 30px;
+    z-index: 99999999999;
+    width: 200px; /* Added */
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+
 /* SIGN-IN, SIGN-UP and LOG-OUT PAGES*/
 
 #body > div > div:nth-child(1) > div > p {

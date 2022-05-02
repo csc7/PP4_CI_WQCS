@@ -103,6 +103,14 @@
     </header>
     <!-- /.Header -->
 
+    {% if messages %}
+        <div class="message-container">
+            {% for message in messages %}
+                {% include 'includes/toasts/alert_success.html' %}
+            {% endfor %}
+        </div>
+    {% endif %}
+
     <!-- Main Content -->
     {% block content %}
     <!-- Content -->
@@ -165,9 +173,20 @@
     <script src="https://js.arcgis.com/3.18/"></script>
 
     <!-- This website scripts -->
-    <script src="{% static  'js/move-content-hamburger.js' %}"></script>      
+    <script src="{% static  'js/move-content-hamburger.js' %}"></script> 
+    
 
-    {% block scripts %}
+
+    <script type="text/javascript">
+        $('.alert').alert()        
+    </script>
+
+    {% block scripts %}   
+    
     {% endblock %}
+
+      
+
+
 </body>
 </html>
