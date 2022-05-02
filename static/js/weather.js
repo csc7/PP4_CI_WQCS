@@ -252,6 +252,19 @@ async function sendWeatherData(e, write) {
         success: function (data) {
           if (write){
               alert("Database updated, new data will appear below.");
+              
+              console.log("Alert");
+              $("#message-container").show();
+              $("#record-created").show();
+              window.setTimeout(function () {
+                  $("#message-container").slideUp(500, function () {
+                      $("#message-container").hide();
+                  });
+                  $("#record-created").slideUp(500, function () {
+                      $("#record-created").hide();
+                   });
+              }, 3000);
+            
             }
             // https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
             $("#wind-extra-info").load(location.href+" #wind-extra-info>*","");
@@ -523,11 +536,12 @@ async function sendWeatherDataInCrud(e, write) {
     // Date and time
     let currentDate = $('#crud-value-date').val();
     const dateNow = new Date();
-    let currentTime = dateNow.getHours() + ":" + dateNow.getMinutes() + ":" + dateNow.getSeconds();
+    let currentTime = $('#crud-value-time').val();
     // Wind data
     let valueWind = $('#crud-value-wind').val();
     console.log(valueWind);
     let valueWindDir = $('#crud-value-wind-direction').val();
+    console.log(valueWindDir);
     // Temperature data
     let valueTemperature = $('#crud-value-temperature').val();
     let valueFeelsLike = $('#crud-value-feels-like').val();
@@ -583,6 +597,22 @@ async function sendWeatherDataInCrud(e, write) {
           if (write){
               alert("Record created, new data will appear below.");
             }
+
+            console.log("Alert");
+              $("#message-container").show();
+              $("#record-updated").show();
+              window.setTimeout(function () {
+                  $("#message-container").slideUp(500, function () {
+                      $("#message-container").hide();
+                  });
+                  $("#record-updated").slideUp(500, function () {
+                      $("#record-updated").hide();
+                   });
+              }, 3000);
+            
+            
+
+
             $('#crud-panel-status > p').text("Data sent to database")
             // https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
             $("#wind-extra-info").load(location.href+" #wind-extra-info>*","");
@@ -670,6 +700,20 @@ $(document).on('click', '.delete-button-in-table', function(){
     success: function (data) {
 
         alert("Record deleted.");
+
+        console.log("Alert");
+              $("#message-container").show();
+              $("#record-deleted").show();
+              window.setTimeout(function () {
+                  $("#message-container").slideUp(500, function () {
+                      $("#message-container").hide();
+                  });
+                  $("#record-deleted").slideUp(500, function () {
+                      $("#record-deleted").hide();
+                   });
+              }, 3000);
+            
+      
         
         $('#crud-panel-status > p').text("Data sent to database")
         // https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax

@@ -55,8 +55,6 @@ def get_weather_page(request):
     from OpenWeatherMap App
     """
 
-    messages.success(request, "Record written")
-
     global recs
     global other_value_to_display_1
     global other_value_to_display_2
@@ -72,6 +70,8 @@ def get_weather_page(request):
         # Selected Data, identify if new record needs to be written
         # and if 5 or 15 of them will be shown
         write_data = json.dumps(request.POST.get('writeData'))[1:-1]
+        print("WRITE DATA MODE: ")
+        print(write_data)
         records_to_display = (json.dumps(request.POST.get(
                                          'recordsToDisplay'))[1:-1]
                               )
@@ -128,11 +128,16 @@ def get_weather_page(request):
             time_string = str(serialized_JSON.JSON_dict['time'])
             print(date_string)            
             print(time_string)
+            dict_elem_1.update()
+            
+            
             
             # Read here the ID of all related records (wind_rec_id_id) as
             # primary key of main table (DataAndTimeForData model) has a
             # shifted ID with respect to the ID of the related tables.
-            dict_elem_2 = WindData.objects.filter(wind_rec_id_id=id).values('wind_speed', 'wind_direction', 'wind_rec_id_id')          
+            dict_elem_2 = WindData.objects.filter(wind_rec_id_id=id).values('wind_speed', 'wind_direction', 'wind_rec_id_id')     
+            print("DICT_ELEME")
+            print(dict_elem_2)     
             dictionary.update(dict_elem_2[0])            
 
             dict_elem_3 = TemperatureData.objects.filter(temp_rec_id_id=id).values(
@@ -174,11 +179,13 @@ def get_weather_page(request):
             # Accessed on March 9th, 2022, at 5:00.
             record_to_edit = '[{"model": "app_weather", "pk": ' + str(id) + \
                 ', "fields": {"date": "' + date_string + '", "time": "' + \
-                time_string + '", "country": "' + country + '", '+ json.dumps((dictionary))[1:] + '}]'
+                time_string + '", "country": "' + country + '", '+ \
+                json.dumps((dictionary))[1:] + '}]'
             for char in record_to_edit:
                 if char == ''' ' ''':
                     char = ''' " '''
             
+            print("Record to Edit: ")
             print(record_to_edit)
             return JsonResponse(record_to_edit, safe=False)
 
@@ -289,8 +296,8 @@ def get_weather_page(request):
                 print("Try with AJAX")
 
             except:
-                print("An exception related to AJAX posting data occurred")
-
+                print("AJAX posting data occurred")
+                
 
         # Update record
         if write_data == "update":
@@ -306,6 +313,7 @@ def get_weather_page(request):
             value_date = json.dumps(request.POST.get('valueDate'))[1:-1]
             print("Date = " + value_date)
             value_time = json.dumps(request.POST.get('valueTime'))[1:-1]
+            print("Time = " + value_time)
             # Wind data
             wind_speed_data = float(json.dumps(request.POST.get(
                                                'valueWind'))[1:-1]
@@ -347,8 +355,15 @@ def get_weather_page(request):
 
             # Update records
             try:
+                new_date_and_time = DataAndTimeForData(id=id_to_update)
+                new_date_and_time.date = value_date
+                new_date_and_time.time = value_time
+                new_date_and_time.save()
+                print("Date and time updated")
+                print(new_date_and_time)
+                
                 WindData.objects.filter(wind_rec_id_id=id_to_update).update(wind_speed=wind_speed_data)
-                WindData.objects.filter(wind_rec_id_id=id_to_update).update(wind_speed=wind_speed_data)
+                WindData.objects.filter(wind_rec_id_id=id_to_update).update(wind_direction=wind_direction_data)
                 TemperatureData.objects.filter(temp_rec_id_id=id_to_update).update(temperature=value_temperature)
                 TemperatureData.objects.filter(temp_rec_id_id=id_to_update).update(feels_like=value_feels_like)
                 TemperatureData.objects.filter(temp_rec_id_id=id_to_update).update(temperature_max=value_temperature_max)
@@ -378,6 +393,7 @@ def get_weather_page(request):
             WindData.objects.filter(wind_rec_id_id=id_to_delete).delete()
             TemperatureData.objects.filter(temp_rec_id_id=id_to_delete).delete()
             OtherWeatherData.objects.filter(other_rec_id=id_to_delete).delete()
+            messages.success(request, "Record deleted")
 
 
     try:
@@ -430,6 +446,16 @@ def get_weather_page(request):
     }
 
     return render(request, "weather.html", context)
+
+
+
+def load_messages():
+    """
+    This functions loads messages and have the ready to be shown.
+    Since app deals mainly with AJAX, and the weather page is not
+    reloaded, the messages are activated by the AJAX success function
+    """
+
 
 
 

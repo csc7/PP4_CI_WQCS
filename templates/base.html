@@ -103,13 +103,9 @@
     </header>
     <!-- /.Header -->
 
-    {% if messages %}
-        <div class="message-container">
-            {% for message in messages %}
-                {% include 'includes/toasts/alert_success.html' %}
-            {% endfor %}
-        </div>
-    {% endif %}
+    <div id="message-container">
+        {% include 'includes/alerts/alerts.html' %}
+    </div>
 
     <!-- Main Content -->
     {% block content %}
@@ -165,9 +161,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+
     <!-- Credit: jQuery
     Code copied on December 9th, 2021, at 20:37 -->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    
+    
     
     <!--ArgGIS / ESRI-->
     <script src="https://js.arcgis.com/3.18/"></script>
@@ -175,11 +174,10 @@
     <!-- This website scripts -->
     <script src="{% static  'js/move-content-hamburger.js' %}"></script> 
     
-
-
-    <script type="text/javascript">
-        $('.alert').alert()        
+    <script>
+        $(".alert").hide();
     </script>
+    
 
     {% block scripts %}   
     
