@@ -6,6 +6,7 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404
 from django.shortcuts import redirect, reverse
 from django.views import generic, View
+from django.contrib import messages
 
 # INTERNAL:
 from .models import Post, Comment
@@ -99,6 +100,7 @@ def delete_comment(request, comment_id):
         print(comment)
         comment.delete()
         print("Comment delted")
+        messages.error(request, 'Comment deleted in blog')
 
     except:
         print('The comment could not be deleted.')

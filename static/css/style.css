@@ -107,7 +107,8 @@ body {
 /* ALERTS -  Bootstrap */
 
 /* message-container class Copie from Code Institute, Boutique Ado Project, on May 1st, 2022, at 23:57 */
-#message-container {
+#message-container,
+#alert-message {
     position: fixed;
     top: 72px;
     right: 30px;

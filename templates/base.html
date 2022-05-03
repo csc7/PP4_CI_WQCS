@@ -107,6 +107,10 @@
         {% include 'includes/alerts/alerts.html' %}
     </div>
 
+    {% if messages %}
+        <div id="alert-message" style="display:block" class="mt-5 pt-5">ALERT FOR DELETING A COMMENT {{ message }}</div>
+    {% endif %}
+
     <!-- Main Content -->
     {% block content %}
     <!-- Content -->
@@ -177,7 +181,8 @@
     <script>
         $(".alert").hide();
     </script>
-    
+
+
 
     {% block scripts %}   
     
