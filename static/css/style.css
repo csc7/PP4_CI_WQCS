@@ -111,7 +111,7 @@ body {
     position: fixed;
     top: 72px;
     right: 30px;
-    z-index: 99999999999;
+    z-index: 1000000;
     width: 200px; /* Added */
     display: none; /* Added */
 }
@@ -497,7 +497,6 @@ a.nav-link {
 }
 
 
-
 /* Google Chart Graphs */
 
 #curve_chart_left > div > div > div > svg,
@@ -557,7 +556,6 @@ td {
 */
 
 
-
 /* ********* */
 /* BLOG PAGE */
 /* ********* */
@@ -579,6 +577,13 @@ td {
 
 #blog-content.row {
     margin-bottom: 0px;
+}
+
+#comments-container,
+#comments-container > div,
+#comments-subtitle-section {
+    background-color: rgb(236, 238, 238);
+    border-color: rgb(236, 238, 238);
 }
 
 
