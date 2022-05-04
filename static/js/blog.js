@@ -1,4 +1,4 @@
-console.log("Blog JS loaded")
+// Show alert for adding and removing comments in a blog
 
 if ($("#comment-deleted")) {
     $("#message-container").show();
