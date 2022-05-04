@@ -258,7 +258,7 @@ a.nav-link {
 }
 
 #body-content {
-    height: 1960px;
+    height: 2560px;
 }
 
 /* Instructions images */
@@ -737,7 +737,11 @@ td {
     /* BODY */
 
     body {
-        min-height: 1500px;
+        min-height: 6500px;
+    }
+
+    #body-content {
+        height: 2800px;
     }
 
     /* FOOTER */
@@ -771,7 +775,7 @@ td {
 
     /* INSTRUCTIONS PAGE */
     #body-content {
-        height: 2450px;
+        height: 2950px;
     }
 
     #select-data-options {
@@ -803,7 +807,7 @@ td {
 
     /* INSTRUCTIONS PAGE */
     #body-content {
-    height: 2950px;
+    height: 3650px;
     }
 
 }
@@ -878,7 +882,7 @@ td {
     }
 
     #footer {        
-        top: 0px;        
+        top: 1600px;        
     }
 
     #footer-contact-link > a {
