@@ -85,12 +85,6 @@ on December 20th, 2021; later modified on December23rd, 2021 at 15:20.
                         <a href="{% url 'delete_comment' comment.id %}">Delete</a>
                     </small>
                     -->
-                    <form action = "{% url 'update_comment' comment.id %}" method = "POST">
-                        {% csrf_token %}
-                        <input type="hidden" name="post_slug" value="{{ post.slug }}"/>
-                        <input type="hidden" name="comment_id" value="{{ comment.id }}"/>
-                        <button type="submit">Update</button>                        
-                    </form>
                     <form action = "{% url 'delete_comment' comment.id %}" method = "POST">
                         {% csrf_token %}
                         <input type="hidden" name="post_slug" value="{{ post.slug }}"/>

@@ -83,6 +83,7 @@ class PostDetail(View):
         else:
             comment_form = CommentForm()
 
+        messages.success(request, 'Comment created')
         return render(
             request,
             "post_detail.html",
@@ -108,7 +109,7 @@ def delete_comment(request, comment_id):
     try:
         comment = get_object_or_404(Comment, id=comment_id)
         comment.delete()
-        messages.success(request, 'Comment deleted in blog')
+        messages.success(request, 'Comment deleted')
 
     except:
         messages.error(request, 'Comment could not be deleted')

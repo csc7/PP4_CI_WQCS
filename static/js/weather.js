@@ -709,16 +709,16 @@ $(document).on('click', '.delete-button-in-table', function(){
         alert("Record deleted.");
 
         console.log("Alert");
-              $("#message-container").show();
-              $("#record-deleted").show();
-              window.setTimeout(function () {
-                  $("#message-container").slideUp(500, function () {
-                      $("#message-container").hide();
-                  });
-                  $("#record-deleted").slideUp(500, function () {
-                      $("#record-deleted").hide();
-                   });
-              }, 3000);
+        $("#message-container").show();
+        $("#record-deleted").show();
+        window.setTimeout(function () {
+            $("#message-container").slideUp(500, function () {
+                $("#message-container").hide();
+            });
+            $("#record-deleted").slideUp(500, function () {
+                $("#record-deleted").hide();
+             });
+        }, 3000);
             
       
         

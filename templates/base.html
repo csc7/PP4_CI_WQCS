@@ -107,10 +107,6 @@
         {% include 'includes/alerts/alerts.html' %}
     </div>
 
-    {% if messages %}
-        <div id="alert-message" style="display:block" class="mt-5 pt-5">ALERT FOR DELETING A COMMENT {{ message }}</div>
-    {% endif %}
-
     <!-- Main Content -->
     {% block content %}
     <!-- Content -->
@@ -176,11 +172,9 @@
     <script src="https://js.arcgis.com/3.18/"></script>
 
     <!-- This website scripts -->
-    <script src="{% static  'js/move-content-hamburger.js' %}"></script> 
+    <script src="{% static  'js/move-content-hamburger.js' %}"></script>
+    <script src="{% static  'js/blog.js' %}"></script>
     
-    <script>
-        $(".alert").hide();
-    </script>
 
 
 
