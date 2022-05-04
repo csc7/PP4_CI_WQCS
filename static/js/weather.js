@@ -559,6 +559,7 @@ async function sendWeatherDataInCrud(e, write) {
     let valueSunset = $("#crud-value-sunset").val();
 
     console.log("CRUD create read data");
+    console.log(idToUpdate)
    
     $.ajax({
         type: 'POST',        
@@ -594,25 +595,31 @@ async function sendWeatherDataInCrud(e, write) {
             'valueSunrise' : valueSunrise,
             'valueSunset' : valueSunset },
         success: function (data) {
-          if (write){
-              alert("Record created, new data will appear below.");
-            }
-
-            console.log("Alert");
-              $("#message-container").show();
-              $("#record-updated").show();
-              window.setTimeout(function () {
-                  $("#message-container").slideUp(500, function () {
-                      $("#message-container").hide();
-                  });
-                  $("#record-updated").slideUp(500, function () {
-                      $("#record-updated").hide();
-                   });
-              }, 3000);
+          console.log("Alert");
+          if (idToUpdate==''){
+            $("#message-container").show();
+            $("#record-created").show();
+            window.setTimeout(function () {
+                $("#message-container").slideUp(500, function () {
+                    $("#message-container").hide();
+                });
+                $("#record-updated").slideUp(500, function () {
+                    $("#record-created").hide();
+                 });
+            }, 3000);
+          } else {
+            $("#message-container").show();
+            $("#record-updated").show();
+            window.setTimeout(function () {
+                $("#message-container").slideUp(500, function () {
+                    $("#message-container").hide();
+                });
+                $("#record-updated").slideUp(500, function () {
+                    $("#record-updated").hide();
+                 });
+            }, 3000);
+          }        
             
-            
-
-
             $('#crud-panel-status > p').text("Data sent to database")
             // https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
             $("#wind-extra-info").load(location.href+" #wind-extra-info>*","");

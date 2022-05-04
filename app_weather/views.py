@@ -72,6 +72,12 @@ def get_weather_page(request):
         write_data = json.dumps(request.POST.get('writeData'))[1:-1]
         print("WRITE DATA MODE: ")
         print(write_data)
+        id_to_update = (json.dumps(request.POST.get('idToUpdate'))[1:-1])
+        if write_data == 'update' and id_to_update == '':
+            write_data = 'true'
+        
+        print("write_data updated to: ")
+        print(write_data)
         records_to_display = (json.dumps(request.POST.get(
                                          'recordsToDisplay'))[1:-1]
                               )

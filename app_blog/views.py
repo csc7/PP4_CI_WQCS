@@ -21,7 +21,10 @@ from .forms import CommentForm
 
 
 class PostList(generic.ListView):
-    
+
+    """
+    Class to divide blogs in 6 per page
+    """    
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'blog.html'
@@ -30,7 +33,15 @@ class PostList(generic.ListView):
 
 class PostDetail(View):
 
+    """
+    Class for posts
+    """
+
     def get(self, request, slug, *args, **kwargs):
+        """
+        ñlfajsdñlfkajslñdf
+        """
+        
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by("-created_on")
@@ -51,6 +62,9 @@ class PostDetail(View):
         )
 
     def post(self, request, slug, *args, **kwargs):
+        """
+        asdfjasñfjasñdlfk
+        """
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by("-created_on")
@@ -83,53 +97,21 @@ class PostDetail(View):
 
 
 
-
-
 def delete_comment(request, comment_id):
-
-    print("Trying to delete comment")
-    print(comment_id)
+    """
+    Function to delete a comment from the blogs
+    """
     comment_id=int(comment_id)
-
     post_slug = request.POST['post_slug']
     print(post_slug)
 
     try:
-        #Comment.objects.filter(id=comment_id)
         comment = get_object_or_404(Comment, id=comment_id)
-        print(comment)
         comment.delete()
-        print("Comment delted")
-        messages.error(request, 'Comment deleted in blog')
+        messages.success(request, 'Comment deleted in blog')
 
     except:
-        print('The comment could not be deleted.')
-
-    
-    #id = request.POST['comment_id']
-    #pk = request.POST['comment_name']
-    #
-    #if request.method == 'POST':
-    #    comment = get_object_or_404(Comment, id=id, pk=pk)
-    #    try:
-    #        comment.delete()
-    #        messages.success(request, 'You have successfully deleted the comment')
-#
-    #    except:
-    #        messages.warning(request, 'The comment could not be deleted.')
+        messages.error(request, 'Comment could not be deleted')
 
     return redirect(reverse('post_detail', args=[post_slug]))
 
-    #redirect(reverse('post_detail'))
-
-    #redirect(reverse('post_detail'))
-
-    return render(
-            request,
-            "post_detail.html",
-            {
-
-            },
-        )
-
-    #return reverse('post_detail', kwargs=dict(slug=self.kwargs['slug']))
