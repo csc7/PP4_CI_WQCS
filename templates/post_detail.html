@@ -16,7 +16,7 @@ on December 20th, 2021; later modified on December23rd, 2021 at 15:20.
                 <!-- Post title goes in these h1 tags -->
                 <h1 class="post-title">{{ post.title }}</h1>
                 <!-- Post author goes before the | the post's created date goes after -->
-                <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+                <p class="post-subtitle text-info">{{ post.author }} | {{ post.created_on }}</p>
             </div>
         </div>
     </div>
@@ -75,23 +75,21 @@ on December 20th, 2021; later modified on December23rd, 2021 at 15:20.
     <hr>
     <div id="comments-container" class="row">
         <div class="col-12 col-lg-6 card mb-4  mt-3 border-secondary rounded">
-            <h3 class="mt-2">Comments:</h3>
+            <h3 class="mt-2 text-center">Comments</h3>
             <div class="card-body">
                 <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
                 {% for comment in comments %}
                 <div class="comments border-secondary rounded">
                     <p class="font-weight-bold">
-                        <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
-                        
+                        <!-- The commenter's name goes here. Check the model if you're not sure what that is -->                        
                         {{ comment.name }}
-                        <span class="text-muted font-weight-normal">
+                        <span class="text-info font-weight-normal">
                             <!-- The comment's created date goes here -->
                             {{ comment.created_on }}
                         </span> wrote:
                     </p>
                     <!-- The body of the comment goes before the | -->
                     <p>{{ comment.body | linebreaks }}</p>
-                    
                     {% if user.is_authenticated and user|stringformat:"s" == comment.name %}
                     <!--
                     <small class="ml-3">
@@ -105,36 +103,41 @@ on December 20th, 2021; later modified on December23rd, 2021 at 15:20.
                     <form action = "{% url 'delete_comment' comment.id %}" method = "POST">
                         {% csrf_token %}
                         <input type="hidden" name="post_slug" value="{{ post.slug }}"/>
-                        <button>Delete</button>
+                        <button class="btn btn-danger">Delete</button>
                     </form>
-                    
                     {% endif %}
+                    <hr>
                 </div>
                 <!-- Our for loop ends here -->
                 {% endfor %}
             </div>
         </div>
-        <div class="col-12 col-lg-6 card mb-4  mt-3">
+        <div class="col-12 col-lg-6 card mb-4 mt-2 mt'2">
             <div class="card-body">
                 <!-- For later -->
-                {% if commented %}
-                    {% if not approved %}
-                        <div role="alert" class="border-secondary rounded">
-                            <p class="m-4 p-3 my-auto text-light bg-primary border-secondary rounded">Your comment is awaiting approval</p>                    
-                        </div>
+                {% if user.is_authenticated %}
+                    {% if commented %}
+                        {% if not approved %}
+                            <div role="alert" class="border-secondary rounded">
+                                <p class="m-4 p-3 my-auto text-light bg-primary border-secondary rounded">Your comment is awaiting approval</p>                    
+                            </div>
+                        {% endif %}
+                    {% else %}
+                        <h3>Leave a comment</h3>
+                        <p class="text-info">Posting as: {{ user.username }}</p>
+                        <form method="post">
+                            {{ comment_form | crispy }}
+                            {% csrf_token %}
+                            <input type="hidden" name="comment_id" value="{{ comment.id }}"/>
+                            <input type="hidden" name="post_slug" value="{{ post.slug }}"/>
+                            <button type="submit" class="btn btn-signup btn-lg btn-dark">Submit</button>
+                        </form>
                     {% endif %}
                 {% else %}
-                    {% if user.is_authenticated %}                
-                    <h3>Leave a comment:</h3>
-                    <p>Posting as: {{ user.username }}</p>
-                    <form method="post">
-                        {{ comment_form | crispy }}
-                        {% csrf_token %}
-                        <input type="hidden" name="comment_id" value="{{ comment.id }}"/>
-                        <input type="hidden" name="post_slug" value="{{ post.slug }}"/>
-                        <button type="submit" class="btn btn-signup btn-lg btn-primary">Submit</button>
-                    </form>
-                    {% endif %}
+                    <h3>Sign in to comment</h3>
+                    <button type="button" class="btn btn-dark btn-lg mt-2" onclick="window.location.href='{% url 'account_login' %}';">
+                        Sign In
+                    </button> 
                 {% endif %}
             </div>
         </div>

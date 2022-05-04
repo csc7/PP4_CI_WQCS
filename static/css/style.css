@@ -121,6 +121,12 @@ body {
 }
 
 
+/* CARDS -  Bootstrap */
+
+.card-body {
+    color: rgb(76, 76, 211);
+}
+
 
 
 /* SIGN-IN, SIGN-UP and LOG-OUT PAGES*/
@@ -289,6 +295,7 @@ a.nav-link {
 #source-Esri > p, #source-Google > p {
     padding-top: 10px;
     margin-bottom: 0px;
+    color: rgb(76, 76, 211)!important;
 }
 
 #top-container {    
