@@ -116,48 +116,34 @@ def delete_comment(request, comment_id):
 
     return redirect(reverse('post_detail', args=[post_slug]))
 
-#https://stackoverflow.com/questions/62901935/displaying-like-and-dislike-buttons-if-user-has-liked-a-post-with-django
+# Based (copied and modified) on https://stackoverflow.com/questions/62901935/displaying-like-and-dislike-buttons-if-user-has-liked-a-post-with-django,
+# accessed on May 4th, 2022, at 17:30
 def like(request, post_id):
     if request.method == "POST":
 
         post_slug = request.POST['post_slug']
-        print(post_slug)
-
-        #make sure user can't like the post more than once. 
         user = request.user.id
-        #find whatever post is associated with like
         post = Post.objects.get(id=post_id)
 
-        #newLike = Like(post=post)
-        #newLike.alreadyLiked = True
-
-        #post.likes += 1
+        # Add user to many-to-many field in Django model:
+        # https://stackoverflow.com/questions/15384665/django-manytomanyfield-add-user; accessed on May 4th, 2022, at 17:45
         post.likes.add(user)
-        #adds user to Post 
-        #post.likes.add(post_id)
         post.save()
-        #newLike.save()
+
         return redirect(reverse('post_detail', args=[post_slug]))
 
-
+# Based (copied and modified) on https://stackoverflow.com/questions/62901935/displaying-like-and-dislike-buttons-if-user-has-liked-a-post-with-django,
+# accessed on May 4th, 2022, at 17:30
 def dislike(request, post_id):
     if request.method == "POST":
 
         post_slug = request.POST['post_slug']
-        print(post_slug)
-
-        #make sure user can't like the post more than once. 
         user = request.user.id
-        #find whatever post is associated with like
         post = Post.objects.get(id=post_id)
 
-        #newLike = Like(post=post)
-        #newLike.alreadyLiked = True
-
-        #post.likes += 1
+        # Add user to many-to-many field in Django model:
+        # https://stackoverflow.com/questions/15384665/django-manytomanyfield-add-user; accessed on May 4th, 2022, at 17:45
         post.likes.remove(user)
-        #adds user to Post 
-        #post.likes.add(post_id)
         post.save()
-        #newLike.save()
+
         return redirect(reverse('post_detail', args=[post_slug]))
