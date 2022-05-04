@@ -714,9 +714,15 @@ td {
 /* ************* */
 
 
-/* FOOTHER ON BIG SCREEN SIZE, HEIGHT ABOVE 1080px */
+/* VERY LARGE SCREEN SIZE, HEIGHT ABOVE 1080px */
 
 @media screen and (min-height: 1081px) {
+
+    /* BODY */
+
+    body {
+        min-height: 1500px;
+    }
 
     /* FOOTER */
 
@@ -730,7 +736,7 @@ td {
 }
 
 
-/* SCREEN SIZE BELOW 1200px */
+/* SCREEN SIZE WIDTH BELOW 1200px */
 
 @media screen and (max-width: 1200px) {
 
