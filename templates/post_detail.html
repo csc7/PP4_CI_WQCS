@@ -53,6 +53,20 @@ on December 20th, 2021; later modified on December23rd, 2021 at 15:20.
                                 <input type="hidden" name="post_slug" value="{{ post.slug }}"/>
                             </form>                    
                         {% endif %}
+                    <!-- If user is not authenticated -->
+                    {% else %}                    
+                        {% if post.number_of_likes == 0 %}
+                            <button type='submit' name='dislike' value="{{ post.id }}" class="btn btn-link">
+                                <strong class="text-secondary"><i class="far fa-thumbs-up"></i> {{ post.number_of_likes }} </strong>
+                                <a href="{% url 'account_login' %}" class="text-secondary"> Sign in to vote</a>
+                            </button>
+                        {% else %}
+                        <button type='submit' name='dislike' value="{{ post.id }}" class="btn btn-link">
+                            <strong class="text-primary"><i class="far fa-thumbs-up"></i> {{ post.number_of_likes }} </strong>
+                            <a href="{% url 'account_login' %}" class="text-primary"> Sign in to vote</a>
+                        </button>
+                        {% endif %}
+        
                     {% endif %}
                     </div>
                     <div class="col-6 mt-2">
