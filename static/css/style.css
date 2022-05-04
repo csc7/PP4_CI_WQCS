@@ -595,6 +595,15 @@ td {
     border-color: rgb(236, 238, 238);
 }
 
+/* Django form button in sign in to comment */
+#comments-container > div > div > button {
+    font-family: 'Heebo', sans-serif!important;
+}
+
+/* Django form buttons for deleting comments */
+#comments-container > div > div > div > form > button {
+    font-family: 'Heebo', sans-serif!important;
+}
 
 /* **************** */
 /* POST DETAIL PAGE */

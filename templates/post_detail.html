@@ -91,39 +91,47 @@ on December 20th, 2021; later modified on December23rd, 2021 at 15:20.
         <div class="col-12 col-lg-6 card mb-4  mt-3 border-secondary rounded">
             <h3 class="mt-2 text-center">Comments</h3>
             <div class="card-body">
-                <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
-                {% for comment in comments %}
-                <div class="comments border-secondary rounded">
-                    <p class="font-weight-bold">
-                        <!-- The commenter's name goes here. Check the model if you're not sure what that is -->                        
-                        {{ comment.name }}
-                        <span class="text-info font-weight-normal">
-                            <!-- The comment's created date goes here -->
-                            {{ comment.created_on }}
-                        </span> wrote:
-                    </p>
-                    <!-- The body of the comment goes before the | -->
-                    <p>{{ comment.body | linebreaks }}</p>
-                    {% if user.is_authenticated and user|stringformat:"s" == comment.name %}
-                    <!--
-                    <small class="ml-3">
-                        <a href="#">Edit</a>
-                    </small>
-                    
-                    <small class="ml-3">
-                        <a href="{% url 'delete_comment' comment.id %}">Delete</a>
-                    </small>
-                    -->
-                    <form action = "{% url 'delete_comment' comment.id %}" method = "POST">
-                        {% csrf_token %}
-                        <input type="hidden" name="post_slug" value="{{ post.slug }}"/>
-                        <button class="btn btn-danger">Delete</button>
-                    </form>
+                {% with comments.count as total_comments %}
+                    {% if total_comments == 0 %}
+                    <div class="comments">
+                        <p class="font-weight-bold text-info">Be the first to comment!</p>
+                    </div>
+                    {% else %}
+                        <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
+                        {% for comment in comments %}
+                        <div class="comments border-secondary rounded">
+                            <p class="font-weight-bold">
+                                <!-- The commenter's name goes here. Check the model if you're not sure what that is -->                        
+                                {{ comment.name }}
+                                <span class="text-info font-weight-normal">
+                                    <!-- The comment's created date goes here -->
+                                    {{ comment.created_on }}
+                                </span> wrote:
+                            </p>
+                            <!-- The body of the comment goes before the | -->
+                            <p>{{ comment.body | linebreaks }}</p>
+                            {% if user.is_authenticated and user|stringformat:"s" == comment.name %}
+                            <!--
+                            <small class="ml-3">
+                                <a href="#">Edit</a>
+                            </small>
+
+                            <small class="ml-3">
+                                <a href="{% url 'delete_comment' comment.id %}">Delete</a>
+                            </small>
+                            -->
+                            <form action = "{% url 'delete_comment' comment.id %}" method = "POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="post_slug" value="{{ post.slug }}"/>
+                                <button class="btn btn-warning">Delete</button>
+                            </form>
+                            {% endif %}
+                            <hr>
+                        </div>
+                        <!-- Our for loop ends here -->
+                        {% endfor %}
                     {% endif %}
-                    <hr>
-                </div>
-                <!-- Our for loop ends here -->
-                {% endfor %}
+                {% endwith %}
             </div>
         </div>
         <div class="col-12 col-lg-6 card mb-4 mt-2 mt'2">
@@ -144,7 +152,7 @@ on December 20th, 2021; later modified on December23rd, 2021 at 15:20.
                             {% csrf_token %}
                             <input type="hidden" name="comment_id" value="{{ comment.id }}"/>
                             <input type="hidden" name="post_slug" value="{{ post.slug }}"/>
-                            <button type="submit" class="btn btn-signup btn-lg btn-dark">Submit</button>
+                            <button id="sign-in-in-leave-a-comment" type="submit" class="btn btn-signup btn-lg btn-dark">Submit</button>
                         </form>
                     {% endif %}
                 {% else %}
