@@ -342,9 +342,9 @@
                         <tr>
                             <!-- Date format taken from https://stackoverflow.com/questions/7737146/how-can-i-change-the-default-django-date-template-format
                             on March 11th, 2022, at 2:39 -->
-                            <td>{{ item.wind_rec_id.date|date:"Y-m-d" }}</td>
-                            <td>{{ item.wind_speed }}</td>
-                            <td>{{ item.wind_direction }}</td>
+                            <td>{{ item.wind_rec_id.date|date:"d-m-y" }}</td>
+                            <td>{{ item.wind_speed|floatformat:1 }}</td>
+                            <td>{{ item.wind_direction|floatformat:1 }}</td>
                             <!-- Icon for edition of records, link copied on May 1st, 2022, at 22:20, from https://fontawesome.com/v4/icon/pencil -->
                             <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="wind_sp_{{ item.wind_rec_id_id }}"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
                             <!-- Icon for deletion of records, link copied on May 1st, 2022, at 22:25, from https://fontawesome.com/v4/icon/trash -->
@@ -372,9 +372,9 @@
                         <tr>
                             <!-- Date format taken from https://stackoverflow.com/questions/7737146/how-can-i-change-the-default-django-date-template-format
                             on March 11th, 2022, at 2:39 -->
-                            <td>{{ temp.temp_rec_id.date|date:"Y-m-d" }}</td>
-                            <td>{{ temp.temperature }}</td>
-                            <td>{{ temp.feels_like }}</td>
+                            <td>{{ temp.temp_rec_id.date|date:"d-m-y" }}</td>
+                            <td>{{ temp.temperature|floatformat:1 }}</td>
+                            <td>{{ temp.feels_like|floatformat:1 }}</td>
                             <!--<input type="hidden" value="{{ temp.temp_rec_id_id }}" name="temp_rec_id_{{ temp.temp_rec_id_id }}" id="temp_{{ temp.temp_rec_id_id }}">-->
 
                             <!-- Icon for edition of records, link copied on May 1st, 2022, at 22:20, from https://fontawesome.com/v4/icon/pencil -->
@@ -396,7 +396,7 @@
                         <tr>
                             <!-- Date format taken from https://stackoverflow.com/questions/7737146/how-can-i-change-the-default-django-date-template-format
                             on March 11th, 2022, at 2:39 -->
-                            <td>{{ other.0.date|date:"Y-m-d" }}</td>
+                            <td>{{ other.0.date|date:"d-m-y" }}</td>
                             <td>{{ other.1.0 }}</td>
                             <td>{{ other.1.1 }}</td>
                             <!-- Icon for edition of records, link copied on May 1st, 2022, at 22:20, from https://fontawesome.com/v4/icon/pencil -->
