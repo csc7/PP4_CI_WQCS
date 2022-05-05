@@ -1,9 +1,7 @@
 ###############################################################################
-
 """
 Python apps file for the Django blog app
 """
-
 # IMPORTED RESOURCES #
 
 # EXTERNAL:

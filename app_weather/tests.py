@@ -1,5 +1,7 @@
 ###############################################################################
-
+"""
+Django tests for the Weather app
+"""
 # IMPORTED RESOURCES #
 
 # EXTERNAL:

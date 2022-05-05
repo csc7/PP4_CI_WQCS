@@ -1,5 +1,7 @@
 ###############################################################################
-
+"""
+Django views for the Weather app
+"""
 # IMPORTED RESOURCES #
 
 # EXTERNAL:
@@ -22,16 +24,6 @@ from django.views.decorators.csrf import csrf_exempt
 from collections import namedtuple
 
 
-
-
-#for item in WindData(wind_rec_id_id=pk):
-#    print(item)
-
-#wind_data = WindData.objects.all()
-#for data in wind_data:
-#    print(data.wind_rec_id)
-
-
 recs = 5
 other_value_to_display_1 = 'pressure'
 other_value_to_display_2 = 'sky'
@@ -44,8 +36,6 @@ class JSONData:
     """
     def __init__(self, JSON_dict):
         self.JSON_dict = JSON_dict
-            
-
 
 
 @csrf_exempt
@@ -53,8 +43,15 @@ def get_weather_page(request):
     """
     Views for Weather Page/App and Processing of weather data
     from OpenWeatherMap App
-    """
 
+    Parameters In:
+        - HTTP request object
+
+    Parameters Out:
+        - HTTP request object with weather HTML page and
+          context with records that have been created, read, upated or deleted
+
+    """
     global recs
     global other_value_to_display_1
     global other_value_to_display_2
@@ -64,20 +61,15 @@ def get_weather_page(request):
     requested_html = re.search(r'^text/html',
                                request.META.get('HTTP_ACCEPT')
                                )
-
     if not requested_html:
 
         # Selected Data, identify if new record needs to be written
         # and if 5 or 15 of them will be shown
         write_data = json.dumps(request.POST.get('writeData'))[1:-1]
-        print("WRITE DATA MODE: ")
-        print(write_data)
         id_to_update = (json.dumps(request.POST.get('idToUpdate'))[1:-1])
         if write_data == 'update' and id_to_update == '':
             write_data = 'true'
-        
-        print("write_data updated to: ")
-        print(write_data)
+
         records_to_display = (json.dumps(request.POST.get(
                                          'recordsToDisplay'))[1:-1]
                               )
@@ -95,132 +87,95 @@ def get_weather_page(request):
                                                   'otherValueToDisplay2')
                                                   )[1:-1])
 
-        
-        ##############################################
+        # --- Read record --- #
 
-        # Edit record
-        #if write_data == "edition":
-        print("Editing: " + str(request.headers.get('editionMode')))
-        if request.headers.get('x-requested-with') == 'XMLHttpRequest' and request.headers.get('editionMode') == "on":
-            print("Editing: YES")
-            
+        if (request.headers.get('x-requested-with') == 'XMLHttpRequest' and
+                request.headers.get('editionMode') == "on"):
+
             id = int(request.headers.get('id'))
-            other_value_to_display_1 = request.headers.get('otherValueToDisplay1')
-            other_value_to_display_2 = request.headers.get('otherValueToDisplay2')
+            other_value_to_display_1 = \
+                request.headers.get('otherValueToDisplay1')
+            other_value_to_display_2 = \
+                request.headers.get('otherValueToDisplay2')
             country = request.headers.get('country')
-            print(other_value_to_display_1)
-            print(other_value_to_display_2)
-            print("Edition mode.")       
-            
 
-            #id = str(json.dumps(request.POST.get(
-            #                                      'id')
-            #                                      )[1:-1])
-            print(id)
-            #context_edit = {
-            #    'edition': True,
-            #    'date_and_time_': DataAndTimeForData.objects.get(id=id),
-            #    'wind_data_': WindData.objects.get(wind_rec_id_id=id),
-            #    'temperature_data_': TemperatureData.objects.get(temp_rec_id_id=id),
-            #    'other_weather_data_': OtherWeatherData.objects.get(other_rec_id=id)
-            #}
-            
-            
             dictionary = {}
 
-            dict_elem_1 = DataAndTimeForData.objects.filter(id=id).values('date', 'time')
+            dict_elem_1 = \
+                DataAndTimeForData.objects.filter(id=id).values('date', 'time')
             serialized_JSON = JSONData(dict_elem_1[0])
             date_string = str(serialized_JSON.JSON_dict['date'])
             time_string = str(serialized_JSON.JSON_dict['time'])
-            print(date_string)            
-            print(time_string)
             dict_elem_1.update()
-            
-            
-            
+
             # Read here the ID of all related records (wind_rec_id_id) as
             # primary key of main table (DataAndTimeForData model) has a
             # shifted ID with respect to the ID of the related tables.
-            dict_elem_2 = WindData.objects.filter(wind_rec_id_id=id).values('wind_speed', 'wind_direction', 'wind_rec_id_id')     
-            print("DICT_ELEME")
-            print(dict_elem_2)     
-            dictionary.update(dict_elem_2[0])            
-
-            dict_elem_3 = TemperatureData.objects.filter(temp_rec_id_id=id).values(
-                'temperature',
-                'feels_like',
-                'temperature_max',
-                'temperature_min'
+            dict_elem_2 = WindData.objects.filter(wind_rec_id_id=id).values(
+                'wind_speed',
+                'wind_direction',
+                'wind_rec_id_id'
             )
+
+            dictionary.update(dict_elem_2[0])
+
+            dict_elem_3 = \
+                TemperatureData.objects.filter(temp_rec_id_id=id).values(
+                    'temperature',
+                    'feels_like',
+                    'temperature_max',
+                    'temperature_min'
+                )
             dictionary.update(dict_elem_3[0])
 
-            dict_elem_4 = OtherWeatherData.objects.filter(other_rec_id=id).values(
-                'pressure',
-                'humidity',
-                'visibility',
-                'sky',
-                'main',
-                'description',
-                'sunrise',
-                'sunset'
-            )
+            dict_elem_4 = \
+                OtherWeatherData.objects.filter(other_rec_id=id).values(
+                    'pressure',
+                    'humidity',
+                    'visibility',
+                    'sky',
+                    'main',
+                    'description',
+                    'sunrise',
+                    'sunset'
+                )
             dictionary.update(dict_elem_4[0])
 
-            #serialized_JSON_2 = JSONData(dictionary)
-
-            #record_to_edit_3 = serializers.serialize(
-            #    "json",
-            #    DataAndTimeForData.objects.filter(id=id),
-            #    fields=('date', 'time')
-            #)
-
             # Serialized string to return as JsonResponse
-            # Code Institue Tutor Assistance (Scott and John) helped and suggested serialization.
-            # Original code base on the following JavaScript and Django templates, accessed on March 8th, 2022:
-            # Javascript: https://github.com/ShavingSeagull/TheHub/blob/master/static/js/administration.js
-            # Template: https://github.com/ShavingSeagull/TheHub/blob/master/templates/administration/edit_user.html, lines 183 to 190.
-            # Later built like this to merge four query sets, after investigating the format of the serialized JsonResponse
+            # Code Institue Tutor Assistance (Scott and John) helped and
+            # suggested serialization.
+            # Original code base on the following JavaScript and Django
+            # templates, accessed on March 8th, 2022:
+            # Javascript:
+            # https://github.com/ShavingSeagull/TheHub/blob/master/static/js/administration.js
+            # Template:
+            # https://github.com/ShavingSeagull/TheHub/blob/master/templates/administration/edit_user.html,
+            # lines 183 to 190.
+            # Later built like this to merge four query sets, after
+            # investigating the format of the serialized JsonResponse.
             # Using json.dumps to replace single quotation by double one
             # https://stackoverflow.com/questions/18283725/how-to-create-a-python-dictionary-with-double-quotes-as-default-quote-format
             # Accessed on March 9th, 2022, at 5:00.
             record_to_edit = '[{"model": "app_weather", "pk": ' + str(id) + \
                 ', "fields": {"date": "' + date_string + '", "time": "' + \
-                time_string + '", "country": "' + country + '", '+ \
+                time_string + '", "country": "' + country + '", ' + \
                 json.dumps((dictionary))[1:] + '}]'
             for char in record_to_edit:
                 if char == ''' ' ''':
                     char = ''' " '''
-            
-            print("Record to Edit: ")
-            print(record_to_edit)
+
             return JsonResponse(record_to_edit, safe=False)
 
+        # --- Create record from data in weather panel --- #
 
-            
-            
-            
-
-            #return render(request, "weather.html", context_edit)
-            #return context_edit
-        
-            
-        ##############################################
-
-
-
-        # Write new record
         if write_data == "true":
-
-            print(other_value_to_display_1)
-            print(other_value_to_display_2)
-            print("Writing = " + write_data)
 
             # Indexes from 1 to -1 to delete quotation marks
 
             # Date and time
             value_date = json.dumps(request.POST.get('valueDate'))[1:-1]
-            print("Date = " + value_date)
             value_time = json.dumps(request.POST.get('valueTime'))[1:-1]
+
             # Wind data
             wind_speed_data = float(json.dumps(request.POST.get(
                                                'valueWind'))[1:-1]
@@ -265,6 +220,7 @@ def get_weather_page(request):
             # accessed on January 22nd, at 18:47.
             total_recs = DataAndTimeForData.objects.filter().count()
 
+            # Prepare number of records to display based on selection of user
             if records_to_display == "5-last":
                 recs = 5
             elif records_to_display == "15-last":
@@ -299,17 +255,16 @@ def get_weather_page(request):
                                           sunrise=value_sunrise,
                                           sunset=value_sunset)
                 record.save()
-                print("Try with AJAX")
 
             except:
                 print("AJAX posting data occurred")
-                
 
-        # Update record
+        # --- Update record --- #
+
         if write_data == "update":
-            
-            id_to_update = int(json.dumps(request.POST.get('idToUpdate'))[1:-1])
-            print (id_to_update)
+
+            id_to_update = \
+                int(json.dumps(request.POST.get('idToUpdate'))[1:-1])
 
             # Read input fields in edition panel
 
@@ -317,9 +272,8 @@ def get_weather_page(request):
 
             # Date and time
             value_date = json.dumps(request.POST.get('valueDate'))[1:-1]
-            print("Date = " + value_date)
             value_time = json.dumps(request.POST.get('valueTime'))[1:-1]
-            print("Time = " + value_time)
+
             # Wind data
             wind_speed_data = float(json.dumps(request.POST.get(
                                                'valueWind'))[1:-1]
@@ -365,42 +319,66 @@ def get_weather_page(request):
                 new_date_and_time.date = value_date
                 new_date_and_time.time = value_time
                 new_date_and_time.save()
-                print("Date and time updated")
-                print(new_date_and_time)
-                
-                WindData.objects.filter(wind_rec_id_id=id_to_update).update(wind_speed=wind_speed_data)
-                WindData.objects.filter(wind_rec_id_id=id_to_update).update(wind_direction=wind_direction_data)
-                TemperatureData.objects.filter(temp_rec_id_id=id_to_update).update(temperature=value_temperature)
-                TemperatureData.objects.filter(temp_rec_id_id=id_to_update).update(feels_like=value_feels_like)
-                TemperatureData.objects.filter(temp_rec_id_id=id_to_update).update(temperature_max=value_temperature_max)
-                TemperatureData.objects.filter(temp_rec_id_id=id_to_update).update(temperature_min=value_temperature_min)
-                OtherWeatherData.objects.filter(other_rec_id=id_to_update).update(pressure=value_pressure)
-                OtherWeatherData.objects.filter(other_rec_id=id_to_update).update(humidity=value_humidity)
-                OtherWeatherData.objects.filter(other_rec_id=id_to_update).update(visibility=value_visibility)
-                OtherWeatherData.objects.filter(other_rec_id=id_to_update).update(sky=value_clouds)
-                OtherWeatherData.objects.filter(other_rec_id=id_to_update).update(main=value_main)
-                OtherWeatherData.objects.filter(other_rec_id=id_to_update).update(description=value_description)
-                OtherWeatherData.objects.filter(other_rec_id=id_to_update).update(sunrise=value_sunrise)
-                OtherWeatherData.objects.filter(other_rec_id=id_to_update).update(sunset=value_sunset)
+
+                WindData.objects.filter(
+                    wind_rec_id_id=id_to_update).update(
+                        wind_speed=wind_speed_data)
+                WindData.objects.filter(
+                    wind_rec_id_id=id_to_update).update(
+                        wind_direction=wind_direction_data)
+                TemperatureData.objects.filter(
+                    temp_rec_id_id=id_to_update).update(
+                        temperature=value_temperature)
+                TemperatureData.objects.filter(
+                    temp_rec_id_id=id_to_update).update(
+                        feels_like=value_feels_like)
+                TemperatureData.objects.filter(
+                    temp_rec_id_id=id_to_update).update(
+                        temperature_max=value_temperature_max)
+                TemperatureData.objects.filter(
+                    temp_rec_id_id=id_to_update).update(
+                        temperature_min=value_temperature_min)
+                OtherWeatherData.objects.filter(
+                    other_rec_id=id_to_update).update(
+                        pressure=value_pressure)
+                OtherWeatherData.objects.filter(
+                    other_rec_id=id_to_update).update(
+                        humidity=value_humidity)
+                OtherWeatherData.objects.filter(
+                    other_rec_id=id_to_update).update(
+                        visibility=value_visibility)
+                OtherWeatherData.objects.filter(
+                    other_rec_id=id_to_update).update(
+                        sky=value_clouds)
+                OtherWeatherData.objects.filter(
+                    other_rec_id=id_to_update).update(
+                        main=value_main)
+                OtherWeatherData.objects.filter(
+                    other_rec_id=id_to_update).update(
+                        description=value_description)
+                OtherWeatherData.objects.filter(
+                    other_rec_id=id_to_update).update(
+                        sunrise=value_sunrise)
+                OtherWeatherData.objects.filter(
+                    other_rec_id=id_to_update).update(
+                        sunset=value_sunset)
 
             except:
                 print("An exception related to AJAX posting data occurred")
 
+        # --- Delete record --- #
 
-        # Delete record
         if write_data == "deletion":
-        #if json.dumps(request.POST.get('deletionMode'))[1:-1]:
-            
-            id_to_delete = int(json.dumps(request.POST.get('idToDelete'))[1:-1])
-            print("Will DELETE")
-            print (id_to_delete)
-            
+
+            id_to_delete = \
+                int(json.dumps(request.POST.get('idToDelete'))[1:-1])
+
             DataAndTimeForData.objects.filter(id=id_to_delete).delete()
             WindData.objects.filter(wind_rec_id_id=id_to_delete).delete()
-            TemperatureData.objects.filter(temp_rec_id_id=id_to_delete).delete()
+            TemperatureData.objects.filter(
+                temp_rec_id_id=id_to_delete).delete()
             OtherWeatherData.objects.filter(other_rec_id=id_to_delete).delete()
             messages.success(request, "Record deleted")
-
 
     try:
         other_weather_data = zip(
@@ -411,9 +389,8 @@ def get_weather_page(request):
                                      other_value_to_display_2,
                                      'other_rec').order_by(
                                          '-id')[0:recs],
-                                
                                 )
-        
+
     except:
         other_value_to_display_1 = str(json.dumps(request.POST.get(
                                                   'otherValueToDisplay1')
@@ -432,11 +409,7 @@ def get_weather_page(request):
                                  )
         print("An exception outside AJAX related to posting data occurred")
 
-    
-    print("BEFORE CONTEXT")
-    
-
-
+    # Weather records to return to the request
     context = {
             'edition': False,
             'date_and_time': DataAndTimeForData.objects.all().order_by(
@@ -452,26 +425,3 @@ def get_weather_page(request):
     }
 
     return render(request, "weather.html", context)
-
-
-
-def load_messages():
-    """
-    This functions loads messages and have the ready to be shown.
-    Since app deals mainly with AJAX, and the weather page is not
-    reloaded, the messages are activated by the AJAX success function
-    """
-
-
-
-
-#def edit_record(request, id_of_record):
-#
-#    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
-#        # Returns a JSON dataset of the selected user, with only the necessary fields that can be edited
-#        record_ = serializers.serialize(
-#            "json", 
-#            WindData.objects.filter(wind_rec_id_id=id_of_record),
-#            fields=('wind_speed', 'wind_direction')
-#        )
-#        return JsonResponse(user, safe=False)

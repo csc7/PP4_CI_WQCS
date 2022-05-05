@@ -1,5 +1,7 @@
 ###############################################################################
-
+"""
+Python apps file for the Django Weather app
+"""
 # IMPORTED RESOURCES #
 
 # EXTERNAL:

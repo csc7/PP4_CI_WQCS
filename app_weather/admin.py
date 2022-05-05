@@ -1,5 +1,7 @@
 ###############################################################################
-
+"""
+Django admin comfiguration for the Weather app
+"""
 # IMPORTED RESOURCES #
 
 # EXTERNAL:
@@ -42,6 +44,7 @@ class TemperatureDataAdmin(admin.ModelAdmin):
         'temperature_max',
         'temperature_min'
     )
+
 
 class OtherWeatherDataAdmin(admin.ModelAdmin):
 

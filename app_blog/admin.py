@@ -1,9 +1,7 @@
 ###############################################################################
-
 """
 Django admin comfiguration for the blog app
 """    
-
 # IMPORTED RESOURCES #
 
 # EXTERNAL:

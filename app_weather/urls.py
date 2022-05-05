@@ -1,5 +1,7 @@
 ###############################################################################
-
+"""
+Django URLs for the Weather app
+"""
 # IMPORTED RESOURCES #
 
 # EXTERNAL:
