@@ -1,5 +1,9 @@
 ###############################################################################
 
+"""
+Python apps file for the Django blog app
+"""
+
 # IMPORTED RESOURCES #
 
 # EXTERNAL:
@@ -10,7 +14,7 @@ from django.apps import AppConfig
 
 class AppBlogConfig(AppConfig):
     """
-    Class for Configuration of Application
+    Configuration class for the blog app
     """
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'app_blog'

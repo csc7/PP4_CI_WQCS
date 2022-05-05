@@ -599,6 +599,11 @@ td {
     font-family: 'Heebo', sans-serif!important;
 }
 
+/* Django form button for submitting a comment */
+#sign-in-in-leave-a-comment {
+    font-family: 'Heebo', sans-serif!important;
+}
+
 /* **************** */
 /* POST DETAIL PAGE */
 /* **************** */

@@ -1,5 +1,9 @@
 ###############################################################################
 
+"""
+Testing tests for the blog app
+"""    
+
 # IMPORTED RESOURCES #
 
 # EXTERNAL:
@@ -13,9 +17,6 @@ from .forms import CommentForm
 from .models import Post, Comment
 
 ###############################################################################
-
-
-# Create your tests here.
 
 
 class TestCommentAndPostForm(unittest.TestCase):

@@ -1,5 +1,9 @@
 ###############################################################################
 
+"""
+Django views for the blog app
+"""    
+
 # IMPORTED RESOURCES #
 
 # EXTERNAL:
@@ -38,8 +42,8 @@ class PostDetail(View):
     """
 
     def get(self, request, slug, *args, **kwargs):
-        """
-        ñlfajsdñlfkajslñdf
+        """ 
+        Get comments in page
         """
         
         queryset = Post.objects.filter(status=1)
@@ -63,7 +67,7 @@ class PostDetail(View):
 
     def post(self, request, slug, *args, **kwargs):
         """
-        asdfjasñfjasñdlfk
+        Post comments to server
         """
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -97,14 +101,18 @@ class PostDetail(View):
         )
 
 
-
 def delete_comment(request, comment_id):
     """
     Function to delete a comment from the blogs
+
+    Parameters In: HTTP request object, comment ID
+
+    Parameters Out: redirect URL to current blog
+    
     """
+    # Read comment ID to delete and blog slug (for redirect)
     comment_id=int(comment_id)
     post_slug = request.POST['post_slug']
-    print(post_slug)
 
     try:
         comment = get_object_or_404(Comment, id=comment_id)
@@ -116,11 +124,22 @@ def delete_comment(request, comment_id):
 
     return redirect(reverse('post_detail', args=[post_slug]))
 
-# Based (copied and modified) on https://stackoverflow.com/questions/62901935/displaying-like-and-dislike-buttons-if-user-has-liked-a-post-with-django,
+
+# Based (copied and modified) on
+# https://stackoverflow.com/questions/62901935/displaying-like-and-dislike-buttons-if-user-has-liked-a-post-with-django,
 # accessed on May 4th, 2022, at 17:30
 def like(request, post_id):
+    """
+    Function to like a blog by a user
+
+    Parameters In: HTTP request object, blog ID
+
+    Parameters Out: redirect URL to current blog
+    
+    """
     if request.method == "POST":
 
+        # Read blog slug (for redirect), user and post ID
         post_slug = request.POST['post_slug']
         user = request.user.id
         post = Post.objects.get(id=post_id)
@@ -132,11 +151,22 @@ def like(request, post_id):
 
         return redirect(reverse('post_detail', args=[post_slug]))
 
-# Based (copied and modified) on https://stackoverflow.com/questions/62901935/displaying-like-and-dislike-buttons-if-user-has-liked-a-post-with-django,
+
+# Based (copied and modified) on 
+# https://stackoverflow.com/questions/62901935/displaying-like-and-dislike-buttons-if-user-has-liked-a-post-with-django,
 # accessed on May 4th, 2022, at 17:30
 def dislike(request, post_id):
+    """
+    Function to dislike a blog by a user
+
+    Parameters In: HTTP request object, blog ID
+
+    Parameters Out: redirect URL to current blog
+    
+    """
     if request.method == "POST":
 
+        # Read blog slug (for redirect), user and post ID
         post_slug = request.POST['post_slug']
         user = request.user.id
         post = Post.objects.get(id=post_id)
