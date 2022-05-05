@@ -521,7 +521,6 @@ async function sendWeatherDataInCrud(e, write) {
     let otherValueToDisplay2 = $('#s-d-o-list-2').val();
     // Date and time
     let currentDate = $('#crud-value-date').val();
-    const dateNow = new Date();
     let currentTime = $('#crud-value-time').val();
     // Wind data
     let valueWind = $('#crud-value-wind').val();
@@ -626,58 +625,54 @@ $(document).on('click', '.delete-button-in-table', function(){
         ' from the database.\n\nClick "Ok" to confirm and delete;' +
         ' or click "Cancel" to avoid any change.');
 
-    if (cancelOrDelete) {
+    if (cancelOrDelete) {   
 
-    
+      // Identify record to delete
+      let idToDelete = this.id.slice(9);
+      $(".delete-button-in-table").attr('disabled', true);
+      
 
-    // Identify record to delete
-    let idToDelete = this.id.slice(9);
-    $(".delete-button-in-table").attr('disabled', true);
-    
+      // Set writing mode ad "deletion"
+      let writeData = "deletion";
+      let recordsToDisplay = $('input[name="records-to-display"]:checked').val();
+      let otherValueToDisplay1 = $('#s-d-o-list-1').val();
+      let otherValueToDisplay2 = $('#s-d-o-list-2').val();
 
-    // Set writing mode ad "deletion"
-    let writeData = "deletion";
-    let recordsToDisplay = $('input[name="records-to-display"]:checked').val();
-    let otherValueToDisplay1 = $('#s-d-o-list-1').val();
-    let otherValueToDisplay2 = $('#s-d-o-list-2').val();
-    let country = $("#value-country").val();
-    let deletionMode = "on";
+      // Send data to backend/database for processing and delete
+      $.ajax({
+        type: 'POST',        
+        url: '/weather/',
+        //dataType: 'json',
+        data: {
+            //
+            'idToDelete' : idToDelete,
+            'writeData' : writeData,
+            'recordsToDisplay': recordsToDisplay,
+            'otherValueToDisplay1': otherValueToDisplay1,
+            'otherValueToDisplay2': otherValueToDisplay2,
+        },
 
-    // Send data to backend/database for processing and delete
-    $.ajax({
-      type: 'POST',        
-      url: '/weather/',
-      //dataType: 'json',
-      data: {
-          //
-          'idToDelete' : idToDelete,
-          'writeData' : writeData,
-          'recordsToDisplay': recordsToDisplay,
-          'otherValueToDisplay1': otherValueToDisplay1,
-          'otherValueToDisplay2': otherValueToDisplay2,
-      },
+        // Inform user on success
+        success: function (data) {
+            $("#message-container").show();
+            $("#record-deleted").show();
+            window.setTimeout(function () {
+                $("#message-container").slideUp(500, function () {
+                    $("#message-container").hide();
+                });
+                $("#record-deleted").slideUp(500, function () {
+                    $("#record-deleted").hide();
+                 });
+            }, 3000);           
 
-      // Inform user on success
-      success: function (data) {
-          $("#message-container").show();
-          $("#record-deleted").show();
-          window.setTimeout(function () {
-              $("#message-container").slideUp(500, function () {
-                  $("#message-container").hide();
-              });
-              $("#record-deleted").slideUp(500, function () {
-                  $("#record-deleted").hide();
-               });
-          }, 3000);           
-
-          $('#crud-panel-status > p').text("Data sent to database");
-          // https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
-          $("#wind-extra-info").load(location.href+" #wind-extra-info>*","");
-          $("#temperature-extra-info").load(location.href+" #temperature-extra-info>*","");
-          $("#other-weather-extra-info").load(location.href+" #other-weather-extra-info>*","");
-          setTimeout(generateGoogleChartGraphs, 5000);
-      }    
-    });
+            $('#crud-panel-status > p').text("Data sent to database");
+            // https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
+            $("#wind-extra-info").load(location.href+" #wind-extra-info>*","");
+            $("#temperature-extra-info").load(location.href+" #temperature-extra-info>*","");
+            $("#other-weather-extra-info").load(location.href+" #other-weather-extra-info>*","");
+            setTimeout(generateGoogleChartGraphs, 5000);
+        }    
+      });
     }
 });
 // ------------------------------------------------------------------
@@ -735,26 +730,26 @@ $(document).ready(function(){
         // Hidden ID for later update with "Send Data to DB" button in crud panel
         $('#hidden-id-for-update').text(fields['wind_rec_id_id']);
         // Date and time
-        $('#crud-value-date').val(fields['date']);
-        $('#crud-value-time').val(fields['time']);
+        $('#crud-value-date').val(fields.date);
+        $('#crud-value-time').val(fields.time);
         // Wind data
-        $('#crud-value-wind').val(fields['wind_speed']);
-        $('#crud-value-wind-direction').val(fields['wind_direction']);
+        $('#crud-value-wind').val(fields.wind_speed);
+        $('#crud-value-wind-direction').val(fields.wind_direction);
         // Temperature data
-        $('#crud-value-temperature').val(fields['temperature']);
-        $('#crud-value-feels-like').val(fields['feels_like']);
-        $('#crud-value-temperature-max').val(fields['temperature_max']);
-        $('#crud-value-temperature-min').val(fields['temperature_min']);
+        $('#crud-value-temperature').val(fields.temperature);
+        $('#crud-value-feels-like').val(fields.feels_like);
+        $('#crud-value-temperature-max').val(fields.temperature_max);
+        $('#crud-value-temperature-min').val(fields.temperature_min);
         // Other weather data
-        $("#crud-value-pressure").val(fields['pressure']);
-        $("#crud-value-humidity").val(fields['humidity']);
-        $("#crud-value-visibility").val(fields['visibility']);
-        $("#crud-value-clouds").val(fields['sky']);
-        $("#crud-value-main").val(fields['main']);
-        $("#crud-value-description").val(fields['description']);
-        $("#crud-value-country").val(fields['country']);
-        $("#crud-value-sunrise").val(fields['sunrise']);
-        $("#crud-value-sunset").val(fields['sunset']);
+        $("#crud-value-pressure").val(fields.pressure);
+        $("#crud-value-humidity").val(fields.humidity);
+        $("#crud-value-visibility").val(fields.visibility);
+        $("#crud-value-clouds").val(fields.sky);
+        $("#crud-value-main").val(fields.main);
+        $("#crud-value-description").val(fields.description);
+        $("#crud-value-country").val(fields.country);
+        $("#crud-value-sunrise").val(fields.sunrise);
+        $("#crud-value-sunset").val(fields.sunset);
 
         $(".edit-button-in-table").attr('disabled', false);
         $('#crud-panel-status > p').text("Data ready to edit in the edition panel.");
