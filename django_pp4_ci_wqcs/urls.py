@@ -29,9 +29,9 @@ Including another URLconf
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
-    path('', include('app_instructions.urls'), name='app_weather_urls'),
+    path('', include('app_instructions.urls'), name='app_instruction_urls'),
     path('', include('app_weather.urls'), name='app_weather_urls'),
-    path('', include('app_contact.urls'), name='app_weather_urls'),
+    path('', include('app_contact.urls'), name='app_contact_urls'),
     path('', include('app_blog.urls'), name='app_blog_urls'),
     path('accounts/', include('allauth.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
