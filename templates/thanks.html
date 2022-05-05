@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
-
+<!-- Thank you page -->
 <div class="container" id="thanks-div-1">
     <div class="row">
         <div class="col-12">
+            <!-- Thank, showing user details -->
             <p>
                 Thanks {{ form_data.name }} {{ form_data.surname }} ({{ form_data.email }}) for contacting us.
             </p>
@@ -14,6 +15,7 @@
 <div class="container" id="thanks-div-2">
     <div class="row">
         <div class="col-12">
+            <!-- Show message sent (title) -->
             <p>
                 This is the text you have just sent (on {{ form_data.date }}, at{{ form_data.time }}):
             </p>
@@ -24,12 +26,11 @@
     <div class="row">
         <div class="col-12">
             <p>
+                <!-- Show message sent (actual message) -->
                 {{ form_data.description }}.
             </p>
         </div>
     </div>
 </div>
-
-
 
 {% endblock %}

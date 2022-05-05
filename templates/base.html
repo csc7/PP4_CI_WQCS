@@ -30,9 +30,9 @@
     <!-- favicon
     To load static folder for favicon:
     https://stackoverflow.com/questions/35054230/custom-tag-not-loaded-in-template, accessed on January 22nd, at 15:05. -->
-    
     <link rel="shortcut icon" href="{% static 'images/wqcs-icon.PNG' %}"/>    
 </head>
+
 <body id="body">
     <!-- Header -->
     <header>
@@ -76,7 +76,6 @@
                     Code Institute "I Think Therefore I Blog" project, "account" templates (login.html, logout.html
                     and signup.html)-->
                     <!-- Button trigger modal -->
-
                     {% if user.is_authenticated %}                    
                     <button type="button" class="btn btn-primary" onclick="window.location.href='{% url 'account_logout' %}';">
                         Sign Out
@@ -95,16 +94,17 @@
                             </div>
                         </div>
                     {% endif %}
-
                 </div>              
             </div>
         </div>
     </header>
     <!-- /.Header -->
 
+    <!-- Update/Status messages for user -->
     <div id="message-container">
         {% include 'includes/alerts/alerts.html' %}
     </div>
+    <!-- /.Update/Status messages for user -->
 
     <!-- Main Content -->
     {% block content %}
@@ -160,12 +160,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-
     <!-- Credit: jQuery
     Code copied on December 9th, 2021, at 20:37 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>    
     
     <!--ArgGIS / ESRI-->
     <script src="https://js.arcgis.com/3.18/"></script>
@@ -173,16 +170,10 @@
     <!-- This website scripts -->
     <script src="{% static  'js/move-content-hamburger.js' %}"></script>
     <script src="{% static  'js/blog.js' %}"></script>
-    
-
-
 
     {% block scripts %}   
     
     {% endblock %}
-
-      
-
 
 </body>
 </html>

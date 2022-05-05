@@ -1,6 +1,6 @@
 <!--
 Code copied from Code Institute "I Think Therefore I Blog" project,
-# index.html file, on December 20th, 2022 at 18:01
+# index.html file, on December 20th, 2022 at 18:01, later modified
 -->
 
 {% extends "base.html" %}
@@ -11,7 +11,6 @@ Code copied from Code Institute "I Think Therefore I Blog" project,
 
 <div class="container-fluid">
     <div class="row">        
-
         <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row" id="blog-content">
@@ -46,7 +45,7 @@ Code copied from Code Institute "I Think Therefore I Blog" project,
                                         <!-- https://fontawesome.com/v5.15/icons/hard-hat?style=solid -->
                                         <i class="fas fa-hard-hat"></i>
                                     </div>
-                                    {% elif post.title == "Survey" %}
+                                {% elif post.title == "Survey" %}
                                     <div class="topic-icon">
                                         <!-- https://fontawesome.com/v5.15/icons/map-marker-alt?style=solid -->
                                         <i class="fas fa-map-marker-alt"></i>
@@ -95,8 +94,8 @@ Code copied from Code Institute "I Think Therefore I Blog" project,
                     </div>
                 </div>
                 {% if forloop.counter|divisibleby:3 %}
-            </div>
-            <div class="row">
+                </div>
+                <div class="row">
                 {% endif %}
                 {% endfor %}
             </div>
@@ -117,5 +116,3 @@ Code copied from Code Institute "I Think Therefore I Blog" project,
     {% endif %}
 </div>
 {%endblock%}
-
-

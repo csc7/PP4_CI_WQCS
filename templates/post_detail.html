@@ -1,6 +1,6 @@
 <!--
 Code copied and modified from Code Institute "I Think Therefore I Blog" project
-on December 20th, 2021; later modified on December23rd, 2021 at 15:20.
+on December 20th, 2021; later modified on December23rd, 2021 at 15:20; later modified
 -->
 
 {% extends 'base.html' %} 
@@ -9,6 +9,7 @@ on December 20th, 2021; later modified on December23rd, 2021 at 15:20.
 
 {% block content %}
 
+<!-- Header with blog details -->
 <div id="post-detail-body" class="masthead">
     <div class="container">
         <div class="row g-0">
@@ -26,13 +27,15 @@ on December 20th, 2021; later modified on December23rd, 2021 at 15:20.
     <div class="row">
         <div id="comments-subtitle-section" class="col offset-md-2 col-md-8 offset-lg-3 col-lg-6 card mb-4  mt-3 left top border-secondary rounded">
             <div id="post-details-summary" class="card-body">
-                <!-- The post content goes inside the card-text. -->
-                <!-- Use the | safe filter inside the template tags -->
+                <!-- Blog content -->
                 <p class="card-text ">
                     {{ post.content | safe }}
                 </p>
                 <div class="row">
                     <div  class="col-6">
+                    <!-- Likes -->
+                    <!-- Show "likes", change colour if there is/are comment/s -->
+                    <!-- If user is authenticated -->
                     {% if user.is_authenticated %}
                         <!-- Copied and modified from https://stackoverflow.com/questions/62901935/displaying-like-and-dislike-buttons-if-user-has-liked-a-post-with-django
                         on May 4th, 2022, at 17:30 -->
@@ -54,6 +57,7 @@ on December 20th, 2021; later modified on December23rd, 2021 at 15:20.
                             </form>                    
                         {% endif %}
                     <!-- If user is not authenticated -->
+                    <!-- Show "likes", change colour if there is/are comment/s -->
                     {% else %}                    
                         {% if post.number_of_likes == 0 %}
                             <button type='submit' name='dislike' value="{{ post.id }}" class="btn btn-link">
@@ -65,19 +69,20 @@ on December 20th, 2021; later modified on December23rd, 2021 at 15:20.
                             <strong class="text-primary"><i class="far fa-thumbs-up"></i> {{ post.number_of_likes }} </strong>
                             <a href="{% url 'account_login' %}" class="text-primary"> Sign in to vote</a>
                         </button>
-                        {% endif %}
-        
+                        {% endif %}        
                     {% endif %}
                     </div>
+                    <!-- Number of comments -->
                     <div class="col-6 mt-2">
                         {% with comments.count as total_comments %}
+                        <!-- Total comments, change colour if there is/are comment/s -->
                             {% if total_comments == 0 %}
                             <strong class="text-secondary"><i class="far fa-comments"></i>
-                                <!-- Our total_comments variable goes before the closing strong tag -->
+                                <!-- Total comments -->
                                 {{ total_comments }}</strong>
                             {% else %}
                             <strong class="text-primary"><i class="far fa-comments"></i>
-                                <!-- Our total_comments variable goes before the closing strong tag -->
+                                <!-- Total comments -->
                                 {{ total_comments }}</strong>
                             {% endif %}
                         {% endwith %}
@@ -87,6 +92,7 @@ on December 20th, 2021; later modified on December23rd, 2021 at 15:20.
         </div>
     </div>
     <hr>
+    <!-- Blog comments -->
     <div id="comments-container" class="row">
         <div class="col-12 col-lg-6 card mb-4  mt-3 border-secondary rounded">
             <h3 class="mt-2 text-center">Comments</h3>
@@ -97,29 +103,21 @@ on December 20th, 2021; later modified on December23rd, 2021 at 15:20.
                         <p class="font-weight-bold text-info">Be the first to comment!</p>
                     </div>
                     {% else %}
-                        <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
+                        <!-- Iteration through -->
                         {% for comment in comments %}
                         <div class="comments border-secondary rounded">
                             <p class="font-weight-bold">
-                                <!-- The commenter's name goes here. Check the model if you're not sure what that is -->                        
+                                <!-- Commenter's name -->                        
                                 {{ comment.name }}
                                 <span class="text-info font-weight-normal">
-                                    <!-- The comment's created date goes here -->
+                                    <!-- Comment's date -->
                                     {{ comment.created_on }}
                                 </span> wrote:
                             </p>
-                            <!-- The body of the comment goes before the | -->
+                            <!-- Body of comment -->
                             <p>{{ comment.body | linebreaks }}</p>
                             {% if user.is_authenticated and user|stringformat:"s" == comment.name %}
-                            <!--
-                            <small class="ml-3">
-                                <a href="#">Edit</a>
-                            </small>
-
-                            <small class="ml-3">
-                                <a href="{% url 'delete_comment' comment.id %}">Delete</a>
-                            </small>
-                            -->
+                            <!-- Form to send a request to delete a comment -->
                             <form action = "{% url 'delete_comment' comment.id %}" method = "POST">
                                 {% csrf_token %}
                                 <input type="hidden" name="post_slug" value="{{ post.slug }}"/>
@@ -128,7 +126,7 @@ on December 20th, 2021; later modified on December23rd, 2021 at 15:20.
                             {% endif %}
                             <hr>
                         </div>
-                        <!-- Our for loop ends here -->
+                        <!-- For loop ends here -->
                         {% endfor %}
                     {% endif %}
                 {% endwith %}
@@ -136,7 +134,8 @@ on December 20th, 2021; later modified on December23rd, 2021 at 15:20.
         </div>
         <div class="col-12 col-lg-6 card mb-4 mt-2 mt'2">
             <div class="card-body">
-                <!-- For later -->
+                <!-- Load comments -->
+                <!-- If user is authenticated, inform of the status of his comment or give the option to send one -->
                 {% if user.is_authenticated %}
                     {% if commented %}
                         {% if not approved %}
@@ -155,6 +154,7 @@ on December 20th, 2021; later modified on December23rd, 2021 at 15:20.
                             <button id="sign-in-in-leave-a-comment" type="submit" class="btn btn-signup btn-lg btn-dark">Submit</button>
                         </form>
                     {% endif %}
+                <!-- If user is not authenticated, give the option to sign in -->
                 {% else %}
                     <h3>Sign in to comment</h3>
                     <button type="button" class="btn btn-dark btn-lg mt-2" onclick="window.location.href='{% url 'account_login' %}';">

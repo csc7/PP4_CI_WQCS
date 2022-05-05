@@ -21,6 +21,7 @@
             <!-- Panel -->
             <div id="weather-data" class="col-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="row">
+                    <!-- Coordinates -->
                     <div id="weather-data-title" class="col-12 weather-data-label"><p>Coordinates for Weather Data</p></div>
                     <div id="latitute-title" class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Latitude</p></div>
                     <div id="latitude" class="col-12 col-sm-6 col-md-3 weather-data-value"><p>(Click on map)</p></div>
@@ -43,7 +44,7 @@
                         <button id="get-weather-data-button" type="button">Get Data</button>
                     </div>
                     <div id="results-title" class="col-12 weather-data-label"><p>Weather Data</p></div>
-                    <!-- Weather Information -->
+                    <!-- Weather Information from OpenWeather -->
                     <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Wind Speed</p></div>                                       
                     <div id="value-wind" class="col-12 col-sm-6 col-md-3 weather-data-value"><p></p></div>
                     <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Direction</p></div>
@@ -76,7 +77,8 @@
                     <div id="value-sunrise" class="col-12 col-sm-6 col-md-3 weather-data-value"><p></p></div>
                     <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Sunset</p></div>
                     <div id="value-sunset" class="col-12 col-sm-6 col-md-3 weather-data-value"><p></p></div>
-                    <div id="send-weather-data" class="col-12">   
+                    <div id="send-weather-data" class="col-12">
+                    <!-- If user is authenticated, give the option to send the data to the database; otherwise give the option to authenticate -->
                     {% if user.is_authenticated %}   
                         <button id="send-weather-data-button" type="button">Send Data to DB</button>
                     {% else %}
@@ -96,7 +98,8 @@
                 <div>
                     <p id="select-data-options-title">Select Records to Read and Display</p>
                 </div>                
-            </div>     
+            </div>
+            <!-- Select number of days to show -->
             <div id="s-d-o-1" class="col-12 col-lg-2">
                 <input type="radio" id="5-days" name="records-to-display" value="5-last" checked="checked">
                 <label for="5-days" class="radio-select-label">Last 5 days</label>
@@ -109,6 +112,7 @@
                 <input type="radio" id="all-data" name="records-to-display" value="all-data">
                 <label for="all-data" class="radio-select-label">All Data</label>
             </div>
+            <!-- Select data to show -->
             <div id="s-d-o-4" class="col-12 col-lg-3">                    
                 <label for="s-d-o-list-1" class="radio-select-label">Value 1</label>                  
                 <select id="s-d-o-list-1" name="other-value-list-1" class="input-field">
@@ -154,7 +158,7 @@
                     <div class="col-12 col-md-4 crud-button-div">
                         <button id="crud-delete-button" class="crud-button" type="submit">Select and Delete</button>
                     </div>
-                    <!-- Div to show field when create or edit is selected (initially hidden by CSS file) -->
+                    <!-- Container to show field when create or edit is selected (initially hidden by CSS file) -->
                     <div class="col-12" id="crud-create-or-edit-panel">
                         <div class="container">
                             <div class="row">
@@ -292,8 +296,7 @@
                             </div> 
                         </div> 
                     </div> 
-                    <!-- CRUD Send to database, hide (in CSS file) if not needed -->
-                    
+                    <!-- CRUD Send to database, hide (in CSS file) if not needed -->                    
                 {% else %}
                     <div class="col-12">
                         <p id="crud-log-in-to-edit">(Log in to create, edit or delete records)</p>
@@ -406,8 +409,7 @@
                         </tr>
                     {% endfor %}
                 </table>
-            </div>
-            
+            </div>            
         </div>
     </div>
     <!-- /.Weather Data -->    
@@ -422,7 +424,6 @@ Copied and modified from https://developers.google.com/chart/interactive/docs/ga
 <script type="text/javascript"></script>
 <!-- This page javascript file --> 
 <script src="{% static  'js/weather.js' %}"></script>
-
 
 {% endblock %}
 
