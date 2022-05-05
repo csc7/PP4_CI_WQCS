@@ -579,34 +579,76 @@ The following tools were used to validate the **files of the website**:
 <br>
 
 ### **HTML Files**
-https://validator.w3.org/ was used to validate the new HTML files (those not being part of the Django framework). To test them, unique HTML files base+index, base+weather, base+blog and base+contact were created. The files were validated and accepted only when errors were related to control characters.
+https://validator.w3.org/ was used to validate the new HTML files. Pages were rendered to get the HTML code (otherwise Django templates would alone give errors). When possible (where pages do not require log-in), the page link was tested in the validator.
 
-Errors corrected using this service:
+<details>
+    <summary>Instructions (index.html)  </summary>
 
-- **base.html**:
-    - Id body for body tag changed as it needs to have a different name; corrected after using the validator.
+![Evidence of no errors in the Instructions/Home App HTML file](docs/validation/validation-html-validator-w3-org-instructions.PNG) 
+</details>
+<details>
+    <summary>Weather App (weather.html)</summary>
+
+![Evidence of no errors in the Weather App HTML file](docs/validation/validation-html-validator-w3-org-weather.PNG) 
+</details>
+<details>
+    <summary>Blog App (blog.html)</summary>
+
+![Evidence of no errors in the Blog App HTML file](docs/validation/validation-html-validator-w3-org-blog.PNG) 
+</details>
+<details>
+    <summary>Blog comments (post_detail.html)</summary>
+
+![Evidence of no errors in the home Blog App (comments) HTML file](docs/validation/validation-html-validator-w3-org-blog-comments.PNG) 
+</details>
+<details>
+    <summary>Contact App (contact.html)</summary>
+
+![Evidence of no errors in the Contact App HTML file](docs/validation/validation-html-validator-w3-org-contact.PNG) 
+</details>
+<details>
+    <summary>Thanks Page (thanks.html)</summary>
+
+![Evidence of no errors in the Thanks Page HTML file](docs/validation/validation-html-validator-w3-org-thank-you.PNG) 
+</details>
+<details>
+    <summary>Error Page (404.html)</summary>
+
+![Evidence of no errors in the Error Page HTML file](docs/validation/validation-html-validator-w3-org-404.PNG) 
+</details>
+
 
 <br>
 
-- **Instructions Page (index.html)**:
-    - All images were missing the "alt" attribute; they were added after using the validator.
+[Rendered HTML for Home](https://github.com/csc7/PP5_CI_GDEC/tree/main/docs/rendered-html-for-validation/rendered-html-for-validation-home.txt)
+
+[Rendered HTML for Bag](docs/rendered-html-for-validation/rendered-html-for-validation-bag.txt)
+
+[Rendered HTML for Checkout](/docs/rendered-html-for-validation/rendered-html-for-validation-checkout.txt)
+
+[Rendered HTML for Checkout Success](/docs/rendered-html-for-validation/rendered-html-for-validation-checkout-success.txt)
+
+[Rendered HTML for Contact](/docs/rendered-html-for-validation/rendered-html-for-validation-contact.txt)
+
+[Rendered HTML for Thanks](docs/rendered-html-for-validation/rendered-html-for-validation-thank-you.txt)
+
+[Rendered HTML for Add Product](/docs/rendered-html-for-validation/rendered-html-for-validation-product-add.txt)
+
+[Rendered HTML for Edit Product](/docs/rendered-html-for-validation/rendered-html-for-validation-edit-product.txt)
+
+[Rendered HTML for Product Details](/docs/rendered-html-for-validation/rendered-html-for-validation-product-details.txt)
+
+[Rendered HTML for Products](/docs/rendered-html-for-validation/rendered-html-for-validation-products.txt)
+
+[Rendered HTML for Profile](/docs/rendered-html-for-validation/rendered-html-for-validation-profile.txt)
+
+[Rendered HTML for Wish List](/docs/rendered-html-for-validation/rendered-html-for-validation-wish.txt)
+
+[Rendered HTML for 404 Page](/docs/rendered-html-for-validation/rendered-html-for-404.txt)
+
+
 
 <br>
-
-- **Weather Page**:
-    - Duplicated id ("s-d-o-4") identified, one of the changed to "s-d-o-5" after using the validator.
-    - Table headers "th" were not included in a "tr" tag; included after using the validator.
-
-<br>
-
-- **Blog Page**:
-    - Image was missing the "alt" attribute; added after using the validator.
-
-<br>
-
-- **Contact Page**:
-    - No errors found.
-
 
 #### [Back to Index](#index)
 
