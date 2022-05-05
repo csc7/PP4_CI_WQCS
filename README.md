@@ -687,25 +687,31 @@ Please check the parameters used for validation and evidence below:
 <details>
     <summary>Parameters used for JavaScript validation in JSHint version 2.13.3</summary>
 
-![Parameters used for JavaScript validation in JSHint version 2.13](docs/validation/validation-js-move-configuration.PNG) 
+![Parameters used for JavaScript validation in JSHint version 2.13](docs/validation/validation-js-jshint-parameters.PNG) 
 </details>
 
 <details>
     <summary>Weather Page (weather.js JavaScript file). Please note that google is an external variable from Google</summary>
 
-![Evidence of no errors weather.js JavaScript file](docs/validation/validation-js-weather.PNG)
+![Evidence of no errors weather.js JavaScript file](docs/validation/validation-js-jshint-weather.PNG)
 </details>
 
 <details>
-    <summary>File for moving the content down (move-content-hamburger.js)</summary>
+    <summary>File for moving the content down with hamburger button (move-content-hamburger.js)</summary>
 
-![Evidence of no errors and warnings in the move-content-hamburger.js JavaScript file](docs/validation/validation-js-move-content.PNG) 
+![Evidence of no errors and warnings in the move-content-hamburger.js JavaScript file](docs/validation/validation-js-jshint-move-content-hamburger.PNG) 
 </details>
 
 <details>
     <summary>File for checking the loading of the site (index.js JavaScript file)</summary>
 
-![Evidence of no errors and warnings in the index.js JavaScript file](docs/validation/validation-js-index.PNG)
+![Evidence of no errors and warnings in the index.js JavaScript file](docs/validation/validation-js-jshint-index.PNG)
+</details>
+
+<details>
+    <summary>File for showing alerts in the Blog app (blog.js JavaScript file)</summary>
+
+![Evidence of no errors and warnings in the blog.js JavaScript file](docs/validation/validation-js-jshint-blog.PNG)
 </details>
 
 
