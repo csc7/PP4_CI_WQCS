@@ -646,9 +646,6 @@ https://validator.w3.org/ was used to validate the new HTML files. Pages were re
 ### **CSS File**
 https://jigsaw.w3.org/css-validator/ was used to validate the CSS file.
 
-http://jigsaw.w3.org/css-validator/validator$link
-or
-http://jigsaw.w3.org/css-validator/check/referer **(for HTML/XML document only)**
 
 Please check the evidence below:
 
@@ -671,12 +668,12 @@ Please check the evidence below:
 <details>
     <summary>CSS File</summary>
 
-![Evidence of no errors in the CSS file](docs/validation/validation-css-1.PNG) 
+![Evidence of no errors in the CSS file](docs/validation/validation-css-validator-jigsaw-w3-org.PNG) 
 </details>
 <details>
     <summary>CSS File (Warnings)</summary>
 
-![Evidence of no errors in the CSS file](docs/validation/validation-css-2.PNG) 
+![Evidence of no errors in the CSS file](docs/validation/validation-css-validator-jigsaw-w3-org-warnings.PNG) 
 </details>
 
 #### [Back to Index](#index)

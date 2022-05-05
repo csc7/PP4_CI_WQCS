@@ -430,6 +430,7 @@ a.nav-link {
     margin-bottom: 225px;
 }
 
+
 /* CRUD Panel */
 
 /* Hidden element to associate record for later update */
@@ -604,6 +605,7 @@ td {
     font-family: 'Heebo', sans-serif!important;
 }
 
+
 /* **************** */
 /* POST DETAIL PAGE */
 /* **************** */
@@ -740,7 +742,7 @@ td {
 /* ************* */
 
 
-/* FOOTHER ON BIG SCREEN SIZE, HEIGHT ABOVE 1080px */
+/* FOOTER ON BIG SCREEN SIZE, HEIGHT ABOVE 1080px */
 
 @media screen and (min-height: 1081px) {
 
@@ -760,6 +762,9 @@ td {
     }
 
 }
+
+
+/* FOOTER ON BIG SCREEN SIZE, HEIGHT ABOVE 1080px AND WIDTH BELOW 576 */
 
 @media screen and (min-height: 1081px) and (max-width: 577px) {
 
@@ -994,5 +999,3 @@ td {
     }
 
 }
-
-
