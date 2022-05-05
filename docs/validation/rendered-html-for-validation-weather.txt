@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Code Institute Student Milestone Project 1">
+    <meta name="keywords" content="Seismic, geophysical, acquisition, processing,
+        crew, field, weather, technical support, database, wind, temperature,
+        Code Institute, software development, student, full-stack course,
+        milestone project">
+    <title>Weather and Quality Control for Seismic Data Acquisition</title>
+
+    <!-- Credit: Bootstrap
+    Code copied on December 7th, 2021, 01:50 from Code Institute lessons
+    Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">  
+
+    <!--ArcGIS-->
+    <!-- Script/Code for maps and picking of latitude and longitude:
+    https://community.esri.com/t5/arcgis-api-for-javascript-questions/mouse-click-to-get-map-point-or-x-y/m-p/516073#M48139;
+    copied and modified on December 8th, 2021, 04:00.-->
+    <link rel="stylesheet" href="https://js.arcgis.com/3.18/dijit/themes/tundra/tundra.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/css/esri.css">   
+
+    <!-- This project's CSS file -->
+    
+    <link rel="stylesheet" href="https://res.cloudinary.com/csc7/raw/upload/v1/static/css/style.9962e09201aa.css">   
+
+    <!-- favicon
+    To load static folder for favicon:
+    https://stackoverflow.com/questions/35054230/custom-tag-not-loaded-in-template, accessed on January 22nd, at 15:05. -->
+    <link rel="shortcut icon" href="https://res.cloudinary.com/csc7/image/upload/v1/static/images/wqcs-icon.236fba289096.PNG"/>    
+</head>
+
+<body id="body">
+    <!-- Header -->
+    <header>
+        <div id="header" class="container-fluid fixed-top">
+            <div class="row">                                
+                <div id="company-logo" class="col-6 col-sm-2 col-md-2 col-lg-2">
+                    <!-- Icon for website logo (wind):
+                    Credit: Font Awesome
+                    Downloaded on December 7th, 2021, 09:15, from https://fontawesome.com/v5.15/icons/wind?style=solid -->
+                    <a class="navbar-brand" href="/"><i class="fas fa-wind"></i> WQCS</a>
+                </div>
+                <div id="header-menu" class="col-6  col-sm-7 col-md-6 col-lg-5">
+                    <!-- Bootstrap Navbar
+                    Copied and modified from https://getbootstrap.com/docs/4.0/components/navbar/
+                    July 8th, 2021, at 00:35, and December 7th, 2021, 04:00. Menu content modified. -->
+                    <nav class="navbar navbar-expand-sm navbar-light">
+                        <button id="hamburger-button" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/">Instructions</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/weather/">Weather</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/blog/">Blog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/contact/">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div> 
+                <div id="log-in-button-1" class="col-12 col-sm-3 col-md-4 col-lg-5">
+                    <!-- Button trigger modal:
+                    Credit: Bootstrap
+                    Code copied on December 7th, 2021, 08:34 from https://getbootstrap.com/docs/4.0/components/modal/
+                    and from my own previous project PP1_CI_TGC; modified taking content from the 
+                    Code Institute "I Think Therefore I Blog" project, "account" templates (login.html, logout.html
+                    and signup.html)-->
+                    <!-- Button trigger modal -->
+                                        
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='/accounts/logout/';">
+                        Sign Out
+                    </button>
+                    
+                </div>              
+            </div>
+        </div>
+    </header>
+    <!-- /.Header -->
+
+    <!-- Update/Status messages for user -->
+    <div id="message-container">
+        <div id="record-created" class="alert alert-success fade show" role="alert">
+  <p><strong>Success!</strong></p>
+  <p>Record created</p>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div id="record-read" class="alert alert-success fade show" role="alert">
+  <p><strong>Please wait:</strong></p>
+  <p>Reading data</p>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div id="record-updated" class="alert alert-success fade show" role="alert">
+  <p><strong>Success!</strong></p>
+  <p>Record updated</p>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div id="record-deleted" class="alert alert-success fade show" role="alert">
+  <p><strong>Success!</strong></p>
+  <p>Record deleted</p>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+
+
+
+    </div>
+    <!-- /.Update/Status messages for user -->
+
+    <!-- Main Content -->
+    
+
+    <div class="container">
+        <div class="row">
+            <div id="source-Esri" class="col-12 col-sm-6 external-references">
+                <p>Maps by Esri</p>
+            </div>
+            <div id="source-Google" class="col12 col-sm-6 external-references">
+                <p>Charts by Google</p>
+            </div>
+        </div>
+        <hr>
+    </div>    
+    <!-- Weather Data -->
+    <div id="top-container" class="container">        
+        <div id="weather-map-and-data" class="row">
+            <!-- Map -->
+            <div id="viewDiv" class="col-12 col-sm-12 col-md-12 col-lg-6">  
+            </div>
+            <!-- Panel -->
+            <div id="weather-data" class="col-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="row">
+                    <!-- Coordinates -->
+                    <div id="weather-data-title" class="col-12 weather-data-label"><p>Coordinates for Weather Data</p></div>
+                    <div id="latitute-title" class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Latitude</p></div>
+                    <div id="latitude" class="col-12 col-sm-6 col-md-3 weather-data-value"><p>(Click on map)</p></div>
+                    <div id="longitude-title" class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Longitude</p></div>
+                    <div id="longitude" class="col-12 col-sm-6 col-md-3 weather-data-value"><p>(Click on map)</p></div>
+                    <div id="enter-manually-title" class="col-12 weather-data-label"><p>Manual Input of Coordinates</p></div>
+                    <div id="manual-latitude-label" class="col-12 col-sm-6 col-md-3 weather-data-label">
+                        <label for="latitude-input" id="label-for-latitude">Latitude</label>
+                    </div>
+                    <div id="manual-latitude" class="col-12 col-sm-6 col-md-3 weather-data-value">
+                        <input id="latitude-input" type="number">
+                    </div>
+                    <div id="manual-longitude-label" class="col-12 col-sm-6 col-md-3 weather-data-label">
+                        <label for="longitude-input" id="label-for-longitude">Longitude</label>
+                    </div>                    
+                    <div id="manual-longitude" class="col-12 col-sm-6 col-md-3 weather-data-value">
+                        <input id="longitude-input" type="number">
+                    </div>
+                    <div id="get-weather-data" class="col-12">
+                        <button id="get-weather-data-button" type="button">Get Data</button>
+                    </div>
+                    <div id="results-title" class="col-12 weather-data-label"><p>Weather Data</p></div>
+                    <!-- Weather Information from OpenWeather -->
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Wind Speed</p></div>                                       
+                    <div id="value-wind" class="col-12 col-sm-6 col-md-3 weather-data-value"><p></p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Direction</p></div>
+                    <div id="value-wind-direction" class="col-12 col-sm-6 col-md-3 weather-data-value"><p></p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Temperature</p></div>
+                    <div id="value-temperature" class="col-12 col-sm-6 col-md-3 weather-data-value"><p></p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Feels Like</p></div>
+                    <div id="value-feels-like" class="col-12 col-sm-6 col-md-3 weather-data-value"><p></p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Temp. Max</p></div>
+                    <div id="value-temperature-max" class="col-12 col-sm-6 col-md-3 weather-data-value"><p></p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Temp. Min</p></div>
+                    <div id="value-temperature-min" class="col-12 col-sm-6 col-md-3 weather-data-value"><p></p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Pressure</p></div>
+                    <div id="value-pressure" class="col-12 col-sm-6 col-md-3 weather-data-value"><p></p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Humidity</p></div>
+                    <div id="value-humidity" class="col-12 col-sm-6 col-md-3 weather-data-value"><p></p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Visibitily</p></div>
+                    <div id="value-visibility" class="col-12 col-sm-6 col-md-3 weather-data-value"><p></p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Sky</p></div>
+                    <div id="value-clouds" class="col-12 col-sm-6 col-md-3 weather-data-value"><p></p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Main</p></div>
+                    <div id="value-main" class="col-12 col-sm-6 col-md-3 weather-data-value"><p></p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Description</p></div>
+                    <div id="value-description" class="col-12 col-sm-6 col-md-3 weather-data-value"><p></p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Country</p></div>
+                    <div id="value-country" class="col-12 col-sm-6 col-md-3 weather-data-value"><p></p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Date</p></div>
+                    <div id="value-date" class="col-12 col-sm-6 col-md-3 weather-data-value"><p></p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Sunrise</p></div>
+                    <div id="value-sunrise" class="col-12 col-sm-6 col-md-3 weather-data-value"><p></p></div>
+                    <div class="col-12 col-sm-6 col-md-3 weather-data-label"><p>Sunset</p></div>
+                    <div id="value-sunset" class="col-12 col-sm-6 col-md-3 weather-data-value"><p></p></div>
+                    <div id="send-weather-data" class="col-12">
+                    <!-- If user is authenticated, give the option to send the data to the database; otherwise give the option to authenticate -->
+                       
+                        <button id="send-weather-data-button" type="button">Send Data to DB</button>
+                    
+                    </div>
+                    <!-- /.Weather Data -->
+                </div>
+            </div>       
+        </div>
+        <hr>
+    </div>
+    <!-- Days and Other Data/Information Selection Panel -->
+    <div class="container">
+        <div id="select-data-options" class="row">
+            <div class="col-12">
+                <div>
+                    <p id="select-data-options-title">Select Records to Read and Display</p>
+                </div>                
+            </div>
+            <!-- Select number of days to show -->
+            <div id="s-d-o-1" class="col-12 col-lg-2">
+                <input type="radio" id="5-days" name="records-to-display" value="5-last" checked="checked">
+                <label for="5-days" class="radio-select-label">Last 5 days</label>
+            </div>
+            <div id="s-d-o-2" class="col-12 col-lg-2">
+                <input type="radio" id="15-days" name="records-to-display" value="15-last">
+                <label for="15-days" class="radio-select-label">Last 15 days</label>
+            </div>
+            <div id="s-d-o-3" class="col-12 col-lg-2">
+                <input type="radio" id="all-data" name="records-to-display" value="all-data">
+                <label for="all-data" class="radio-select-label">All Data</label>
+            </div>
+            <!-- Select data to show -->
+            <div id="s-d-o-4" class="col-12 col-lg-3">                    
+                <label for="s-d-o-list-1" class="radio-select-label">Value 1</label>                  
+                <select id="s-d-o-list-1" name="other-value-list-1" class="input-field">
+                    <option value="pressure" selected="selected">Pressure</option>
+                    <option value="humidity">Humidity</option>
+                    <option value="visibility">Visibility</option>
+                    <option value="sky">Sky</option>
+                    <option value="main">Main</option>
+                    <option value="sunrise">Sunrise</option>
+                    <option value="sunset">Sunset</option>
+                </select>                                        
+            </div>  
+            <div id="s-d-o-5" class="col-12 col-lg-3">                    
+                <label for="s-d-o-list-2" class="radio-select-label">Value 2</label>                  
+                <select id="s-d-o-list-2" name="other-value-list-2" class="input-field">
+                    <option value="pressure">Pressure</option>
+                    <option value="humidity" selected="selected">Humidity</option>
+                    <option value="visibility">Visibility</option>
+                    <option value="sky">Sky</option>
+                    <option value="main">Main</option>
+                    <option value="sunrise">Sunrise</option>
+                    <option value="sunset">Sunset</option>
+                </select>                                        
+            </div>           
+        </div>
+        <hr>
+        <!-- CRUD Panel -->
+        <div class="container">
+            <div class="row">
+                <!-- CRUD Panel Title --> 
+                <div id="crud-panel-title" class="col-12">
+                    <p>Record Edition</p>
+                    <p class="text-success"><small>Create data in the panel below or select in the tables and edid or delete</small></p>
+                </div>
+                <!-- CRUD Panel Buutons -->
+                    
+                    <div class="col-12 col-md-4 crud-button-div">
+                        <button id="crud-create-button" class="crud-button" type="submit">Create Record</button>
+                    </div>
+                    <div class="col-12 col-md-4 crud-button-div">
+                        <button id="crud-select-and-edit-button" class="crud-button" type="submit">Select and Update</button>
+                    </div>
+                    <div class="col-12 col-md-4 crud-button-div">
+                        <button id="crud-delete-button" class="crud-button" type="submit">Select and Delete</button>
+                    </div>
+                    <!-- Container to show field when create or edit is selected (initially hidden by CSS file) -->
+                    <div class="col-12" id="crud-create-or-edit-panel">
+                        <div class="container">
+                            <div class="row">
+                                <div id="hidden-id-for-update"></div>
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
+                                    <label for="crud-value-wind" id="label-for-crud-value-wind">Wind Spped</label>
+                                </div>                                       
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
+                                    <input id="crud-value-wind" type="number" required>
+                                </div>
+                            
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
+                                    <label for="crud-value-wind-direction" id="label-for-crud-value-wind-direction">Direction</label>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
+                                    <input id="crud-value-wind-direction" type="number" required>
+                                </div>
+                            
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
+                                    <label for="crud-value-temperature" id="label-for-crud-value-temperature">Temperature</label>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
+                                    <input id="crud-value-temperature" type="number" required>
+                                </div>
+                            
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
+                                    <label for="crud-value-feels-like" id="label-for-crud-value-feels-like">Feels Like</label>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
+                                    <input id="crud-value-feels-like" type="number" required>
+                                </div>
+                            
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
+                                    <label for="crud-value-temperature-max" id="label-for-crud-value-temperature-max">Temp. Max</label>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
+                                    <input id="crud-value-temperature-max" type="number" required>
+                                </div>
+                            
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
+                                    <label for="crud-value-temperature-min" id="label-for-crud-value-temperature-min">Temp. Min</label>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
+                                    <input id="crud-value-temperature-min" type="number" required>
+                                </div>
+                            
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
+                                    <label for="crud-value-pressure" id="label-for-crud-value-pressure">Pressure</label>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
+                                    <input id="crud-value-pressure" type="number" required>
+                                </div>
+                            
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
+                                    <label for="crud-value-humidity" id="label-for-crud-value-humidity">Humidity</label>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
+                                    <input id="crud-value-humidity" type="number" required>
+                                </div>
+                            
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
+                                    <label for="crud-value-visibility" id="label-for-crud-value-visibility">Visibility</label>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
+                                    <input id="crud-value-visibility" type="number" required>
+                                </div>
+                            
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
+                                    <label for="crud-value-clouds" id="label-for-crud-value-clouds">Sky</label>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
+                                    <input id="crud-value-clouds" type="number" required>
+                                </div>
+                            
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right"> 
+                                    <label for="crud-value-main" id="label-for-crud-value-main">Main</label>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
+                                    <input id="crud-value-main" type="text" maxlength="16" required>
+                                </div>
+                            
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
+                                    <label for="crud-value-description" id="label-for-crud-value-description">Description</label>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
+                                    <input id="crud-value-description" type="text" maxlength="16" required>
+                                </div>
+                                                      
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
+                                    <label for="crud-value-date" id="label-for-crud-value-date">Date</label>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
+                                    <input id="crud-value-date" type="date" required>
+                                </div>
+
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
+                                    <label for="crud-value-time" id="label-for-crud-value-time">Time</label>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
+                                    <input id="crud-value-time" type="time" step="2" required>
+                                </div>
+                            
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-label text-center text-sm-right">
+                                    <label for="crud-value-sunrise" id="label-for-crud-value-sunrise">Sunrise</label>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-3 weather-data-value">
+                                    <!-- Type time with seconds (00:00:00):
+                                    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/time,
+                                    accessed on March 5th, 2022, at 05:37 -->
+                                    <input id="crud-value-sunrise" type="time" step="2" required>
+                                </div>
+                            
+                                <div class="col-12 col-sm-3 weather-data-label text-center text-sm-right">
+                                    <label for="crud-value-sunset" id="label-for-crud-value-sunset">Sunset</label>
+                                </div>
+                                <div class="col-12 col-sm-3 weather-data-value">
+                                    <!-- Type time with seconds (00:00:00):
+                                    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/time,
+                                    accessed on March 5th, 2022, at 05:37 -->
+                                    <input id="crud-value-sunset" type="time" step="2" required>
+                                </div> 
+                                <div class="col-12" id="crud-send-weather-data-button-div">
+                                    <button id="crud-send-weather-data-button" type="submit">Send Data to DB</button>
+                                </div>
+                                             
+                            </div>
+                        </div>                      
+                    </div>
+                    <div class="col-12" id="crud-quit-edition-mode-button-div">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <button id="crud-quit-edition-mode-button" type="submit">Quit Edition Mode</button>
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div> 
+                    <!-- CRUD Send to database, hide (in CSS file) if not needed -->                    
+                
+                <!-- CRUD Panel Status -->
+                <div id="crud-panel-status" class="col-12">
+                    <p id="test_for_ajax" class="text-success"></p>                  
+                </div>
+            </div>
+        </div>
+        <hr>
+        <!-- Charts and Tables Data -->
+        <div id="weather_extra_info" class="row">
+            <div id="chart-left" class="col-12 order-1 col-lg-4 order-lg-1">
+                <!-- 1st Column
+                Google Charts
+                Line Charts
+                Copied and modified from https://developers.google.com/chart/interactive/docs/gallery/linechart on January 5th, 2022, at 20:40. -->                
+                <div id="curve_chart_left"></div>
+            </div>
+            <div id="chart-middle" class="col-12 order-3 col-lg-4 order-lg-2">
+                <!-- 2nd Column
+                Google Charts
+                Line Charts
+                Copied and modified from https://developers.google.com/chart/interactive/docs/gallery/linechart on January 5th, 2022, at 20:40. -->                
+                <div id="curve_chart_middle"></div>
+            </div>
+            <div id="chart-right" class="col-12 order-5 col-lg-4 order-lg-3">
+                <!-- 3rd Column
+                Google Charts
+                Line Charts
+                Copied and modified from https://developers.google.com/chart/interactive/docs/gallery/linechart on January 5th, 2022, at 20:40. -->                
+                <div id="curve_chart_right"></div>
+            </div>
+            <div id="wind-extra-info" class="col-12 order-2 col-lg-4 order-lg-4">  
+                <hr>
+                <!-- 1st Table -->
+                <table id="wind-table">
+                    <tr>
+                        <th>Date</th>
+                        <th>Wind Speed</th>
+                        <th>Wind Dir</th>
+                        <th hidden>Edit Record Buttons</th>
+                        <th hidden>Delete Record Buttons</th>
+                    </tr>                                                        
+                    
+                        <tr>
+                            <!-- Date format taken from https://stackoverflow.com/questions/7737146/how-can-i-change-the-default-django-date-template-format
+                            on March 11th, 2022, at 2:39 -->
+                            <td>05-05-22</td>
+                            <td>7.4</td>
+                            <td>145.0</td>
+                            <!-- Icon for edition of records, link copied on May 1st, 2022, at 22:20, from https://fontawesome.com/v4/icon/pencil -->
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="wind_sp_408" aria-label="Edit wind data record"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                            <!-- Icon for deletion of records, link copied on May 1st, 2022, at 22:25, from https://fontawesome.com/v4/icon/trash -->
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="wind_dir_408" aria-label="Delete wind data record"><i class="fa fa-trash" aria-hidden="true"></i></button></td>  
+                            <!--<td>
+                                <form method="post" action='/weather/'>
+                                    <input type="submit" name="Edit" value="408" class="btn btn-warning btn-sm edit-button-in-table">
+                                </form>
+                            </td>-->
+
+                            <!-- <td><button type="submit" class="btn btn-warning btn-sm edit-button-in-table">Edit</button></td>
+                            <td><button type="submit" class="btn btn-danger btn-sm delete-button-in-table">Delete</button></td> -->
+                        </tr>
+                    
+                        <tr>
+                            <!-- Date format taken from https://stackoverflow.com/questions/7737146/how-can-i-change-the-default-django-date-template-format
+                            on March 11th, 2022, at 2:39 -->
+                            <td>05-05-22</td>
+                            <td>4.6</td>
+                            <td>240.0</td>
+                            <!-- Icon for edition of records, link copied on May 1st, 2022, at 22:20, from https://fontawesome.com/v4/icon/pencil -->
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="wind_sp_407" aria-label="Edit wind data record"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                            <!-- Icon for deletion of records, link copied on May 1st, 2022, at 22:25, from https://fontawesome.com/v4/icon/trash -->
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="wind_dir_407" aria-label="Delete wind data record"><i class="fa fa-trash" aria-hidden="true"></i></button></td>  
+                            <!--<td>
+                                <form method="post" action='/weather/'>
+                                    <input type="submit" name="Edit" value="407" class="btn btn-warning btn-sm edit-button-in-table">
+                                </form>
+                            </td>-->
+
+                            <!-- <td><button type="submit" class="btn btn-warning btn-sm edit-button-in-table">Edit</button></td>
+                            <td><button type="submit" class="btn btn-danger btn-sm delete-button-in-table">Delete</button></td> -->
+                        </tr>
+                    
+                        <tr>
+                            <!-- Date format taken from https://stackoverflow.com/questions/7737146/how-can-i-change-the-default-django-date-template-format
+                            on March 11th, 2022, at 2:39 -->
+                            <td>04-05-22</td>
+                            <td>6.2</td>
+                            <td>270.0</td>
+                            <!-- Icon for edition of records, link copied on May 1st, 2022, at 22:20, from https://fontawesome.com/v4/icon/pencil -->
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="wind_sp_405" aria-label="Edit wind data record"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                            <!-- Icon for deletion of records, link copied on May 1st, 2022, at 22:25, from https://fontawesome.com/v4/icon/trash -->
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="wind_dir_405" aria-label="Delete wind data record"><i class="fa fa-trash" aria-hidden="true"></i></button></td>  
+                            <!--<td>
+                                <form method="post" action='/weather/'>
+                                    <input type="submit" name="Edit" value="405" class="btn btn-warning btn-sm edit-button-in-table">
+                                </form>
+                            </td>-->
+
+                            <!-- <td><button type="submit" class="btn btn-warning btn-sm edit-button-in-table">Edit</button></td>
+                            <td><button type="submit" class="btn btn-danger btn-sm delete-button-in-table">Delete</button></td> -->
+                        </tr>
+                    
+                        <tr>
+                            <!-- Date format taken from https://stackoverflow.com/questions/7737146/how-can-i-change-the-default-django-date-template-format
+                            on March 11th, 2022, at 2:39 -->
+                            <td>26-05-22</td>
+                            <td>21.0</td>
+                            <td>2.0</td>
+                            <!-- Icon for edition of records, link copied on May 1st, 2022, at 22:20, from https://fontawesome.com/v4/icon/pencil -->
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="wind_sp_403" aria-label="Edit wind data record"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                            <!-- Icon for deletion of records, link copied on May 1st, 2022, at 22:25, from https://fontawesome.com/v4/icon/trash -->
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="wind_dir_403" aria-label="Delete wind data record"><i class="fa fa-trash" aria-hidden="true"></i></button></td>  
+                            <!--<td>
+                                <form method="post" action='/weather/'>
+                                    <input type="submit" name="Edit" value="403" class="btn btn-warning btn-sm edit-button-in-table">
+                                </form>
+                            </td>-->
+
+                            <!-- <td><button type="submit" class="btn btn-warning btn-sm edit-button-in-table">Edit</button></td>
+                            <td><button type="submit" class="btn btn-danger btn-sm delete-button-in-table">Delete</button></td> -->
+                        </tr>
+                    
+                        <tr>
+                            <!-- Date format taken from https://stackoverflow.com/questions/7737146/how-can-i-change-the-default-django-date-template-format
+                            on March 11th, 2022, at 2:39 -->
+                            <td>14-05-22</td>
+                            <td>3.0</td>
+                            <td>3.0</td>
+                            <!-- Icon for edition of records, link copied on May 1st, 2022, at 22:20, from https://fontawesome.com/v4/icon/pencil -->
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="wind_sp_402" aria-label="Edit wind data record"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                            <!-- Icon for deletion of records, link copied on May 1st, 2022, at 22:25, from https://fontawesome.com/v4/icon/trash -->
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="wind_dir_402" aria-label="Delete wind data record"><i class="fa fa-trash" aria-hidden="true"></i></button></td>  
+                            <!--<td>
+                                <form method="post" action='/weather/'>
+                                    <input type="submit" name="Edit" value="402" class="btn btn-warning btn-sm edit-button-in-table">
+                                </form>
+                            </td>-->
+
+                            <!-- <td><button type="submit" class="btn btn-warning btn-sm edit-button-in-table">Edit</button></td>
+                            <td><button type="submit" class="btn btn-danger btn-sm delete-button-in-table">Delete</button></td> -->
+                        </tr>
+                    
+                </table>
+            </div>
+            <div id="temperature-extra-info" class="col-12 order-4 col-lg-4 order-lg-5">
+                <hr>
+                <!-- 2nd Table -->
+                <table id="temperature-table">
+                    <tr>
+                        <th>Date</th>
+                        <th>Temperature</th>
+                        <th>Feels Like</th>
+                        <th hidden>Edit Record Buttons</th>
+                        <th hidden>Delete Record Buttons</th>
+                    </tr>
+                    
+                        <tr>
+                            <!-- Date format taken from https://stackoverflow.com/questions/7737146/how-can-i-change-the-default-django-date-template-format
+                            on March 11th, 2022, at 2:39 -->
+                            <td>05-05-22</td>
+                            <td>28.0</td>
+                            <td>31.4</td>
+                            <!--<input type="hidden" value="408" name="temp_rec_id_408" id="temp_408">-->
+
+                            <!-- Icon for edition of records, link copied on May 1st, 2022, at 22:20, from https://fontawesome.com/v4/icon/pencil -->
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="temp_up_408" aria-label="Edit temperature data record"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                            <!-- Icon for deletion of records, link copied on May 1st, 2022, at 22:25, from https://fontawesome.com/v4/icon/trash -->
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="temp_del_408" aria-label="Delete temperature data record"><i class="fa fa-trash" aria-hidden="true"></i></button></td>                         
+                        </tr>
+                    
+                        <tr>
+                            <!-- Date format taken from https://stackoverflow.com/questions/7737146/how-can-i-change-the-default-django-date-template-format
+                            on March 11th, 2022, at 2:39 -->
+                            <td>05-05-22</td>
+                            <td>11.1</td>
+                            <td>10.5</td>
+                            <!--<input type="hidden" value="407" name="temp_rec_id_407" id="temp_407">-->
+
+                            <!-- Icon for edition of records, link copied on May 1st, 2022, at 22:20, from https://fontawesome.com/v4/icon/pencil -->
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="temp_up_407" aria-label="Edit temperature data record"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                            <!-- Icon for deletion of records, link copied on May 1st, 2022, at 22:25, from https://fontawesome.com/v4/icon/trash -->
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="temp_del_407" aria-label="Delete temperature data record"><i class="fa fa-trash" aria-hidden="true"></i></button></td>                         
+                        </tr>
+                    
+                        <tr>
+                            <!-- Date format taken from https://stackoverflow.com/questions/7737146/how-can-i-change-the-default-django-date-template-format
+                            on March 11th, 2022, at 2:39 -->
+                            <td>04-05-22</td>
+                            <td>16.5</td>
+                            <td>16.0</td>
+                            <!--<input type="hidden" value="405" name="temp_rec_id_405" id="temp_405">-->
+
+                            <!-- Icon for edition of records, link copied on May 1st, 2022, at 22:20, from https://fontawesome.com/v4/icon/pencil -->
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="temp_up_405" aria-label="Edit temperature data record"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                            <!-- Icon for deletion of records, link copied on May 1st, 2022, at 22:25, from https://fontawesome.com/v4/icon/trash -->
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="temp_del_405" aria-label="Delete temperature data record"><i class="fa fa-trash" aria-hidden="true"></i></button></td>                         
+                        </tr>
+                    
+                        <tr>
+                            <!-- Date format taken from https://stackoverflow.com/questions/7737146/how-can-i-change-the-default-django-date-template-format
+                            on March 11th, 2022, at 2:39 -->
+                            <td>26-05-22</td>
+                            <td>2.0</td>
+                            <td>2.0</td>
+                            <!--<input type="hidden" value="403" name="temp_rec_id_403" id="temp_403">-->
+
+                            <!-- Icon for edition of records, link copied on May 1st, 2022, at 22:20, from https://fontawesome.com/v4/icon/pencil -->
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="temp_up_403" aria-label="Edit temperature data record"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                            <!-- Icon for deletion of records, link copied on May 1st, 2022, at 22:25, from https://fontawesome.com/v4/icon/trash -->
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="temp_del_403" aria-label="Delete temperature data record"><i class="fa fa-trash" aria-hidden="true"></i></button></td>                         
+                        </tr>
+                    
+                        <tr>
+                            <!-- Date format taken from https://stackoverflow.com/questions/7737146/how-can-i-change-the-default-django-date-template-format
+                            on March 11th, 2022, at 2:39 -->
+                            <td>14-05-22</td>
+                            <td>3.0</td>
+                            <td>3.0</td>
+                            <!--<input type="hidden" value="402" name="temp_rec_id_402" id="temp_402">-->
+
+                            <!-- Icon for edition of records, link copied on May 1st, 2022, at 22:20, from https://fontawesome.com/v4/icon/pencil -->
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="temp_up_402" aria-label="Edit temperature data record"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                            <!-- Icon for deletion of records, link copied on May 1st, 2022, at 22:25, from https://fontawesome.com/v4/icon/trash -->
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="temp_del_402" aria-label="Delete temperature data record"><i class="fa fa-trash" aria-hidden="true"></i></button></td>                         
+                        </tr>
+                    
+                </table>
+            </div>
+            <div id="other-weather-extra-info" class="col-12 order-6 col-lg-4 order-lg-6">
+                <hr>
+                <!-- 3rd Table -->
+                <table id="other-weather-table">
+                    <tr>
+                        <th>Date</th>
+                        <th>Pressure</th>
+                        <th>Sky</th>
+                        <th hidden>Edit Record Buttons</th>
+                        <th hidden>Delete Record Buttons</th>
+                    </tr>
+                    
+                        <tr>
+                            <!-- Date format taken from https://stackoverflow.com/questions/7737146/how-can-i-change-the-default-django-date-template-format
+                            on March 11th, 2022, at 2:39 -->
+                            <td>05-05-22</td>
+                            <td>1012.0</td>
+                            <td>93.0</td>
+                            <!-- Icon for edition of records, link copied on May 1st, 2022, at 22:20, from https://fontawesome.com/v4/icon/pencil -->
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="other_1_408" aria-label="Edit previously selected data record"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                            <!-- Icon for deletion of records, link copied on May 1st, 2022, at 22:25, from https://fontawesome.com/v4/icon/trash -->
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="other_2__408" aria-label="Delete previously selected data record"><i class="fa fa-trash" aria-hidden="true"></i></button></td>      
+                        </tr>
+                    
+                        <tr>
+                            <!-- Date format taken from https://stackoverflow.com/questions/7737146/how-can-i-change-the-default-django-date-template-format
+                            on March 11th, 2022, at 2:39 -->
+                            <td>05-05-22</td>
+                            <td>1022.0</td>
+                            <td>75.0</td>
+                            <!-- Icon for edition of records, link copied on May 1st, 2022, at 22:20, from https://fontawesome.com/v4/icon/pencil -->
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="other_1_407" aria-label="Edit previously selected data record"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                            <!-- Icon for deletion of records, link copied on May 1st, 2022, at 22:25, from https://fontawesome.com/v4/icon/trash -->
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="other_2__407" aria-label="Delete previously selected data record"><i class="fa fa-trash" aria-hidden="true"></i></button></td>      
+                        </tr>
+                    
+                        <tr>
+                            <!-- Date format taken from https://stackoverflow.com/questions/7737146/how-can-i-change-the-default-django-date-template-format
+                            on March 11th, 2022, at 2:39 -->
+                            <td>04-05-22</td>
+                            <td>1020.0</td>
+                            <td>75.0</td>
+                            <!-- Icon for edition of records, link copied on May 1st, 2022, at 22:20, from https://fontawesome.com/v4/icon/pencil -->
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="other_1_405" aria-label="Edit previously selected data record"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                            <!-- Icon for deletion of records, link copied on May 1st, 2022, at 22:25, from https://fontawesome.com/v4/icon/trash -->
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="other_2__405" aria-label="Delete previously selected data record"><i class="fa fa-trash" aria-hidden="true"></i></button></td>      
+                        </tr>
+                    
+                        <tr>
+                            <!-- Date format taken from https://stackoverflow.com/questions/7737146/how-can-i-change-the-default-django-date-template-format
+                            on March 11th, 2022, at 2:39 -->
+                            <td>26-05-22</td>
+                            <td>2.0</td>
+                            <td>2.0</td>
+                            <!-- Icon for edition of records, link copied on May 1st, 2022, at 22:20, from https://fontawesome.com/v4/icon/pencil -->
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="other_1_403" aria-label="Edit previously selected data record"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                            <!-- Icon for deletion of records, link copied on May 1st, 2022, at 22:25, from https://fontawesome.com/v4/icon/trash -->
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="other_2__403" aria-label="Delete previously selected data record"><i class="fa fa-trash" aria-hidden="true"></i></button></td>      
+                        </tr>
+                    
+                        <tr>
+                            <!-- Date format taken from https://stackoverflow.com/questions/7737146/how-can-i-change-the-default-django-date-template-format
+                            on March 11th, 2022, at 2:39 -->
+                            <td>14-05-22</td>
+                            <td>3.0</td>
+                            <td>3.0</td>
+                            <!-- Icon for edition of records, link copied on May 1st, 2022, at 22:20, from https://fontawesome.com/v4/icon/pencil -->
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="other_1_402" aria-label="Edit previously selected data record"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                            <!-- Icon for deletion of records, link copied on May 1st, 2022, at 22:25, from https://fontawesome.com/v4/icon/trash -->
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="other_2__402" aria-label="Delete previously selected data record"><i class="fa fa-trash" aria-hidden="true"></i></button></td>      
+                        </tr>
+                    
+                </table>
+            </div>            
+        </div>
+    </div>
+    <!-- /.Weather Data -->    
+
+    <!-- /.Main Content -->
+
+    <!-- Footer -->
+    <footer>
+        <div id="footer" class="container-fluid">
+            <div class="row">                                
+                <div id="company-data" class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <p>Unión de Santa Fe Seismics</p>
+                    <p>Boulevard Galvez 89</p>
+                    <p>+54 214 255 2524</p>
+                    <p>usf@seismic.com</p>
+                    <p>Argentina</p>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <div id="company-links">
+                        <!-- Bootstrap Navs
+                        Copied on December 7th, 2021, 05:00 from https://getbootstrap.com/docs/4.0/components/navs/
+                        Content modified. -->
+                        <nav class="nav justify-content-center">
+                            <!-- Font Awesome
+                            Icon for LinkedIn: downloaded on December 7th, 2021, 05:50 from https://fontawesome.com/v5.15/icons/linkedin?style=brands -->
+                            <a class="nav-link active" href="https://www.linkedin.com/in/carloscolombo/" target="_blank" rel="noopener"
+                            aria-label="Visit Developer LinkedIn page (it opens in a new tab)"><i class="fab fa-linkedin"></i></a>
+                            <!-- Font Awesome
+                            Icon for GitHub: downloaded on December 7th, 2021, 05:52 from https://fontawesome.com/v5.15/icons/github-square?style=brands -->
+                            <a class="nav-link" href="https://github.com/csc7" target="_blank" rel="noopener"
+                            aria-label="Visit WQCS Facebook page (it opens in a new tab)"><i class="fab fa-github-square"></i></a>
+                            <!-- Font Awesome
+                            Icon for E-mail: downloaded on December 7th, 2021, 05:53 from https://fontawesome.com/v5.15/icons/envelope-square?style=solid -->
+                            <a class="nav-link" href="mailto:cscolombo@gmail.com" target="_blank" rel="noopener"
+                            aria-label="Send us an e-mail (it opens in a new tab)"><i class="fas fa-envelope-square"></i></a>
+                        </nav>
+                    </div>
+                    <div id="footer-contact-link">
+                        <a class="nav-link" href="/contact/">Contact</a>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </footer>
+    <!-- /.Footer --> 
+
+    <!-- Font Awesome Script / Kit
+    Link copied on December 7th, 2021, 05:07 from Font Awesome personal account -->
+    <script src="https://kit.fontawesome.com/80e4621b26.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap Scripts, copied on December 7th, 2021, 06:21 from https://getbootstrap.com/docs/4.0/getting-started/introduction/ -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Credit: jQuery
+    Code copied on December 9th, 2021, at 20:37 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>    
+    
+    <!--ArgGIS / ESRI-->
+    <script src="https://js.arcgis.com/3.18/"></script>
+
+    <!-- This website scripts -->
+    <script src="https://res.cloudinary.com/csc7/raw/upload/v1/static/js/move-content-hamburger.a31b2660e597.js"></script>
+    <script src="https://res.cloudinary.com/csc7/raw/upload/v1/static/js/blog.a08c9177c0ea.js"></script>
+
+    
+
+<!-- Google Charts
+Line Charts
+Copied and modified from https://developers.google.com/chart/interactive/docs/gallery/linechart on January 5th, 2022, at 20:40. --> 
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<!-- This page javascript file --> 
+<script src="https://res.cloudinary.com/csc7/raw/upload/v1/static/js/weather.6662058365a7.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!--
+Code copied from Code Institute "I Think Therefore I Blog" project,
+# index.html file, on December 20th, 2022 at 18:58, later modified
+-->
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Code Institute Student Milestone Project 1">
+    <meta name="keywords" content="Seismic, geophysical, acquisition, processing,
+        crew, field, weather, technical support, database, wind, temperature,
+        Code Institute, software development, student, full-stack course,
+        milestone project">
+    <title>Weather and Quality Control for Seismic Data Acquisition</title>
+
+    <!-- Credit: Bootstrap
+    Code copied on December 7th, 2021, 01:50 from Code Institute lessons
+    Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">  
+
+    <!--ArcGIS-->
+    <!-- Script/Code for maps and picking of latitude and longitude:
+    https://community.esri.com/t5/arcgis-api-for-javascript-questions/mouse-click-to-get-map-point-or-x-y/m-p/516073#M48139;
+    copied and modified on December 8th, 2021, 04:00.-->
+    <link rel="stylesheet" href="https://js.arcgis.com/3.18/dijit/themes/tundra/tundra.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/css/esri.css">   
+
+    <!-- This project's CSS file -->
+    
+    <link rel="stylesheet" href="https://res.cloudinary.com/csc7/raw/upload/v1/static/css/style.9962e09201aa.css">   
+
+    <!-- favicon
+    To load static folder for favicon:
+    https://stackoverflow.com/questions/35054230/custom-tag-not-loaded-in-template, accessed on January 22nd, at 15:05. -->
+    <link rel="shortcut icon" href="https://res.cloudinary.com/csc7/image/upload/v1/static/images/wqcs-icon.236fba289096.PNG"/>    
+</head>
+
+<body id="body">
+    <!-- Header -->
+    <header>
+        <div id="header" class="container-fluid fixed-top">
+            <div class="row">                                
+                <div id="company-logo" class="col-6 col-sm-2 col-md-2 col-lg-2">
+                    <!-- Icon for website logo (wind):
+                    Credit: Font Awesome
+                    Downloaded on December 7th, 2021, 09:15, from https://fontawesome.com/v5.15/icons/wind?style=solid -->
+                    <a class="navbar-brand" href="/"><i class="fas fa-wind"></i> WQCS</a>
+                </div>
+                <div id="header-menu" class="col-6  col-sm-7 col-md-6 col-lg-5">
+                    <!-- Bootstrap Navbar
+                    Copied and modified from https://getbootstrap.com/docs/4.0/components/navbar/
+                    July 8th, 2021, at 00:35, and December 7th, 2021, 04:00. Menu content modified. -->
+                    <nav class="navbar navbar-expand-sm navbar-light">
+                        <button id="hamburger-button" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/">Instructions</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/weather/">Weather</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/blog/">Blog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/contact/">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div> 
+                <div id="log-in-button-1" class="col-12 col-sm-3 col-md-4 col-lg-5">
+                    <!-- Button trigger modal:
+                    Credit: Bootstrap
+                    Code copied on December 7th, 2021, 08:34 from https://getbootstrap.com/docs/4.0/components/modal/
+                    and from my own previous project PP1_CI_TGC; modified taking content from the 
+                    Code Institute "I Think Therefore I Blog" project, "account" templates (login.html, logout.html
+                    and signup.html)-->
+                    <!-- Button trigger modal -->
+                                        
+                    <div class="row"> 
+                            <div id="log-in-button-2" class="col-6 col-sm-6 col-md-6 col-lg-6">
+                                <button type="button" class="btn btn-primary" onclick="window.location.href='/accounts/login/';">
+                                    Sign In
+                                </button> 
+                            </div>
+                            <div id="log-in-button-3" class="col-6 col-sm-6 col-md-6 col-lg-6">             
+                                <button type="submit" class="btn btn-primary" onclick="window.location.href='/accounts/signup/';">
+                                    Sign Up
+                                </button>
+                            </div>
+                        </div>
+                    
+                </div>              
+            </div>
+        </div>
+    </header>
+    <!-- /.Header -->
+
+    <!-- Update/Status messages for user -->
+    <div id="message-container">
+        <div id="record-created" class="alert alert-success fade show" role="alert">
+  <p><strong>Success!</strong></p>
+  <p>Record created</p>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div id="record-read" class="alert alert-success fade show" role="alert">
+  <p><strong>Please wait:</strong></p>
+  <p>Reading data</p>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div id="record-updated" class="alert alert-success fade show" role="alert">
+  <p><strong>Success!</strong></p>
+  <p>Record updated</p>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div id="record-deleted" class="alert alert-success fade show" role="alert">
+  <p><strong>Success!</strong></p>
+  <p>Record deleted</p>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+
+
+
+    </div>
+    <!-- /.Update/Status messages for user -->
+
+    <!-- Main Content -->
+    
+
+    <!-- Instructions -->
+    <div id="body-content" class="container">
+        <!-- Description of the Goal of the Sie -->
+        <section id="instructions-title" class="row">
+            <div class="col-12">            
+                <h1 class="h2-titles">Instructions to use this site</h1>
+                <div>
+                    <h3>Get weather data, open a discussion or ticket, contact us</h3>
+                    <p>This site is designed for planning the daily activities of a crew that works for seismic and/or other geophysical data acquisition.</p>
+                    <p>As weather conditions are important factors that have a direct impact on planning and costs, the idea of the website is to provide a tool to gather and analyse weather information, along with a blog with different topics to discuss usual issues found in this kind of work, in light of solving them in a centralised application, fact that is very valuable in crews with many workers, in remote locations.</p>
+                    <p>As wind and temperature might be the most important factors in terms of impact, they are show separately in two independents groups, with a third group with other weather information where the user can select what to get and analyse.</p>
+                    <p>Also, as remote locations might have difficulties for Internet connections (physical connections in early days, nowadays perhaps cost constraints only) and weather information might be compromised, at least the blog is intended to help on the resolution of issues in a centralised way, using a unique channel, factor that might be critical under usual conditions of work under presure where "noisy" communications are always unwanted.</p>
+                    <p>Additionally, an instructions page is given to help on the use of the site, and a contact page with a form where the user can send feedback if desired.</p>
+                </div>            
+            </div>
+        </section>
+        <hr>
+        <!-- Instructions for Weather Page -->
+        <section class="row">   
+            <div class="col-12">
+                <h2 class="h2-titles">Weather Page</h2>
+            </div>          
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 instruction-box">
+                <h3>Step 1</h3>
+                <p>Sign in to send data to the database, otherwise you can only read weather data.</p>
+                <img class="instructions-image" src="https://res.cloudinary.com/csc7/image/upload/v1/static/images/instructions-log-in.015153cf00f8.PNG" alt="Image related to instructions sign-in">
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 instruction-box">
+                <h3>Step 2</h3>
+                <p>Zoom to the area of interest in the map.</p>
+                <img class="instructions-image" src="https://res.cloudinary.com/csc7/image/upload/v1/static/images/instructions-map.222c03f300a6.PNG" alt="Image related to instructions zoom">
+            </div> 
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 instruction-box">
+                <h3>Step 3</h3>
+                <p>Pick location on map where you want to get the weather data.</p>
+                <img class="instructions-image" src="https://res.cloudinary.com/csc7/image/upload/v1/static/images/instructions-map.222c03f300a6.PNG" alt="Image related to instructions for picking location on map">
+            </div> 
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 instruction-box">
+                <h3>Step 4</h3>
+                <p>Alternatively, enter the desired location coordiantes manually.</p>
+                <img class="instructions-image" src="https://res.cloudinary.com/csc7/image/upload/v1/static/images/instructions-manual-coordinates-1.6f21aa3507f5.PNG" alt="Image related to instructions for entering coordinates">
+                <img class="instructions-image" src="https://res.cloudinary.com/csc7/image/upload/v1/static/images/instructions-manual-coordinates-2.e3e3e3fcfbed.PNG" alt="Image related to instructions for entering coordinates">
+                <img class="instructions-image" src="https://res.cloudinary.com/csc7/image/upload/v1/static/images/instructions-manual-coordinates-3.123860fb9a0a.PNG" alt="Image related to instructions for entering coordinates">
+            </div> 
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 instruction-box">
+                <h3>Step 5</h3>
+                <p>Pres "Get the weather data."</p>
+                <img class="instructions-image" src="https://res.cloudinary.com/csc7/image/upload/v1/static/images/instructions-get-data.21a7ed183f9d.PNG" alt="Image related to instructions for entering coordinates">
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 instruction-box">
+                <h3>Step 6</h3>
+                <p>Pres "Send the weather data to the database. This option is disabled if you are not logged in."</p>
+                <img class="instructions-image" src="https://res.cloudinary.com/csc7/image/upload/v1/static/images/instructions-send-data.990fe6190c54.PNG" alt="Image related to instructions for sending the information to the database">
+            </div> 
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 instruction-box">
+                <h3>Step 7</h3>
+                <p>Visualize data selecting 5, 15 or all records. First set (left) accounts for wind data, second one (middle) for temperature. Select which two other parameters to show in third set (right).</p>
+                <img class="instructions-image" src="https://res.cloudinary.com/csc7/image/upload/v1/static/images/instructions-visualize-data.5cc567f8d35a.png" alt="Image related to instructions for visualization the data on tables and Google Chart graphs">
+            </div> 
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 instruction-box">
+                <h3>Step 8</h3>
+                <p>Edid or Delete (sign-in required). Data are saved in the database; they can be edited and/or deleted by accessing the CRUD panel:</p>
+                <img class="instructions-image" src="https://res.cloudinary.com/csc7/image/upload/v1/static/images/instructions-crud-options-1.362251c515fd.PNG" alt="Image related to instructions for accessing the CRUD (Create-Read-Update-Delete) panel">
+                <img class="instructions-image" src="https://res.cloudinary.com/csc7/image/upload/v1/static/images/instructions-crud-options-3.242a72f5a3d4.PNG" alt="Image related to instructions for accessing the CRUD (Create-Read-Update-Delete) panel, select-and-edit button">
+                <img class="instructions-image" src="https://res.cloudinary.com/csc7/image/upload/v1/static/images/instructions-crud-options-4.9087c0f36959.PNG" alt="Image related to instructions for accessing the CRUD (Create-Read-Update-Delete) panel, select-and-delete button">
+                <p>Access the record to edit or delete with the icon next to it in the table:</p>
+                <img class="instructions-image" src="https://res.cloudinary.com/csc7/image/upload/v1/static/images/instructions-crud-options-record-buttons.5ff2f378c5bd.PNG" alt="Image related to instructions for accessing edition and delete buttons in the CRUD (Create-Read-Update-Delete) panel">
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 instruction-box">
+                <h3>Step 9</h3>
+                <p>If needed, create a record manually (sign-in required):</p>
+                <img class="instructions-image" src="https://res.cloudinary.com/csc7/image/upload/v1/static/images/instructions-crud-options-2.2eaf8e09f72b.PNG" alt="Image related to instructions for accessing the CRUD (Create-Read-Update-Delete) panel, create button">
+                <p>Enter the data in the CRUD fields:</p>
+                <img class="instructions-image" src="https://res.cloudinary.com/csc7/image/upload/v1/static/images/instructions-crud-panel.236d07829ff1.png" alt="Image related to instructions for accessing the CRUD (Create-Read-Update-Delete) panel, fields to enter records manually">
+            </div>      
+        </section>
+        <hr>
+        <!-- Instructions for Blog Page -->
+        <section class="row">   
+            <div class="col-12">
+                <h2 class="h2-titles">Blog Page</h2>
+            </div>          
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 instruction-box">
+                <h3>Step 1</h3>
+                <p>Log in to create a discussion or ticket, or to add comments to them. If not logged in, you can only read the blogs.</p>
+                <img class="instructions-image" src="https://res.cloudinary.com/csc7/image/upload/v1/static/images/instructions-log-in.015153cf00f8.PNG" alt="Image related to instructions sign-in">
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 instruction-box">
+                <h3>Step 2</h3>
+                <p>Select the topic which your concern is related to.</p>
+            </div> 
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 instruction-box">
+                <h3>Step 3</h3>
+                <p>Access last information and/or add comments until the ticket or discussion is closed.</p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 instruction-box">
+                <h3>Step 4</h3>
+                <p>If needed or issue has been solved, comment can be deleted with the corresponding button:</p>
+                <img class="instructions-image" src="https://res.cloudinary.com/csc7/image/upload/v1/static/images/instructions-blog-delete-button.421b3cfa2b50.PNG" alt="Image related to instructions, to delete a comment in a blog">
+            </div>
+        </section>
+        <hr>
+        <!-- Instructions for Contact Page -->
+        <section class="row">   
+            <div class="col-12">
+                <h2 class="h2-titles">Contact Page</h2>
+            </div>          
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 instruction-box">
+                <h3>Step 1</h3>
+                <p>Log in to contact us.</p>
+                <img class="instructions-image" src="https://res.cloudinary.com/csc7/image/upload/v1/static/images/instructions-log-in.015153cf00f8.PNG" alt="Image related to instructions sign-in">
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 instruction-box">
+                <h3>Step 2</h3>
+                <p>Fill in your details and text you want to send.</p>
+            </div>
+        </section>
+    </div>
+    <!-- /.Instructions -->    
+
+    <!-- /.Main Content -->
+
+    <!-- Footer -->
+    <footer>
+        <div id="footer" class="container-fluid">
+            <div class="row">                                
+                <div id="company-data" class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <p>Unión de Santa Fe Seismics</p>
+                    <p>Boulevard Galvez 89</p>
+                    <p>+54 214 255 2524</p>
+                    <p>usf@seismic.com</p>
+                    <p>Argentina</p>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <div id="company-links">
+                        <!-- Bootstrap Navs
+                        Copied on December 7th, 2021, 05:00 from https://getbootstrap.com/docs/4.0/components/navs/
+                        Content modified. -->
+                        <nav class="nav justify-content-center">
+                            <!-- Font Awesome
+                            Icon for LinkedIn: downloaded on December 7th, 2021, 05:50 from https://fontawesome.com/v5.15/icons/linkedin?style=brands -->
+                            <a class="nav-link active" href="https://www.linkedin.com/in/carloscolombo/" target="_blank" rel="noopener"
+                            aria-label="Visit The Green Company LinkedIn page (it opens in a new tab)"><i class="fab fa-linkedin"></i></a>
+                            <!-- Font Awesome
+                            Icon for GitHub: downloaded on December 7th, 2021, 05:52 from https://fontawesome.com/v5.15/icons/github-square?style=brands -->
+                            <a class="nav-link" href="https://github.com/csc7" target="_blank" rel="noopener"
+                            aria-label="Visit The Green Company Facebook page (it opens in a new tab)"><i class="fab fa-github-square"></i></a>
+                            <!-- Font Awesome
+                            Icon for E-mail: downloaded on December 7th, 2021, 05:53 from https://fontawesome.com/v5.15/icons/envelope-square?style=solid -->
+                            <a class="nav-link" href="mailto:cscolombo@gmail.com" target="_blank" rel="noopener"
+                            aria-label="Send us an e-mail (it opens in a new tab)"><i class="fas fa-envelope-square"></i></a>
+                        </nav>
+                    </div>
+                    <div id="footer-contact-link">
+                        <a class="nav-link" href="/contact/">Contact</a>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </footer>
+    <!-- /.Footer --> 
+
+    <!-- Font Awesome Script / Kit
+    Link copied on December 7th, 2021, 05:07 from Font Awesome personal account -->
+    <script src="https://kit.fontawesome.com/80e4621b26.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap Scripts, copied on December 7th, 2021, 06:21 from https://getbootstrap.com/docs/4.0/getting-started/introduction/ -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Credit: jQuery
+    Code copied on December 9th, 2021, at 20:37 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>    
+    
+    <!--ArgGIS / ESRI-->
+    <script src="https://js.arcgis.com/3.18/"></script>
+
+    <!-- This website scripts -->
+    <script src="https://res.cloudinary.com/csc7/raw/upload/v1/static/js/move-content-hamburger.a31b2660e597.js"></script>
+    <script src="https://res.cloudinary.com/csc7/raw/upload/v1/static/js/blog.a08c9177c0ea.js"></script>
+
+    
+<script src="https://res.cloudinary.com/csc7/raw/upload/v1/static/js/index.305ee92d64f3.js"></script>
+  
+
+
+</body>
+</html>

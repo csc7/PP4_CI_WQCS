@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Code Institute Student Milestone Project 1">
+    <meta name="keywords" content="Seismic, geophysical, acquisition, processing,
+        crew, field, weather, technical support, database, wind, temperature,
+        Code Institute, software development, student, full-stack course,
+        milestone project">
+    <title>Weather and Quality Control for Seismic Data Acquisition</title>
+
+    <!-- Credit: Bootstrap
+    Code copied on December 7th, 2021, 01:50 from Code Institute lessons
+    Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">  
+
+    <!--ArcGIS-->
+    <!-- Script/Code for maps and picking of latitude and longitude:
+    https://community.esri.com/t5/arcgis-api-for-javascript-questions/mouse-click-to-get-map-point-or-x-y/m-p/516073#M48139;
+    copied and modified on December 8th, 2021, 04:00.-->
+    <link rel="stylesheet" href="https://js.arcgis.com/3.18/dijit/themes/tundra/tundra.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/css/esri.css">   
+
+    <!-- This project's CSS file -->
+    
+    <link rel="stylesheet" href="/static/css/style.css">   
+
+    <!-- favicon
+    To load static folder for favicon:
+    https://stackoverflow.com/questions/35054230/custom-tag-not-loaded-in-template, accessed on January 22nd, at 15:05. -->
+    <link rel="shortcut icon" href="/static/images/wqcs-icon.PNG"/>    
+</head>
+
+<body id="body">
+    <!-- Header -->
+    <header>
+        <div id="header" class="container-fluid fixed-top">
+            <div class="row">                                
+                <div id="company-logo" class="col-6 col-sm-2 col-md-2 col-lg-2">
+                    <!-- Icon for website logo (wind):
+                    Credit: Font Awesome
+                    Downloaded on December 7th, 2021, 09:15, from https://fontawesome.com/v5.15/icons/wind?style=solid -->
+                    <a class="navbar-brand" href="/"><i class="fas fa-wind"></i> WQCS</a>
+                </div>
+                <div id="header-menu" class="col-6  col-sm-7 col-md-6 col-lg-5">
+                    <!-- Bootstrap Navbar
+                    Copied and modified from https://getbootstrap.com/docs/4.0/components/navbar/
+                    July 8th, 2021, at 00:35, and December 7th, 2021, 04:00. Menu content modified. -->
+                    <nav class="navbar navbar-expand-sm navbar-light">
+                        <button id="hamburger-button" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/">Instructions</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/weather/">Weather</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/blog/">Blog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/contact/">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div> 
+                <div id="log-in-button-1" class="col-12 col-sm-3 col-md-4 col-lg-5">
+                    <!-- Button trigger modal:
+                    Credit: Bootstrap
+                    Code copied on December 7th, 2021, 08:34 from https://getbootstrap.com/docs/4.0/components/modal/
+                    and from my own previous project PP1_CI_TGC; modified taking content from the 
+                    Code Institute "I Think Therefore I Blog" project, "account" templates (login.html, logout.html
+                    and signup.html)-->
+                    <!-- Button trigger modal -->
+                                        
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='/accounts/logout/';">
+                        Sign Out
+                    </button>
+                    
+                </div>              
+            </div>
+        </div>
+    </header>
+    <!-- /.Header -->
+
+    <!-- Update/Status messages for user -->
+    <div id="message-container">
+        <div id="record-created" class="alert alert-success fade show" role="alert">
+  <p><strong>Success!</strong></p>
+  <p>Record created</p>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div id="record-read" class="alert alert-success fade show" role="alert">
+  <p><strong>Please wait:</strong></p>
+  <p>Reading data</p>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div id="record-updated" class="alert alert-success fade show" role="alert">
+  <p><strong>Success!</strong></p>
+  <p>Record updated</p>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div id="record-deleted" class="alert alert-success fade show" role="alert">
+  <p><strong>Success!</strong></p>
+  <p>Record deleted</p>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+
+
+
+    </div>
+    <!-- /.Update/Status messages for user -->
+
+    <!-- Main Content -->
+    
+
+<!-- https://docs.djangoproject.com/en/4.0/topics/forms/ -->
+<div id="contact-form" class="container">
+    <form action="/contact/" method="post">
+        <!-- Django Token -->
+        <input type="hidden" name="csrfmiddlewaretoken" value="B4oB0tLaIxjTTqS3LRnxNz14hnp7xX7W2LJAeAReieZRAuubi1fgvkoCbjDFgsEB">
+        <!-- Contact Form -->       
+        <div id="form-row" class="row">
+            <div class="col-12 col-lg-6">
+                <!-- Name -->
+                <div id="form-left-1" class="col-12">
+                    
+                    <label class="form-labels" for="id_name">Name</label>
+                    <input type="text" name="name" maxlength="50" required id="id_name">
+                </div>
+                <!-- Surname -->
+                <div id="form-left-2" class="col-12">
+                    
+                    <label class="form-labels" for="id_surname">Surname</label>
+                    <input type="text" name="surname" maxlength="50" required id="id_surname">
+                </div>
+                <!-- E-mail -->
+                <div id="form-left-3" class="col-12">
+                    
+                    <label class="form-labels" for="id_email">E-mail</label>
+                    <input type="email" name="email" maxlength="100" id="id_email">
+                </div>
+            </div>
+            <!-- Description -->
+            <div class="col-12 col-lg-6">
+                <div id="form-right-1" class="col-12">
+                    
+                    <label class="form-labels" for="id_text_content">Description</label>
+                    <input type="text" name="text_content" maxlength="2000" required id="id_text_content">
+                </div>
+            </div>
+            <div id="form-right-2" class="col-12">
+                <!-- Check if user is authenticated to send information -->
+                 
+                <input id="contact-form-button" type="submit" value="Submit">
+                            
+            </div>
+        </div>
+    </form>
+</div>
+
+
+    <!-- /.Main Content -->
+
+    <!-- Footer -->
+    <footer>
+        <div id="footer" class="container-fluid">
+            <div class="row">                                
+                <div id="company-data" class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <p>Unión de Santa Fe Seismics</p>
+                    <p>Boulevard Galvez 89</p>
+                    <p>+54 214 255 2524</p>
+                    <p>usf@seismic.com</p>
+                    <p>Argentina</p>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <div id="company-links">
+                        <!-- Bootstrap Navs
+                        Copied on December 7th, 2021, 05:00 from https://getbootstrap.com/docs/4.0/components/navs/
+                        Content modified. -->
+                        <nav class="nav justify-content-center">
+                            <!-- Font Awesome
+                            Icon for LinkedIn: downloaded on December 7th, 2021, 05:50 from https://fontawesome.com/v5.15/icons/linkedin?style=brands -->
+                            <a class="nav-link active" href="https://www.linkedin.com/in/carloscolombo/" target="_blank" rel="noopener"
+                            aria-label="Visit Developer LinkedIn page (it opens in a new tab)"><i class="fab fa-linkedin"></i></a>
+                            <!-- Font Awesome
+                            Icon for GitHub: downloaded on December 7th, 2021, 05:52 from https://fontawesome.com/v5.15/icons/github-square?style=brands -->
+                            <a class="nav-link" href="https://github.com/csc7" target="_blank" rel="noopener"
+                            aria-label="Visit WQCS Facebook page (it opens in a new tab)"><i class="fab fa-github-square"></i></a>
+                            <!-- Font Awesome
+                            Icon for E-mail: downloaded on December 7th, 2021, 05:53 from https://fontawesome.com/v5.15/icons/envelope-square?style=solid -->
+                            <a class="nav-link" href="mailto:cscolombo@gmail.com" target="_blank" rel="noopener"
+                            aria-label="Send us an e-mail (it opens in a new tab)"><i class="fas fa-envelope-square"></i></a>
+                        </nav>
+                    </div>
+                    <div id="footer-contact-link">
+                        <a class="nav-link" href="/contact/">Contact</a>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </footer>
+    <!-- /.Footer --> 
+
+    <!-- Font Awesome Script / Kit
+    Link copied on December 7th, 2021, 05:07 from Font Awesome personal account -->
+    <script src="https://kit.fontawesome.com/80e4621b26.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap Scripts, copied on December 7th, 2021, 06:21 from https://getbootstrap.com/docs/4.0/getting-started/introduction/ -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Credit: jQuery
+    Code copied on December 9th, 2021, at 20:37 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>    
+    
+    <!--ArgGIS / ESRI-->
+    <script src="https://js.arcgis.com/3.18/"></script>
+
+    <!-- This website scripts -->
+    <script src="/static/js/move-content-hamburger.js"></script>
+    <script src="/static/js/blog.js"></script>
+
+       
+    
+    
+
+</body>
+</html>

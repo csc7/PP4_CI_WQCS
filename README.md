@@ -582,7 +582,7 @@ The following tools were used to validate the **files of the website**:
 https://validator.w3.org/ was used to validate the new HTML files. Pages were rendered to get the HTML code (otherwise Django templates would alone give errors). When possible (where pages do not require log-in), the page link was tested in the validator.
 
 <details>
-    <summary>Instructions (index.html)  </summary>
+    <summary>Instructions/Home App (index.html)  </summary>
 
 ![Evidence of no errors in the Instructions/Home App HTML file](docs/validation/validation-html-validator-w3-org-instructions.PNG) 
 </details>
@@ -620,31 +620,19 @@ https://validator.w3.org/ was used to validate the new HTML files. Pages were re
 
 <br>
 
-[Rendered HTML for Home](https://github.com/csc7/PP5_CI_GDEC/tree/main/docs/rendered-html-for-validation/rendered-html-for-validation-home.txt)
+[Rendered HTML for Instructions/Home App (index.html))](docs/validation/rendered-html-for-validation-instructions.txt)
 
-[Rendered HTML for Bag](docs/rendered-html-for-validation/rendered-html-for-validation-bag.txt)
+[Rendered HTML for Weather App (weather.html)](docs/validation/rendered-html-for-validation-weather.txt)
 
-[Rendered HTML for Checkout](/docs/rendered-html-for-validation/rendered-html-for-validation-checkout.txt)
+[Rendered HTML for Blog App (blog.html)](docs/validation/rendered-html-for-validation-blog.txt)
 
-[Rendered HTML for Checkout Success](/docs/rendered-html-for-validation/rendered-html-for-validation-checkout-success.txt)
+[Rendered HTML for Blog comments (post_detail.html)](docs/validation/rendered-html-for-validation-blog-comments.txt)
 
-[Rendered HTML for Contact](/docs/rendered-html-for-validation/rendered-html-for-validation-contact.txt)
+[Rendered HTML for Contact App (contact.html)](docs/validation/rendered-html-for-validation-contact.txt)
 
-[Rendered HTML for Thanks](docs/rendered-html-for-validation/rendered-html-for-validation-thank-you.txt)
+[Rendered HTML for Thanks Page (thanks.html)](docs/validation/rendered-html-for-validation-thank-you.txt)
 
-[Rendered HTML for Add Product](/docs/rendered-html-for-validation/rendered-html-for-validation-product-add.txt)
-
-[Rendered HTML for Edit Product](/docs/rendered-html-for-validation/rendered-html-for-validation-edit-product.txt)
-
-[Rendered HTML for Product Details](/docs/rendered-html-for-validation/rendered-html-for-validation-product-details.txt)
-
-[Rendered HTML for Products](/docs/rendered-html-for-validation/rendered-html-for-validation-products.txt)
-
-[Rendered HTML for Profile](/docs/rendered-html-for-validation/rendered-html-for-validation-profile.txt)
-
-[Rendered HTML for Wish List](/docs/rendered-html-for-validation/rendered-html-for-validation-wish.txt)
-
-[Rendered HTML for 404 Page](/docs/rendered-html-for-validation/rendered-html-for-404.txt)
+[Rendered HTML for Error Page (404.html)](docs/validation/rendered-html-for-validation-404.txt)
 
 
 
