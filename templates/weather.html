@@ -14,7 +14,7 @@
     </div>    
     <!-- Weather Data -->
     <div id="top-container" class="container">        
-        <section id="weather-map-and-data" class="row">
+        <div id="weather-map-and-data" class="row">
             <!-- Map -->
             <div id="viewDiv" class="col-12 col-sm-12 col-md-12 col-lg-6">  
             </div>
@@ -88,7 +88,7 @@
                     <!-- /.Weather Data -->
                 </div>
             </div>       
-        </section>
+        </div>
         <hr>
     </div>
     <!-- Days and Other Data/Information Selection Panel -->
@@ -116,7 +116,7 @@
             <div id="s-d-o-4" class="col-12 col-lg-3">                    
                 <label for="s-d-o-list-1" class="radio-select-label">Value 1</label>                  
                 <select id="s-d-o-list-1" name="other-value-list-1" class="input-field">
-                    <option value="pressure">Pressure</option>
+                    <option value="pressure" selected="selected">Pressure</option>
                     <option value="humidity">Humidity</option>
                     <option value="visibility">Visibility</option>
                     <option value="sky">Sky</option>
@@ -128,10 +128,10 @@
             <div id="s-d-o-5" class="col-12 col-lg-3">                    
                 <label for="s-d-o-list-2" class="radio-select-label">Value 2</label>                  
                 <select id="s-d-o-list-2" name="other-value-list-2" class="input-field">
-                    <option value="pressure" selected="selected">Pressure</option>
-                    <option value="humidity">Humidity</option>
+                    <option value="pressure">Pressure</option>
+                    <option value="humidity" selected="selected">Humidity</option>
                     <option value="visibility">Visibility</option>
-                    <option value="sky" selected="selected">Sky</option>
+                    <option value="sky">Sky</option>
                     <option value="main">Main</option>
                     <option value="sunrise">Sunrise</option>
                     <option value="sunset">Sunset</option>
@@ -272,7 +272,7 @@
                                 </div>
                             
                                 <div class="col-12 col-sm-3 weather-data-label text-center text-sm-right">
-                                    <label for="crud-value-sunset" id="label-for-crud-value-sunset"">Sunset</label>
+                                    <label for="crud-value-sunset" id="label-for-crud-value-sunset">Sunset</label>
                                 </div>
                                 <div class="col-12 col-sm-3 weather-data-value">
                                     <!-- Type time with seconds (00:00:00):
@@ -339,7 +339,9 @@
                     <tr>
                         <th>Date</th>
                         <th>Wind Speed</th>
-                        <th>Wind Dir</th> 
+                        <th>Wind Dir</th>
+                        <th hidden>Edit Record Buttons</th>
+                        <th hidden>Delete Record Buttons</th>
                     </tr>                                                        
                     {% for item in wind_data %}
                         <tr>
@@ -349,9 +351,9 @@
                             <td>{{ item.wind_speed|floatformat:1 }}</td>
                             <td>{{ item.wind_direction|floatformat:1 }}</td>
                             <!-- Icon for edition of records, link copied on May 1st, 2022, at 22:20, from https://fontawesome.com/v4/icon/pencil -->
-                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="wind_sp_{{ item.wind_rec_id_id }}"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="wind_sp_{{ item.wind_rec_id_id }}" aria-label="Edit wind data record"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
                             <!-- Icon for deletion of records, link copied on May 1st, 2022, at 22:25, from https://fontawesome.com/v4/icon/trash -->
-                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="wind_dir_{{ item.wind_rec_id_id }}"><i class="fa fa-trash" aria-hidden="true"></i></button></td>  
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="wind_dir_{{ item.wind_rec_id_id }}" aria-label="Delete wind data record"><i class="fa fa-trash" aria-hidden="true"></i></button></td>  
                             <!--<td>
                                 <form method="post" action='/weather/'>
                                     <input type="submit" name="Edit" value="{{ item.wind_rec_id_id }}" class="btn btn-warning btn-sm edit-button-in-table">
@@ -368,9 +370,13 @@
                 <hr>
                 <!-- 2nd Table -->
                 <table id="temperature-table">
-                    <th>Date</th>
-                    <th>Temperature</th>
-                    <th>Feels Like</th>   
+                    <tr>
+                        <th>Date</th>
+                        <th>Temperature</th>
+                        <th>Feels Like</th>
+                        <th hidden>Edit Record Buttons</th>
+                        <th hidden>Delete Record Buttons</th>
+                    </tr>
                     {% for temp in temperature_data %}
                         <tr>
                             <!-- Date format taken from https://stackoverflow.com/questions/7737146/how-can-i-change-the-default-django-date-template-format
@@ -381,9 +387,9 @@
                             <!--<input type="hidden" value="{{ temp.temp_rec_id_id }}" name="temp_rec_id_{{ temp.temp_rec_id_id }}" id="temp_{{ temp.temp_rec_id_id }}">-->
 
                             <!-- Icon for edition of records, link copied on May 1st, 2022, at 22:20, from https://fontawesome.com/v4/icon/pencil -->
-                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="temp_up_{{ temp.temp_rec_id_id }}"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="temp_up_{{ temp.temp_rec_id_id }}" aria-label="Edit temperature data record"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
                             <!-- Icon for deletion of records, link copied on May 1st, 2022, at 22:25, from https://fontawesome.com/v4/icon/trash -->
-                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="temp_del_{{ temp.temp_rec_id_id }}"><i class="fa fa-trash" aria-hidden="true"></button></td>                         
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="temp_del_{{ temp.temp_rec_id_id }}" aria-label="Delete temperature data record"><i class="fa fa-trash" aria-hidden="true"></i></button></td>                         
                         </tr>
                     {% endfor %}
                 </table>
@@ -392,9 +398,13 @@
                 <hr>
                 <!-- 3rd Table -->
                 <table id="other-weather-table">
-                    <th>Date</th>
-                    <th>{{ other_value_to_display_1 }}</th>
-                    <th>{{ other_value_to_display_2 }}</th>   
+                    <tr>
+                        <th>Date</th>
+                        <th>{{ other_value_to_display_1 }}</th>
+                        <th>{{ other_value_to_display_2 }}</th>
+                        <th hidden>Edit Record Buttons</th>
+                        <th hidden>Delete Record Buttons</th>
+                    </tr>
                     {% for other in other_weather_data %}
                         <tr>
                             <!-- Date format taken from https://stackoverflow.com/questions/7737146/how-can-i-change-the-default-django-date-template-format
@@ -403,9 +413,9 @@
                             <td>{{ other.1.0 }}</td>
                             <td>{{ other.1.1 }}</td>
                             <!-- Icon for edition of records, link copied on May 1st, 2022, at 22:20, from https://fontawesome.com/v4/icon/pencil -->
-                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="other_1_{{ other.1.2 }}"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                            <td><button type="button" class="btn btn-warning btn-sm edit-button-in-table" id="other_1_{{ other.1.2 }}" aria-label="Edit previously selected data record"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
                             <!-- Icon for deletion of records, link copied on May 1st, 2022, at 22:25, from https://fontawesome.com/v4/icon/trash -->
-                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="other_2__{{ other.1.2 }}"><i class="fa fa-trash" aria-hidden="true"></button></td>      
+                            <td><button type="button" class="btn btn-danger btn-sm delete-button-in-table" id="other_2__{{ other.1.2 }}" aria-label="Delete previously selected data record"><i class="fa fa-trash" aria-hidden="true"></i></button></td>      
                         </tr>
                     {% endfor %}
                 </table>
@@ -420,8 +430,7 @@
 <!-- Google Charts
 Line Charts
 Copied and modified from https://developers.google.com/chart/interactive/docs/gallery/linechart on January 5th, 2022, at 20:40. --> 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript"></script>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
 <!-- This page javascript file --> 
 <script src="{% static  'js/weather.js' %}"></script>
 
