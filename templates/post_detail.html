@@ -28,9 +28,7 @@ on December 20th, 2021; later modified on December23rd, 2021 at 15:20; later mod
         <div id="comments-subtitle-section" class="col offset-md-2 col-md-8 offset-lg-3 col-lg-6 card mb-4  mt-3 left top border-secondary rounded">
             <div id="post-details-summary" class="card-body">
                 <!-- Blog content -->
-                <p class="card-text ">
-                    {{ post.content | safe }}
-                </p>
+                {{ post.content | safe }}                
                 <div class="row">
                     <div  class="col-6">
                     <!-- Likes -->
@@ -115,7 +113,7 @@ on December 20th, 2021; later modified on December23rd, 2021 at 15:20; later mod
                                 </span> wrote:
                             </p>
                             <!-- Body of comment -->
-                            <p>{{ comment.body | linebreaks }}</p>
+                            {{ comment.body | linebreaks }}
                             {% if user.is_authenticated and user|stringformat:"s" == comment.name %}
                             <!-- Form to send a request to delete a comment -->
                             <form action = "{% url 'delete_comment' comment.id %}" method = "POST">
