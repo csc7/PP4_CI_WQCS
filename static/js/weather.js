@@ -16,6 +16,8 @@ var longitude = 53.345278;
 // Moz://a
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event
 // copied and modified on January 7th, 2022, at 18:17.
+
+// Latitude
 const latitudeInput = document.querySelector('#latitude-input');
 latitudeInput.addEventListener('focus', (event) => {
   event.target.style.background = 'cyan';
@@ -39,6 +41,7 @@ latitudeInput.addEventListener('blur', (event) => {
   }
 });
 
+// Longitude
 const longitudeInput = document.querySelector('#longitude-input');
 longitudeInput.addEventListener('focus', (event) => {
   event.target.style.background = 'cyan';
@@ -111,16 +114,16 @@ require(["esri/map", "esri/geometry/webMercatorUtils",
 // ------------------------------------------------------------------
 
 
-
-
 // ------------------------------------------------------------------
 // Check status of OpenWeather API
 // Credit for code: Code Institute
 // Credit for API: OpenWeather
 
+// API URL
 const API_URL = "api.openweathermap.org";
 $("#get-weather-data-button").click (e => getStatus(e));
 
+// Read weather data of selected coordinates
 async function getStatus(e) {
 
     const queryString = `https://${API_URL}/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=a4e017407a1ea716fa42316b9fe012b5`;
@@ -166,20 +169,15 @@ async function getStatus(e) {
 generateGoogleChartGraphs ();
 // ------------------------------------------------------------------
 
-var edition_mode = "off"
-
+// Do not write data, just read
+var edition_mode = "off";
 
 $(document).on("click", "#send-weather-data-button", e => sendWeatherData(e, true));
 
-// ------------------------------------------------------------------
 // Send data to database using AJAX
-//$("#send-weather-data-button").click (e => sendWeatherData(e, true));
-
 async function sendWeatherData(e, write) {
 
-  $("#send-weather-data-button").attr('disabled', true);
-
-  
+  $("#send-weather-data-button").attr('disabled', true);  
 
     // Check that data was got at least once
     if (write){
@@ -190,7 +188,6 @@ async function sendWeatherData(e, write) {
     }       
     // Selected data
     let writeData = write;
-    console.log(writeData);
     let recordsToDisplay = $('input[name="records-to-display"]:checked').val();
     let otherValueToDisplay1 = $('#s-d-o-list-1').val();
     let otherValueToDisplay2 = $('#s-d-o-list-2').val();
@@ -217,6 +214,7 @@ async function sendWeatherData(e, write) {
     let valueSunrise = $("#value-sunrise").text();
     let valueSunset = $("#value-sunset").text();
    
+    // Send data to backend/database for processing
     $.ajax({
         type: 'POST',        
         url: '/weather/',
@@ -248,12 +246,10 @@ async function sendWeatherData(e, write) {
             'valueCountry' : valueCountry,
             'valueSunrise' : valueSunrise,
             'valueSunset' : valueSunset },
-            
+        
+        // Alert user on success
         success: function (data) {
           if (write){
-              alert("Database updated, new data will appear below.");
-              
-              console.log("Alert");
               $("#message-container").show();
               $("#record-created").show();
               window.setTimeout(function () {
@@ -273,16 +269,9 @@ async function sendWeatherData(e, write) {
             $(".edit-button-in-table").load(location.href+" .edit-button-in-table>*","");        
 
             setTimeout(generateGoogleChartGraphs, 5000);
-            $("#send-weather-data-button").attr('disabled', false);
-            //$(".edit-button-in-table").attr('disabled', false);
-            
-            
-            
+            $("#send-weather-data-button").attr('disabled', false);        
         }    
-
-        
     });
-    
 }
 // ------------------------------------------------------------------
 
@@ -494,12 +483,12 @@ $('#crud-quit-edition-mode-button').click(function(){
 // ------------------------------------------------------------------
 // CRUD Panel - Send data to database using AJAX
 
+// Update an existent record in the database
 $("#crud-send-weather-data-button").click (e => sendWeatherDataInCrud(e, "update"));
 
 async function sendWeatherDataInCrud(e, write) {
   
-  $('#crud-panel-status > p').text("Sending data to the database")
-  
+  $('#crud-panel-status > p').text("Sending data to the database"); 
 
     if (write){
       if ($('#crud-value-wind').val() == '' ||
@@ -523,12 +512,9 @@ async function sendWeatherDataInCrud(e, write) {
         return;
       }
     }  
-
-    console.log("Send data CRUD init");
      
     // Selected data
     let idToUpdate = $('#hidden-id-for-update').text();
-    console.log("id to update: " + idToUpdate)
     let writeData = write;
     let recordsToDisplay = $('input[name="records-to-display"]:checked').val();
     let otherValueToDisplay1 = $('#s-d-o-list-1').val();
@@ -539,9 +525,7 @@ async function sendWeatherDataInCrud(e, write) {
     let currentTime = $('#crud-value-time').val();
     // Wind data
     let valueWind = $('#crud-value-wind').val();
-    console.log(valueWind);
     let valueWindDir = $('#crud-value-wind-direction').val();
-    console.log(valueWindDir);
     // Temperature data
     let valueTemperature = $('#crud-value-temperature').val();
     let valueFeelsLike = $('#crud-value-feels-like').val();
@@ -558,9 +542,7 @@ async function sendWeatherDataInCrud(e, write) {
     let valueSunrise = $("#crud-value-sunrise").val();
     let valueSunset = $("#crud-value-sunset").val();
 
-    console.log("CRUD create read data");
-    console.log(idToUpdate)
-   
+    // Send data to backend/database for processing   
     $.ajax({
         type: 'POST',        
         url: '/weather/',
@@ -594,8 +576,9 @@ async function sendWeatherDataInCrud(e, write) {
             'valueCountry' : valueCountry,
             'valueSunrise' : valueSunrise,
             'valueSunset' : valueSunset },
+
+        // Inform user on success
         success: function (data) {
-          console.log("Alert");
           if (idToUpdate==''){
             $("#message-container").show();
             $("#record-created").show();
@@ -620,124 +603,76 @@ async function sendWeatherDataInCrud(e, write) {
             }, 3000);
           }        
             
-            $('#crud-panel-status > p').text("Data sent to database")
+            $('#crud-panel-status > p').text("Data sent to database");
             // https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
             $("#wind-extra-info").load(location.href+" #wind-extra-info>*","");
             $("#temperature-extra-info").load(location.href+" #temperature-extra-info>*","");
             $("#other-weather-extra-info").load(location.href+" #other-weather-extra-info>*","");
             setTimeout(generateGoogleChartGraphs, 5000);
-            
         }    
     });
 }
 // ------------------------------------------------------------------
 
-
 // ------------------------------------------------------------------
-// Edit data in database using AJAX
-//$(".edit-button-in-table").click(e => sendWeatherDataToEdit(e, "edition"));
-//
-//async function sendWeatherDataToEdit(e, write) {  
-//     
-//    // Selected data
-//    let writeData = write;
-//    let id = this.event.target.id.slice(12);
-//    let otherValueToDisplay1 = $('#s-d-o-list-1').val();
-//    let otherValueToDisplay2 = $('#s-d-o-list-2').val();
-//    console.log(id);
-//      
-//    $.ajax({
-//        type: 'POST',        
-//        url: '/weather/',
-//        //dataType: 'json',
-//        data: {
-//            // Data
-//            'otherValueToDisplay1': otherValueToDisplay1,
-//            'otherValueToDisplay2': otherValueToDisplay2,
-//            'writeData' : writeData,
-//            'id' : id
-//            },
-//        success: function (data) {
-//          if (write){
-//              alert("Retrieving data, data to edit will appear in the edition panel.");
-//            }
-//            // https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
-//            $("#crud-panel-status").load(location.href+" #crud-panel-status>*","");
-//            //$("#crud-panel-status").html("#crud-panel-status");
-//            let users = JSON.parse(data);
-//            const fields = record_to_edit[0]['fields'];
-//            $('#crud-panel-status').val(fields['wind_speed']);
-//            setTimeout(generateGoogleChartGraphs, 5000);
-//        }    
-//    });
-//}
-//// ------------------------------------------------------------------
-
+// CRUD Panel - Send record to delete to the backend/database
+// using AJAX
 
 // Delete records
 $(document).on('click', '.delete-button-in-table', function(){
 
-  let idToDelete = this.id.slice(9);
-  console.log(idToDelete);
-  $(".delete-button-in-table").attr('disabled', true);
+    // Identify record to delete
+    let idToDelete = this.id.slice(9);
+    $(".delete-button-in-table").attr('disabled', true);
 
-  let writeData = "deletion";
-  console.log(writeData);
-  let recordsToDisplay = $('input[name="records-to-display"]:checked').val();
-  let otherValueToDisplay1 = $('#s-d-o-list-1').val();
-  let otherValueToDisplay2 = $('#s-d-o-list-2').val();
-  let country = $("#value-country").val();
-  console.log(otherValueToDisplay2);
-  console.log(otherValueToDisplay1);
+    // Set writing mode ad "deletion"
+    let writeData = "deletion";
+    let recordsToDisplay = $('input[name="records-to-display"]:checked').val();
+    let otherValueToDisplay1 = $('#s-d-o-list-1').val();
+    let otherValueToDisplay2 = $('#s-d-o-list-2').val();
+    let country = $("#value-country").val();
+    let deletionMode = "on";
 
-  let deletionMode = "on";
+    // Send data to backend/database for processing and delete
+    $.ajax({
+      type: 'POST',        
+      url: '/weather/',
+      //dataType: 'json',
+      data: {
+          //
+          'idToDelete' : idToDelete,
+          'writeData' : writeData,
+          'recordsToDisplay': recordsToDisplay,
+          'otherValueToDisplay1': otherValueToDisplay1,
+          'otherValueToDisplay2': otherValueToDisplay2,
+      },
 
-  $.ajax({
-    type: 'POST',        
-    url: '/weather/',
-    //dataType: 'json',
-    data: {
-        //
-        'idToDelete' : idToDelete,
-        'writeData' : writeData,
-        'recordsToDisplay': recordsToDisplay,
-        'otherValueToDisplay1': otherValueToDisplay1,
-        'otherValueToDisplay2': otherValueToDisplay2,
-    },
-    success: function (data) {
+      // Inform user on success
+      success: function (data) {
+          $("#message-container").show();
+          $("#record-deleted").show();
+          window.setTimeout(function () {
+              $("#message-container").slideUp(500, function () {
+                  $("#message-container").hide();
+              });
+              $("#record-deleted").slideUp(500, function () {
+                  $("#record-deleted").hide();
+               });
+          }, 3000);           
 
-        alert("Record deleted.");
-
-        console.log("Alert");
-        $("#message-container").show();
-        $("#record-deleted").show();
-        window.setTimeout(function () {
-            $("#message-container").slideUp(500, function () {
-                $("#message-container").hide();
-            });
-            $("#record-deleted").slideUp(500, function () {
-                $("#record-deleted").hide();
-             });
-        }, 3000);
-            
-      
-        
-        $('#crud-panel-status > p').text("Data sent to database")
-        // https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
-        $("#wind-extra-info").load(location.href+" #wind-extra-info>*","");
-        $("#temperature-extra-info").load(location.href+" #temperature-extra-info>*","");
-        $("#other-weather-extra-info").load(location.href+" #other-weather-extra-info>*","");
-        setTimeout(generateGoogleChartGraphs, 5000);
-        
-    }    
+          $('#crud-panel-status > p').text("Data sent to database");
+          // https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
+          $("#wind-extra-info").load(location.href+" #wind-extra-info>*","");
+          $("#temperature-extra-info").load(location.href+" #temperature-extra-info>*","");
+          $("#other-weather-extra-info").load(location.href+" #other-weather-extra-info>*","");
+          setTimeout(generateGoogleChartGraphs, 5000);
+      }    
+  });
 });
-
-});
-
+// ------------------------------------------------------------------
 
 
-
-
+// ------------------------------------------------------------------
 // Serialized string to return as JsonResponse
 // Code Institue Tutor Assistance (Scott and John) helped and suggested serialization.
 // Original code base on the following JavaScript and Django templates, accessed on March 8th, 2022:
@@ -746,82 +681,76 @@ $(document).on('click', '.delete-button-in-table', function(){
 
 $(document).ready(function(){
 
-  //$(document).one("click", "#send-weather-data-button", e => sendWeatherData(e, true));
+    //$(document).one("click", "#send-weather-data-button", e => sendWeatherData(e, true));
 
-  // Use of .on instead of .click, https://stackoverflow.com/questions/37775138/jquery-button-click-event-isnt-working-on-datatable,
-  // accessed on March 10th, 2022, at 21:00
-  $(document).on('click', '.edit-button-in-table', function(){
-  //$(".edit-button-in-table").click(function(){ 
-  
-  // Slice 8 valid for edit buttons of three tables since their IDs have the same prefix length
-  let id = this.id.slice(8);
-  console.log(id);
-  $(".edit-button-in-table").attr('disabled', true);
+    // Use of .on instead of .click, https://stackoverflow.com/questions/37775138/jquery-button-click-event-isnt-working-on-datatable,
+    // accessed on March 10th, 2022, at 21:00
+    $(document).on('click', '.edit-button-in-table', function(){
+    //$(".edit-button-in-table").click(function(){ 
+    
+    // Slice 8 valid for edit buttons of three tables since their IDs have the same prefix length
+    let id = this.id.slice(8);
+    $(".edit-button-in-table").attr('disabled', true);
 
-  let otherValueToDisplay1 = $('#s-d-o-list-1').val();
-  let otherValueToDisplay2 = $('#s-d-o-list-2').val();
-  let country = $("#value-country").val();
-  console.log(otherValueToDisplay2);
-  console.log(otherValueToDisplay1);
+    let otherValueToDisplay1 = $('#s-d-o-list-1').val();
+    let otherValueToDisplay2 = $('#s-d-o-list-2').val();
+    let country = $("#value-country").val();
 
-  edition_mode = "on"
+    edition_mode = "on";
 
-  fetch('/weather/', {
-      headers: {
-          'Accept': 'application/json',
-          'X-Requested-With': 'XMLHttpRequest',
-          'id': id,
-          'otherValueToDisplay1': otherValueToDisplay1,
-          'otherValueToDisplay2': otherValueToDisplay2,
-          'country': country,
-          'editionMode' : edition_mode
-      },
-  })
-  .then(response => {
-      return response.json();
-      
-  })
-  .then(data => {
-      
-      let record_to_edit = JSON.parse(data);
-      const fields = record_to_edit[0]['fields'];
-      //const fields2 = record_to_edit_2[0]['fields'];
-      console.log(fields['wind_speed']);
-      $('#crud-panel-status > p').text("Retrieving data, data to edit will appear in the edition panel.");
-      //alert("Retrieving data, data to edit will appear in the edition panel.");
-      //https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
-      // Hidden ID for later update with "Send Data to DB" button in crud panel
-      $('#hidden-id-for-update').text(fields['wind_rec_id_id']);
-      // Date and time
-      $('#crud-value-date').val(fields['date']);
-      $('#crud-value-time').val(fields['time']);
-      // Wind data
-      $('#crud-value-wind').val(fields['wind_speed']);
-      $('#crud-value-wind-direction').val(fields['wind_direction']);
-      // Temperature data
-      $('#crud-value-temperature').val(fields['temperature']);
-      $('#crud-value-feels-like').val(fields['feels_like']);
-      $('#crud-value-temperature-max').val(fields['temperature_max']);
-      $('#crud-value-temperature-min').val(fields['temperature_min']);
-      // Other weather data
-      $("#crud-value-pressure").val(fields['pressure']);
-      $("#crud-value-humidity").val(fields['humidity']);
-      $("#crud-value-visibility").val(fields['visibility']);
-      $("#crud-value-clouds").val(fields['sky']);
-      $("#crud-value-main").val(fields['main']);
-      $("#crud-value-description").val(fields['description']);
-      $("#crud-value-country").val(fields['country']);
-      $("#crud-value-sunrise").val(fields['sunrise']);
-      $("#crud-value-sunset").val(fields['sunset']);
-      
-      $(".edit-button-in-table").attr('disabled', false);
-      $('#crud-panel-status > p').text("Data ready to edit in the edition panel.");
-  })
-  .catch(error => {
-      console.log(`Ajax error: ${error}`);
-  })
-})
+    fetch('/weather/', {
+        headers: {
+            'Accept': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
+            'id': id,
+            'otherValueToDisplay1': otherValueToDisplay1,
+            'otherValueToDisplay2': otherValueToDisplay2,
+            'country': country,
+            'editionMode' : edition_mode
+        },
+    })
+    .then(response => {
+        return response.json();
 
+    })
+    .then(data => {
 
+        let record_to_edit = JSON.parse(data);
+        const fields = record_to_edit[0]['fields'];
+        //const fields2 = record_to_edit_2[0]['fields'];
+        $('#crud-panel-status > p').text("Retrieving data, data to edit will appear in the edition panel.");
+        //alert("Retrieving data, data to edit will appear in the edition panel.");
+        //https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
+        // Hidden ID for later update with "Send Data to DB" button in crud panel
+        $('#hidden-id-for-update').text(fields['wind_rec_id_id']);
+        // Date and time
+        $('#crud-value-date').val(fields['date']);
+        $('#crud-value-time').val(fields['time']);
+        // Wind data
+        $('#crud-value-wind').val(fields['wind_speed']);
+        $('#crud-value-wind-direction').val(fields['wind_direction']);
+        // Temperature data
+        $('#crud-value-temperature').val(fields['temperature']);
+        $('#crud-value-feels-like').val(fields['feels_like']);
+        $('#crud-value-temperature-max').val(fields['temperature_max']);
+        $('#crud-value-temperature-min').val(fields['temperature_min']);
+        // Other weather data
+        $("#crud-value-pressure").val(fields['pressure']);
+        $("#crud-value-humidity").val(fields['humidity']);
+        $("#crud-value-visibility").val(fields['visibility']);
+        $("#crud-value-clouds").val(fields['sky']);
+        $("#crud-value-main").val(fields['main']);
+        $("#crud-value-description").val(fields['description']);
+        $("#crud-value-country").val(fields['country']);
+        $("#crud-value-sunrise").val(fields['sunrise']);
+        $("#crud-value-sunset").val(fields['sunset']);
 
+        $(".edit-button-in-table").attr('disabled', false);
+        $('#crud-panel-status > p').text("Data ready to edit in the edition panel.");
+    })
+    .catch(error => {
+        console.log(`Ajax error: ${error}`);
+    });
+  });
 });
+// ------------------------------------------------------------------
