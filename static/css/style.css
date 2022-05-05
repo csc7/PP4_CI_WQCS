@@ -724,6 +724,17 @@ td {
 }
 
 
+/* *********** */
+/* ERROR PAGES */
+/* *********** */
+
+#error-400-div, #error-403-div, #error-404-div,
+#error-500-div {
+    margin-top: 150px;
+    margin-bottom: 450px;
+}
+
+
 /* ************* */
 /* MEDIA QUERIES */
 /* ************* */
