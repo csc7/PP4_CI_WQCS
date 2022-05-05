@@ -731,22 +731,22 @@ The tool can be accessed with this link: http://pep8online.com .
 <details>
     <summary>asgi.py</summary>
 
-![Evidence of file asgi.py validated with http://pep8online.com/ ](docs/validation/validation-python-django-asgi.PNG) 
+![Evidence of file asgi.py validated with http://pep8online.com/ ](docs/validation/validation-python-pep8-pp4-ci-wqcs-asgi.PNG) 
 </details>
 <details>
     <summary>settings.py</summary>
 
-![Evidence of file settings.py validated with http://pep8online.com/ ](docs/validation/validation-python-django-settings.PNG) 
+![Evidence of file settings.py validated with http://pep8online.com/ ](docs/validation/validation-python-pep8-pp4-ci-wqcs-settings.PNG) 
 </details>
 <details>
     <summary>urls.py</summary>
 
-![Evidence of file urls.py validated with http://pep8online.com/ ](docs/validation/validation-python-django-urls.PNG) 
+![Evidence of file urls.py validated with http://pep8online.com/ ](docs/validation/validation-python-pep8-pp4-ci-wqcs-urls.PNG) 
 </details>
 <details>
     <summary>wsgi.py</summary>
 
-![Evidence of file wsgi.py validated with http://pep8online.com/ ](docs/validation/validation-python-django-wsgi.PNG) 
+![Evidence of file wsgi.py validated with http://pep8online.com/ ](docs/validation/validation-python-pep8-pp4-ci-wqcs-wsgi.PNG) 
 </details>
 <br>
 

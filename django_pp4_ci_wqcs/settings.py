@@ -1,16 +1,4 @@
 ###############################################################################
-
-# IMPORTED RESOURCES #
-
-# EXTERNAL:
-from pathlib import Path
-import os
-import dj_database_url
-if os.path.isfile('env.py'):
-    import env
-
-###############################################################################
-
 """
 Django settings for django_pp4_ci_wqcs project.
 
@@ -22,12 +10,21 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
+# IMPORTED RESOURCES #
+
+# EXTERNAL:
+from pathlib import Path
+import os
+import dj_database_url
+if os.path.isfile('env.py'):
+    import env
+
+###############################################################################
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
-
-DEBUG = 'DEVELOPMENT' in os.environ
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -35,8 +32,11 @@ DEBUG = 'DEVELOPMENT' in os.environ
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
+###############################################################################
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 1
+# SET TO 0 POR PRODUCTION!
+###############################################################################
 
 ALLOWED_HOSTS = [
     'django_pp4_ci_wqcs.herokuapp.com',
