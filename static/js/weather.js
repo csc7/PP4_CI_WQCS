@@ -621,9 +621,19 @@ async function sendWeatherDataInCrud(e, write) {
 // Delete records
 $(document).on('click', '.delete-button-in-table', function(){
 
+    // Alert superuser before deleting a product
+    let cancelOrDelete = confirm('\nThis will delete the delete the record' +
+        ' from the database.\n\nClick "Ok" to confirm and delete;' +
+        ' or click "Cancel" to avoid any change.');
+
+    if (cancelOrDelete) {
+
+    
+
     // Identify record to delete
     let idToDelete = this.id.slice(9);
     $(".delete-button-in-table").attr('disabled', true);
+    
 
     // Set writing mode ad "deletion"
     let writeData = "deletion";
@@ -667,7 +677,8 @@ $(document).on('click', '.delete-button-in-table', function(){
           $("#other-weather-extra-info").load(location.href+" #other-weather-extra-info>*","");
           setTimeout(generateGoogleChartGraphs, 5000);
       }    
-  });
+    });
+    }
 });
 // ------------------------------------------------------------------
 
