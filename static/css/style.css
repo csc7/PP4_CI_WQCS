@@ -574,7 +574,7 @@ td {
     color: rgb(98, 88, 184);
 }
 
-#post-box {
+.post-box-class {
     margin-top: 100px;
 }
 
