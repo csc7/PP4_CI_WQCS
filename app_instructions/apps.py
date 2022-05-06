@@ -1,5 +1,7 @@
 ###############################################################################
-
+"""
+Python apps file for the Django Instructions app
+"""
 # IMPORTED RESOURCES #
 
 # EXTERNAL:

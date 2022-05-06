@@ -1,5 +1,7 @@
 ###############################################################################
-
+"""
+Django URLs for the Instructions app
+"""
 # IMPORTED RESOURCES #
 
 # EXTERNAL:
