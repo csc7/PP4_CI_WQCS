@@ -1039,52 +1039,77 @@ https://wave.webaim.org/ was used to validate accessibility. Although there are 
 Google Lighthouse (used in Google, Microsoft Edge and Firefox) were used to evaluate the performance of the pages. Please check the results below:
 
 <details>
-    <summary>Instructions Page for Cell Phones(67)</summary>
+    <summary>Instructions Page for Cell Phones(72)</summary>
 
-![Evidence of no accessibility errors in the Instructions (index) HTML file](docs/validation/validation-performance-instructions-cell-phone.PNG) 
+![Evidence of no accessibility errors in the Instructions (index) HTML file](docs/features-and-evidence/validation-chrome-lighthouse-performance-cell-instructions.PNG) 
 </details>
 
 <details>
-    <summary>Instructions Page for Desktop (85)</summary>
+    <summary>Instructions Page for Desktop (96)</summary>
 
-![Evidence of no accessibility errors in the Instructions (index) HTML file](docs/validation/validation-performance-instructions-desktop.PNG) 
+![Evidence of no accessibility errors in the Instructions (index) HTML file](docs/features-and-evidence/validation-chrome-lighthouse-performance-desktop-instructions.PNG) 
 </details>
 
 <details>
-    <summary>Weather Page for Cell Phones(50)</summary>
+    <summary>Weather Page for Cell Phones(51)</summary>
 
-![Evidence of no accessibility errors in the Weather HTML file](docs/validation/validation-performance-weather-cell-phone.PNG)
+![Evidence of no accessibility errors in the Weather HTML file](docs/features-and-evidence/validation-chrome-lighthouse-performance-cell-weather.PNG)
 </details>
 
 <details>
-    <summary>Weather Page for Desktop (79)</summary>
+    <summary>Weather Page for Desktop (83)</summary>
 
-![Evidence of no accessibility errors in the Weather HTML file](docs/validation/validation-performance-weather-desktop.PNG)
+![Evidence of no accessibility errors in the Weather HTML file](docs/features-and-evidence/validation-chrome-lighthouse-performance-desktop-weather.PNG)
 </details>
 
 <details>
     <summary>Blog Page for Cell Phones(64)</summary>
 
-![Evidence of no accessibility errors in the Blog HTML file](docs/validation/validation-performance-blog-cell-phone.PNG) 
+![Evidence of no accessibility errors in the Blog HTML file](docs/features-and-evidence/validation-chrome-lighthouse-performance-cell-blog.PNG) 
 </details>
 
 <details>
-    <summary>Blog Page for Desktop (90)</summary>
+    <summary>Blog Page for Desktop (93)</summary>
 
-![Evidence of no accessibility errors in the Blog HTML file](docs/validation/validation-performance-blog-desktop.PNG) 
+![Evidence of no accessibility errors in the Blog HTML file](docs/features-and-evidence/validation-chrome-lighthouse-performance-desktop-blog.PNG) 
 </details>
 
 <details>
-    <summary>Contact Page for Cell Phones(74)</summary>
+    <summary>Blog Comments for Cell Phones(68)</summary>
 
-![Evidence of no accessibility errors in the Contact HTML file](docs/validation/validation-performance-contact-cell-phone.PNG) 
+![Evidence of no accessibility errors in the Blog HTML file](docs/features-and-evidence/validation-chrome-lighthouse-performance-cell-blog-comments.PNG) 
 </details>
 
 <details>
-    <summary>Contact Page for Desktop (93)</summary>
+    <summary>Blog Comments for Desktop (95)</summary>
 
-![Evidence of no accessibility errors in the Contact HTML file](docs/validation/validation-performance-contact-desktop.PNG) 
+![Evidence of no accessibility errors in the Blog HTML file](docs/features-and-evidence/validation-chrome-lighthouse-performance-desktop-blog-comments.PNG) 
 </details>
+
+<details>
+    <summary>Contact Page for Cell Phones(70)</summary>
+
+![Evidence of no accessibility errors in the Contact HTML file](docs/features-and-evidence/validation-chrome-lighthouse-performance-cell-contact.PNG) 
+</details>
+
+<details>
+    <summary>Contact Page for Desktop (96)</summary>
+
+![Evidence of no accessibility errors in the Contact HTML file](docs/features-and-evidence/validation-chrome-lighthouse-performance-desktop-contact.PNG) 
+</details>
+
+<details>
+    <summary>Thanks Page for Cell Phones(69)</summary>
+
+![Evidence of no accessibility errors in the Contact HTML file](docs/features-and-evidence/validation-chrome-lighthouse-performance-cell-thanks.PNG) 
+</details>
+
+<details>
+    <summary>Thanks Page for Desktop (96)</summary>
+
+![Evidence of no accessibility errors in the Contact HTML file](docs/features-and-evidence/validation-chrome-lighthouse-performance-desktop-thanks.PNG) 
+</details>
+
 
 
 
