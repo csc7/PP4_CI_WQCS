@@ -503,8 +503,8 @@ async function sendWeatherDataInCrud(e, write) {
     if (write){
       if ($('#crud-value-wind').val() == '' ||
           $('#crud-value-wind-direction').val() == '' ||
-          $('#crud-value-value-temperature').val() == '' ||
-          $('#crud-value-value-feels-like').val() == '' ||
+          $('#crud-value-temperature').val() == '' ||
+          $('#crud-value-feels-like').val() == '' ||
           $('#crud-value-temperature-max').val() == '' ||
           $('#crud-value-temperature-min').val() == '' ||
           $('#crud-value-pressure').val() == '' ||
@@ -515,6 +515,7 @@ async function sendWeatherDataInCrud(e, write) {
           $('#crud-value-description').val() == '' ||
           $('#crud-value-country').val() == '' ||
           $('#crud-value-date').val() == '' ||
+          $('#crud-value-time').val() == '' ||
           $('#crud-value-sunrise').val() == '' ||
           $('#crud-value-sunset').val() == ''){
         $('#crud-panel-status > p').text("Create a record");
