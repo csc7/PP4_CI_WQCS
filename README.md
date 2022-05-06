@@ -576,7 +576,7 @@ They are Django complementary tools and pages to have registration options in th
 
 
 <br>
-## **Additional features**
+## **Additional features**##
 
 After collection of requirements and development, the following features were added:
 
