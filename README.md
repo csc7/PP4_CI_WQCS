@@ -54,6 +54,7 @@ Also, as remote locations might have difficulties for Internet connections (phys
 Additionally, an instructions page is given to help on the use of the site, and a contact page with a form where the user can send feedback if desired.
 
 <br>
+
 ## [Back to Index](#index)
 <br><br>
 
@@ -67,6 +68,7 @@ pip3 install -r requirements.txt
 Please keep in mind that the interaction with the database and corresponding display of data is slow, it might take several seconds until the data is display on tables and/or Google Charts.
 
 <br>
+
 ## [Back to Index](#index)
 <br><br>
 
@@ -80,6 +82,7 @@ A project board was created in GitHub to help on the planning of the work when b
 In addition, issues can directly be found [here](https://github.com/csc7/PP4_CI_WQCS/issues) (https://github.com/csc7/PP4_CI_WQCS/issues)
 
 <br>
+
 ## [Back to Index](#index)
 <br><br>
 
@@ -185,6 +188,7 @@ User stories are divided into the following three groups:
 - Use of Django templates/pages for sign-up, sign-in, sign-out.
 
 <br>
+
 ## [Back to Index](#index)
 <br><br>
 
@@ -273,6 +277,7 @@ Since the planning should be based on date and time, **all entries and tables ar
     - **Description:** text
 
 <br>
+
 ## [Back to Index](#index)
 <br><br>
 
@@ -325,6 +330,7 @@ The body of the pages are structured as follows for each of the pages:
 The footer contains links for social media (LinkedIn and GitHub) and e-mail. It is designed to remain at the bottom of the pages to have the links visible to promote the developer of the website.\
 
 <br>
+
 ## [Back to Index](#index)
 <br><br>
 
@@ -396,6 +402,7 @@ Please check the PDFs files for each case in the following links:
 [PDF File for Cell Wireframe](docs/wireframes/wireframe-wqcs-cell.pdf)
 
 <br>
+
 ## [Back to Index](#index)
 <br><br>
 
@@ -437,6 +444,7 @@ The following languages, software and tools were implemented using Windows 10 Pr
 
 
 <br>
+
 ## [Back to Index](#index)
 <br><br>
 
@@ -653,8 +661,8 @@ To improve the awareness of the tasks being performed by users, they are informe
 ![Alert for Record Updated Image](docs/features-and-evidence/alert-record-updated.PNG)
 </details>
 
-
 <br>
+
 ## [Back to Index](#index)
 <br><br>
 
@@ -1117,10 +1125,8 @@ Google Lighthouse (used in Google, Microsoft Edge and Firefox) were used to eval
 ![Evidence of no accessibility errors in the Contact HTML file](docs/features-and-evidence/validation-chrome-lighthouse-performance-desktop-thanks.PNG) 
 </details>
 
+<br>
 
-
-
-<br><br>
 ## [Back to Index](#index)
 <br><br>
 
@@ -1624,6 +1630,7 @@ The following are testing of User Stories previously described above:
 </details>
 
 <br>
+
 ## [Back to Index](#index)
 <br><br>
 
@@ -1646,7 +1653,9 @@ Bugs that required more time and specific solutions were the following ones:
 | Esri/ArcGIS map does not pan/zoom in touch screen cell devices. | The issue is still under investigation, it could be related to specific versions of the API, JavaScript and/or browsers, although it cannot yet be confirmed. | 
 | Weather records were not created/saved in the database. | The issue was caused by the format of the date (assigning only one character for days or months smaller than 10). Issue solved by creating arrays of two-characters for days and months, and using the system date and month to read the two-character day or month; https://www.w3schools.com/js/js_date_methods.asp, accessed on March 5th, 2022, at 21:20. | 
 | Edit buttons in tables of weather page did not work (no action when clicking on them), after creating/sending data to the database. | Issued solved replacing "$(".edit-button-in-table").click(function(){ " with "$(document).on('click', '.edit-button-in-table', function(){". |
-<br><br>
+
+<br>
+
 ## [Back to Index](#index)
 <br><br>
 
@@ -1726,6 +1735,7 @@ The secret key must match that one in Heroku in Config Vars (which you need to a
 
 
 <br>
+
 ## [Back to Index](#index)
 <br><br>
 
@@ -1917,6 +1927,7 @@ ___
     
 
 <br>
+
 ## [Back to Index](#index)
 <br><br>
 
@@ -1932,6 +1943,7 @@ I would like to acknowledge and thank the following people for being part of thi
 - All the valuable information provided by the sources mentioned above in the credits.
 
 <br>
+
 ## [Back to Index](#index)
 <br><br>
 
