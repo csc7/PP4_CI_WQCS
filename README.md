@@ -505,6 +505,8 @@ It can be found in the Weather page and allows users to collect and analyse weat
 
 ![Weather App Image](docs/features-and-evidence/weather-page.PNG)
 
+![Weather App Image](docs/features-and-evidence/weather-page-bottom.PNG)
+
 </details>
 <br>
 
@@ -585,17 +587,16 @@ After collection of requirements and development, the following features were ad
 
 Besides just reading the database, the site includes options to create, update and delete records from the database. A CRUD panel is added between the panel to select the data to read and show, and the tables. In addition, users can also delete their own comments. 
 
+<details>
+    <summary>Select and Edit Option Image</summary>
+
+![CRUD Panel, Edit Data Image](docs/features-and-evidence/crud-panel-edit-data-showing-buttons.jpg)
+</details>
 
 <details>
     <summary>Delete Option Image</summary>
 
 ![CRUD Panel, Delete Data Image](docs/features-and-evidence/crud-panel-delete-data-showing-buttons.jpg)
-</details>
-
-<details>
-    <summary>Select and Edit Option Image</summary>
-
-![CRUD Panel, Edit Data Image](docs/features-and-evidence/crud-panel-edit-data-showing-buttons.jpg)
 </details>
 
 <details>
@@ -610,39 +611,9 @@ Besides just reading the database, the site includes options to create, update a
 To improve the awareness of the tasks being performed by users, they are informed with alert messages when a record is created, updated or deleted. This kind of messages are also included in the CRUD panel, so users are aware of their activities at all times. Thanks to Django messages framework, alerts are also given when signing in, up or out. 
 
 <details>
-    <summary>Alert before Deleting a Record Image</summary>
-
-![Alert before Deleting a Record Image](docs/features-and-evidence/alert-before-deleting.PNG)
-</details>
-
-<details>
-    <summary>Alert before Creating a Record Image</summary>
-
-![Alert before Creating a Record Image](docs/features-and-evidence/alert-create-a-record.PNG)
-</details>
-
-<details>
-    <summary>Alert in CRUD Panel for Deletion Image</summary>
-
-![Alert in CRUD Panel for Deletion Image](docs/features-and-evidence/alert-in-crud-panel-data-ready-for-deletion.PNG)
-</details>
-
-<details>
-    <summary>Alert in CRUD Panel for Editing Image</summary>
-
-![Alert in CRUD Panel for Editing Image](docs/features-and-evidence/alert-in-crud-panel-data-ready-for-edition.PNG)
-</details>
-
-<details>
     <summary>Alert for Record Created Image</summary>
 
 ![Alert for Record Created Image](docs/features-and-evidence/alert-message-record-created.PNG)
-</details>
-
-<details>
-    <summary>CAlert before Deleting a Record Image</summary>
-
-![Alert before Deleting a Record Image](docs/features-and-evidence/alert-prevent-sending-empty-record.PNG)
 </details>
 
 <details>
@@ -652,15 +623,57 @@ To improve the awareness of the tasks being performed by users, they are informe
 </details>
 
 <details>
-    <summary>Alert for Record Deleted Image</summary>
+    <summary>Alert before Creating a Record Image</summary>
 
-![Alert for Record Deleted Image](docs/features-and-evidence/alert-record-deleted.PNG)
+![Alert before Creating a Record Image](docs/features-and-evidence/alert-create-a-record.PNG)
+</details>
+
+<details>
+    <summary>Alert for Record Reading Image</summary>
+
+![Alert for Record Reading Image](docs/features-and-evidence/alert-record-read.PNG)
+</details>
+
+<details>
+    <summary>Alert in CRUD Panel for Editing Image</summary>
+
+![Alert in CRUD Panel for Editing Image](docs/features-and-evidence/alert-in-crud-panel-data-ready-for-edition.PNG)
 </details>
 
 <details>
     <summary>Alert for Record Updated Image</summary>
 
 ![Alert for Record Updated Image](docs/features-and-evidence/alert-record-updated.PNG)
+</details>
+
+<details>
+    <summary>Alert in CRUD Panel for Deletion Image</summary>
+
+![Alert in CRUD Panel for Deletion Image](docs/features-and-evidence/alert-in-crud-panel-data-ready-for-deletion.PNG)
+</details>
+
+<details>
+    <summary>Alert for Record Deleted Image</summary>
+
+![Alert for Record Deleted Image](docs/features-and-evidence/alert-record-deleted.PNG)
+</details>
+
+<details>
+    <summary>Alert before Deleting a Record Image</summary>
+
+![Alert before Deleting a Record Image](docs/features-and-evidence/alert-before-deleting.PNG)
+</details>
+
+<details>
+    <summary>Alert before Deleting a Record Image</summary>
+
+![Alert before Deleting a Record Image](docs/features-and-evidence/alert-before-deleting-2.PNG)
+</details>
+
+<details>
+    <summary>Alert Preventing Empty Field Image</summary>
+
+![Alert Preventing Empty Field Image](docs/features-and-evidence/alert-prevent-sending-empty-record.PNG)
 </details>
 
 <br>
