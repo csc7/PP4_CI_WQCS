@@ -665,7 +665,7 @@ $(document).on('click', '.delete-button-in-table', function(){
                  });
             }, 3000);           
 
-            $('#crud-panel-status > p').text("Data sent to database");
+            $('#crud-panel-status > p').text("Data deleted from database");
             // https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
             $("#wind-extra-info").load(location.href+" #wind-extra-info>*","");
             $("#temperature-extra-info").load(location.href+" #temperature-extra-info>*","");
