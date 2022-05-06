@@ -260,7 +260,17 @@ async function sendWeatherData(e, write) {
                       $("#record-created").hide();
                    });
               }, 3000);
-            
+            } else {
+              $("#message-container").show();
+              $("#record-read").show();
+              window.setTimeout(function () {
+                  $("#message-container").slideUp(500, function () {
+                      $("#message-container").hide();
+                  });
+                  $("#record-read").slideUp(500, function () {
+                      $("#record-read").hide();
+                   });
+              }, 3000);
             }
             // https://stackoverflow.com/questions/18490026/refresh-reload-the-content-in-div-using-jquery-ajax
             $("#wind-extra-info").load(location.href+" #wind-extra-info>*","");
