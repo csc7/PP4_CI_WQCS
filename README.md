@@ -1,7 +1,8 @@
 # **Weather and Quality Control for Seismic**
-<br><br>
+<br>
+
 #### **This project is about a tool for seismic/geophysical data acquisition companies to use weather data and a support blog to plan their operations, daily activities on crew and interactions with the client.**
-<br><br>
+<br>
 
 # **Index**
 #### [*Site Live Link*](https://pp4-ci-wqcs.herokuapp.com/) (https://pp4-ci-wqcs.herokuapp.com/)
@@ -63,7 +64,8 @@ ___
 # **2 . Considerations**
 
 If opening the project with Gitpod from GitHub (top right green button), please run the following command as new workspaces need to have their dependencies:
-pip3 install -r requirements.txt
+
+*pip3 install -r requirements.txt*
 
 Please keep in mind that the interaction with the database and corresponding display of data is slow, it might take several seconds until the data is display on tables and/or Google Charts.
 
@@ -453,7 +455,7 @@ ___
 
 The site consists of four pages, where each of them is divided in three parts: header, body and footer. The features contained in each of the pages and parts are the following ones:
 
-
+<br>
 - ### **Fixed navigation menu**
 
 It is in the header, fixed on all pages to facilitate navigation, and responsive.
@@ -574,7 +576,7 @@ They are Django complementary tools and pages to have registration options in th
 
 
 <br>
-## Additional features:
+## **Additional features**
 
 After collection of requirements and development, the following features were added:
 
@@ -601,7 +603,6 @@ Besides just reading the database, the site includes options to create, update a
 ![Delete Comment Option Image](docs/features-and-evidence/delete-comment-button.PNG)
 </details>
 
-<br>
 
 - ### **Alert Messages**
 
@@ -669,7 +670,7 @@ To improve the awareness of the tasks being performed by users, they are informe
 ___
 # **10 . Validation**
 
-**Development tools** of **Google Chrome** (Version 97.0.4692.71, Official Build, 64-bit), **Microsoft Edge** (Version 97.0.1072.62, Official build, 64-bit) and **Firefox** (Version 96.0.3, 64-bit) have been used to test the behaviour of the website for screen sizes between 320x568px to 1920x1370px.
+**Development tools** of **Google Chrome** (Version 101.0.4951.54, Official Build, 64-bit), **Microsoft Edge** (Version 101.0.1210.32, Official build, 64-bit) and **Firefox** (Version 100.0, 64-bit) have been used to test the behaviour of the website for screen sizes between 320x568px to 1920x1370px.
 
 The website was tested using these **browsers** and also **Microsoft Internet Explorer** (Version 2004, OS Build 19041.1415, Microsoft Corporation). **Samsung Internet** (version 15.0.2.47) was also used to test the website. In addition, some users have collaborated checking the website in the cell phones, mostly with **Android-based operating systems**.
 
@@ -1146,9 +1147,10 @@ The data model and Python files were tested with unittest; it was used to test t
 ![unittest Image 2](docs/features-and-evidence/python-testing-2.PNG)
 </details>
 
-<br><br>
-## [Back to Index](#index)
-<br><br>
+<br>
+
+#### [Back to Index](#index)
+<br>
 
 ## **Testing of User Stories**
 
@@ -1685,20 +1687,20 @@ Follow these steps to deploy the project.:
 
  - *File requirements.txt (created with "pip3 freeze > requirements.txt" command), with all required dependencies, is already created in this repository.*
 
-1 - Copy (clone, in "Code" button on top of the file listing) or fork (top right of page) the project into your repository. Fetch, submit and suggest/bring changes are not enabled if you fork.
+**1** - Copy (clone, in "Code" button on top of the file listing) or fork (top right of page) the project into your repository. Fetch, submit and suggest/bring changes are not enabled if you fork.
 
-2 - Create JSON file (use the command line "npm init" as a wizard, installing the Heroku CLI in Gitpod if necessary and if this environment is being used) to be able to run JavaScript on Heroku. More details in Heroku site, https://devcenter.heroku.com/articles/deploying-nodejs#:~:text=To%20create%20a%20package.,json%20file .
+**2** - Create JSON file (use the command line "npm init" as a wizard, installing the Heroku CLI in Gitpod if necessary and if this environment is being used) to be able to run JavaScript on Heroku. More details in Heroku site, https://devcenter.heroku.com/articles/deploying-nodejs#:~:text=To%20create%20a%20package.,json%20file .
 
-3 - In your Heroku account, create new app from the dashboard of your Heroku account.
+**3** - In your Heroku account, create new app from the dashboard of your Heroku account.
 
-4 - Add a PostgreSQL database in Heroku "Resources" tab.
+**4** - Add a PostgreSQL database in Heroku "Resources" tab.
 
-5 - In Heroku "Settings" tab, copy the database URL (in "Reveal Config Vars") and paste it in an env.py file that you need to create in the root of your project in your IDE. DO NOT FORGET to prevent it from being pushed to your repository (as it contains private information). REMEMBER TO INCLUDE this env.py file in the .gitignore file (in your project root directory) so it is not pushed to your repository.
+**5** - In Heroku "Settings" tab, copy the database URL (in "Reveal Config Vars") and paste it in an env.py file that you need to create in the root of your project in your IDE. DO NOT FORGET to prevent it from being pushed to your repository (as it contains private information). REMEMBER TO INCLUDE this env.py file in the .gitignore file (in your project root directory) so it is not pushed to your repository.
 
-6 - In the env.py file, add "import os" (without quotations) at the top and create a variable, in a different row, for the database as follows: "os.environ["DATABASE_URL"] = "your_database_URL".
+**6** - In the env.py file, add "import os" (without quotations) at the top and create a variable, in a different row, for the database as follows: "os.environ["DATABASE_URL"] = "your_database_URL".
 
 
-7 - As all in your env.py file is not visible (if properly included in the .gitignore file), include here all sensitive information, e.g., your secret key for the database in a new line:
+**7** - As all in your env.py file is not visible (if properly included in the .gitignore file), include here all sensitive information, e.g., your secret key for the database in a new line:
 
 At this point, the env.py file should at least include the following lines:
 
@@ -1713,17 +1715,17 @@ At this point, the env.py file should at least include the following lines:
 
 The secret key must match that one in Heroku in Config Vars (which you need to add manually).
 
-8 - Add your Cloudinary URL in the Config Vars of Heroku.
+**8** - Add your Cloudinary URL in the Config Vars of Heroku.
 
-9 - Add DISABLE_COLLECTSTATIC equals to some value (e.g., 1) in Config Vars of Heroku if you do not want to read static files from Cloudinary while developing new features or editing the current code. Ignore this step if you do not plan to make changes.
+**9** - Add DISABLE_COLLECTSTATIC equals to some value (e.g., 1) in Config Vars of Heroku if you do not want to read static files from Cloudinary while developing new features or editing the current code. Ignore this step if you do not plan to make changes.
 
-10 - In Heroku, connect your GitHub account in the "Deploy" tab and deploy branch with the button at the bottom, selecting if you want automatic updates on the Heroku deployed projects from GitHub.
+**10** - In Heroku, connect your GitHub account in the "Deploy" tab and deploy branch with the button at the bottom, selecting if you want automatic updates on the Heroku deployed projects from GitHub.
 
-11 - For a production setting, remember to setup the DEBUG variable to False in settings.py.
+**11** - For a production setting, remember to setup the DEBUG variable to False in settings.py.
 
-12 - In Heroku, delete from DISABLE_COLLECTSTATIC from Config Vars if you had it activated.
+**12** - In Heroku, delete from DISABLE_COLLECTSTATIC from Config Vars if you had it activated.
 
-13 - In Heroku "Deploy" tab, deploy branch at the bottom and check log to confirm that the deployment has been successful.
+**13** - In Heroku "Deploy" tab, deploy branch at the bottom and check log to confirm that the deployment has been successful.
 
 
 
