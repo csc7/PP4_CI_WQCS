@@ -1,43 +1,43 @@
 <div id="record-created" class="alert alert-success fade show" role="alert">
-  <p><strong>Success!</strong></p>
-  <p>Record created</p>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
+  <p><strong>Success!</strong></p>
+  <p>Record created</p>
 </div>
 
 <div id="record-read" class="alert alert-success fade show" role="alert">
-  <p><strong>Please wait:</strong></p>
-  <p>Reading data</p>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
+  <p><strong>Please wait:</strong></p>
+  <p>Reading data</p>
 </div>
 
 <div id="record-updated" class="alert alert-success fade show" role="alert">
-  <p><strong>Success!</strong></p>
-  <p>Record updated</p>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
+  <p><strong>Success!</strong></p>
+  <p>Record updated</p>
 </div>
 
 <div id="record-deleted" class="alert alert-success fade show" role="alert">
-  <p><strong>Success!</strong></p>
-  <p>Record deleted</p>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
+  <p><strong>Success!</strong></p>
+  <p>Record deleted</p>
 </div>
 
 {% if messages %}
 {% for message in messages %}
 <div id="comment-deleted" class="alert alert-success fade show" role="alert">
-  <p><strong>Success!</strong></p>
-  <p>{{ message }}</p>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
+  <p><strong>Success!</strong></p>
+  <p>{{ message }}</p>
 </div>
 {% endfor %}
 {% endif %}
