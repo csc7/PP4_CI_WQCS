@@ -465,7 +465,7 @@ It is in the header, fixed on all pages to facilitate navigation, and responsive
 
 *Please check "11. Testing of User Stories" for more details.*
 <details>
-    <summary>Check Image</summary>
+    <summary>Check Images</summary>
 
 ![Fixed Navigation Menu for Desktop Image](docs/features-and-evidence/fixed-navigation-menu.PNG)
 ![Fixed Navigation Menu for Tablets Image](docs/features-and-evidence/fixed-navigation-menu-tablet.PNG)
@@ -501,7 +501,7 @@ It can be found in the Weather page and allows users to collect and analyse weat
 
 *Please check "11. Testing of User Stories" for more details.*
 <details>
-    <summary>Check Image</summary>
+    <summary>Check Images</summary>
 
 ![Weather App Image](docs/features-and-evidence/weather-page.PNG)
 
@@ -567,7 +567,7 @@ They are Django complementary tools and pages to have registration options in th
 
 *Please check "11. Testing of User Stories" for more details.*
 <details>
-    <summary>Check Image</summary>
+    <summary>Check Images</summary>
 
 ![Registration Sign-In Images](docs/features-and-evidence/sign-in.PNG)
 ![Registration Sign-Up Images](docs/features-and-evidence/sign-up.PNG)
@@ -1248,7 +1248,7 @@ The following are testing of User Stories previously described above:
 <details>
     <summary>Screenshot</summary>
 
-![All Weather Data Image](docs/features-and-evidence/all-weather-data.PNG) 
+![All Weather Data Image](docs/features-and-evidence/weather-page-bottom-showing-selected-number-of-days.jpg) 
 </details>
 <br><br>
 
@@ -1261,7 +1261,7 @@ The following are testing of User Stories previously described above:
 <details>
     <summary>Screenshot</summary>
 
-![Charts for Three Groups of Weather Data Image](docs/features-and-evidence/weather-three-groups-charts.PNG) 
+![Charts for Three Groups of Weather Data Image](docs/features-and-evidence/weather-page-bottom-showing-selected-number-of-days.jpg) 
 </details>
 <br><br>
 
