@@ -53,7 +53,7 @@ Also, as remote locations might have difficulties for Internet connections (phys
 
 Additionally, an instructions page is given to help on the use of the site, and a contact page with a form where the user can send feedback if desired.
 
-<br><br>
+<br>
 ## [Back to Index](#index)
 <br><br>
 
@@ -66,7 +66,7 @@ pip3 install -r requirements.txt
 
 Please keep in mind that the interaction with the database and corresponding display of data is slow, it might take several seconds until the data is display on tables and/or Google Charts.
 
-<br><br>
+<br>
 ## [Back to Index](#index)
 <br><br>
 
@@ -79,7 +79,7 @@ A project board was created in GitHub to help on the planning of the work when b
 
 In addition, issues can directly be found [here](https://github.com/csc7/PP4_CI_WQCS/issues) (https://github.com/csc7/PP4_CI_WQCS/issues)
 
-<br><br>
+<br>
 ## [Back to Index](#index)
 <br><br>
 
@@ -184,7 +184,7 @@ User stories are divided into the following three groups:
 - A footer with contact links to the developer.
 - Use of Django templates/pages for sign-up, sign-in, sign-out.
 
-<br><br>
+<br>
 ## [Back to Index](#index)
 <br><br>
 
@@ -272,7 +272,7 @@ Since the planning should be based on date and time, **all entries and tables ar
     - **E-mail:** text
     - **Description:** text
 
-<br><br>
+<br>
 ## [Back to Index](#index)
 <br><br>
 
@@ -323,7 +323,8 @@ The body of the pages are structured as follows for each of the pages:
 - ### **Footer**
 
 The footer contains links for social media (LinkedIn and GitHub) and e-mail. It is designed to remain at the bottom of the pages to have the links visible to promote the developer of the website.\
-<br><br>
+
+<br>
 ## [Back to Index](#index)
 <br><br>
 
@@ -393,7 +394,8 @@ Please check the PDFs files for each case in the following links:
 [PDF File for Tablet Wireframe](docs/wireframes/wireframe-wqcs-tablet.pdf)
 
 [PDF File for Cell Wireframe](docs/wireframes/wireframe-wqcs-cell.pdf)
-<br><br>
+
+<br>
 ## [Back to Index](#index)
 <br><br>
 
@@ -434,11 +436,9 @@ The following languages, software and tools were implemented using Windows 10 Pr
 - #### **Microsoft Internet Explorer, version 2004, OS Build 19041.1415, Microsoft Corporation**
 
 
-<br><br>
+<br>
 ## [Back to Index](#index)
 <br><br>
-
-
 
 ___
 # **9 . Features**
@@ -562,7 +562,10 @@ They are Django complementary tools and pages to have registration options in th
 </details>
 
 
+#### [Back to Index](#index)
 
+
+<br>
 ## Additional features:
 
 After collection of requirements and development, the following features were added:
@@ -651,9 +654,7 @@ To improve the awareness of the tasks being performed by users, they are informe
 </details>
 
 
-
-
-<br><br>
+<br>
 ## [Back to Index](#index)
 <br><br>
 
@@ -1622,7 +1623,7 @@ The following are testing of User Stories previously described above:
 ![Confirmation of Data Sent with Contact Form Image](docs/features-and-evidence/confirmation-of-contact-form.PNG) 
 </details>
 
-<br><br>
+<br>
 ## [Back to Index](#index)
 <br><br>
 
@@ -1724,8 +1725,7 @@ The secret key must match that one in Heroku in Config Vars (which you need to a
 </details>
 
 
-
-<br><br>
+<br>
 ## [Back to Index](#index)
 <br><br>
 
@@ -1916,9 +1916,7 @@ ___
 
     
 
-
-
-<br><br>
+<br>
 ## [Back to Index](#index)
 <br><br>
 
@@ -1933,7 +1931,7 @@ I would like to acknowledge and thank the following people for being part of thi
 - Code Institute community in Slack for permanently being an online reference.
 - All the valuable information provided by the sources mentioned above in the credits.
 
-<br><br>
+<br>
 ## [Back to Index](#index)
 <br><br>
 
