@@ -668,7 +668,7 @@ The following tools were used to validate the **files of the website**:
 https://validator.w3.org/ was used to validate the new HTML files. Pages were rendered to get the HTML code (otherwise Django templates would alone give errors). When possible (where pages do not require log-in), the page link was tested in the validator.
 
 <details>
-    <summary>Instructions/Home App (index.html)  </summary>
+    <summary>Instructions/Home App (index.html)</summary>
 
 ![Evidence of no errors in the Instructions/Home App HTML file](docs/validation/validation-html-validator-w3-org-instructions.PNG) 
 </details>
@@ -985,32 +985,49 @@ The tool can be accessed with this link: http://pep8online.com .
 
 
 ### **Accessibility**
-https://wave.webaim.org/ was used to validate accessibility. Although there are warnings, all pages contain zero errors. Please check evidence below:
+https://wave.webaim.org/ was used to validate accessibility. Although there are warnings and contrast errors, all pages contain zero errors for accessibility. Please check evidence below:
 
 <details>
-    <summary>Instructions Page</summary>
+    <summary>Instructions/Home App (index.html)</summary>
 
-![Evidence of no accessibility errors in the Instructions (index) HTML file](docs/validation/validation-accessibility-instructions.PNG) 
+![Evidence of no accessibility errors in the Instructions/Home App (index) HTML file](docs/features-and-evidence/validation-accessibility-with-wave-instructions.PNG) 
 </details>
 
 <details>
-    <summary>Weather Page</summary>
+    <summary>Weather App (weather.html)</summary>
 
-![Evidence of no accessibility errors in the Weather HTML file](docs/validation/validation-accessibility-weather.PNG) 
+![Evidence of no accessibility errors in the Weather App HTML file](docs/features-and-evidence/validation-accessibility-with-wave-weather.PNG) 
 </details>
 
 <details>
-    <summary>Blog Page</summary>
+    <summary>Blog App (blog.html)</summary>
 
-![Evidence of no accessibility errors in the Blog HTML file](docs/validation/validation-accessibility-blog.PNG) 
+![Evidence of no accessibility errors in the Blog App HTML file](docs/features-and-evidence/validation-accessibility-with-wave-blog.PNG) 
 </details>
 
 <details>
-    <summary>Contact Page</summary>
+    <summary>Blog comments (post_detail.html)</summary>
 
-![Evidence of no accessibility errors in the Contact HTML file](docs/validation/validation-accessibility-contact.PNG) 
+![Evidence of no accessibility errors in the Blog comments HTML file](docs/features-and-evidence/validation-accessibility-with-wave-blog-comments.PNG) 
 </details>
 
+<details>
+    <summary>Contact App (contact.html)</summary>
+
+![Evidence of no accessibility errors in the Contact App HTML file](docs/features-and-evidence/validation-accessibility-with-wave-contact.PNG) 
+</details>
+
+<details>
+    <summary>Thanks Page (thanks.html)</summary>
+
+![Evidence of no accessibility errors in the Thanks Page HTML file](docs/features-and-evidence/validation-accessibility-with-wave-thank-you.PNG) 
+</details>
+
+<details>
+    <summary>Error Page (404.html)</summary>
+
+![Evidence of no accessibility errors in the Error page HTML file](docs/features-and-evidence/validation-accessibility-with-wave-404.PNG) 
+</details>
 
 
 #### [Back to Index](#index)
