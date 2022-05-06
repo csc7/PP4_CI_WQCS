@@ -820,37 +820,37 @@ The tool can be accessed with this link: http://pep8online.com .
 <details>
     <summary>admin.py</summary>
 
-![Evidence of file admin.py validated with http://pep8online.com/ ](docs/validation/validation-python-blog-admin.PNG) 
+![Evidence of file admin.py validated with http://pep8online.com/ ](docs/validation/validation-python-pep8-blog-admin.PNG) 
 </details>
 <details>
     <summary>apps.py</summary>
 
-![Evidence of file apps.py validated with http://pep8online.com/ ](docs/validation/validation-python-blog-apps.PNG) 
+![Evidence of file apps.py validated with http://pep8online.com/ ](docs/validation/validation-python-pep8-blog-apps.PNG) 
 </details>
 <details>
     <summary>forms.py</summary>
 
-![Evidence of file forms.py validated with http://pep8online.com/ ](docs/validation/validation-python-blog-forms.PNG) 
+![Evidence of file forms.py validated with http://pep8online.com/ ](docs/validation/validation-python-pep8-blog-forms.PNG) 
 </details>
 <details>
     <summary>models.py</summary>
 
-![Evidence of file models.py validated with http://pep8online.com/ ](docs/validation/validation-python-blog-models.PNG) 
+![Evidence of file models.py validated with http://pep8online.com/ ](docs/validation/validation-python-pep8-blog-models.PNG) 
 </details>
 <details>
     <summary>tests.py</summary>
 
-![Evidence of file tests.py validated with http://pep8online.com/ ](docs/validation/validation-python-blog-tests.PNG) 
+![Evidence of file tests.py validated with http://pep8online.com/ ](docs/validation/validation-python-pep8-blog-tests.PNG) 
 </details>
 <details>
     <summary>urls.py</summary>
 
-![Evidence of file urls.py validated with http://pep8online.com/ ](docs/validation/validation-python-blog-urls.PNG) 
+![Evidence of file urls.py validated with http://pep8online.com/ ](docs/validation/validation-python-pep8-blog-urls.PNG) 
 </details>
 <details>
     <summary>views.py</summary>
 
-![Evidence of file views.py validated with http://pep8online.com/ ](docs/validation/validation-python-blog-views.PNG) 
+![Evidence of file views.py validated with http://pep8online.com/ ](docs/validation/validation-python-pep8-blog-views.PNG) 
 </details>
 <br>
 

@@ -2,7 +2,7 @@
 
 """
 Django form for the blog app
-"""    
+"""
 
 # IMPORTED RESOURCES #
 
@@ -22,7 +22,7 @@ from .models import Comment
 class CommentForm(forms.ModelForm):
     """
     Form to comment in the blogs
-    """    
+    """
     class Meta:
         model = Comment
         fields = ('body',)

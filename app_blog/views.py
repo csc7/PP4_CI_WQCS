@@ -2,12 +2,13 @@
 
 """
 Django views for the Blog app
-"""    
+"""
 
 # IMPORTED RESOURCES #
 
 # EXTERNAL:
-from django.shortcuts import render, HttpResponse, get_object_or_404, HttpResponseRedirect
+from django.shortcuts import render, HttpResponse, get_object_or_404
+from django.shortcuts import HttpResponseRedirect
 from django.shortcuts import redirect, reverse
 from django.views import generic, View
 from django.contrib import messages
@@ -27,7 +28,7 @@ from .forms import CommentForm
 class PostList(generic.ListView):
     """
     Class to divide blogs in 6 per page
-    """    
+    """
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'blog.html'
@@ -39,9 +40,9 @@ class PostDetail(View):
     Class for posts
     """
     def get(self, request, slug, *args, **kwargs):
-        """ 
+        """
         Get comments in page
-        """        
+        """
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by("-created_on")
@@ -104,10 +105,10 @@ def delete_comment(request, comment_id):
     Parameters In: HTTP request object, comment ID
 
     Parameters Out: redirect URL to current blog
-    
+
     """
     # Read comment ID to delete and blog slug (for redirect)
-    comment_id=int(comment_id)
+    comment_id = int(comment_id)
     post_slug = request.POST['post_slug']
 
     try:
@@ -131,7 +132,7 @@ def like(request, post_id):
     Parameters In: HTTP request object, blog ID
 
     Parameters Out: redirect URL to current blog
-    
+
     """
     if request.method == "POST":
 
@@ -141,14 +142,15 @@ def like(request, post_id):
         post = Post.objects.get(id=post_id)
 
         # Add user to many-to-many field in Django model:
-        # https://stackoverflow.com/questions/15384665/django-manytomanyfield-add-user; accessed on May 4th, 2022, at 17:45
+        # https://stackoverflow.com/questions/15384665/django-manytomanyfield-add-user;
+        # accessed on May 4th, 2022, at 17:45
         post.likes.add(user)
         post.save()
 
         return redirect(reverse('post_detail', args=[post_slug]))
 
 
-# Based (copied and modified) on 
+# Based (copied and modified) on
 # https://stackoverflow.com/questions/62901935/displaying-like-and-dislike-buttons-if-user-has-liked-a-post-with-django,
 # accessed on May 4th, 2022, at 17:30
 def dislike(request, post_id):
@@ -158,7 +160,7 @@ def dislike(request, post_id):
     Parameters In: HTTP request object, blog ID
 
     Parameters Out: redirect URL to current blog
-    
+
     """
     if request.method == "POST":
 
@@ -168,7 +170,8 @@ def dislike(request, post_id):
         post = Post.objects.get(id=post_id)
 
         # Add user to many-to-many field in Django model:
-        # https://stackoverflow.com/questions/15384665/django-manytomanyfield-add-user; accessed on May 4th, 2022, at 17:45
+        # https://stackoverflow.com/questions/15384665/django-manytomanyfield-add-user;
+        # accessed on May 4th, 2022, at 17:45
         post.likes.remove(user)
         post.save()
 

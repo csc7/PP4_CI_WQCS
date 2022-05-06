@@ -2,7 +2,7 @@
 
 """
 Testing tests for the blog app
-"""    
+"""
 
 # IMPORTED RESOURCES #
 
