@@ -456,6 +456,7 @@ ___
 The site consists of four pages, where each of them is divided in three parts: header, body and footer. The features contained in each of the pages and parts are the following ones:
 
 <br>
+
 - ### **Fixed navigation menu**
 
 It is in the header, fixed on all pages to facilitate navigation, and responsive.
@@ -574,9 +575,9 @@ They are Django complementary tools and pages to have registration options in th
 
 #### [Back to Index](#index)
 
-
 <br>
-## **Additional features**##
+
+## **Additional features**
 
 After collection of requirements and development, the following features were added:
 
