@@ -1,6 +1,6 @@
 ###############################################################################
 """
-Python apps file for the Django blog app
+Python apps file for the Django Blog app
 """
 # IMPORTED RESOURCES #
 

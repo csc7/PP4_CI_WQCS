@@ -1,6 +1,6 @@
 ###############################################################################
 """
-Django admin comfiguration for the blog app
+Django admin comfiguration for the Blog app
 """
 # IMPORTED RESOURCES #
 

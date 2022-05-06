@@ -1,5 +1,7 @@
 ###############################################################################
-
+"""
+Django URLs for the Contact app
+"""
 # IMPORTED RESOURCES #
 
 # EXTERNAL:

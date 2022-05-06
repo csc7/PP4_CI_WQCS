@@ -1,7 +1,7 @@
 ###############################################################################
 
 """
-Django form for the blog app
+Django form for the Blog app
 """
 
 # IMPORTED RESOURCES #

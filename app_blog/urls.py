@@ -1,7 +1,7 @@
 ###############################################################################
 
 """
-Django URLs for the blog app
+Django URLs for the Blog app
 """
 
 # IMPORTED RESOURCES #

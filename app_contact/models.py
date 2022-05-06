@@ -1,5 +1,7 @@
 ###############################################################################
-
+"""
+Django models for the Contact app
+"""
 # IMPORTED RESOURCES #
 
 # EXTERNAL:

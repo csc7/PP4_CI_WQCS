@@ -1,7 +1,7 @@
 ###############################################################################
 
 """
-Django models for the blog app
+Django models for the Blog app
 """
 
 # IMPORTED RESOURCES #

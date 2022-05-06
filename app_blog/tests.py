@@ -1,7 +1,7 @@
 ###############################################################################
 
 """
-Testing tests for the blog app
+Django tests for the Blog app
 """
 
 # IMPORTED RESOURCES #

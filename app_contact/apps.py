@@ -1,5 +1,7 @@
 ###############################################################################
-
+"""
+Python apps file for the Django Contact app
+"""
 # IMPORTED RESOURCES #
 
 # EXTERNAL:
