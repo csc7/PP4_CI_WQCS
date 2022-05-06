@@ -584,6 +584,12 @@ Besides just reading the database, the site includes options to create, update a
 ![CRUD Panel, Edit Data Image](docs/features-and-evidence/crud-panel-edit-data-showing-buttons.jpg)
 </details>
 
+<details>
+    <summary>Delete Comment Option Image</summary>
+
+![Delete Comment Option Image](docs/features-and-evidence/delete-comment-button.PNG)
+</details>
+
 <br>
 
 - ### **Alert Messages**
