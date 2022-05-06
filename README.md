@@ -358,9 +358,24 @@ Please check the PDFs files for each case in the following links:
 ![Desktop Wireframe Image for Blog App/Page](docs/wireframes/wireframe-wqcs-desktop-blog.PNG)
 </details>
 <details>
+    <summary>Desktop Wireframe Image for Blog Comments Page</summary>
+
+![Desktop Wireframe Image for Blog Comments App/Page](docs/wireframes/wireframe-wqcs-desktop-blog-comments.PNG)
+</details>
+<details>
     <summary>Desktop Wireframe Image for Contact Page</summary>
 
 ![Desktop Wireframe Image for Contact App/Page](docs/wireframes/wireframe-wqcs-desktop-contact.PNG)
+</details>
+<details>
+    <summary>Desktop Wireframe Image for Thanks Page</summary>
+
+![Desktop Wireframe Image for Thanks Page](docs/wireframes/wireframe-wqcs-desktop-thanks.PNG)
+</details>
+<details>
+    <summary>Desktop Wireframe Image for Error Page</summary>
+
+![Desktop Wireframe Image for Error Page](docs/wireframes/wireframe-wqcs-tablet-error-page.PNG)
 </details>
 
 <details>
@@ -379,9 +394,24 @@ Please check the PDFs files for each case in the following links:
 ![Tablet Wireframe Image for Blog App/Page](docs/wireframes/wireframe-wqcs-tablet-blog.PNG)
 </details>
 <details>
+    <summary>Tablet Wireframe Image for Blog Comments Page</summary>
+
+![Tablet Wireframe Image for Blog Comments App/Page](docs/wireframes/wireframe-wqcs-tablet-blog-comments.PNG)
+</details>
+<details>
     <summary>Tablet Wireframe Image for Contact Page</summary>
 
 ![Tablet Wireframe Image for Contact App/Page](docs/wireframes/wireframe-wqcs-tablet-contact.PNG)
+</details>
+<details>
+    <summary>Tablet Wireframe Image for Thanks Page</summary>
+
+![Tablet Wireframe Image for Thanks Page](docs/wireframes/wireframe-wqcs-tablet-thanks.PNG)
+</details>
+<details>
+    <summary>Tablet Wireframe Image for Error Page</summary>
+
+![Tablet Wireframe Image for Error Page](docs/wireframes/wireframe-wqcs-tablet-error-page.PNG)
 </details>
 <details>
     <summary>Cell Wireframe Image for Instructions and Weather Pages</summary>
@@ -389,9 +419,14 @@ Please check the PDFs files for each case in the following links:
 ![Tablet Wireframe Image for Instructions and Weather Page](docs/wireframes/wireframe-cell-instructions-weather-pages.PNG)
 </details>
 <details>
-    <summary>Cell Wireframe Image for Blog and Contact Pages</summary>
+    <summary>Cell Wireframe Image for Blog and Blog Comments App/Pages</summary>
 
-![Tablet Wireframe Image for Blog and Contact Page](docs/wireframes/wireframe-cell-blog-contact-pages.PNG)
+![Tablet Wireframe Image for Blog and Blog Comments App/Pages](docs/wireframes/wireframe-cell-blog-blog-comments-pages.PNG)
+</details>
+<details>
+    <summary>Cell Wireframe Image for Contact, Thanks and Error App/Pages</summary>
+
+![Tablet Wireframe Image for Contact, Thanks and Error App/Pages](docs/wireframes/wireframe-cell-contact-thanks-error-pages.PNG)
 </details>
 
 
