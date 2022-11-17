@@ -58,9 +58,9 @@ ALLOWED_HOSTS = [
 ]
 
  # Add Render.com URL to allowed hosts
- RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
- if RENDER_EXTERNAL_HOSTNAME:
-   ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Just for Django version 4; solved with the help of
 # Code Institute Tutor Assistance (Alan) on December 20th, 2021
