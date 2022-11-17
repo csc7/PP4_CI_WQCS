@@ -5,7 +5,7 @@
 <br>
 
 # **Index**
-#### [*Site Live Link*](https://pp4-ci-wqcs.herokuapp.com/) (https://pp4-ci-wqcs.herokuapp.com/)
+#### [*Site Live Link*](https://pp4-ci-wqcs.onrender.com) (https://pp4-ci-wqcs.onrender.com)
 
 
 ### [1. Project Goals](#1--project-goals)
@@ -478,6 +478,9 @@ The following languages, software and tools were implemented using Windows 10 Pr
 - #### **Microsoft Edge, version 97.0.1072.62, Official build, 64-bit (and its development tool)**
 - #### **Firefox, 96.0.3, 64-bit (and its development tool)**
 - #### **Microsoft Internet Explorer, version 2004, OS Build 19041.1415, Microsoft Corporation**
+- #### **Heroku **
+- #### **Render**
+- #### **ElephantSQL**
 
 
 <br>
@@ -1713,9 +1716,9 @@ Bugs that required more time and specific solutions were the following ones:
 ___
 # 13 . Deployment
 
-The website was fully written in Gitpod, permanently tested with Gitpod preview, and periodically deployed to GigHub Pages (in a main branch) and Heroku.
+The website was fully written in Gitpod, permanently tested with Gitpod preview, and periodically deployed to GigHub Pages (in a main branch) and Heroku. Migrated from Heroku to Render on November 2022.
 
-The fully deployed website, accessible by anyone, is found [here](https://pp4-ci-wqcs.herokuapp.com/), whose URL is https://pp4-ci-wqcs.herokuapp.com/ . Its repository is found [here](https://github.com/csc7/PP4_CI_WQCS), whose URL is https://github.com/csc7/PP4_CI_WQCS.
+The fully deployed website, accessible by anyone, is found [here](https://pp4-ci-wqcs.onrender.com), whose URL is https://pp4-ci-wqcs.onrender.com . Its repository is found [here](https://github.com/csc7/PP4_CI_WQCS), whose URL is https://github.com/csc7/PP4_CI_WQCS.
 
 The site requires access to OpenWeather and Google Chart API, whose configuration have been carried out following the instructions of their developers:
 
@@ -1777,13 +1780,15 @@ The secret key must match that one in Heroku in Config Vars (which you need to a
 **13** - In Heroku "Deploy" tab, deploy branch at the bottom and check log to confirm that the deployment has been successful.
 
 
-
 <details>
     <summary>Screenshot/Evidence of Heroku "Overview" of the Deployed Project</summary>
 
 ![Deployment on Heroku Image](docs/features-and-evidence/heroku-deployment.PNG) 
 </details>
 
+<br>
+
+**Project was then migrated to Render in November 2022.**
 
 <br>
 
@@ -1817,6 +1822,8 @@ ___
     Template: https://github.com/ShavingSeagull/TheHub/blob/master/templates/administration/edit_user.html, lines 183 to 190.
 
     - Toasts: copied from Code Institute, Boutique Ado Project, on May 1st, 2022, at 23:25
+
+    - Migration guide from Heroku to Render, on November 17th, 2022.
 
 
 - Balsamiq Wireframes: I have used it to create all the wireframes.
