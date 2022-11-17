@@ -1716,7 +1716,7 @@ Bugs that required more time and specific solutions were the following ones:
 ___
 # 13 . Deployment
 
-The website was fully written in Gitpod, permanently tested with Gitpod preview, and periodically deployed to GigHub Pages (in a main branch) and Heroku. Migrated from Heroku to Render (using an ElephantSQL database) on November 2022.
+The website was fully written in Gitpod, permanently tested with Gitpod preview, and periodically deployed to GigHub Pages (in a main branch) and Heroku. Migrated from Heroku to Render (using an ElephantSQL database) in November 2022.
 
 The fully deployed website, accessible by anyone, is found [here](https://pp4-ci-wqcs.onrender.com), whose URL is https://pp4-ci-wqcs.onrender.com . Its repository is found [here](https://github.com/csc7/PP4_CI_WQCS), whose URL is https://github.com/csc7/PP4_CI_WQCS.
 
